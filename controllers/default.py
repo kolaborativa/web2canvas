@@ -46,6 +46,15 @@ def editar_dados():
     return dict(message=msg)
 
 
+def new_post():
+    print request.vars
+    if request.vars:
+        print request.vars.name
+        return dict(success="success",msg="gravado com sucesso!")
+    else:
+        return dict(error="error",msg="erro ao gravar!")
+
+
 def user():
     """
     exposes:
