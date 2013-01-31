@@ -1,16 +1,60 @@
-{{extend 'layout.html'}}
-<h3>{{=projeto.nome}}</h3>
-<p><strong><small>Criado por: {{=projeto.criado_por.first_name}} em {{=projeto.criado_em.strftime('%d/%m/%Y')}}</small></strong></p>
-<hr />
-<p>Principais parcerias: {{=projeto.principais_parcerias}}</p>
-<p>Atividades principais: {{=projeto.atividades_principais}}</p>
-<p>Recursos principais: {{=projeto.recursos_principais}}</p>
-<p>Proposta de Valor: {{=projeto.proposta_valor}}</p>
-<p>Relacionamento com clientes: {{=projeto.relacionamento_clientes}}</p>
-<p>Canais: {{=projeto.canais}}</p>
-<p>Segmento clientes: {{=projeto.segmento_clientes}}</p>
-<p>Estrutura de custos: {{=projeto.estrutura_custos}}</p>
-<p>Receitas: {{=projeto.receitas}}</p>
+<!doctype html>
+<html lang="pt_br">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link id="bootstrap-style" href='{{=URL("static","css/bootstrap.css")}}' rel="stylesheet">
+	<link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
+	<script src='{{=URL("static","js/jquery-1.7.2.min.js")}}'></script>  
+	<script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+	<script src="{{=URL('static','js/bootstrap-editable-inline.js')}}"></script>
+</head>
+<body>
+	{{ #include 'web2py_ajax.html' }}
+	<div style="width:500px; margin:0 auto;">
+		<form id="myform">
+			<p id="msg"></p>
+			<label for="">Nome:</label><br>
+			<a href="#" class="dado_editavel" id="nome"></a>
+			<br>
+			<br>
+			<label for="">Tipo:</label><br>
+			<a href="#" class="dado_editavel" id="tipo"></a>
+		</form>
+	</div>
+	
+<script>
+//init editables
+function removeMsg(){
+	$('#msg').hide('slow');
+}
 
+$('.dado_editavel').editable({
+	type: 'text',
+	pk: 1,
+	url: "{{=URL('new_post.json')}}",
+	title: 'Enter username',
+	emptytext: "vazio",
+	success: function(response) {
+	    if(response.success) {
+		    $('#msg').addClass('alert-success').removeClass('alert-error').html(response.msg).show();
+		    setTimeout(removeMsg,3000)
+	    } else if(response.error) {
+	    	$('#msg').removeClass('alert-success').addClass('alert-error').html(response.msg).show();
+		    setTimeout(removeMsg,3000)
+	    }
+	}
+});
+
+//make username required
+$('#nome').editable('option', 'validate', function(v) {
+    if(v == '') return 'Não pode ser vazio!';
+});
+
+</script>
+
+
+</body>
+</html>
 
 
