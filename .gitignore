@@ -1,0 +1,22 @@
+# backup, log files and compiled sources
+*.*~
+*.bak
+*.log
+*.ogg
+*.ogv
+*.pyc
+*.swp
+*.wav
+*.avi
+
+# sqlite database files and web2py table structs
+*.sqlite
+*.table
+
+# web2py cache, errors and sessions files
+cache/*
+errors/*
+sessions/*
+
+# project ignored files
+

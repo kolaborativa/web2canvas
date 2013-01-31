@@ -1,0 +1,16 @@
+{{extend 'layout.html'}}
+<h3>{{=projeto.nome}}</h3>
+<p><strong><small>Criado por: {{=projeto.criado_por.first_name}} em {{=projeto.criado_em.strftime('%d/%m/%Y')}}</small></strong></p>
+<hr />
+<p>Principais parcerias: {{=projeto.principais_parcerias}}</p>
+<p>Atividades principais: {{=projeto.atividades_principais}}</p>
+<p>Recursos principais: {{=projeto.recursos_principais}}</p>
+<p>Proposta de Valor: {{=projeto.proposta_valor}}</p>
+<p>Relacionamento com clientes: {{=projeto.relacionamento_clientes}}</p>
+<p>Canais: {{=projeto.canais}}</p>
+<p>Segmento clientes: {{=projeto.segmento_clientes}}</p>
+<p>Estrutura de custos: {{=projeto.estrutura_custos}}</p>
+<p>Receitas: {{=projeto.receitas}}</p>
+
+
+

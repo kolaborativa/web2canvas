@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
+<!-- Active URL: file:///media/Terinha/r4bugento/Documentos/Bagulhos/Trampo/Programa%C3%A7%C3%A3o/wwwsqldesigner-2.6/index.html -->
+<sql>
+<datatypes db="web2py">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="1" sql="integer" re="INTEGER" quote=""/>
+		<type label="Double precision" length="1" sql="double" re="DOUBLE" quote=""/>
+	</group>
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="String" length="1" sql="string" quote="'"/>
+		<type label="Text" length="1" sql="text" quote="'"/>
+		<type label="BLOB" length="1" sql="blob" quote="'"/>
+	</group>
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Time" length="0" sql="time" quote="'"/>
+		<type label="Date" length="0" sql="date" quote="'"/>
+		<type label="Datetime" length="0" sql="datetime" quote="'"/>
+	</group>
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="Boolean" length="0" sql="boolean" quote=""/>
+		<type label="Upload" length="0" sql="upload" quote=""/>
+		<type label="Password" length="0" sql="password" quote=""/>
+		<type label="List:reference" length="0" sql="list:reference" quote=""/>
+	</group>
+</datatypes><table x="24" y="16" name="projeto">
+<row name="id" null="1" autoincrement="1">
+<datatype>integer</datatype>
+<default>NULL</default>
+</row>
+<row name="nome" null="1" autoincrement="0">
+<datatype>string(200)</datatype>
+<default>NULL</default>
+</row>
+<row name="criado_por" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>NULL</default>
+<relation table="auth_user" row="id" />
+</row>
+<row name="criado_em" null="1" autoincrement="0">
+<datatype>datetime</datatype>
+<default>NULL</default>
+</row>
+<row name="principais_parcerias" null="1" autoincrement="0">
+<datatype>text</datatype>
+<default>NULL</default>
+</row>
+<row name="atividades_principais" null="1" autoincrement="0">
+<datatype>text</datatype>
+<default>NULL</default>
+</row>
+<row name="recursos_principais" null="1" autoincrement="0">
+<datatype>text</datatype>
+<default>NULL</default>
+</row>
+<row name="proposta_valor" null="1" autoincrement="0">
+<datatype>text</datatype>
+<default>NULL</default>
+</row>
+<row name="relacionamento_clientes" null="1" autoincrement="0">
+<datatype>text</datatype>
+<default>NULL</default>
+</row>
+<row name="canais" null="1" autoincrement="0">
+<datatype>text</datatype>
+<default>NULL</default>
+</row>
+<row name="segmento_clientes" null="1" autoincrement="0">
+<datatype>text</datatype>
+<default>NULL</default>
+</row>
+<row name="estrutura_custos" null="1" autoincrement="0">
+<datatype>text</datatype>
+<default>NULL</default>
+</row>
+<row name="receitas" null="1" autoincrement="0">
+<datatype>text</datatype>
+<default>NULL</default>
+</row>
+<row name="_object_name" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>Projeto</default>
+</row>
+<row name="_format" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>'%(nome)s'</default>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="392" y="35" name="auth_user">
+<row name="id" null="1" autoincrement="1">
+<datatype>integer</datatype>
+<default>NULL</default>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="424" y="219" name="compartilhamento">
+<row name="id" null="1" autoincrement="1">
+<datatype>integer</datatype>
+<default>NULL</default>
+</row>
+<row name="usuario_id" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>NULL</default>
+<relation table="auth_user" row="id" />
+</row>
+<row name="projeto_id" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>NULL</default>
+<relation table="projeto" row="id" />
+</row>
+<row name="_object_name" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>Compartilhamento</default>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>
+

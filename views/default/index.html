@@ -1,0 +1,11 @@
+{{extend 'layout.html'}}
+<h3>Meus Projetos</h3>
+{{ if projetos: }}
+    {{ for projeto in projetos: }}
+        <p><a href="{{=URL(c='default', f='projeto', args=[projeto.id])}}">{{=projeto.nome}}</a></p>
+    {{ pass }}
+{{ pass }}
+<hr />
+<h3>Criar novo Projeto</h3>
+{{=form}}
+
