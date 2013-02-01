@@ -56,7 +56,12 @@ def editar_dados():
         campo = request.vars.name
 
         dados_banco = db(Projeto.id==session.projeto_id).select().first()
-        dicionario_dados = json.loads(dados_banco[campo])
+
+        if dados_banco[campo]:
+            dicionario_dados = json.loads(dados_banco[campo])
+        else:
+            dicionario_dados = {}
+
         dicionario_dados[pk] = valor
         dados = json.dumps(dicionario_dados)
 

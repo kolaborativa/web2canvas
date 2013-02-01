@@ -19,14 +19,20 @@
                           <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
                         </div>
                       </h3>
-                      <div class="add-new-item parcerias_principais">
+                      <div class="add-new-item principais_parcerias">
                         <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.principais_parcerias: }}
+                            {{ for i in json.loads(projeto.principais_parcerias): }}
+                            <p><i><a href="#" class="campo_existente" id="principais_parcerias" data-pk="{{=i}}">{{=json.loads(projeto.principais_parcerias)[i]}}</a></i></p>
+                            {{ pass }}
+                        {{ pass }}
                       </div>
                     </td>
                   </tr>
                   <tr class="adicionar">
                     <td class="bottom">
-                      <button class="parcerias_principais btn-adicionar btn btn-primary" style="display:none;">
+                      <button class="principais_parcerias btn-adicionar btn btn-primary" style="display:none;">
                           Adicionar
                       </button>
                     </td>
@@ -48,6 +54,12 @@
                         </h3>
                       <div class="add-new-item atividades_principais">
                         <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.atividades_principais: }}
+                            {{ for i in json.loads(projeto.atividades_principais): }}
+                            <p><i><a href="#" class="campo_existente" id="atividades_principais" data-pk="{{=i}}">{{=json.loads(projeto.atividades_principais)[i]}}</a></i></p>
+                            {{ pass }}
+                        {{ pass }}
                       </div>
                     </td>
                   </tr>
@@ -75,6 +87,12 @@
                         </h3>
                       <div class="add-new-item proposta_valor">
                         <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.proposta_valor: }}
+                            {{ for i in json.loads(projeto.proposta_valor): }}
+                            <p><i><a href="#" class="campo_existente" id="proposta_valor" data-pk="{{=i}}">{{=json.loads(projeto.proposta_valor)[i]}}</a></i></p>
+                            {{ pass }}
+                        {{ pass }}
                       </div>
                     </td>
                   </tr>
@@ -102,6 +120,12 @@
                         </h3>
                       <div class="add-new-item relacionamento_clientes">
                         <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.relacionamento_clientes: }}
+                            {{ for i in json.loads(projeto.relacionamento_clientes): }}
+                            <p><i><a href="#" class="campo_existente" id="relacionamento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></i></p>
+                            {{ pass }}
+                        {{ pass }}
                       </div>
                     </td>
                   </tr>
@@ -132,7 +156,7 @@
                         {{import json}}
                         {{ if projeto.segmento_clientes: }}
                             {{ for i in json.loads(projeto.segmento_clientes): }}
-                            <p><i><a href="#" class="campo_editavel" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></i></p>
+                            <p><i><a href="#" class="campo_existente" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></i></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -164,6 +188,12 @@
                         </h3>
                       <div class="add-new-item recursos_principais">
                         <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.recursos_principais: }}
+                            {{ for i in json.loads(projeto.recursos_principais): }}
+                            <p><i><a href="#" class="campo_existente" id="recursos_principais" data-pk="{{=i}}">{{=json.loads(projeto.recursos_principais)[i]}}</a></i></p>
+                            {{ pass }}
+                        {{ pass }}
                       </div>
                   </td>
                 </tr>
@@ -191,6 +221,12 @@
                         </h3>
                       <div class="add-new-item canais">
                         <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.canais: }}
+                            {{ for i in json.loads(projeto.canais): }}
+                            <p><i><a href="#" class="campo_existente" id="canais" data-pk="{{=i}}">{{=json.loads(projeto.canais)[i]}}</a></i></p>
+                            {{ pass }}
+                        {{ pass }}
                       </div>
                     </td>
                   </tr>
@@ -220,6 +256,12 @@
                       </h3>
                     <div class="add-new-item estrutura_custos">
                       <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.estrutura_custos: }}
+                            {{ for i in json.loads(projeto.estrutura_custos): }}
+                            <p><i><a href="#" class="campo_existente" id="estrutura_custos" data-pk="{{=i}}">{{=json.loads(projeto.estrutura_custos)[i]}}</a></i></p>
+                            {{ pass }}
+                        {{ pass }}
                     </div>
                     <footer>
                       
@@ -250,6 +292,12 @@
                         </h3>
                       <div class="add-new-item receitas">
                         <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.receitas: }}
+                            {{ for i in json.loads(projeto.receitas): }}
+                            <p><i><a href="#" class="campo_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></i></p>
+                            {{ pass }}
+                        {{ pass }}
                       </div>
                     </td>
                   </tr>
