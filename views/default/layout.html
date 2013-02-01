@@ -46,7 +46,7 @@
   response.files.append(URL('static','css/web2py_bootstrap.css'))
   }}
 
-  {{ if request.function == "projeto": }}
+  {{ if request.function == "projeto" or request.function == 'index': }}
   <link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
   <link href="{{=URL('static','css/style.css')}}" rel="stylesheet">
   {{ pass }}
