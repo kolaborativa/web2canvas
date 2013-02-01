@@ -14,14 +14,16 @@ def index():
     """Home page com opcao de criar projetos
     """
     from datetime import datetime
-    projetos = db(Projeto.criado_por==auth.user.id).select()
+    meus_projetos = db(Projeto.criado_por==auth.user.id).select()
+    projetos_colaborador = db(Compartilhamento.usuario_id==auth.user).select()
 
     form = SQLFORM(Projeto, fields=['nome'], submit_button="Criar")
 
     if form.process().accepted:
         db(Projeto.id==form.vars.id).update(criado_por=auth.user.id, criado_em=datetime.now())
         redirect(URL('index'))
-    return dict(form=form, projetos=projetos)
+
+    return dict(form=form, meus_projetos=meus_projetos, projetos_colaborador=projetos_colaborador)
 
 
 def projeto():
@@ -42,7 +44,6 @@ def editar_dados():
 
     msg = "tipo de dado: %s | dado: %s" % (tipo, dado)
 
-
     return dict(message=msg)
 
 
@@ -53,6 +54,21 @@ def new_post():
         return dict(success="success",msg="gravado com sucesso!")
     else:
         return dict(error="error",msg="erro ao gravar!")
+
+
+@auth.requires_login()
+def adicionar_usuario():
+    """Funcao que adiciona usuario a um projeto
+    """
+    projeto_id = request.vars['projeto_id'] or redirect(URL('index'))
+    usuario_id = request.vars['usuario_id'] or redirect(URL('index'))
+
+    projeto = db(Projeto.id==projeto_id).select().first()
+
+    if projeto.criado_por == auth.user.id:
+        Compartilhamento.insert(usuario_id=usuario_id,
+            projeto_id=projeto_id)
+    redirect(URL(c='default', f='projeto', args=[projeto_id]))
 
 
 def user():
