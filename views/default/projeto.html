@@ -32,6 +32,7 @@
                         {{ if projeto.principais_parcerias: }}
                             {{ for i in json.loads(projeto.principais_parcerias): }}
                             <p><a href="#" class="campo_existente" id="principais_parcerias" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.principais_parcerias)[i]}}</a></p>
+      
                             {{ pass }}
                         {{ pass }}
                       </div>

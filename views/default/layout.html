@@ -76,13 +76,18 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-  {{=response.logo or ''}}
         <ul id="navbar" class="nav pull-right">{{='auth' in globals() and auth.navbar(mode="dropdown") or ''}}</ul>
         <div class="nav-collapse">
           {{is_mobile=request.user_agent().is_mobile}}
-          {{if response.menu:}}
-          {{=MENU(response.menu, _class='mobile-menu nav' if is_mobile else 'nav',mobile=is_mobile,li_class='dropdown',ul_class='dropdown-menu')}}
-          {{pass}}
+
+          <ul class="nav">
+            <li class="web2py-menu-first">
+              <a href="{{=URL('index')}}">
+                <span class="highlighted">Home</span>
+              </a>
+            </li>
+          </ul>
+
         </div><!--/.nav-collapse -->
       </div>
     </div>

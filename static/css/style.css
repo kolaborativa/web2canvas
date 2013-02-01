@@ -16,7 +16,7 @@ padding: 0; }
 .canvas .content-container table.canvas td.area, .snapshots .content-container table.canvas td.area, .risks .content-container table.canvas td.area,
 .canvas.wizard .content-container table.canvas td.area, .experiments .content-container table.canvas td.area {
 vertical-align: top;
-border: 2px solid #000;
+border: 2px solid #fff;
 background-color: #fff; }
 .canvas .content-container table.canvas td.area table.cell-container, .snapshots .content-container table.canvas td.area table.cell-container, .risks .content-container table.canvas td.area table.cell-container,
 .canvas.wizard .content-container table.canvas td.area table.cell-container, .experiments .content-container table.canvas td.area table.cell-container {
@@ -126,7 +126,7 @@ font-size: 24px; }
 .canvas .content-container table.canvas td.area h3 .help {
 display: none;
 position: absolute;
-top: 65px;
+top: 60px;
 right: 30px; }
 .canvas .content-container table.canvas td.area h3 .help a.new:hover, .snapshots .content-container table.canvas td.area h3 .help a.new:hover, .risks .content-container table.canvas td.area h3 .help a.new:hover,
 .canvas.wizard .content-container table.canvas td.area h3 .help a.new:hover, .experiments .content-container table.canvas td.area h3 .help a.new:hover {
@@ -140,7 +140,7 @@ width: 18px; }
 .canvas .content-container table.canvas td.area h3 .dica {
 display: none;
 position: absolute;
-top: 65px;
+top: 60px;
 right: 10px; }
 
 /*icone dica*/
@@ -293,35 +293,48 @@ h3 {
 	font-size: 13px;
 }
 
+.add-new-item {
+	margin-top: 25px;
+}
+
+.add-new-item p {
+	width: 89%;
+	margin-left: 2%;
+	padding: 5px 8px;
+	background-color: #fff;
+	box-shadow: 0 2px 5px #777;
+}
+
 .add-new-item p a[type="text"] {
-	color: #000;
+ 	color: #000;
 	font-size: 13px;
 }
 
+
 .canvas .content-container table.canvas td.area:hover {
 /* CSS */
-background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYzNjZWQ1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSJyZ2JhKDYwLCAxNjEsIDIwMCwgMC42NzQpIi8+PC9yYWRpYWxHcmFkaWVudD48cmVjdCB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InJnYmEoNjAsIDE2MSwgMjAwLCAwLjY3NCkiIC8+PHJlY3QgeD0iLTYuMTUwMSUiIHk9Ii01OS44OCUiIHdpZHRoPSIxMTIuMzAwMiUiIGhlaWdodD0iMjE5Ljc2JSIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=);
-background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 127, color-stop(0%, #c3ced5), color-stop(100%, rgba(60, 161, 200, 0.674)));
-background-image: -webkit-radial-gradient(center center, closest-corner circle, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
-background-image: -moz-radial-gradient(center center, closest-corner circle, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
-background-image: -ms-radial-gradient(center center, closest-corner circle, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
-background-image: -o-radial-gradient(center center, closest-corner circle, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
-background-image: radial-gradient(closest-corner circle at center center, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
+background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSJyZ2JhKDI0MCwgMjI1LCAyMTMsIDAuODkxKSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0icmdiYSgyMTYsIDE2NiwgMTQ2LCAwLjc2NCkiLz48L3JhZGlhbEdyYWRpZW50PjxyZWN0IHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0icmdiYSgyMTYsIDE2NiwgMTQ2LCAwLjc2NCkiIC8+PHJlY3QgeD0iLTYuMTUwMSUiIHk9Ii01OS44OCUiIHdpZHRoPSIxMTIuMzAwMiUiIGhlaWdodD0iMjE5Ljc2JSIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=);
+background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 127, color-stop(0%, rgba(240, 225, 213, 0.891)), color-stop(100%, rgba(216, 166, 146, 0.764)));
+background-image: -webkit-radial-gradient(center center, farthest-corner circle, rgba(240, 225, 213, 0.891) 0%, rgba(216, 166, 146, 0.764) 100%);
+background-image: -moz-radial-gradient(center center, farthest-corner circle, rgba(240, 225, 213, 0.891) 0%, rgba(216, 166, 146, 0.764) 100%);
+background-image: -ms-radial-gradient(center center, farthest-corner circle, rgba(240, 225, 213, 0.891) 0%, rgba(216, 166, 146, 0.764) 100%);
+background-image: -o-radial-gradient(center center, farthest-corner circle, rgba(240, 225, 213, 0.891) 0%, rgba(216, 166, 146, 0.764) 100%);
+background-image: radial-gradient(farthest-corner circle at center center, rgba(240, 225, 213, 0.891) 0%, rgba(216, 166, 146, 0.764) 100%);
 
 /* SVG */
 <svg xmlns="http://www.w3.org/2000/svg">
 	<radialGradient id="g">
-		<stop offset="0" stop-color="#c3ced5"/>
-		<stop offset="1" stop-color="rgba(60, 161, 200, 0.674)"/>
+		<stop offset="0" stop-color="rgba(240, 225, 213, 0.891)"/>
+		<stop offset="1" stop-color="rgba(216, 166, 146, 0.764)"/>
 	</radialGradient>
-	<rect x="0%" y="0%" width="100%" height="100%" fill="rgba(60, 161, 200, 0.674)" />
+	<rect x="0%" y="0%" width="100%" height="100%" fill="rgba(216, 166, 146, 0.764)" />
 	<rect x="-6.1501%" y="-59.88%" width="112.3002%" height="219.76%" fill="url(#g)" />
 </svg>
 
 /* Canvas */
 var g = ctx.createRadialGradient(114, 58, 0, 114, 58, 127);
-g.addColorStop(0, #c3ced5);
-g.addColorStop(1, rgba(60, 161, 200, 0.674));
+g.addColorStop(0, rgba(240, 225, 213, 0.891));
+g.addColorStop(1, rgba(216, 166, 146, 0.764));
 ctx.fillStyle = g;
 ctx.fillRect(0, 0, 227, 116);
 }
