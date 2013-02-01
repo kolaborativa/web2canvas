@@ -26,7 +26,7 @@ $('.campo_existente').editable({
 
 
 // fazer com que o campo seja required
-$('.campo_editavel').editable('option', 'validate', function(v) {
+$('.campo_existente').editable('option', 'validate', function(v) {
     if(v == '') return 'Não pode ser vazio!';
 });
 
@@ -43,7 +43,7 @@ Array.max = function( array ){
 return Math.max.apply( Math, array );
 };
 
-
+// botao de adicionar novo item
 $(".btn-adicionar").click(function () {
   // pego o id do botao que eh o igual a classe que quero adicionar o item
   var todasClassesBotao = $(this).attr('class');
@@ -62,10 +62,10 @@ $(".btn-adicionar").click(function () {
     var maiorIndice = 0;
   }
 
-  $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'">'+campo_vazio+'</p><br>');
+  $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
 });
 
-
+// chamada do plugin para os campos dinamicos
 $('.add-new-item').editable({
     selector: 'a',
     url: urlJson,
@@ -80,9 +80,11 @@ $('.add-new-item').editable({
     }
 });
 
-
-
-
-
-
+function removeItem(classeBotao,id) {
+  // var teste = $('"#'+classeBotao+'"').attr('data-pk');
+  var idattr = $("#"+classeBotao).attr('data-pk');
+  if(parseInt(idattr) === id){
+    console.log(id);
+  }
+}
 
