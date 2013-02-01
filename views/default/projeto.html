@@ -1,6 +1,7 @@
 {{extend 'default/layout.html'}}
 
 <div class="content-container">
+  <div id="msg"></div>
   <div id="content_area">
     <div id="canvas">
       <table class="canvas" style="height: 368px; font-size: 11.833333333333334px;"> <!-- tabela principal -->
@@ -13,21 +14,19 @@
                     <td class="canvas-cell canvas-cell-main">
                       <h3 class="main">
                         <div class="area-title">Parcerias <br> Principais</div>
-                        <div class="help">
-                          <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
-                          </a>
+                      <div class="help">
+                        <a class="helpIcon" href="#">
+                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
                         </div>
                       </h3>
-                      <ol class="sortable"></ol>
-                      <div class="add-new-item">
-                        <i><a href="#" class="campo_editavel"></a></i>
+                      <div class="add-new-item parcerias_principais">
+                        <a href="#" class="campo_existente" id="parcerias_principais" data-pk="1"></a><br>
                       </div>
                     </td>
                   </tr>
                   <tr class="adicionar">
                     <td class="bottom">
-                      <button class="btn btn-primary" style="display:none;">
+                      <button class="parcerias_principais btn-adicionar btn btn-primary" style="display:none;">
                           Adicionar
                       </button>
                     </td>
@@ -41,22 +40,20 @@
                   <tr>
                     <td class="canvas-cell canvas-cell-main">
                       <h3 class="main">
-                        <div class="area-title">Parcerias <br> Principais</div>
+                        <div class="area-title">Atividades <br> Principais</div>
                         <div class="help">
-                          <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
-                          </a>
-                        </div>
-                      </h3>
-                      <ol class="sortable"></ol>
-                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
-                        <i>Click para escrever</i>
+                          <a class="helpIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                          </div>
+                        </h3>
+                      <div class="add-new-item atividades_principais">
+                        <!-- gero os itens dinamicamente -->
                       </div>
                     </td>
                   </tr>
                   <tr class="adicionar">
                     <td class="bottom">
-                      <button class="btn btn-primary" style="display: none;">
+                      <button class="atividades_principais btn-adicionar btn btn-primary" style="display: none;">
                           Adicionar
                       </button>
                     </td>
@@ -72,20 +69,18 @@
                       <h3 class="main">
                         <div class="area-title">Proposta <br> de valor</div>
                         <div class="help">
-                          <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
-                          </a>
-                        </div>
-                      </h3>
-                      <ol class="sortable"></ol>
-                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
-                        <i>Click para escrever</i>
+                          <a class="helpIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                          </div>
+                        </h3>
+                      <div class="add-new-item proposta_valor">
+                        <!-- gero os itens dinamicamente -->
                       </div>
                     </td>
                   </tr>
                   <tr class="adicionar">
                     <td class="bottom">
-                      <button class="btn btn-primary" style="display: none;">
+                      <button  class="proposta_valor btn-adicionar btn btn-primary" style="display: none;">
                           Adicionar
                       </button>
                     </td>
@@ -100,20 +95,19 @@
                     <td class="canvas-cell canvas-cell-main">
                       <h3 class="main">
                         <div class="area-title">Relacionamento <br> com Clientes</div>
-                        <div class="help"><a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
-                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
-                        </a>
-                        </div>
-                      </h3>
-                      <ol class="sortable"></ol>
-                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
-                        <i>Click para escrever</i>
+                        <div class="help">
+                          <a class="helpIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                          </div>
+                        </h3>
+                      <div class="add-new-item relacionamento_clientes">
+                        <!-- gero os itens dinamicamente -->
                       </div>
                     </td>
                   </tr>
                   <tr class="adicionar">
                     <td class="bottom">
-                      <button class="btn btn-primary" style="display: none;">
+                      <button  class="relacionamento_clientes btn-adicionar btn btn-primary" style="display: none;">
                           Adicionar
                       </button>
                     </td>
@@ -129,29 +123,18 @@
                       <h3 class="main">
                         <div class="area-title">Segmento <br> de Clientes</div>
                         <div class="help">
-                          <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                          <a class="helpIcon" href="#">
                             <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
                           </div>
                         </h3>
-                        <ol class="sortable ui-sortable">
-                          <li id="801003">
-                            <div class="show">
-                              <span class="content" title="Click to edit">jogadores casuais</span>
-                            </div>
-                            <div class="actions">
-                              <a class="delete" rel="nofollow" data-remote="true" data-method="delete"></a>
-                            </div>
-                          </li>
-                        </ol>
-                      <div class="add-new-item">
-                        <i><a href="#" class="campo_editavel" id="segmento_de_clientes" data-pk="2"></a></i>
-                        <div id="msg"></div>
+                      <div class="add-new-item segmento_clientes">
+                        <!-- gero os itens dinamicamente -->
                       </div>
                     </td>
                   </tr>
                   <tr class="adicionar">
                     <td class="bottom">
-                      <button class="btn btn-primary" style="display: none;">
+                      <button class="segmento_clientes btn-adicionar btn btn-primary" style="display: none;">
                           Adicionar
                       </button>
                     </td>
@@ -167,21 +150,20 @@
                 <tr>
                   <td class="canvas-cell canvas-cell-main">
                     <h3 class="main">
-                      <div class="area-title">Parcerias <br> Principais</div>
-                      <div class="help">
-                        <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
-                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                        </div>
-                    </h3>
-                    <ol class="sortable"></ol>
-                    <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
-                      <i>Click para escrever</i>
-                    </div>
+                      <div class="area-title">Recursos <br> Principais</div>
+                        <div class="help">
+                          <a class="helpIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                          </div>
+                        </h3>
+                      <div class="add-new-item recursos_principais">
+                        <!-- gero os itens dinamicamente -->
+                      </div>
                   </td>
                 </tr>
                 <tr class="adicionar">
                   <td class="bottom">
-                    <button class="btn btn-primary" style="display: none;">
+                    <button  class="recursos_principais btn-adicionar btn btn-primary" style="display: none;">
                         Adicionar
                     </button>
                   </td>
@@ -196,36 +178,19 @@
                   <td class="canvas-cell canvas-cell-main">
                     <h3 class="main">
                       <div class="area-title">Canais</div>
-                      <div class="help">
-                        <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
-                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                        </div>
-                      </h3>
-                      <ol class="sortable ui-sortable">
-                        <li id="861507">
-                          <div class="show">
-                            <span class="content" title="Click to edit">teste</span>
+                        <div class="help">
+                          <a class="helpIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
                           </div>
-                          <div class="actions">
-                            <a class="delete" rel="nofollow" data-remote="true" data-method="delete"></a>
-                          </div>
-                          <div class="thirdPartyEditor" style="display:none;"></div>
-                        </li>
-                      </ol>
-                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
-                        <i>Click para escrever</i>
-                      </div>
-                      <div class="short_help" style="display: none;">
-                        <span class="content">List your path to customers</span>
-                      </div>
-                      <div class="order" style="display: none;">
-                        <span class="content">5</span>
+                        </h3>
+                      <div class="add-new-item canais">
+                        <!-- gero os itens dinamicamente -->
                       </div>
                     </td>
                   </tr>
                   <tr class="adicionar">
                     <td class="bottom">
-                      <button class="btn btn-primary" style="display: none;">
+                      <button class="canais btn-adicionar btn btn-primary" style="display: none;">
                           Adicionar
                       </button>
                     </td>
@@ -243,20 +208,21 @@
                     <h3 class="main">
                       <div class="area-title">Estrutura <br> de Custos</div>
                       <div class="help">
-                        <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
-                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
-                        </a>
-                      </div>
-                    </h3>
-                    <ol class="sortable"></ol>
-                    <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
-                      <i>Click para escrever</i>
+                        <a class="helpIcon" href="#">
+                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                        </div>
+                      </h3>
+                    <div class="add-new-item estrutura_custos">
+                      <!-- gero os itens dinamicamente -->
                     </div>
+                    <footer>
+                      
+                    </footer>
                   </td>
                 </tr>
                 <tr class="adicionar">
                   <td class="bottom">
-                    <button class="btn btn-primary" style="display: none;">
+                    <button class="estrutura_custos btn-adicionar btn btn-primary" style="display: none;">
                         Adicionar
                     </button>
                   </td>
@@ -271,20 +237,19 @@
                   <td class="canvas-cell canvas-cell-main">
                     <h3 class="main">
                       <div class="area-title">Receitas</div>
-                      <div class="help">
-                        <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
-                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                        </div>
-                      </h3>
-                      <ol class="sortable"></ol>
-                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
-                        <i>Click para escrever</i>
+                        <div class="help">
+                          <a class="helpIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                          </div>
+                        </h3>
+                      <div class="add-new-item receitas">
+                        <!-- gero os itens dinamicamente -->
                       </div>
                     </td>
                   </tr>
                   <tr class="adicionar">
                     <td class="bottom">
-                      <button class="btn btn-primary" style="display: none;">
+                      <button  class="receitas btn-adicionar btn btn-primary" style="display: none;">
                           Adicionar
                       </button>
                     </td>
