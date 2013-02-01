@@ -321,7 +321,19 @@
         </div>
 
         <ul class="collaborators">
-          <li id="collaborator_39160">
+        <li>
+            <div class="person">
+                {{=projeto.criado_por.first_name}}
+            </div>
+        </li> 
+        {{ for i in time_compartilhamento: }}
+            <li> 
+                <div class="person">
+                    {{=i.usuario_id.first_name}}
+                </div>
+            </li>
+        {{ pass }}
+          <!--<li id="collaborator_39160">
             <div class="person">
               <div class="icon">
                 <img alt="Esse é seu avatar!" src='{{=URL("static","images/avatar.png")}}'>
@@ -342,7 +354,7 @@
               Gustavo de Souza
               </div>
             </div>
-          </li>
+          </li>-->
         </ul>
       </div> <!-- fim do collaborators-container -->
     </div> <!-- fim do canvas -->
