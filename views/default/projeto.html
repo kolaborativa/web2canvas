@@ -144,7 +144,15 @@
                           </li>
                         </ol>
                       <div class="add-new-item">
-                        <i><a href="#" class="campo_editavel" id="segmento_de_clientes" data-pk="2"></a></i>
+                        {{import json}}
+                        {{ if projeto.segmento_clientes: }}
+                            {{ for i in json.loads(projeto.segmento_clientes): }}
+                            <p><i><a href="#" class="campo_editavel" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></i></p>
+                            {{ pass }}
+                        {{ else: }}
+                            <p><i><a href="#" class="campo_editavel" id="segmento_clientes" data-pk="1">Clique para escrever</a></i></p>
+
+                        {{ pass }}
                         <div id="msg"></div>
                       </div>
                     </td>

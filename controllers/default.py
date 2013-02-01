@@ -29,16 +29,17 @@ def index():
 def projeto():
     """Pagina do Projeto, onde os dados serao editados
     """
+    import json
     projeto_id = request.args(0) or redirect(URL('index'))
-
+    session.projeto_id = projeto_id
     usuarios_autorizados =  [i.criado_por for i in db(Projeto.id==projeto_id).select()]
+
     for i in db(Compartilhamento.projeto_id==projeto_id).select():
         if not i.usuario_id in usuarios_autorizados:
             usuarios_autorizados.append(i.usuario_id)
 
     if auth.user.id in usuarios_autorizados:
         projeto = db(Projeto.id==projeto_id).select().first()
-
         return dict(projeto=projeto)
     else:
         redirect(URL('index'))
@@ -47,17 +48,20 @@ def projeto():
 def editar_dados():
     """Funcao que atualiza dados do projeto
     """
-    tipo = request.vars['tipo']
-    dado = request.vars['dado']
+    import json
 
-    msg = "tipo de dado: %s | dado: %s" % (tipo, dado)
-
-    return dict(message=msg)
-
-
-def new_post():
-    print request.vars
     if request.vars:
+        valor = request.vars.value
+        pk = request.vars.pk
+        campo = request.vars.name
+
+        dados_banco = db(Projeto.id==session.projeto_id).select().first()
+        dicionario_dados = json.loads(dados_banco[campo])
+        dicionario_dados[pk] = valor
+        dados = json.dumps(dicionario_dados)
+
+        Projeto[session.projeto_id]= {campo:dados}
+
         return dict(success="success",msg="gravado com sucesso!")
     else:
         return dict(error="error",msg="erro ao gravar!")
