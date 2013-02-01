@@ -4,7 +4,7 @@ Projeto Web2Canvas
 O **Web2Canvas** pretende ser um mapa visual pré-formatado contendo nove blocos do modelo de negócios para fácil gerenciamento.
 O Business Model Canvas é uma ferramenta de gerenciamento estratégico, que permite desenvolver e esboçar modelos de negócio novos ou existentes.
 
-Saiba mais em [http://dominio.com.br/](http://dominio.com.br/ "Projeto Web2Canvas")
+Saiba mais em [http://xcoverage.agenciax4.com.br/hackathonsebrae](http://xcoverage.agenciax4.com.br/hackathonsebrae "Projeto Web2Canvas")
 
 ---------------------------------------
 
