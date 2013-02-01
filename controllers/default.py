@@ -40,7 +40,8 @@ def projeto():
 
     if auth.user.id in usuarios_autorizados:
         projeto = db(Projeto.id==projeto_id).select().first()
-        return dict(projeto=projeto)
+        time_compartilhamento = db(Compartilhamento.projeto_id==projeto_id).select()
+        return dict(projeto=projeto, time_compartilhamento=time_compartilhamento)
     else:
         redirect(URL('index'))
 
