@@ -1,0 +1,171 @@
+.canvas .area-title {
+color: #222; }
+.canvas .area-title strong {
+color: #c77007; }
+
+.canvas .content-container table.canvas, .snapshots .content-container table.canvas, .risks .content-container table.canvas,
+.canvas.wizard .content-container table.canvas, .experiments .content-container table.canvas {
+width: 100%;
+height: 580px;
+margin-bottom: 0em; }
+.canvas .content-container table.canvas th, .snapshots .content-container table.canvas th, .risks .content-container table.canvas th,
+.canvas.wizard .content-container table.canvas th, .experiments .content-container table.canvas th {
+height: 2.2em;
+vertical-align: top;
+padding: 0; }
+.canvas .content-container table.canvas td.area, .snapshots .content-container table.canvas td.area, .risks .content-container table.canvas td.area,
+.canvas.wizard .content-container table.canvas td.area, .experiments .content-container table.canvas td.area {
+vertical-align: top;
+border: 2px solid #000;
+background-color: #fff; }
+.canvas .content-container table.canvas td.area table.cell-container, .snapshots .content-container table.canvas td.area table.cell-container, .risks .content-container table.canvas td.area table.cell-container,
+.canvas.wizard .content-container table.canvas td.area table.cell-container, .experiments .content-container table.canvas td.area table.cell-container {
+height: 100%;
+width: 100%;
+margin-bottom: 0; }
+.canvas .content-container table.canvas td.area table.cell-container td, .snapshots .content-container table.canvas td.area table.cell-container td, .risks .content-container table.canvas td.area table.cell-container td,
+.canvas.wizard .content-container table.canvas td.area table.cell-container td, .experiments .content-container table.canvas td.area table.cell-container td {
+vertical-align: top; }
+.canvas .content-container table.canvas td.area table.cell-container td.canvas-cell, .snapshots .content-container table.canvas td.area table.cell-container td.canvas-cell, .risks .content-container table.canvas td.area table.cell-container td.canvas-cell,
+.canvas.wizard .content-container table.canvas td.area table.cell-container td.canvas-cell, .experiments .content-container table.canvas td.area table.cell-container td.canvas-cell {
+position: relative;
+width: 100%;
+padding: 5px 0 0px 4px; }
+.canvas .content-container table.canvas td.area table.cell-container td.bottom, .snapshots .content-container table.canvas td.area table.cell-container td.bottom, .risks .content-container table.canvas td.area table.cell-container td.bottom,
+.canvas.wizard .content-container table.canvas td.area table.cell-container td.bottom, .experiments .content-container table.canvas td.area table.cell-container td.bottom {
+height: 1.6em;
+vertical-align: bottom; }
+.canvas .content-container table.canvas td.area .full-canvas-cell, .snapshots .content-container table.canvas td.area .full-canvas-cell, .risks .content-container table.canvas td.area .full-canvas-cell,
+.canvas.wizard .content-container table.canvas td.area .full-canvas-cell, .experiments .content-container table.canvas td.area .full-canvas-cell {
+height: 100%; }
+.canvas .content-container table.canvas td.area .half-canvas-cell, .snapshots .content-container table.canvas td.area .half-canvas-cell, .risks .content-container table.canvas td.area .half-canvas-cell,
+.canvas.wizard .content-container table.canvas td.area .half-canvas-cell, .experiments .content-container table.canvas td.area .half-canvas-cell {
+height: 65%; }
+.canvas .content-container table.canvas td.area h3, .snapshots .content-container table.canvas td.area h3, .risks .content-container table.canvas td.area h3,
+.canvas.wizard .content-container table.canvas td.area h3, .experiments .content-container table.canvas td.area h3 {
+font-family: Helvetica;
+text-transform: uppercase;
+font-weight: bold;
+margin: 0 0 .3em 5px;
+padding-right: 24px;
+font-size: 16px;
+color: #222;
+position: relative; }
+.canvas .content-container table.canvas td.area h3 strong, .snapshots .content-container table.canvas td.area h3 strong, .risks .content-container table.canvas td.area h3 strong,
+.canvas.wizard .content-container table.canvas td.area h3 strong, .experiments .content-container table.canvas td.area h3 strong {
+font-size: 24px; }
+.canvas .content-container table.canvas td.area h3 .help, .snapshots .content-container table.canvas td.area h3 .help, .risks .content-container table.canvas td.area h3 .help,
+.canvas.wizard .content-container table.canvas td.area h3 .help, .experiments .content-container table.canvas td.area h3 .help {
+display: none;
+position: absolute;
+top: 0px;
+right: 4px; }
+.canvas .content-container table.canvas td.area h3 .help a.new:hover, .snapshots .content-container table.canvas td.area h3 .help a.new:hover, .risks .content-container table.canvas td.area h3 .help a.new:hover,
+.canvas.wizard .content-container table.canvas td.area h3 .help a.new:hover, .experiments .content-container table.canvas td.area h3 .help a.new:hover {
+text-decoration: none; }
+.canvas .content-container table.canvas td.area h3 .help h4, .snapshots .content-container table.canvas td.area h3 .help h4, .risks .content-container table.canvas td.area h3 .help h4,
+.canvas.wizard .content-container table.canvas td.area h3 .help h4, .experiments .content-container table.canvas td.area h3 .help h4 {
+background: url("/images/help.png") no-repeat;
+cursor: pointer;
+height: 18px;
+width: 18px; }
+.canvas .content-container table.canvas td.area h3 .help h4 span, .snapshots .content-container table.canvas td.area h3 .help h4 span, .risks .content-container table.canvas td.area h3 .help h4 span,
+.canvas.wizard .content-container table.canvas td.area h3 .help h4 span, .experiments .content-container table.canvas td.area h3 .help h4 span {
+display: none; }
+.canvas .content-container table.canvas td.area h3 .help:hover .text, .snapshots .content-container table.canvas td.area h3 .help:hover .text, .risks .content-container table.canvas td.area h3 .help:hover .text,
+.canvas.wizard .content-container table.canvas td.area h3 .help:hover .text, .experiments .content-container table.canvas td.area h3 .help:hover .text {
+display: block; }
+.canvas .content-container table.canvas td.area ol, .snapshots .content-container table.canvas td.area ol, .risks .content-container table.canvas td.area ol,
+.canvas.wizard .content-container table.canvas td.area ol, .experiments .content-container table.canvas td.area ol {
+margin: 0;
+color: #000; }
+.canvas .content-container table.canvas td.area ol li, .snapshots .content-container table.canvas td.area ol li, .risks .content-container table.canvas td.area ol li,
+.canvas.wizard .content-container table.canvas td.area ol li, .experiments .content-container table.canvas td.area ol li {
+position: relative;
+width: 100%;
+list-style-type: none;
+font-size: 90%; }
+.canvas .content-container table.canvas td.area ol li .show, .snapshots .content-container table.canvas td.area ol li .show, .risks .content-container table.canvas td.area ol li .show,
+.canvas.wizard .content-container table.canvas td.area ol li .show, .experiments .content-container table.canvas td.area ol li .show {
+margin-right: 24px;
+padding: 3px 5px 5px 5px; }
+.canvas .content-container table.canvas td.area ol li div.editing, .snapshots .content-container table.canvas td.area ol li div.editing, .risks .content-container table.canvas td.area ol li div.editing,
+.canvas.wizard .content-container table.canvas td.area ol li div.editing, .experiments .content-container table.canvas td.area ol li div.editing {
+background-color: #BDE5F0; }
+.canvas .content-container table.canvas td.area ol li span.warning, .snapshots .content-container table.canvas td.area ol li span.warning, .risks .content-container table.canvas td.area ol li span.warning,
+.canvas.wizard .content-container table.canvas td.area ol li span.warning, .experiments .content-container table.canvas td.area ol li span.warning {
+color: #A8A8A8;
+font-size: 0.8em; }
+.canvas .content-container table.canvas td.area:hover,
+.canvas .content-container table.canvas td.area.edit, .snapshots .content-container table.canvas td.area:hover, .snapshots .content-container table.canvas td.area.edit, .risks .content-container table.canvas td.area:hover, .risks .content-container table.canvas td.area.edit,
+.canvas.wizard .content-container table.canvas td.area:hover,
+.canvas.wizard .content-container table.canvas td.area.edit, .experiments .content-container table.canvas td.area:hover, .experiments .content-container table.canvas td.area.edit {
+background-color: #ecf0fa; }
+.canvas .content-container table.canvas td.area:hover h3 .help,
+.canvas .content-container table.canvas td.area.edit h3 .help, .snapshots .content-container table.canvas td.area:hover h3 .help, .snapshots .content-container table.canvas td.area.edit h3 .help, .risks .content-container table.canvas td.area:hover h3 .help, .risks .content-container table.canvas td.area.edit h3 .help,
+.canvas.wizard .content-container table.canvas td.area:hover h3 .help,
+.canvas.wizard .content-container table.canvas td.area.edit h3 .help, .experiments .content-container table.canvas td.area:hover h3 .help, .experiments .content-container table.canvas td.area.edit h3 .help {
+display: block; }
+.canvas .content-container .collaborators-container, .snapshots .content-container .collaborators-container, .risks .content-container .collaborators-container,
+.canvas.wizard .content-container .collaborators-container, .experiments .content-container .collaborators-container {
+background-color: #fff;
+color: #333;
+margin-top: 20px;
+padding: 0px;
+height: 64px;
+width: 98%; }
+.canvas .content-container .collaborators-container ul, .snapshots .content-container .collaborators-container ul, .risks .content-container .collaborators-container ul,
+.canvas.wizard .content-container .collaborators-container ul, .experiments .content-container .collaborators-container ul {
+list-style: none;
+padding: 12px 8px;
+z-index: 1; }
+.canvas .content-container .collaborators-container ul li, .snapshots .content-container .collaborators-container ul li, .risks .content-container .collaborators-container ul li,
+.canvas.wizard .content-container .collaborators-container ul li, .experiments .content-container .collaborators-container ul li {
+display: inline;
+float: left; }
+.canvas .content-container .collaborators-container .person, .snapshots .content-container .collaborators-container .person, .risks .content-container .collaborators-container .person,
+.canvas.wizard .content-container .collaborators-container .person, .experiments .content-container .collaborators-container .person {
+float: left;
+padding-right: 20px; }
+.canvas .content-container .collaborators-container .icon, .snapshots .content-container .collaborators-container .icon, .risks .content-container .collaborators-container .icon,
+.canvas.wizard .content-container .collaborators-container .icon, .experiments .content-container .collaborators-container .icon {
+float: left;
+padding-right: 6px;
+position: relative; }
+.canvas .content-container .collaborators-container .icon .status, .snapshots .content-container .collaborators-container .icon .status, .risks .content-container .collaborators-container .icon .status,
+.canvas.wizard .content-container .collaborators-container .icon .status, .experiments .content-container .collaborators-container .icon .status {
+border: 1px solid white;
+border-right-color: #B9B9B9;
+border-bottom-color: #B9B9B9;
+height: 7px;
+position: absolute;
+width: 7px;
+z-index: 3;
+right: 6px;
+bottom: 4px;
+background-color: #CCC; }
+.canvas .content-container .collaborators-container .icon .online, .snapshots .content-container .collaborators-container .icon .online, .risks .content-container .collaborators-container .icon .online,
+.canvas.wizard .content-container .collaborators-container .icon .online, .experiments .content-container .collaborators-container .icon .online {
+background-color: #5A5; }
+.canvas .content-container .collaborators-container .name, .snapshots .content-container .collaborators-container .name, .risks .content-container .collaborators-container .name,
+.canvas.wizard .content-container .collaborators-container .name, .experiments .content-container .collaborators-container .name {
+float: left;
+padding-top: 8px;
+color: #000; }
+
+/*pagina projeto*/
+
+.adicionar {
+	height: 50px;
+}
+
+.adicionar .btn {
+	margin-top: -50px;
+}
+
+input[type="text"] {
+	width: 150px!important;
+}
+
+
+

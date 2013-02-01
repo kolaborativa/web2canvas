@@ -1,59 +1,330 @@
-<!doctype html>
-<html lang="pt_br">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link id="bootstrap-style" href='{{=URL("static","css/bootstrap.css")}}' rel="stylesheet">
-	<link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
-	<script src='{{=URL("static","js/jquery-1.7.2.min.js")}}'></script>  
-	<script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
-	<script src="{{=URL('static','js/bootstrap-editable.min.js')}}"></script>
-</head>
-<body>
-	<div style="width:500px; margin:0 auto;">
-		<form id="myform">
-			<p id="msg"></p>
-			<label for="">Nome:</label><br>
-			<a href="#" class="dado_editavel" id="nome"></a>
-			<br>
-			<br>
-			<label for="">Tipo:</label><br>
-			<a href="#" class="dado_editavel" id="tipo"></a>
-		</form>
-	</div>
-	
-<script>
-//init editables
-function removeMsg(){
-	$('#msg').hide('slow');
-}
+{{extend 'default/layout.html'}}
 
-$('.dado_editavel').editable({
-	type: 'text',
-	pk: 1,
-	url: "{{=URL('new_post.json')}}",
-	title: 'Enter username',
-	emptytext: "vazio",
-	success: function(response) {
-	    if(response.success) {
-		    $('#msg').addClass('alert-success').removeClass('alert-error').html(response.msg).show();
-		    setTimeout(removeMsg,3000)
-	    } else if(response.error) {
-	    	$('#msg').removeClass('alert-success').addClass('alert-error').html(response.msg).show();
-		    setTimeout(removeMsg,3000)
-	    }
-	}
-});
+<div class="content-container">
+  <div id="content_area">
+    <div id="canvas">
+      <table class="canvas" style="height: 368px; font-size: 11.833333333333334px;"> <!-- tabela principal -->
+        <tbody>
+          <tr>
+            <td class="area" height="66%" id="problem" rowspan="2" width="20%">
+              <table class="cell-container"> <!-- tabela secundaria  -->
+                <tbody>
+                  <tr>
+                    <td class="canvas-cell canvas-cell-main">
+                      <h3 class="main">
+                        <div class="area-title">Parcerias <br> Principais</div>
+                        <div class="help">
+                          <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                      </h3>
+                      <ol class="sortable"></ol>
+                      <div class="add-new-item">
+                        <i><a href="#" class="dado_editavel nome"></a></i>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="adicionar">
+                    <td class="bottom">
+                      <button class="btn btn-primary" style="display:none;">
+                          Adicionar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> <!-- fim da tabela secundaria  -->
+            </td>
+            <td class="area" height="33%" id="solution" width="20%">
+              <table class="cell-container"> <!-- tabela secundaria  -->
+                <tbody>
+                  <tr>
+                    <td class="canvas-cell canvas-cell-main">
+                      <h3 class="main">
+                        <div class="area-title">Parcerias <br> Principais</div>
+                        <div class="help">
+                          <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                      </h3>
+                      <ol class="sortable"></ol>
+                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
+                        <i>Click para escrever</i>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="adicionar">
+                    <td class="bottom">
+                      <button class="btn btn-primary" style="display: none;">
+                          Adicionar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> <!-- fim da tabela secundaria  -->
+            </td>
+            <td class="area" colspan="2" height="66%" id="value_proposition" rowspan="2" width="20%">
+              <table class="cell-container"> <!-- tabela secundaria  -->
+                <tbody>
+                  <tr>
+                    <td class="canvas-cell canvas-cell-main">
+                      <h3 class="main">
+                        <div class="area-title">Proposta <br> de valor</div>
+                        <div class="help">
+                          <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                      </h3>
+                      <ol class="sortable"></ol>
+                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
+                        <i>Click para escrever</i>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="adicionar">
+                    <td class="bottom">
+                      <button class="btn btn-primary" style="display: none;">
+                          Adicionar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> <!-- fim da tabela secundaria  -->
+            </td>
+            <td class="area" height="33%" id="unfair_advantage" width="20%">
+              <table class="cell-container"> <!-- tabela secundaria  -->
+                <tbody>
+                  <tr>
+                    <td class="canvas-cell canvas-cell-main">
+                      <h3 class="main">
+                        <div class="area-title">Relacionamento <br> com Clientes</div>
+                        <div class="help"><a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
+                        </a>
+                        </div>
+                      </h3>
+                      <ol class="sortable"></ol>
+                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
+                        <i>Click para escrever</i>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="adicionar">
+                    <td class="bottom">
+                      <button class="btn btn-primary" style="display: none;">
+                          Adicionar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> <!-- fim da tabela secundaria  -->
+            </td>
+            <td class="area" height="66%" id="customer_segments" rowspan="2" width="20%">
+              <table class="cell-container"> <!-- tabela secundaria  -->
+                <tbody>
+                  <tr>
+                    <td class="canvas-cell canvas-cell-main">
+                      <h3 class="main">
+                        <div class="area-title">Segmento <br> de Clientes</div>
+                        <div class="help">
+                          <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                          </div>
+                        </h3>
+                        <ol class="sortable ui-sortable">
+                          <li id="801003">
+                            <div class="show">
+                              <span class="content" title="Click to edit">jogadores casuais</span>
+                            </div>
+                            <div class="actions">
+                              <a class="delete" rel="nofollow" data-remote="true" data-method="delete"></a>
+                            </div>
+                          </li>
+                        </ol>
+                      <div class="add-new-item">
+                        <i><a href="#" class="dado_editavel nome"></a></i>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="adicionar">
+                    <td class="bottom">
+                      <button class="btn btn-primary" style="display: none;">
+                          Adicionar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table> <!-- fim da tabela secundaria  -->
+            </td>
+          </tr>
+          <tr>
+          <td class="area" height="33%" id="key_activity" width="20%">
+            <table class="cell-container">
+              <tbody>
+                <tr>
+                  <td class="canvas-cell canvas-cell-main">
+                    <h3 class="main">
+                      <div class="area-title">Parcerias <br> Principais</div>
+                      <div class="help">
+                        <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                        </div>
+                    </h3>
+                    <ol class="sortable"></ol>
+                    <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
+                      <i>Click para escrever</i>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="adicionar">
+                  <td class="bottom">
+                    <button class="btn btn-primary" style="display: none;">
+                        Adicionar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td class="area" height="33%" id="channels" width="20%">
+            <table class="cell-container">
+              <tbody>
+                <tr>
+                  <td class="canvas-cell canvas-cell-main">
+                    <h3 class="main">
+                      <div class="area-title">Canais</div>
+                      <div class="help">
+                        <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                        </div>
+                      </h3>
+                      <ol class="sortable ui-sortable">
+                        <li id="861507">
+                          <div class="show">
+                            <span class="content" title="Click to edit">teste</span>
+                          </div>
+                          <div class="actions">
+                            <a class="delete" rel="nofollow" data-remote="true" data-method="delete"></a>
+                          </div>
+                          <div class="thirdPartyEditor" style="display:none;"></div>
+                        </li>
+                      </ol>
+                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
+                        <i>Click para escrever</i>
+                      </div>
+                      <div class="short_help" style="display: none;">
+                        <span class="content">List your path to customers</span>
+                      </div>
+                      <div class="order" style="display: none;">
+                        <span class="content">5</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="adicionar">
+                    <td class="bottom">
+                      <button class="btn btn-primary" style="display: none;">
+                          Adicionar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+          <td class="area" colspan="3" height="33%" id="cost_structure" width="50%">
+            <table class="cell-container">
+              <tbody>
+                <tr>
+                  <td class="canvas-cell canvas-cell-main">
+                    <h3 class="main">
+                      <div class="area-title">Estrutura <br> de Custos</div>
+                      <div class="help">
+                        <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help">
+                        </a>
+                      </div>
+                    </h3>
+                    <ol class="sortable"></ol>
+                    <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
+                      <i>Click para escrever</i>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="adicionar">
+                  <td class="bottom">
+                    <button class="btn btn-primary" style="display: none;">
+                        Adicionar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+          <td class="area" colspan="3" height="33%" id="revenue_streams" width="50%">
+            <table class="cell-container">
+              <tbody>
+                <tr>
+                  <td class="canvas-cell canvas-cell-main">
+                    <h3 class="main">
+                      <div class="area-title">Receitas</div>
+                      <div class="help">
+                        <a class="helpIcon" href="http://leancanvas.com/canvases/52205#">
+                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                        </div>
+                      </h3>
+                      <ol class="sortable"></ol>
+                      <div class="add-new-item" style="border:dashed 1px #000000;margin-top:6px;display:none;">
+                        <i>Click para escrever</i>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="adicionar">
+                    <td class="bottom">
+                      <button class="btn btn-primary" style="display: none;">
+                          Adicionar
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table> <!-- fim da tabela principal -->
 
-//make username required
-$('#nome').editable('option', 'validate', function(v) {
-    if(v == '') return 'Não pode ser vazio!';
-});
+      <div class="collaborators-container">
+        <div class="left">
+          <a href="#"><img alt="Team" height="64" src='{{=URL("static","images/team.png")}}'></a>
+        </div>
 
-</script>
-
-
-</body>
-</html>
-
-
+        <ul class="collaborators">
+          <li id="collaborator_39160">
+            <div class="person">
+              <div class="icon">
+                <img alt="Esse é seu avatar!" src='{{=URL("static","images/avatar.png")}}'>
+                <span class="status offline"></span>
+              </div>
+              <div class="name">
+              Danielx4
+              </div>
+            </div>
+          </li>
+          <li id="collaborator_41302">
+            <div class="person">
+              <div class="icon">
+                <img alt="Esse é seu avatar!" src='{{=URL("static","images/avatar.png")}}' title="Gustavo de Souza is currently online">
+                <span class="status online"></span>
+              </div>
+              <div class="name">
+              Gustavo de Souza
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div> <!-- fim do collaborators-container -->
+    </div> <!-- fim do canvas -->
+  </div> <!-- fim do content_area -->
+</div> <!-- fim do content-container -->
