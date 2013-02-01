@@ -31,11 +31,9 @@ Changelog
 Desenvolvido por:
 -------
 
-**Dodilei, R4bugento e Entedi4do**
+**Dodilei**
 
 + [gustavo.w4lker](http://www.facebook.com/gustavo.w4lker/ "Facebook") - [@dodilei](http://twitter.com/dodilei "Twitter")
-+ [rabugento.diego](http://www.facebook.com/rabugento.diego/ "Facebook") - [@r4bugento](http://twitter.com/r4bugento "Twitter")
-+ [entediado.agenciaxfour](http://www.facebook.com/entediado.agenciaxfour/ "Facebook") - [@entedi4do](http://twitter.com/entedi4do "Twitter")
 
 ---------------------------------------
 
