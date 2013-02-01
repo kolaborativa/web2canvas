@@ -9,7 +9,7 @@
 ## - call exposes all registered services (none by default)
 #########################################################################
 
-
+@auth.requires_login()
 def index():
     """Home page com opcao de criar projetos
     """

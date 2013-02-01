@@ -140,7 +140,7 @@
 'register': 'Registre-se',
 'Registration identifier': 'Registration identifier',
 'Registration key': 'Registration key',
-'Remember me (for 30 days)': 'Remember me (for 30 days)',
+'Remember me (for 30 days)': 'Lembre-me (por 30 dias)',
 'Reset Password key': 'Reset Password key',
 'Resources': 'Resources',
 'Role': 'Role',
