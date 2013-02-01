@@ -25,15 +25,23 @@ def index():
 
     return dict(form=form, meus_projetos=meus_projetos, projetos_colaborador=projetos_colaborador)
 
-
+@auth.requires_login()
 def projeto():
     """Pagina do Projeto, onde os dados serao editados
     """
     projeto_id = request.args(0) or redirect(URL('index'))
-    projeto = db(Projeto.id==projeto_id).select().first()
 
+    usuarios_autorizados =  [i.criado_por for i in db(Projeto.id==projeto_id).select()]
+    for i in db(Compartilhamento.projeto_id==projeto_id).select():
+        if not i.usuario_id in usuarios_autorizados:
+            usuarios_autorizados.append(i.usuario_id)
 
-    return dict(projeto=projeto)
+    if auth.user.id in usuarios_autorizados:
+        projeto = db(Projeto.id==projeto_id).select().first()
+
+        return dict(projeto=projeto)
+    else:
+        redirect(URL('index'))
 
 
 def editar_dados():
