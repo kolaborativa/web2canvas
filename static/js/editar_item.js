@@ -8,7 +8,6 @@ function removeMsg(){
 
 $('.campo_existente').editable({
   type: 'text',
-  // pk: 1,
   url: urlJson,
   title: titulo_caixa,
   emptytext: campo_vazio,
@@ -64,16 +63,31 @@ $(".btn-adicionar").click(function () {
   }
 
   if(classeBotao == "estrutura_custos") {
-    $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
+    $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" required title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
   } else if(classeBotao == "principais_parcerias"){
-    $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
+    $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" required title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
   } else {
-    $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
+    $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" required title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
   }
 });
 
 // chamada do plugin para os campos dinamicos
 $('.add-new-item').editable({
+    selector: 'a',
+    url: urlJson,
+    success: function(response) {
+        if(response.success) {
+          $('#msg').addClass('alert-success').removeClass('alert-error').html(response.msg).show();
+          setTimeout(removeMsg,3000)
+        } else if(response.error) {
+          $('#msg').removeClass('alert-success').addClass('alert-error').html(response.msg).show();
+          setTimeout(removeMsg,3000)
+        }
+    }
+});
+
+// chamada do plugin para os campos dinamicos
+$('.campo_dinamico').editable({
     selector: 'a',
     url: urlJson,
     success: function(response) {
