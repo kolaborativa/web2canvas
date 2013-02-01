@@ -167,8 +167,10 @@ input[type="text"] {
 	width: 150px!important;
 }
 
-
-
 .main {
-	padding: 10px 0 10px 0!important;
+	padding: 0px 0 10px 0!important;
+}
+
+h3 {
+	line-height: 25px!important;
 }

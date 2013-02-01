@@ -56,9 +56,13 @@ $(".btn-adicionar").click(function () {
     keys.push(parseInt($(this).attr('data-pk')));
   });
 
-  var maiorIndice = Array.max(keys);
+  if(keys.length > 0) {
+    var maiorIndice = Array.max(keys);
+  } else {
+    var maiorIndice = 0;
+  }
 
-  $("div"+"."+classeBotao).append('<a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'">'+campo_vazio+'</a><br>');
+  $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'">'+campo_vazio+'</p><br>');
 });
 
 
