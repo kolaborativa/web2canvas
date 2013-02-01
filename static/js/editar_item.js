@@ -3,9 +3,9 @@ function removeMsg(){
   $('#msg').hide('slow');
 }
 
-$('.dado_editavel').editable({
+$('.campo_editavel').editable({
   type: 'text',
-  pk: 1,
+  // pk: 1,
   url: urlJson,
   title: 'Enter username',
   emptytext: "Click para escrever",
@@ -22,7 +22,7 @@ $('.dado_editavel').editable({
 });
 
 //make username required
-$('.nome').editable('option', 'validate', function(v) {
+$('.campo_editavel').editable('option', 'validate', function(v) {
     if(v == '') return 'Não pode ser vazio!';
 });
 
