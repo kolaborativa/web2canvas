@@ -1,8 +1,15 @@
 {{extend 'default/layout.html'}}
 <h3>Meus Projetos</h3>
-{{ if projetos: }}
-    {{ for projeto in projetos: }}
+{{ if meus_projetos: }}
+    {{ for projeto in meus_projetos: }}
         <p><a href="{{=URL(c='default', f='projeto', args=[projeto.id])}}">{{=projeto.nome}}</a></p>
+    {{ pass }}
+{{ pass }}
+<hr />
+<h3>Projetos que faço parte</h3>
+{{ if projetos_colaborador: }}
+    {{ for projeto in projetos_colaborador: }}
+        <p><a href="{{=URL(c='default', f='projeto', args=[projeto.projeto_id])}}">{{=projeto.projeto_id.nome}}</a></p>
     {{ pass }}
 {{ pass }}
 <hr />

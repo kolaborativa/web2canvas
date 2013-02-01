@@ -9,29 +9,39 @@
 ## - call exposes all registered services (none by default)
 #########################################################################
 
-
+@auth.requires_login()
 def index():
     """Home page com opcao de criar projetos
     """
     from datetime import datetime
-    projetos = db(Projeto.criado_por==auth.user.id).select()
+    meus_projetos = db(Projeto.criado_por==auth.user.id).select()
+    projetos_colaborador = db(Compartilhamento.usuario_id==auth.user).select()
 
     form = SQLFORM(Projeto, fields=['nome'], submit_button="Criar")
 
     if form.process().accepted:
         db(Projeto.id==form.vars.id).update(criado_por=auth.user.id, criado_em=datetime.now())
         redirect(URL('index'))
-    return dict(form=form, projetos=projetos)
 
+    return dict(form=form, meus_projetos=meus_projetos, projetos_colaborador=projetos_colaborador)
 
+@auth.requires_login()
 def projeto():
     """Pagina do Projeto, onde os dados serao editados
     """
     projeto_id = request.args(0) or redirect(URL('index'))
-    projeto = db(Projeto.id==projeto_id).select().first()
 
+    usuarios_autorizados =  [i.criado_por for i in db(Projeto.id==projeto_id).select()]
+    for i in db(Compartilhamento.projeto_id==projeto_id).select():
+        if not i.usuario_id in usuarios_autorizados:
+            usuarios_autorizados.append(i.usuario_id)
 
-    return dict(projeto=projeto)
+    if auth.user.id in usuarios_autorizados:
+        projeto = db(Projeto.id==projeto_id).select().first()
+
+        return dict(projeto=projeto)
+    else:
+        redirect(URL('index'))
 
 
 def editar_dados():
@@ -41,7 +51,6 @@ def editar_dados():
     dado = request.vars['dado']
 
     msg = "tipo de dado: %s | dado: %s" % (tipo, dado)
-
 
     return dict(message=msg)
 
@@ -53,6 +62,21 @@ def new_post():
         return dict(success="success",msg="gravado com sucesso!")
     else:
         return dict(error="error",msg="erro ao gravar!")
+
+
+@auth.requires_login()
+def adicionar_usuario():
+    """Funcao que adiciona usuario a um projeto
+    """
+    projeto_id = request.vars['projeto_id'] or redirect(URL('index'))
+    usuario_id = request.vars['usuario_id'] or redirect(URL('index'))
+
+    projeto = db(Projeto.id==projeto_id).select().first()
+
+    if projeto.criado_por == auth.user.id:
+        Compartilhamento.insert(usuario_id=usuario_id,
+            projeto_id=projeto_id)
+    redirect(URL(c='default', f='projeto', args=[projeto_id]))
 
 
 def user():
