@@ -32,7 +32,7 @@
                         {{ if projeto.principais_parcerias: }}
                             {{ for i in json.loads(projeto.principais_parcerias): }}
                             <p><a href="#" class="campo_existente" id="principais_parcerias" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.principais_parcerias)[i]}}</a></p>
-      
+
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -321,7 +321,7 @@
                         {{ pass }}
                     </div>
                     <footer>
-                      
+
                     </footer>
                   </td>
                 </tr>
@@ -389,9 +389,9 @@
             <div class="person">
                 {{=projeto.criado_por.first_name}}
             </div>
-        </li> 
+        </li>
         {{ for i in time_compartilhamento: }}
-            <li> 
+            <li>
                 <div class="person">
                     {{=i.usuario_id.first_name}}
                 </div>
