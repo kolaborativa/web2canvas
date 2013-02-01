@@ -7,16 +7,23 @@
       <table class="canvas" style="height: 368px; font-size: 11.833333333333334px;"> <!-- tabela principal -->
         <tbody>
           <tr>
-            <td class="area" height="66%" id="problem" rowspan="2" width="20%">
+            <td class="area sessao_como" height="66%" id="problem" rowspan="2" width="20%">
               <table class="cell-container"> <!-- tabela secundaria  -->
                 <tbody>
                   <tr>
                     <td class="canvas-cell canvas-cell-main">
                       <h3 class="main">
-                        <div class="area-title"><p>Parcerias <br> Principais</p></div>
-                      <div class="help">
-                        <a class="helpIcon" href="#">
-                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                        <div id="img_parcerias_p" class="area-title">Parcerias<br>Principais</div>
+                        <hr>
+                        <div class="help">
+                          <a class="helpIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                        <div class="dica">
+                          <a class="dicaIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                          </a>
                         </div>
                       </h3>
                       <div class="add-new-item principais_parcerias">
@@ -24,7 +31,7 @@
                         {{import json}}
                         {{ if projeto.principais_parcerias: }}
                             {{ for i in json.loads(projeto.principais_parcerias): }}
-                            <p><i><a href="#" class="campo_existente" id="principais_parcerias" data-pk="{{=i}}">{{=json.loads(projeto.principais_parcerias)[i]}}</a></i></p>
+                            <p><a href="#" class="campo_existente" id="principais_parcerias" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.principais_parcerias)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -40,24 +47,31 @@
                 </tbody>
               </table> <!-- fim da tabela secundaria  -->
             </td>
-            <td class="area" height="33%" id="solution" width="20%">
+            <td class="area sessao_como" height="33%" id="solution" width="20%">
               <table class="cell-container"> <!-- tabela secundaria  -->
                 <tbody>
                   <tr>
                     <td class="canvas-cell canvas-cell-main">
                       <h3 class="main">
-                        <div class="area-title">Atividades <br> Principais</div>
+                        <div id="img_atividades_p" class="area-title">Atividades<br>Principais</div>
+                        <hr>
                         <div class="help">
                           <a class="helpIcon" href="#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                          </div>
+                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                        <div class="dica">
+                          <a class="dicaIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                          </a>
+                        </div>
                         </h3>
                       <div class="add-new-item atividades_principais">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.atividades_principais: }}
                             {{ for i in json.loads(projeto.atividades_principais): }}
-                            <p><i><a href="#" class="campo_existente" id="atividades_principais" data-pk="{{=i}}">{{=json.loads(projeto.atividades_principais)[i]}}</a></i></p>
+                            <p><a href="#" class="campo_existente" id="atividades_principais" data-pk="{{=i}}">{{=json.loads(projeto.atividades_principais)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -73,24 +87,31 @@
                 </tbody>
               </table> <!-- fim da tabela secundaria  -->
             </td>
-            <td class="area" colspan="2" height="66%" id="value_proposition" rowspan="2" width="20%">
+            <td class="area sessao_oque" colspan="2" height="66%" id="value_proposition" rowspan="2" width="20%">
               <table class="cell-container"> <!-- tabela secundaria  -->
                 <tbody>
                   <tr>
                     <td class="canvas-cell canvas-cell-main">
                       <h3 class="main">
-                        <div class="area-title">Proposta <br> de valor</div>
+                        <div id="img_proposta_v" class="area-title">Proposta<br>de valor</div>
+                        <hr>
                         <div class="help">
                           <a class="helpIcon" href="#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                          </div>
+                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                        <div class="dica">
+                          <a class="dicaIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                          </a>
+                        </div>
                         </h3>
                       <div class="add-new-item proposta_valor">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.proposta_valor: }}
                             {{ for i in json.loads(projeto.proposta_valor): }}
-                            <p><i><a href="#" class="campo_existente" id="proposta_valor" data-pk="{{=i}}">{{=json.loads(projeto.proposta_valor)[i]}}</a></i></p>
+                            <p><a href="#" class="campo_existente" id="proposta_valor" data-pk="{{=i}}">{{=json.loads(projeto.proposta_valor)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -106,24 +127,31 @@
                 </tbody>
               </table> <!-- fim da tabela secundaria  -->
             </td>
-            <td class="area" height="33%" id="unfair_advantage" width="20%">
+            <td class="area sessao_parquem" height="33%" id="unfair_advantage" width="20%">
               <table class="cell-container"> <!-- tabela secundaria  -->
                 <tbody>
                   <tr>
                     <td class="canvas-cell canvas-cell-main">
                       <h3 class="main">
-                        <div class="area-title">Relacionamento <br> com Clientes</div>
+                        <div id="img_relacionamento_c" class="area-title">Relacionamento<br>com Clientes</div>
+                        <hr>
                         <div class="help">
                           <a class="helpIcon" href="#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                          </div>
+                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                        <div class="dica">
+                          <a class="dicaIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                          </a>
+                        </div>
                         </h3>
                       <div class="add-new-item relacionamento_clientes">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.relacionamento_clientes: }}
                             {{ for i in json.loads(projeto.relacionamento_clientes): }}
-                            <p><i><a href="#" class="campo_existente" id="relacionamento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></i></p>
+                            <p><a href="#" class="campo_existente" id="relacionamento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -139,24 +167,31 @@
                 </tbody>
               </table> <!-- fim da tabela secundaria  -->
             </td>
-            <td class="area" height="66%" id="customer_segments" rowspan="2" width="20%">
+            <td class="area sessao_parquem" height="66%" id="customer_segments" rowspan="2" width="20%">
               <table class="cell-container"> <!-- tabela secundaria  -->
                 <tbody>
                   <tr>
                     <td class="canvas-cell canvas-cell-main">
                       <h3 class="main">
-                        <div class="area-title">Segmento <br> de Clientes</div>
+                        <div id="img_segmento_c" class="area-title">Segmento<br>de Clientes</div>
+                        <hr>
                         <div class="help">
                           <a class="helpIcon" href="#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                          </div>
+                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                        <div class="dica">
+                          <a class="dicaIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                          </a>
+                        </div>
                         </h3>
                       <div class="add-new-item segmento_clientes">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.segmento_clientes: }}
                             {{ for i in json.loads(projeto.segmento_clientes): }}
-                            <p><i><a href="#" class="campo_existente" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></i></p>
+                            <p><a href="#" class="campo_existente" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -174,24 +209,31 @@
             </td>
           </tr>
           <tr>
-          <td class="area" height="33%" id="key_activity" width="20%">
+          <td class="area sessao_como" height="33%" id="key_activity" width="20%">
             <table class="cell-container">
               <tbody>
                 <tr>
                   <td class="canvas-cell canvas-cell-main">
                     <h3 class="main">
-                      <div class="area-title">Recursos <br> Principais</div>
+                      <div id="img_recursos_p" class="area-title">Recursos Principais</div>
+                        <hr>
                         <div class="help">
                           <a class="helpIcon" href="#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                          </div>
+                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                        <div class="dica">
+                          <a class="dicaIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                          </a>
+                        </div>
                         </h3>
                       <div class="add-new-item recursos_principais">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.recursos_principais: }}
                             {{ for i in json.loads(projeto.recursos_principais): }}
-                            <p><i><a href="#" class="campo_existente" id="recursos_principais" data-pk="{{=i}}">{{=json.loads(projeto.recursos_principais)[i]}}</a></i></p>
+                            <p><a href="#" class="campo_existente" id="recursos_principais" data-pk="{{=i}}">{{=json.loads(projeto.recursos_principais)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -207,24 +249,31 @@
               </tbody>
             </table>
           </td>
-          <td class="area" height="33%" id="channels" width="20%">
+          <td class="area sessao_parquem" height="33%" id="channels" width="20%">
             <table class="cell-container">
               <tbody>
                 <tr>
                   <td class="canvas-cell canvas-cell-main">
                     <h3 class="main">
-                      <div class="area-title">Canais</div>
+                      <div id="img_canais" class="area-title">Canais<br><span>.</span></div>
+                        <hr>
                         <div class="help">
                           <a class="helpIcon" href="#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                          </div>
+                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                        <div class="dica">
+                          <a class="dicaIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                          </a>
+                        </div>
                         </h3>
                       <div class="add-new-item canais">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.canais: }}
                             {{ for i in json.loads(projeto.canais): }}
-                            <p><i><a href="#" class="campo_existente" id="canais" data-pk="{{=i}}">{{=json.loads(projeto.canais)[i]}}</a></i></p>
+                            <p><a href="#" class="campo_existente" id="canais" data-pk="{{=i}}">{{=json.loads(projeto.canais)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -242,16 +291,23 @@
             </td>
           </tr>
           <tr>
-          <td class="area" colspan="3" height="33%" id="cost_structure" width="50%">
+          <td class="area sessao_quanto" colspan="3" height="33%" id="cost_structure" width="50%">
             <table class="cell-container">
               <tbody>
                 <tr>
                   <td class="canvas-cell canvas-cell-main">
                     <h3 class="main">
-                      <div class="area-title">Estrutura <br> de Custos</div>
-                      <div class="help">
-                        <a class="helpIcon" href="#">
-                          <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
+                      <div id="img_estrutura_c" class="area-title">Estrutura<br>de Custos</div>
+                        <hr>
+                        <div class="help">
+                          <a class="helpIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                        <div class="dica">
+                          <a class="dicaIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                          </a>
                         </div>
                       </h3>
                     <div class="add-new-item estrutura_custos">
@@ -259,7 +315,7 @@
                         {{import json}}
                         {{ if projeto.estrutura_custos: }}
                             {{ for i in json.loads(projeto.estrutura_custos): }}
-                            <p><i><a href="#" class="campo_existente" id="estrutura_custos" data-pk="{{=i}}">{{=json.loads(projeto.estrutura_custos)[i]}}</a></i></p>
+                            <p><a href="#" class="campo_existente" id="estrutura_custos" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.estrutura_custos)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                     </div>
@@ -278,24 +334,31 @@
               </tbody>
             </table>
           </td>
-          <td class="area" colspan="3" height="33%" id="revenue_streams" width="50%">
+          <td class="area sessao_quanto" colspan="3" height="33%" id="revenue_streams" width="50%">
             <table class="cell-container">
               <tbody>
                 <tr>
                   <td class="canvas-cell canvas-cell-main">
                     <h3 class="main">
-                      <div class="area-title">Receitas</div>
+                      <div id="img_receita" class="area-title">Receitas<br><span>.</span></div>
+                      <hr>
                         <div class="help">
                           <a class="helpIcon" href="#">
-                            <img height="24" src='{{=URL("static","images/help.png")}}' alt="Help"></a>
-                          </div>
+                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
+                          </a>
+                        </div>
+                        <div class="dica">
+                          <a class="dicaIcon" href="#">
+                            <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                          </a>
+                        </div>
                         </h3>
                       <div class="add-new-item receitas">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.receitas: }}
                             {{ for i in json.loads(projeto.receitas): }}
-                            <p><i><a href="#" class="campo_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></i></p>
+                            <p><a href="#" class="campo_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>

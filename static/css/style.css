@@ -41,40 +41,120 @@ height: 100%; }
 .canvas .content-container table.canvas td.area .half-canvas-cell, .snapshots .content-container table.canvas td.area .half-canvas-cell, .risks .content-container table.canvas td.area .half-canvas-cell,
 .canvas.wizard .content-container table.canvas td.area .half-canvas-cell, .experiments .content-container table.canvas td.area .half-canvas-cell {
 height: 65%; }
-.canvas .content-container table.canvas td.area h3, .snapshots .content-container table.canvas td.area h3, .risks .content-container table.canvas td.area h3,
-.canvas.wizard .content-container table.canvas td.area h3, .experiments .content-container table.canvas td.area h3 {
-font-family: Helvetica;
+.canvas .content-container table.canvas td.area h3 {
+font-family: "Arial";
 text-transform: uppercase;
 font-weight: bold;
 margin: 0 0 .3em 5px;
 padding-right: 24px;
 font-size: 16px;
-color: #222;
-position: relative; }
+position: relative;
+background: -moz-linear-gradient(left, #47a2e8 8%, #2b93c6 50%, #3994db 77%, #51a1c6 99%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(8%,#47a2e8), color-stop(50%,#2b93c6), color-stop(77%,#3994db), color-stop(99%,#51a1c6)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left, #47a2e8 8%,#2b93c6 50%,#3994db 77%,#51a1c6 99%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left, #47a2e8 8%,#2b93c6 50%,#3994db 77%,#51a1c6 99%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left, #47a2e8 8%,#2b93c6 50%,#3994db 77%,#51a1c6 99%); /* IE10+ */
+background: linear-gradient(to right, #47a2e8 8%,#2b93c6 50%,#3994db 77%,#51a1c6 99%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#47a2e8', endColorstr='#51a1c6',GradientType=1 ); /* IE6-9 */
+padding: 10px 0px 0px 14px!important;
+height: 51px;
+margin: -16px 0px 0px -9px;
+width: 100%;
+}
+.canvas .area-title {
+	color: #fff;
+	text-align: right;
+	margin: -8px 10px 0px 0px;
+}
+
+#img_parcerias_p {
+	width: 80%;
+	background: url("../images/icon_parceiros.png") no-repeat 10%;
+}
+
+#img_atividades_p {
+	width: 80%;
+	background: url("../images/icon_atividades.png") no-repeat 10%;
+}
+
+#img_proposta_v {
+	width: 80%;
+	background: url("../images/icon_valor.png") no-repeat 10%;
+}
+
+#img_recursos_p {
+	width: 80%;
+	background: url("../images/icon_recursos.png") no-repeat 10%;
+}
+
+#img_relacionamento_c {
+	background: url("../images/icon_relacionamento.png") no-repeat 3% 50%;
+}
+
+#img_canais {
+	width: 70%;
+	background: url("../images/icon_canais.png") no-repeat 10%;
+	padding-top: 18px;
+}
+
+#img_segmento_c {
+	width: 80%;
+	background: url("../images/icon_segmento.png") no-repeat 10%;
+}
+
+#img_estrutura_c {
+	width: 30%;
+	background: url("../images/icon_custos.png") no-repeat 10%;
+}
+
+#img_receita {
+	width: 30%;
+	background: url("../images/icon_receita.png") no-repeat 10%;
+	padding-top: 18px;
+}
+
+h3.main span {
+	margin: -9px!important;
+	display: block;
+	font-size: 0px;
+}
+
+/*icone help*/
 .canvas .content-container table.canvas td.area h3 strong, .snapshots .content-container table.canvas td.area h3 strong, .risks .content-container table.canvas td.area h3 strong,
 .canvas.wizard .content-container table.canvas td.area h3 strong, .experiments .content-container table.canvas td.area h3 strong {
 font-size: 24px; }
-.canvas .content-container table.canvas td.area h3 .help, .snapshots .content-container table.canvas td.area h3 .help, .risks .content-container table.canvas td.area h3 .help,
-.canvas.wizard .content-container table.canvas td.area h3 .help, .experiments .content-container table.canvas td.area h3 .help {
+.canvas .content-container table.canvas td.area h3 .help {
 display: none;
 position: absolute;
-top: 0px;
-right: 4px; }
+top: 65px;
+right: 30px; }
 .canvas .content-container table.canvas td.area h3 .help a.new:hover, .snapshots .content-container table.canvas td.area h3 .help a.new:hover, .risks .content-container table.canvas td.area h3 .help a.new:hover,
 .canvas.wizard .content-container table.canvas td.area h3 .help a.new:hover, .experiments .content-container table.canvas td.area h3 .help a.new:hover {
 text-decoration: none; }
 .canvas .content-container table.canvas td.area h3 .help h4, .snapshots .content-container table.canvas td.area h3 .help h4, .risks .content-container table.canvas td.area h3 .help h4,
 .canvas.wizard .content-container table.canvas td.area h3 .help h4, .experiments .content-container table.canvas td.area h3 .help h4 {
-background: url("/images/help.png") no-repeat;
+background: url("/images/icon_help.png") no-repeat;
 cursor: pointer;
-height: 18px;
+height: 8px;
 width: 18px; }
-.canvas .content-container table.canvas td.area h3 .help h4 span, .snapshots .content-container table.canvas td.area h3 .help h4 span, .risks .content-container table.canvas td.area h3 .help h4 span,
-.canvas.wizard .content-container table.canvas td.area h3 .help h4 span, .experiments .content-container table.canvas td.area h3 .help h4 span {
-display: none; }
-.canvas .content-container table.canvas td.area h3 .help:hover .text, .snapshots .content-container table.canvas td.area h3 .help:hover .text, .risks .content-container table.canvas td.area h3 .help:hover .text,
-.canvas.wizard .content-container table.canvas td.area h3 .help:hover .text, .experiments .content-container table.canvas td.area h3 .help:hover .text {
-display: block; }
+.canvas .content-container table.canvas td.area h3 .dica {
+display: none;
+position: absolute;
+top: 65px;
+right: 10px; }
+
+/*icone dica*/
+.canvas .content-container table.canvas td.area h3 .dica a.new:hover, .snapshots .content-container table.canvas td.area h3 .dica a.new:hover, .risks .content-container table.canvas td.area h3 .dica a.new:hover,
+.canvas.wizard .content-container table.canvas td.area h3 .dica a.new:hover, .experiments .content-container table.canvas td.area h3 .dica a.new:hover {
+text-decoration: none; }
+.canvas .content-container table.canvas td.area h3 .dica h4, .snapshots .content-container table.canvas td.area h3 .dica h4, .risks .content-container table.canvas td.area h3 .dica h4,
+.canvas.wizard .content-container table.canvas td.area h3 .dica h4, .experiments .content-container table.canvas td.area h3 .dica h4 {
+background: url("/images/icon_dica.png") no-repeat;
+cursor: pointer;
+height: 8px;
+width: 18px; }
+
+
 .canvas .content-container table.canvas td.area ol, .snapshots .content-container table.canvas td.area ol, .risks .content-container table.canvas td.area ol,
 .canvas.wizard .content-container table.canvas td.area ol, .experiments .content-container table.canvas td.area ol {
 margin: 0;
@@ -96,15 +176,9 @@ background-color: #BDE5F0; }
 .canvas.wizard .content-container table.canvas td.area ol li span.warning, .experiments .content-container table.canvas td.area ol li span.warning {
 color: #A8A8A8;
 font-size: 0.8em; }
-.canvas .content-container table.canvas td.area:hover,
-.canvas .content-container table.canvas td.area.edit, .snapshots .content-container table.canvas td.area:hover, .snapshots .content-container table.canvas td.area.edit, .risks .content-container table.canvas td.area:hover, .risks .content-container table.canvas td.area.edit,
-.canvas.wizard .content-container table.canvas td.area:hover,
-.canvas.wizard .content-container table.canvas td.area.edit, .experiments .content-container table.canvas td.area:hover, .experiments .content-container table.canvas td.area.edit {
-background-color: #ecf0fa; }
-.canvas .content-container table.canvas td.area:hover h3 .help,
-.canvas .content-container table.canvas td.area.edit h3 .help, .snapshots .content-container table.canvas td.area:hover h3 .help, .snapshots .content-container table.canvas td.area.edit h3 .help, .risks .content-container table.canvas td.area:hover h3 .help, .risks .content-container table.canvas td.area.edit h3 .help,
-.canvas.wizard .content-container table.canvas td.area:hover h3 .help,
-.canvas.wizard .content-container table.canvas td.area.edit h3 .help, .experiments .content-container table.canvas td.area:hover h3 .help, .experiments .content-container table.canvas td.area.edit h3 .help {
+.canvas .content-container table.canvas td.area:hover h3 .help {
+display: block; }
+.canvas .content-container table.canvas td.area:hover h3 .dica {
 display: block; }
 .canvas .content-container .collaborators-container, .snapshots .content-container .collaborators-container, .risks .content-container .collaborators-container,
 .canvas.wizard .content-container .collaborators-container, .experiments .content-container .collaborators-container {
@@ -163,14 +237,91 @@ color: #000; }
 	margin-top: -50px;
 }
 
-input[type="text"] {
-	width: 150px!important;
-}
+/*a[data-placeholder="Required"] {
+	color: red!important;
+}*/
 
 .main {
 	padding: 0px 0 10px 0!important;
 }
 
+.main hr {
+	margin: 0px 0px 0px -13px;
+}
+
 h3 {
 	line-height: 25px!important;
+}
+
+/*.sessao_como {
+	background-color: #d7e6f2;
+}*/
+
+.canvas .content-container table.canvas td.area{
+	-webkit-transition: all 0.4s;
+	-moz-transition: all 0.4s;
+	-o-transition: all 0.4s;
+	-ms-transition: all 0.4s;}
+.canvas .content-container table.canvas td.area:hover{box-shadow: 0 0px 10px #000; background:#FFF; border-right:1px solid #FFF; border-bottom:1px solid #FFF;
+	-moz-box-shadow: 0 0px 10px #000;
+	-o-box-shadow: 0 0px 10px #000;		
+/*	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+	transform: scale(1.1); margin:auto;
+	z-index: 9999!important;*/
+}
+
+.canvas .content-container table.canvas td.sessao_como {
+	background-color: #d7e6f2;
+}
+.canvas .content-container table.canvas td.sessao_oque {
+	background-color: rgb(179, 207, 230);
+}
+.canvas .content-container table.canvas td.sessao_parquem {
+	background-color: rgb(146, 216, 182);
+}
+.canvas .content-container table.canvas td.sessao_quanto {
+	background-color: rgb(176, 190, 186);
+}
+.canvas .content-container table.canvas td.area {
+	height: 200px!important;
+}
+
+.add-new-item p a.campo_existente {
+	color: #000;
+	font-size: 13px;
+}
+
+.add-new-item p a[type="text"] {
+	color: #000;
+	font-size: 13px;
+}
+
+.canvas .content-container table.canvas td.area:hover {
+/* CSS */
+background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYzNjZWQ1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSJyZ2JhKDYwLCAxNjEsIDIwMCwgMC42NzQpIi8+PC9yYWRpYWxHcmFkaWVudD48cmVjdCB4PSIwJSIgeT0iMCUiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InJnYmEoNjAsIDE2MSwgMjAwLCAwLjY3NCkiIC8+PHJlY3QgeD0iLTYuMTUwMSUiIHk9Ii01OS44OCUiIHdpZHRoPSIxMTIuMzAwMiUiIGhlaWdodD0iMjE5Ljc2JSIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=);
+background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 127, color-stop(0%, #c3ced5), color-stop(100%, rgba(60, 161, 200, 0.674)));
+background-image: -webkit-radial-gradient(center center, closest-corner circle, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
+background-image: -moz-radial-gradient(center center, closest-corner circle, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
+background-image: -ms-radial-gradient(center center, closest-corner circle, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
+background-image: -o-radial-gradient(center center, closest-corner circle, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
+background-image: radial-gradient(closest-corner circle at center center, #c3ced5 0%, rgba(60, 161, 200, 0.674) 100%);
+
+/* SVG */
+<svg xmlns="http://www.w3.org/2000/svg">
+	<radialGradient id="g">
+		<stop offset="0" stop-color="#c3ced5"/>
+		<stop offset="1" stop-color="rgba(60, 161, 200, 0.674)"/>
+	</radialGradient>
+	<rect x="0%" y="0%" width="100%" height="100%" fill="rgba(60, 161, 200, 0.674)" />
+	<rect x="-6.1501%" y="-59.88%" width="112.3002%" height="219.76%" fill="url(#g)" />
+</svg>
+
+/* Canvas */
+var g = ctx.createRadialGradient(114, 58, 0, 114, 58, 127);
+g.addColorStop(0, #c3ced5);
+g.addColorStop(1, rgba(60, 161, 200, 0.674));
+ctx.fillStyle = g;
+ctx.fillRect(0, 0, 227, 116);
 }

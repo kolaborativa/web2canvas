@@ -46,6 +46,7 @@ return Math.max.apply( Math, array );
 // botao de adicionar novo item
 $(".btn-adicionar").click(function () {
   // pego o id do botao que eh o igual a classe que quero adicionar o item
+  // ATENCAO A CLASSE QUE DESEJO DEVE SER A PRIMEIRA
   var todasClassesBotao = $(this).attr('class');
   var classeBotao = todasClassesBotao.split(" ")[0];
 
@@ -62,7 +63,13 @@ $(".btn-adicionar").click(function () {
     var maiorIndice = 0;
   }
 
-  $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
+  if(classeBotao == "estrutura_custos") {
+    $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
+  } else if(classeBotao == "principais_parcerias"){
+    $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
+  } else {
+    $("div"+"."+classeBotao).append('<p><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="text" data-placeholder="Required" title="'+titulo_caixa+'" data-pk="'+(maiorIndice + 1)+'" onmouseover=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'>'+campo_vazio+'</p>');
+  }
 });
 
 // chamada do plugin para os campos dinamicos
