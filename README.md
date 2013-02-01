@@ -40,4 +40,4 @@ Desenvolvido por:
 Licença
 ---------------------
 
-Copyleft 2013.
+BSD License.
