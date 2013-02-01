@@ -325,3 +325,28 @@ g.addColorStop(1, rgba(60, 161, 200, 0.674));
 ctx.fillStyle = g;
 ctx.fillRect(0, 0, 227, 116);
 }
+
+
+/* Home */
+
+h2#home {
+    font-family: "Arial Black",Gadget,sans-serif;
+    background-color: #c0c6e4;
+    border-radius: 9px;
+    padding: 12px;
+}
+section#home {
+    font-family: "Arial Black",Gadget,sans-serif;
+    background-color: #c0c6e4;
+    border-radius: 9px;
+    padding: 12px;
+}
+div#meus-projetos {
+    margin-bottom: 10px;
+}
+div#projetos-colaborador {
+    margin-bottom: 10px;
+}
+.projetos {
+    font-family: "Arial Black",Gadget,sans-serif;
+}

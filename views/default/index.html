@@ -1,18 +1,41 @@
 {{extend 'default/layout.html'}}
-<h3>Meus Projetos</h3>
-{{ if meus_projetos: }}
-    {{ for projeto in meus_projetos: }}
-        <p><a href="{{=URL(c='default', f='projeto', args=[projeto.id])}}">{{=projeto.nome}}</a></p>
-    {{ pass }}
-{{ pass }}
-<hr />
-<h3>Projetos que faço parte</h3>
-{{ if projetos_colaborador: }}
-    {{ for projeto in projetos_colaborador: }}
-        <p><a href="{{=URL(c='default', f='projeto', args=[projeto.projeto_id])}}">{{=projeto.projeto_id.nome}}</a></p>
-    {{ pass }}
-{{ pass }}
-<hr />
-<h3>Criar novo Projeto</h3>
-{{=form}}
-
+<h2 id="home">Projetos</h2>
+<section id="home">
+    <div id="meus-projetos">
+        <h3>Meus Projetos</h3>
+        {{ if meus_projetos: }}
+            {{ for projeto in meus_projetos: }}
+                <div class="projetos span3">
+                   <p>{{=projeto.nome}}</p> 
+                    <img src="{{=URL('static', 'images/selecionar_projeto.png')}}" />
+                    <a href="{{=URL(c='default', f='projeto', args=[projeto.id])}}">
+                        <img src="{{=URL('static', 'images/botao_editar.png')}}" />
+                    </a>
+                </div>
+            {{ pass }}
+        {{ pass }}
+        <div style="clear:both" ></div>
+    </div>
+    <div id="projetos-colaborador">
+        <hr id="home" class="span12" />
+        <h3 class="span12">Projetos que faço parte</h3>
+        {{ if projetos_colaborador: }}
+            {{ for projeto in projetos_colaborador: }}
+                <div class="projetos span3">
+                   <p>{{=projeto.projeto_id.nome}}</p> 
+                    <img src="{{=URL('static', 'images/selecionar_projeto.png')}}" />
+                    <a href="{{=URL(c='default', f='projeto', args=[projeto.projeto_id])}}">
+                        <img src="{{=URL('static', 'images/botao_editar.png')}}" />
+                    </a>
+                </div>
+            {{ pass }}
+        {{ pass }}
+        <div style="clear:both" ></div>
+    </div> 
+        <hr id="home" class="span12" />
+        <h3 class="span12">Criar novo Projeto</h3>
+        <div class="span12">
+        {{=form}}
+        </div>
+        <div style="clear:both" ></div>
+</section>
