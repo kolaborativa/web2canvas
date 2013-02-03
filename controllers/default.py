@@ -9,9 +9,15 @@
 ## - call exposes all registered services (none by default)
 #########################################################################
 
-@auth.requires_login()
 def index():
-    """Home page com opcao de criar projetos
+    """Home page
+    """
+    return dict()
+
+
+@auth.requires_login()
+def projetos():
+    """Pagina com opcao de criar projetos
     """
     from datetime import datetime
     meus_projetos = db(Projeto.criado_por==auth.user.id).select()
@@ -25,9 +31,10 @@ def index():
 
     return dict(form=form, meus_projetos=meus_projetos, projetos_colaborador=projetos_colaborador)
 
+
 @auth.requires_login()
-def projeto():
-    """Pagina do Projeto, onde os dados serao editados
+def projeto_canvas():
+    """Pagina com o Canvas do projeto, onde os dados serao editados
     """
     import json
     projeto_id = request.args(0) or redirect(URL('index'))

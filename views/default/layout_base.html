@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+	<title>Web2Canvas - Para construção do seu modelo de negócio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+    <link href="{{=URL('static','css/bootstrap.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{=URL('static','css/theme.css')}}">
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    {{ if request.function == "projeto_canvas": }}
+    <link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
+    <link href="{{=URL('static','css/style.css')}}" rel="stylesheet">
+    {{ pass }}
+</head>
+<body>
+    <a href="#" class="scrolltop">
+        <span>subir</span>
+    </a>
+    <!-- begins navbar -->
+    {{ include 'default/navbar.html'}}
+    <!-- ends navbar -->
+
+    {{ include }}
+
+    <!-- starts footer -->
+    {{ include 'default/footer.html'}}
+    <!-- ends footer -->
+
+    <!-- javascripts -->
+    <script src="{{=URL('static','js/jquery-1.9.0.min.js')}}"></script>
+    <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+    <script src="{{=URL('static','js/theme.js')}}"></script>
+    {{ if request.function == "projeto_canvas": }}
+    <script src="{{=URL('static','js/bootstrap-editable.min.js')}}"></script>
+    <script>
+    var urlJson = "{{=URL('editar_dados.json')}}";
+    </script>
+    <script src="{{=URL('static','js/editar_item.js')}}"></script>
+    {{ pass }}
+</body>
+</html>

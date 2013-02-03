@@ -1,41 +1,141 @@
-{{extend 'default/layout.html'}}
-<h2 id="home">Projetos</h2>
-<section id="home">
-    <div id="meus-projetos">
-        <h3>Meus Projetos</h3>
-        {{ if meus_projetos: }}
-            {{ for projeto in meus_projetos: }}
-                <div class="projetos span3">
-                   <p>{{=projeto.nome}}</p> 
-                    <img src="{{=URL('static', 'images/selecionar_projeto.png')}}" />
-                    <a href="{{=URL(c='default', f='projeto', args=[projeto.id])}}">
-                        <img src="{{=URL('static', 'images/botao_editar.png')}}" />
-                    </a>
+{{extend 'default/layout_base.html'}}
+
+<div id="hero">
+    <div class="container">
+        <!-- starts carousel -->
+        <div class="row animated fadeInDown">
+            <div class="span12">
+                <div id="myCarousel" class="carousel slide">
+                    <!-- carousel items -->
+                    <div class="carousel-inner">
+                        <!-- slide -->
+                        <div class="active item slide1">
+                            <div class="row">
+                                <div class="span6">
+                                    <img src="{{=URL('static','img/slide1.png')}}" alt="slide1" />
+                                </div>
+                                <div class="span4">
+                                    <h1>
+                                        Design responsivo e limpo
+                                    </h1>
+                                    <p>
+                                        Adaptado para tablets, smartphones, notebooks e desktops. A evolução do design responsivo mudou bastante isto, conseguindo trazer a vantagens de ter diversos sites para um só lugar.
+                                    </p>
+                                    <a href="{{=URL(f='user',args='register')}}" class="btn btn-success btn-large">
+                                        Cadastrar-se
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide -->
+                        <div class="item slide2">
+                            <div class="row">
+                                <div class="span4 animated fadeInUpBig">
+                                    <h1>Cross-browser, Cross-plataform e Open Source</h1>
+                                    <p>
+                                        Totalmente Web, o Web2Canvas é Cross-browser, ou seja, suporta múltiplos navegadores, Sistemas Operacionais como Windows, Linux, Mac e dispositivos móveis como Android e IOS.
+                                    </p>
+                                    <p>
+                                        Além disso ele é Open Source e não têm custo de licença.
+                                    </p>
+                                    <a href="https://github.com/gustavox4ids/hackathon_sebrae" target="_blank" class="btn btn-success btn-large">
+                                        Acesse o código
+                                    </a>
+                                </div>
+                                <div class="span6 animated fadeInDownBig">
+                                    <img src="{{=URL('static','img/slide2.png')}}" alt="slide2" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- slide -->
+                        <div class="item slide3 animated fadeInUpBig">
+                            <img src="{{=URL('static','img/slide3.png')}}" alt="slide3" />
+                        </div>
+                    </div>
+                    <!-- Carousel nav -->
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
                 </div>
-            {{ pass }}
-        {{ pass }}
-        <div style="clear:both" ></div>
-    </div>
-    <div id="projetos-colaborador">
-        <hr id="home" class="span12" />
-        <h3 class="span12">Projetos que faço parte</h3>
-        {{ if projetos_colaborador: }}
-            {{ for projeto in projetos_colaborador: }}
-                <div class="projetos span3">
-                   <p>{{=projeto.projeto_id.nome}}</p> 
-                    <img src="{{=URL('static', 'images/selecionar_projeto.png')}}" />
-                    <a href="{{=URL(c='default', f='projeto', args=[projeto.projeto_id])}}">
-                        <img src="{{=URL('static', 'images/botao_editar.png')}}" />
-                    </a>
-                </div>
-            {{ pass }}
-        {{ pass }}
-        <div style="clear:both" ></div>
-    </div> 
-        <hr id="home" class="span12" />
-        <h3 class="span12">Criar novo Projeto</h3>
-        <div class="span12">
-        {{=form}}
+            </div>
         </div>
-        <div style="clear:both" ></div>
-</section>
+    </div>
+</div>
+<div id="intro">
+    <div class="container">
+        <h1>O Web2Canvas é um guia visual para construção do seu modelo de negócio.</h1>
+    </div>
+</div>
+
+<!-- features -->
+<div id="recursos">
+    <div class="container">
+        <!-- header -->
+        <h2 class="section_header">
+            <hr class="left visible-desktop">
+            <span>Recursos</span>
+            <hr class="right visible-desktop">
+        </h2>
+
+        <!-- feature list -->
+        <div class="row">
+            <div class="span4 feature">
+                <img src="{{=URL('static','img/feature3.jpg')}}" alt="feature3" class="thumb" />
+                <h3>
+                    <i class="i_movil"></i> Design Responsivo
+                </h3>
+                <p class="description">
+                    O Web2Canvas é criado para fornecer uma melhor visualização e experiência, além de fácil leitura e navegação. Acesse de um dispositivo móvel, tablet ou celular, verá que este site se adequa, o conteúdo se reorganiza de acordo com tamanho do navegador.
+                </p>
+            </div>
+            <div class="span4 feature">
+                <img src="{{=URL('static','img/feature1.jpg')}}" alt="feature1" class="thumb" />
+                <h3>
+                    <i class="i_cloud"></i> Rápido carregamento
+                </h3>
+                <p class="description">
+                    There are many variations of passages of Lorem Ipsum available, but the 
+                    majority have suffered alteration in some form, by injected humour, or randomised 
+                    words which don't look even slightly believable.
+                </p>
+            </div>
+            <div class="span4 feature">
+                <img src="{{=URL('static','img/feature2.jpg')}}" alt="feature2" class="thumb" />
+                <h3>
+                    <i class="i_shuffle"></i> Cross-plataform
+                </h3>
+                <p class="description">
+                    O Web2Canvas é uma aplicação Web que roda em vários navegadores Web ao mesmo tempo que pode
+                    ser acessível por diversos Sistemas Operacionais como Windows, Linux, Mac e dispositivos móveis como Android e IOS.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- starts testimonial -->
+<div id="testimonials">
+    <div class="container">
+        <div class="controls">
+            <hr>
+        </div>
+        <div class="phrases_wrapper">
+            <div class="phrase">
+                <div class="row">
+                    <div class="span7">
+                        <p class="testimony">
+                            O Canvas é um modelo de negócio que aponta o potencial para uma ideia da economia digital se transformar num produto rentável...
+                            <span>"</span>
+                        </p>
+                    </div>
+                    <div class="span3 offset1">
+                        <div class="pic">
+                            <img src="{{=URL('static','img/sebrae.jpg')}}" alt="author" class="img-circle" />
+                            <span class="name">Jornal Conexão Sebrae</span><br>
+                            <span class="position">Campo Grande/MS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+	<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+    		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+          	</a>
+            {{ if request.function == 'index': }}
+            <a class="brand scroller" data-section="body" href="{{=URL('index')}}">
+            {{ else: }}
+            <a class="brand scroller" href="{{=URL('index')}}">
+            {{ pass }}
+                Web2Canvas
+            </a>
+            <div class="nav-collapse collapse">
+                <ul class="nav pull-right">
+                    {{ if request.function == 'index': }}
+                    <li><a href="#" class="scroller" data-section="body">Home</a></li>
+                    <li><a href="#" class="scroller" data-section="#recursos">Recursos</a></li>
+                    <li><a href="#" class="scroller" data-section="#footer">Contato</a></li>
+                    {{ else: }}
+                    <li><a href="{{=URL('index')}}" class="scroller">Home</a></li>
+                    {{ pass }}
+                    {{ if not auth.is_logged_in(): }}
+                    <li>
+                        <a class="btn-header" href="{{=URL(f='user',args='register')}}">Cadastre-se</a>
+                    </li>
+                    <li>
+                        <a class="btn-header" href="{{=URL(f='user',args='login')}}">Entrar</a>
+                    </li>
+                    {{ else: }}
+                    <li>
+                        <a href="{{=URL('projetos')}}">Meus projetos</a>
+                    </li>
+                    <div class="btn-group">
+                        <a class="btn btn-inverse" href="#"><i class="icon-user icon-white"></i> <b>{{=auth.user.first_name}}</b></a>
+                        <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{=URL(f='user',args='profile',vars={'_next':'index'})}}"><i class="icon-user"></i> Perfil</a>
+                            </li>
+                            <li>
+                                <a href="{{=URL(f='user',args='change_password',vars={'_next':'index'})}}"><i class="icon-lock"></i> Senha</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{=URL(f='user',args='logout',vars={'_next':'index'})}}"><i class="icon-off"></i> Sair</a>
+                            </li>
+                        </ul>
+                    </div>
+                    {{ pass }}
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>

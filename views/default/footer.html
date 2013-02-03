@@ -1,0 +1,82 @@
+<div id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                {{ if request.function == 'index': }}
+                <h3>Simples e fácil de usar</h3>
+                <div class="blog_post">
+                    <div class="row">
+                        <div class="span2">
+                            <a href="blog.html">
+                                <img src="{{=URL('static','img/pic_blog.png')}}" alt="post image" class="img-circle" />
+                            </a>
+                        </div>
+                        <div class="span4">
+                            <a href="blog.html" class="title">
+                                Lorem Ipsum is simply dummy 
+                            </a>
+                            <div class="intro">
+                                There are many variations of passages of Lorem alteration in some form by injected look even slightly believable.
+                            </div>
+                            <div class="date">
+                                Oct 22. 2012
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span4 contact_us">
+                <h3>Contato</h3>
+                <form class="form-horizontal">
+                    <div class="field">
+                        <div class="label_field">
+                            <label for="inputName">Name</label>
+                        </div>
+                        <input type="text" id="inputName" />
+                    </div>
+
+                    <div class="field">
+                        <div class="label_field">
+                            <label for="inputEmail">Email</label>
+                        </div>
+                        <input type="text" id="inputEmail" />
+                    </div>
+
+                    <div class="field">
+                        <div class="label_field">
+                            <label for="inputCity">City</label>
+                        </div>
+                        <input type="text" id="inputCity" />
+                    </div>
+
+                    <div class="field">
+                        <div class="label_field">
+                            <label for="inputComment">Comments</label>
+                        </div>
+                        <textarea name="comments"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send</button>
+                </form>
+                {{ pass }}
+            </div>
+        </div>
+        <hr>
+        <div class="row copyright">
+            <div class="span5">
+                <h3>Social</h3>
+                <a href="#" class="social fb">
+                    <i class="i_facebook"></i>
+                </a>
+                <a href="#" class="social tw">
+                    <i class="i_twitter"></i>
+                </a>
+                <a href="#" class="social yt">
+                    <i class="i_youtube"></i>
+                </a>
+            </div>
+            <div class="span2 offset5 copy">
+                <p>{{=request.now.year}} - Web2Canvas</p>
+            </div>
+        </div>
+    </div>
+</div>
