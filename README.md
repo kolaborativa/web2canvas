@@ -22,9 +22,16 @@ O Web2Canvas é uma aplicação do web2py e para rodar o Web2Canvas você precis
 Changelog
 -----------
 
+**v 1.0.1**:
+
+- Novo layout.
+- Tela Home.
+
 **v 1.0**:
 
-- Canvas
+- Sistema de login.
+- Criação de um novo projeto.
+- Edição do modelo Canvas.
 
 ---------------------------------------
 
@@ -39,6 +46,7 @@ Desenvolvido por:
 
 Licença
 ---------------------
+O Web2Canvas está sob licença BSD.
 
     Copyright (c) 2013, Gustavo de Souza Lima
     All rights reserved.
