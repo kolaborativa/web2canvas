@@ -1,23 +1,142 @@
 {{extend 'default/layout_base.html'}}
-<h2>{{=T( request.args(0).replace('_',' ').capitalize() )}}</h2>
-<div id="web2py_user_form">
-{{
-if request.args(0)=='login':
-    if not 'register' in auth.settings.actions_disabled:
-        form.add_button(T('Register'),URL(args='register'),_class='btn')
-    pass
-    if not 'request_reset_password' in auth.settings.actions_disabled:
-        form.add_button(T('Lost Password'),URL(args='request_reset_password'),_class='btn')
-    pass
-pass
-=form
-}}
+<div id="box_user">
+    <div class="container">
+        <div class="span12 box_wrapper">
+            <div class="span12 box">
+                <div>
+                    <div class="head">
+                    	{{if request.args(0)=='login':}}
+                        <h4>Faça login na sua conta</h4>
+                        {{elif request.args(0)=='register':}}
+                        <h4>Crie sua conta</h4>
+                        {{elif request.args(0)=='profile':}}
+                        <h4>Perfil</h4>
+                        {{elif request.args(0)=='change_password':}}
+                        <h4>Mudar a senha</h4>
+                        {{elif request.args(0)=='request_reset_password':}}
+                        <h4>Solicitar nova senha</h4>
+                        {{pass}}
+                    </div>
+                	{{if request.args(0)=='login':}}
+                	<div class="form">
+	<!--                     <div class="social">
+	                        <a class="face_login" href="#">
+	                            <span class="face_icon">
+	                                <img src="{{=URL('static','img/i_face.png')}}" alt="fb" alt=""/>
+	                            </span>
+	                            <span class="text">Entrar com o Facebook</span>
+	                        </a>
+	                        <div class="division">
+	                            <hr class="left">
+	                            <span>ou</span>
+	                            <hr class="right">
+	                        </div>
+	                    </div>  -->                   
+						{{=form.custom.begin}}
+							<!-- email -->
+                            {{ form.elements('#auth_user_email')[0] ['_placeholder'] = "Email" }}
+                            {{ form.elements('#auth_user_email')[0] ['_type'] = "email" }}
+                            {{=form.custom.widget.email}}
+                            
+							<!-- senha -->
+                            {{ form.elements('#auth_user_password')[0] ['_placeholder'] = "Senha" }}
+                            {{=form.custom.widget.password}}
+                            <div class="remember">
+                                <div class="left">
+		                            <input class="checkbox" id="auth_user_remember" name="remember" type="checkbox" value="on" checked /><label for="auth_user_remember">Lembrar-me (por 30 dias)</label>
+                                    <!-- <label for="remember_me">Remember me</label> -->
+                                </div>
+                                <div class="right">
+                                    <a href="{{=URL(f='user',args='request_reset_password')}}">Esqueceu a senha?</a>
+                                </div>
+                            </div>	                           
+                            <input type="submit" class="btn" value="Entrar"/>
+                        {{=form.custom.end}}
+                    </div> <!-- form -->
+                    {{elif request.args(0)=='register':}}
+                	<div class="form">
+						{{=form.custom.begin}}
+							<!-- primeiro nome -->
+                            {{ form.elements('#auth_user_first_name')[0] ['_placeholder'] = "Primeiro Nome" }}
+                            {{=form.custom.widget.first_name}}
+
+							<!-- ultimo nome -->
+                            {{ form.elements('#auth_user_last_name')[0] ['_placeholder'] = "Último Nome" }}
+                            {{=form.custom.widget.last_name}}
+
+							<!-- email -->
+                            {{ form.elements('#auth_user_email')[0] ['_placeholder'] = "Email" }}
+                            {{ form.elements('#auth_user_email')[0] ['_type'] = "email" }}
+                            {{=form.custom.widget.email}}
+                            
+							<!-- senha -->
+                            {{ form.elements('#auth_user_password')[0] ['_placeholder'] = "Senha" }}
+                            {{=form.custom.widget.password}}
+
+							<!-- confirmacao da senha -->
+                            {{ form.element(_name='password_two')['_placeholder'] = "Confirme a senha" }}
+                            {{=form.custom.widget.password_two}}
+                            
+                            <input type="submit" class="btn" value="Entrar"/>
+                        {{=form.custom.end}}
+                    </div> <!-- form -->
+                    {{elif request.args(0)=='profile':}}
+                	<div class="form">
+						{{=form.custom.begin}}
+							<!-- primeiro nome -->
+							<label for="auth_user_first_name" class="pull-left">Primeiro Nome: </label>
+                            {{=form.custom.widget.first_name}}
+
+							<!-- ultimo nome -->
+							<label for="auth_user_last_name" class="pull-left">Último Nome: </label>
+                            {{=form.custom.widget.last_name}}
+
+							<!-- email -->
+							<label for="auth_user_email" class="pull-left">Email: </label>
+                            {{ form.elements('#auth_user_email')[0] ['_placeholder'] = "Email" }}
+                            {{ form.elements('#auth_user_email')[0] ['_type'] = "email" }}
+                            {{=form.custom.widget.email}}
+                            <input type="submit" class="btn" value="Salvar"/>
+                        {{=form.custom.end}}
+                    </div> <!-- form -->
+                    {{elif request.args(0)=='change_password':}}
+                	<div class="form">
+						{{=form.custom.begin}}
+							<!-- senha antiga-->
+                            {{ form.elements('#no_table_old_password')[0] ['_placeholder'] = "Senha antiga" }}
+                            {{=form.custom.widget.old_password}}
+							<!-- senha -->
+                            {{ form.elements('#no_table_new_password')[0] ['_placeholder'] = "Senha nova" }}
+                            {{=form.custom.widget.new_password}}
+
+							<!-- confirmacao da senha -->
+                            {{ form.elements('#no_table_new_password2')[0] ['_placeholder'] = "Confirme a senha" }}
+                            {{=form.custom.widget.new_password2}}
+                            <input type="submit" class="btn" value="Mudar a senha"/>
+                        {{=form.custom.end}}
+                    </div> <!-- form -->
+                    {{elif request.args(0)=='request_reset_password':}}
+                	<div class="form">
+						{{=form.custom.begin}}
+							<!-- email -->
+                            {{ form.elements('#auth_user_email')[0] ['_placeholder'] = "Email" }}
+                            {{ form.elements('#auth_user_email')[0] ['_type'] = "email" }}
+                            {{=form.custom.widget.email}}
+                            <input type="submit" class="btn" value="Salvar"/>
+                        {{=form.custom.end}}
+                    </div> <!-- form -->
+                	{{pass}}
+                </div>
+            </div>
+        	{{if request.args(0)=='login':}}
+            <p class="already">Não possui uma conta? 
+                <a href="{{=URL(f='user',args='register')}}">Registrar-se</a>
+            </p>
+            {{elif request.args(0)=='register':}}
+            <p class="already">Já possui uma conta? 
+                <a href="{{=URL(f='user',args='login')}}">Entrar</a>
+            </p>
+            {{pass}}       
+        </div>
+    </div>
 </div>
-<script language="javascript"><!--
-jQuery("#web2py_user_form input:visible:enabled:first").focus();
-{{if request.args(0)=='register':}}
-    web2py_validate_entropy(jQuery('#auth_user_password'),100);
-{{elif request.args(0)=='change_password':}}
-    web2py_validate_entropy(jQuery('#no_table_new_password'),100);
-{{pass}}
-//--></script>

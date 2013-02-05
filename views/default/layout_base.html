@@ -3,13 +3,27 @@
 <head>
 	<title>Web2Canvas - Para construção do seu modelo de negócio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- http://dev.w3.org/html5/markup/meta.name.html -->
+    <meta name="application-name" content="Web2Canvas" />
+
+    <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{{=URL('static','images/favicon.png')}}">
+
+    <!-- Bootstrap -->
     <link href="{{=URL('static','css/bootstrap.min.css')}}" rel="stylesheet">
+    <!-- stylesheets -->
     <link rel="stylesheet" type="text/css" href="{{=URL('static','css/theme.css')}}">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    
     {{ if request.function == "projeto_canvas": }}
     <link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
     <link href="{{=URL('static','css/style.css')}}" rel="stylesheet">
+    {{ elif request.function == "user": }}
+    <!-- css -->
+    <link href="{{=URL('static','css/user.css')}}" rel="stylesheet">
+    <link href="{{=URL('static','css/web2py.css')}}" rel="stylesheet">
     {{ pass }}
 </head>
 <body>
@@ -22,20 +36,53 @@
 
     {{ include }}
 
+    {{ if request.function == "index" or request.function == "projeto_canvas": }}
     <!-- starts footer -->
     {{ include 'default/footer.html'}}
     <!-- ends footer -->
+    {{pass}}
 
     <!-- javascripts -->
     <script src="{{=URL('static','js/jquery-1.9.0.min.js')}}"></script>
     <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
     <script src="{{=URL('static','js/theme.js')}}"></script>
+    
     {{ if request.function == "projeto_canvas": }}
     <script src="{{=URL('static','js/bootstrap-editable.min.js')}}"></script>
     <script>
     var urlJson = "{{=URL('editar_dados.json')}}";
     </script>
     <script src="{{=URL('static','js/editar_item.js')}}"></script>
+
+    {{ elif request.function == "user": }}
+    <!-- javascript -->
+    <script src="{{=URL('static','js/web2py.js')}}"></script>
+    <!-- chamada funcao para mostrar força da senha -->
+    <script language="javascript"><!--
+    jQuery("#web2py_user_form input:visible:enabled:first").focus();
+    {{if request.args(0)=='register':}}
+        web2py_validate_entropy(jQuery('#auth_user_password'),100);
+    {{elif request.args(0)=='change_password':}}
+        web2py_validate_entropy(jQuery('#no_table_new_password'),100);
+    {{pass}}
+    //--></script>
     {{ pass }}
+
+    <!-- All JavaScript at the bottom, except for Modernizr which enables
+       HTML5 elements & feature detects -->
+    <script src="{{=URL('static','js/modernizr.custom.js')}}"></script>
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script> 
 </body>
 </html>
