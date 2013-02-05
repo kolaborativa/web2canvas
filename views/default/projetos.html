@@ -9,8 +9,8 @@
         </div>
         <div style="clear:both" ></div>
         <div id="meus-projetos">
-            <h3>Meus Projetos</h3>
             {{ if meus_projetos: }}
+                <h3>Meus Projetos</h3>
                 {{ for projeto in meus_projetos: }}
                     <div class="projetos span3">
                        <p>Projeto - <b>{{=projeto.nome}}</b></p> 
@@ -25,8 +25,8 @@
         </div>
         <div id="projetos-colaborador">
             <hr id="home" class="span12" />
-            <h3 class="span12">Projetos que faço parte</h3>
             {{ if projetos_colaborador: }}
+                <h3 class="span12">Projetos que faço parte</h3>
                 {{ for projeto in projetos_colaborador: }}
                     <div class="projetos span3">
                        <p>{{=projeto.projeto_id.nome}}</p> 
