@@ -15,6 +15,12 @@ def index():
     return dict()
 
 
+def modelo_canvas():
+    """Pagina sobre o canvas
+    """
+    return dict()
+
+
 @auth.requires_login()
 def projetos():
     """Pagina com opcao de criar projetos

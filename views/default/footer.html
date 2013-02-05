@@ -1,65 +1,105 @@
-<div id="footer">
+<div id="footer" class="canvas">
     <div class="container">
-        <div class="row">
-            <div class="span8">
-                {{ if request.function == 'index': }}
-                <h3>Simples e fácil de usar</h3>
-                <div class="blog_post">
-                    <div class="row">
-                        <div class="span2">
-                            <a href="blog.html">
-                                <img src="{{=URL('static','img/pic_blog.png')}}" alt="post image" class="img-circle" />
-                            </a>
-                        </div>
-                        <div class="span4">
-                            <a href="blog.html" class="title">
-                                Lorem Ipsum is simply dummy 
-                            </a>
-                            <div class="intro">
-                                There are many variations of passages of Lorem alteration in some form by injected look even slightly believable.
-                            </div>
-                            <div class="date">
-                                Oct 22. 2012
-                            </div>
-                        </div>
-                    </div>
+        <div id="blocos_canvas">
+            <h2 class="section_header">
+                <hr class="left visible-desktop">
+                <span>9 blocos canvas</span>
+                <hr class="right visible-desktop">
+            </h2>
+
+            <div class="row">
+                <div class="span12">
+                    <h3 class="intro">
+                        Após refletir sobre cada um dos blocos, anotar e relacionar as suas idéias,
+                        você descobrirá como diferenciar seu empreendimento, reduzir custos e
+                        obter receitas. <a href="{{=URL(f='user',args='register')}}">Faça sua conte e crie o seu agora</a>
+                    </h3>
                 </div>
             </div>
-            <div class="span4 contact_us">
-                <h3>Contato</h3>
-                <form class="form-horizontal">
-                    <div class="field">
-                        <div class="label_field">
-                            <label for="inputName">Name</label>
-                        </div>
-                        <input type="text" id="inputName" />
-                    </div>
 
-                    <div class="field">
-                        <div class="label_field">
-                            <label for="inputEmail">Email</label>
-                        </div>
-                        <input type="text" id="inputEmail" />
-                    </div>
-
-                    <div class="field">
-                        <div class="label_field">
-                            <label for="inputCity">City</label>
-                        </div>
-                        <input type="text" id="inputCity" />
-                    </div>
-
-                    <div class="field">
-                        <div class="label_field">
-                            <label for="inputComment">Comments</label>
-                        </div>
-                        <textarea name="comments"></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send</button>
-                </form>
-                {{ pass }}
+            <div class="row">
+                <div class="span4 bloco">
+                    <div class="icon">
+                        <i class="icon_valor"></i></div>
+                    <h4>Proposta de Valor</h4>
+                    <p>
+                        Qual seu pacote de produtos e serviços e o valor que ele possui para os clientes.
+                    </p>
+                </div>
+                <div class="span4 bloco">
+                    <div class="icon">
+                        <i class="icon_atividades"></i></div>
+                    <h4>Atividades Principais</h4>
+                    <p>
+                        Liste ações/tarefas importantes que sua empresa deve atender conforme a
+                        Proposta de Valor e para fazer seu Modelo de Negócio funcionar.
+                    </p>
+                </div>
+                <div class="span4 bloco">
+                    <div class="icon">
+                        <i class="icon_recursos"></i></div>
+                    <h4>Recursos Principais</h4>
+                    <p>
+                        Recursos mais importantes exigidos para fazer o Modelo de Negócio funcionar.
+                    </p>
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="span4 bloco">
+                    <div class="icon">
+                        <i class="icon_parceiros"></i></div>
+                    <h4>Parcerias Principais</h4>
+                    <p>
+                        Rede de fornecedores e parceiros que ajudam a sua empresa a funcionar.
+                    </p>
+                </div>
+                <div class="span4 bloco">
+                    <div class="icon">
+                        <i class="icon_custos"></i></div>
+                    <h4>Estrutura de Custos</h4>
+                    <p>
+                        Todos os custos envolvidos na operação do seu Modelo de Negócio.
+                    </p>
+                </div>
+                <div class="span4 bloco">
+                    <div class="icon">
+                        <i class="icon_segmento"></i></div>
+                    <h4>Segmento de Clientes</h4>
+                    <p>
+                        Quem são os clientes que você pretende atender? Eles têm um perfil específico?
+                        Como eles estão agrupados? Como estão localizados? Há uma necessidade comum?
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span4 bloco">
+                    <div class="icon">
+                        <i class="icon_relacionamento"></i></div>
+                    <h4>Relacionamento com Clientes</h4>
+                    <p>
+                        Tipos de relação que uma empresa estabelece com Segmento de Clientes para conquistá-los
+                        e mantê-los.
+                    </p>
+                </div>
+                <div class="span4 bloco">
+                    <div class="icon">
+                        <i class="icon_canais"></i></div>
+                    <h4>Canais</h4>
+                    <p>
+                        Como sua empresa se comunica e alcança seus clientes para entregar sua Proposta de Valor.
+                    </p>
+                </div>
+                <div class="span4 bloco">
+                    <div class="icon">
+                        <i class="icon_receita"></i></div>
+                    <h4>Receitas</h4>
+                    <p>
+                        Dinheiro que a empresa gera. Quanto e como você vai receber dos clientes.
+                    </p>
+                </div>
+            </div>
+        </div> <!-- blocos_canvas -->
+
         <hr>
         <div class="row copyright">
             <div class="span5">
@@ -77,6 +117,6 @@
             <div class="span2 offset5 copy">
                 <p>{{=request.now.year}} - Web2Canvas</p>
             </div>
-        </div>
-    </div>
-</div>
+        </div> <!-- copyright -->
+    </div> <!-- container -->
+</div> <!-- footer -->

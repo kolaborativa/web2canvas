@@ -18,12 +18,12 @@ body {
 	-moz-border-radius: 100px;
 	display: none;
 	height: 40px;
-	opacity: 0.6;
+	opacity: 0.7;
 	filter: alpha(opacity=60);
 	position: fixed;
 	right: 2%;
 	/*text-indent: -9999px;*/
-	top: 50%;
+	top: 51%;
 	width: 40px;
 	z-index: 33;
 }
@@ -148,7 +148,7 @@ input[type="color"]:focus,
 	text-shadow: none;
 }
 .navbar .nav.pull-right {
-	top: 10px;
+	/*top: 10px;*/
 	/*margin-right: 40px;*/
 }
 .navbar .nav > li > a {
@@ -299,10 +299,14 @@ input[type="color"]:focus,
 	font-weight: normal;
 	text-shadow: white 2px 2px 1px;
 }
-/* features section */
-#features { }
-#features .container { }
-#features .feature img.thumb {
+/* sessao recursos */
+#recursos { }
+#recursos .container { }
+#recursos .section_header {
+	margin-top: 55px;
+	color: #252B34;
+}
+#recursos .feature img.thumb {
 	border: 3px solid #fff;
 	border-radius: 5px;
 	box-shadow: 0px 0px 0px 1px #bcbcbc;
@@ -314,10 +318,10 @@ input[type="color"]:focus,
 	-o-transition: all .2s linear;
 	transition: all .2s linear;	
 }
-#features .feature img.thumb:hover {
+#recursos .feature img.thumb:hover {
 	box-shadow: 0px 0px 7px 1px #8cbe5b;
 }
-#features .feature h3 {
+#recursos .feature h3 {
 	font-size: 22px;
 	font-weight: bolder;
 	color: #252b34;
@@ -325,19 +329,151 @@ input[type="color"]:focus,
 	/*text-align: center;*/
 	padding-left: 35px;
 }
-#features .feature h3 i {
+#recursos .feature h3 i {
 	margin-right: 5px;
 	position: relative;
 	top: 2px;
 }
-#features .feature p.description {
+#recursos .feature p.description {
 	color: #44474D;
 	width: 85%;
 	padding-left: 35px;
 }
-#features .feature .btn {
+#recursos .feature .btn {
 	margin-top: 15px;
 	margin-left: 35px;
+}
+
+
+/* Blocos Canvas
+-------------------------------------------------- */
+#blocos_canvas {
+	/*font-size: 12px;*/
+}
+.canvas .section_header {
+	margin-top: 55px;
+	margin-bottom: 10px;
+	color: #fff;
+}
+.canvas h3.intro {
+	color: #fff;
+	text-align: center;
+	font-weight: normal;
+	font-size: 22px;
+	line-height: 32px;
+	width: 83%;
+	margin: 0 auto;
+	margin-bottom: 70px;
+	font-size: 18px;
+}
+.canvas .bloco {
+	margin-bottom: 20px;
+	position: relative;
+}
+.canvas .bloco .icon {
+	width: 65px;
+	height: 65px;
+	background-color: rgb(122, 157, 185);
+	border-radius: 100px;
+	position: absolute;	
+}
+.canvas .bloco .icon i {
+	background: url('../img/canvas_icons.png') no-repeat;
+	display: block;
+	position: relative;
+}
+
+.canvas .bloco i.icon_atividades{
+	background-position: -3px 0;
+	width: 21px;
+	height: 23px;
+	top: 20px;
+	left: 22px;
+}
+
+.canvas .bloco i.icon_canais{
+	background-position: -1px -56px ;
+	width: 28px;
+	height: 23px;
+	top: 21px;
+	left: 20px;
+}
+
+.canvas .bloco i.icon_custos{
+	background-position: -7px -101px ;
+	width: 12px;
+	height: 23px;
+	top: 21px;
+	left: 28px;
+}
+
+.canvas .bloco i.icon_parceiros{
+	background-position: -2px -155px ;
+	width: 24px;
+	height: 24px;
+	top: 19px;
+	left: 22px;
+}
+
+.canvas .bloco i.icon_receita{
+	background-position: -4px -205px ;
+	width: 23px;
+	height: 25px;
+	top: 21px;
+	left: 22px;
+}
+
+.canvas .bloco i.icon_recursos{
+	background-position: 0 -252px ;
+	width: 29px;
+	height: 24px;
+	top: 21px;
+	left: 20px;
+}
+
+.canvas .bloco i.icon_relacionamento{
+	background-position: -2px -306px ;
+	width: 26px;
+	height: 25px;
+	top: 22px;
+	left: 20px;
+}
+
+.canvas .bloco i.icon_segmento{
+	background-position: -1px -355px ;
+	width: 25px;
+	height: 23px;
+	top: 19px;
+	left: 21px;
+}
+
+.canvas .bloco i.icon_valor{
+	background-position: -2px -407px ;
+	width: 20px;
+	height: 25px;
+	top: 20px;
+	left: 23px;
+}
+
+.canvas .bloco h4,
+.canvas .bloco p {
+	margin-left: 80px;
+	width: 70%;
+}
+.canvas .bloco p {
+	font-size: 12px;
+}
+.canvas .bloco h4 {
+	line-height: 25px;
+	color: #fff;
+	font-size: 15px;
+}
+
+@media (max-width: 979px) {
+	.canvas h3.intro {
+		font-size: 17px;
+		line-height: 20px;
+	}
 }
 
 /* testimonials section */
@@ -392,7 +528,6 @@ input[type="color"]:focus,
 	min-height: 300px;
 	margin-top: 100px;
 	color: #fff;
-	padding-top: 35px;
 }
 #footer h3 {
 	margin-bottom: 25px;
@@ -632,13 +767,13 @@ input[type="color"]:focus,
 	#intro h1 {
 		width: 80%;
 	}
-	#features .feature h3 {
+	#recursos .feature h3 {
 		padding-left: 0px;
 	}
-	#features .feature p.description {
+	#recursos .feature p.description {
 		padding-left: 0px;
 	}
-	#features .feature .btn {
+	#recursos .feature .btn {
 		margin-left: 0px;
 	}
 	#pricing .price_wrapper {
@@ -708,10 +843,10 @@ input[type="color"]:focus,
 		margin-right: -20px;
 		margin-left: -20px;
 	}
-	#features .feature .btn {
+	#recursos .feature .btn {
 		margin-top: 8px;
 	}
-	#features .feature {
+	#recursos .feature {
 		margin-bottom: 30px;
 	}
 	#testimonials .phrases_wrapper .phrase > p {

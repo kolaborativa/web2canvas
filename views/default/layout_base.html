@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt_br">
 <head>
-	<title>Web2Canvas - Para construção do seu modelo de negócio</title>
+	<title>Web2Canvas - Para construção do seu Modelo de Negócio</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -17,7 +17,9 @@
     <link rel="stylesheet" type="text/css" href="{{=URL('static','css/theme.css')}}">
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
     
-    {{ if request.function == "projeto_canvas": }}
+    {{ if request.function == "index": }}
+    <link href="{{=URL('static','css/animate.css')}}" rel="stylesheet">
+    {{ elif request.function == "projeto_canvas": }}
     <link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
     <link href="{{=URL('static','css/style.css')}}" rel="stylesheet">
     {{ elif request.function == "user": }}
