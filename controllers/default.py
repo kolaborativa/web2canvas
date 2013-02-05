@@ -33,7 +33,7 @@ def projetos():
 
     if form.process().accepted:
         db(Projeto.id==form.vars.id).update(criado_por=auth.user.id, criado_em=datetime.now())
-        redirect(URL('index'))
+        redirect(URL('projetos'))
 
     return dict(form=form, meus_projetos=meus_projetos, projetos_colaborador=projetos_colaborador)
 
