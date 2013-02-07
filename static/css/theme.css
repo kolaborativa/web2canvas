@@ -149,7 +149,7 @@ input[type="color"]:focus,
 }
 .navbar .nav.pull-right {
 	/*top: 10px;*/
-	/*margin-right: 40px;*/
+	margin-right: 80px;
 }
 .navbar .nav > li > a {
 	color: #F8F8F8;
@@ -267,6 +267,7 @@ input[type="color"]:focus,
 }
 #hero .carousel-inner .item img {
 	max-height: 349px;
+	margin: 0 auto;
 }
 #hero .carousel-inner .item.slide3 img {
 	display: block;
@@ -304,7 +305,7 @@ input[type="color"]:focus,
 #recursos .container { }
 #recursos .section_header {
 	margin-top: 55px;
-	color: #252B34;
+	color: #fff;
 }
 #recursos .feature img.thumb {
 	border: 3px solid #fff;
@@ -324,7 +325,7 @@ input[type="color"]:focus,
 #recursos .feature h3 {
 	font-size: 22px;
 	font-weight: bolder;
-	color: #252b34;
+	color: #fff;
 	margin-top: 25px;
 	/*text-align: center;*/
 	padding-left: 35px;
@@ -335,7 +336,7 @@ input[type="color"]:focus,
 	top: 2px;
 }
 #recursos .feature p.description {
-	color: #44474D;
+	color: #fff;
 	width: 85%;
 	padding-left: 35px;
 }
@@ -353,10 +354,10 @@ input[type="color"]:focus,
 .canvas .section_header {
 	margin-top: 55px;
 	margin-bottom: 10px;
-	color: #fff;
+	/*color: #fff;*/
 }
 .canvas h3.intro {
-	color: #fff;
+	/*color: #fff;*/
 	text-align: center;
 	font-weight: normal;
 	font-size: 22px;
@@ -465,7 +466,6 @@ input[type="color"]:focus,
 }
 .canvas .bloco h4 {
 	line-height: 25px;
-	color: #fff;
 	font-size: 15px;
 }
 
@@ -910,52 +910,73 @@ input[type="color"]:focus,
 	background: url('../img/icons.png') no-repeat;
 	display: inline-block;
 }
-.i_bars{
+.i_bars_white, 
+.i_bookmark_white, 
+.i_chart_white, 
+.i_cloud_white, 
+.i_facebook_white, 
+.i_loading_white, 
+.i_movil_white, 
+.i_shuffle_white, 
+.i_twitter_white, 
+.i_youtube_white{
+	background: url('../img/icons_white.png') no-repeat;
+	display: inline-block;
+}
+.i_download {
+	background: url('../img/i_download.png') no-repeat;
+	display: inline-block;
+	width: 32px;
+	height: 23px;
+	position: relative;
+	top: 2px;
+}
+.i_bars, .i_bars_white{
 	background-position: 0 -303px ;
 	width: 18px;
 	height: 16px;
 }
-.i_bookmark{
+.i_bookmark,.i_bookmark_white{
 	background-position: 0 -253px ;
 	width: 18px;
 	height: 13px;
 }
-.i_chart{
+.i_chart,.i_chart_white{
 	background-position: 0 -49px ;
 	width: 22px;
 	height: 24px;
 }
-.i_cloud{
+.i_cloud,.i_cloud_white{
 	background-position: 0 0;
 	width: 32px;
 	height: 21px;
 }
-.i_facebook{
+.i_facebook,.i_facebook_white{
 	background-position: 0 -401px ;
 	width: 12px;
 	height: 24px;
 }
-.i_loading{
+.i_loading,.i_loading_white{
 	background-position: 0 -202px ;
 	width: 21px;
 	height: 14px;
 }
-.i_movil{
+.i_movil,.i_movil_white{
 	background-position: 0 -99px ;
 	width: 17px;
 	height: 25px;
 }
-.i_shuffle{
+.i_shuffle,.i_shuffle_white{
 	background-position: 0 -151px ;
 	width: 18px;
 	height: 12px;
 }
-.i_twitter{
+.i_twitter,.i_twitter_white{
 	background-position: 0 -351px ;
 	width: 24px;
 	height: 18px;
 }
-.i_youtube{
+.i_youtube,.i_youtube_white{
 	background-position: 0 -452px ;
 	width: 24px;
 	height: 23px;
