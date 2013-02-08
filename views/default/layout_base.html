@@ -37,7 +37,7 @@
 
     {{ include }}
 
-    {{ if not request.function != "user" or request.function != "projetos": }}
+    {{ if request.function != "user" and request.function != "projetos": }}
     <!-- starts footer -->
     {{ include 'default/footer.html'}}
     <!-- ends footer -->
