@@ -1,59 +1,66 @@
 {{extend 'default/layout_base.html'}}
 
-O Business Model Canvas é uma ferramenta de gerenciamento estratégico, que permite desenvolver e esboçar modelos de negócio novos ou existentes. É um mapa visual pré-formatado contendo nove blocos do modelo de negócios.[1]. O Business Model Canvas foi inicialmente proposto por Alexander Osterwalder[2] baseado no seu trabalho anterior sobre Business Model Ontology.[3]
-As descrições formais do negócio se tornam os blocos para construir suas atividades. Existem várias conceitualizações diferentes de negócio; o trabalho e a tese de Osterwalder (2010[1], 2004[3]) propõem um modelo único de referência baseado nas semelhanças de um vasto número de conceitualizações de modelo de negócios. Com seu padrão de design de modelo de negócios, uma empresa pode facilmente descrever seu modelo de negócios.
+<div class="container">
+    <div class="row">
+        <div class="span10 offset1">
+            <h3>Simples e fácil de usar</h3>
+        </div>
+            
+    </div>
+    <div class="row">
+        <div class="span2 offset1">
+            <img src="{{=URL('static','img/pic_blog.png')}}" alt="post image" class="img-circle" />
+        </div>
+        <div class="span8">
+            <p>
+            O <strong>Business Model Canvas</strong> é uma ferramenta de gerenciamento estratégico, que permite desenvolver e esboçar modelos de negócio novos ou existentes. É um mapa visual pré-formatado contendo nove blocos do modelo de negócios.
+            </p>
+            <p>
+            O Business Model Canvas foi inicialmente proposto por <i>Alexander Osterwalder</i> baseado no seu trabalho anterior sobre Business Model Ontology. <sup><a href="#citacao_ref-1">[1]</a></sup>
 
-                <h3>Simples e fácil de usar</h3>
-                <div class="blog_post">
-                    <div class="row">
-                        <div class="span2">
-                            <a href="blog.html">
-                                <img src="{{=URL('static','img/pic_blog.png')}}" alt="post image" class="img-circle" />
-                            </a>
-                        </div>
-                        <div class="span4">
-                            <a href="blog.html" class="title">
-                                Lorem Ipsum is simply dummy 
-                            </a>
-                            <div class="intro">
-                                There are many variations of passages of Lorem alteration in some form by injected look even slightly believable.
-                            </div>
-                            <div class="date">
-                                Oct 22. 2012
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </p>
+            <p>
+                O Business Model Canvas será um mapa dos principais itens que irão constituir uma empresa, que deverá estar sempre sendo revisado cada quadrante ao longo do tempo para saber se cada um está sendo bem atendido ou se é necessário fazer alteração em algum deles para se conseguir um melhor resultado.
+            </p>
+            <br>
+            <img src="{{=URL('static','img/quadro_canvas.png')}}"/>
+            <br>
+            <div id="sobre_canvas">
+                <h3>Observe o quadro acima.</h3>
+                <p>
+                    Nele estão distribuidos os 9 blocos que se relacionam para descrever <strong>O Modelo de Negócio</strong>.
+                </p>
+                <p>
+                    Você vai usar esse Quadro para pensar no negócio que quer criar, analisar ou atualizar.
+                </p>
+                <p>
+                    Analise o Quadro de acordo com o roteiro a seguir:
+                </p>
+                <ol>
+                    <li>
+                        Vou fazer <strong>O Que?</strong> Essa resposta será a sua <span>Proposta de Valor</span>.
+                    </li>
+                    <li>
+                        <strong>Para Quem</strong> vou fazer? Aqui estão incluídos 3 blocos: <span>Segmento de Clientes</span>, <span>Canais</span> e <span>Relacionamento com Clientes</span>.
+                    </li>
+                    <li>
+                        <strong>Como</strong> vou fazer? Descubra quais os <span>Recursos Principais</span>, as <span>Atividades</span> e as <span>Parcerias Principais</span>.
+                    </li>
+                    <li>
+                        <strong>Quanto</strong>? Avalie quais serão as <span>Receitas</span>, como serão obtidas e qual será a <span>Estrutura de Custos</span> para viabilizar o negócio.
+                    </li>
+                </ol>
             </div>
-            <div class="span4 contact_us">
-                <h3>Contato</h3>
-                <form class="form-horizontal">
-                    <div class="field">
-                        <div class="label_field">
-                            <label for="inputName">Name</label>
-                        </div>
-                        <input type="text" id="inputName" />
-                    </div>
-
-                    <div class="field">
-                        <div class="label_field">
-                            <label for="inputEmail">Email</label>
-                        </div>
-                        <input type="text" id="inputEmail" />
-                    </div>
-
-                    <div class="field">
-                        <div class="label_field">
-                            <label for="inputCity">City</label>
-                        </div>
-                        <input type="text" id="inputCity" />
-                    </div>
-
-                    <div class="field">
-                        <div class="label_field">
-                            <label for="inputComment">Comments</label>
-                        </div>
-                        <textarea name="comments"></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send</button>
-                </form>
+            <br>
+            <p><strong>Tente. Invente. Aprenda.</strong></p>
+            <p>MÃOS À OBRA! E BOM PROVEITO!</p>
+                <a href="{{=URL(f='user',args='register')}}" class="btn btn-success btn-large">
+                    Cadastrar-se
+                </a>
+            <br><br><br>
+            <p>
+                <sup>[1]</sup> Saiba mais sobre Alexander Osterwalder em seu <a href="http://alexosterwalder.com/" name="citacao_ref-1" target="_blank">Site</a>.
+            </p>
+        </div>
+    </div>
+</div>

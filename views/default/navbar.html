@@ -17,12 +17,14 @@
                 <ul class="nav pull-right">
                     {{ if request.function == 'index': }}
                     <li><a href="#" class="scroller" data-section="body">Home</a></li>
-                    <li><a href="#" class="scroller" data-section="#blocos_canvas">Como modelar</a></li>
+                    <li><a href="#" class="scroller" data-section="#blocos_canvas">Blocos Canvas</a></li>
                     <li><a href="#" class="scroller" data-section="#footer">Recursos</a></li>
-                    <li><a href="{{=URL('modelo_canvas')}}" alt="Modelo Canvas" title="Modelo Canvas">Sobre Canvas</a></li>
+                    <li><a href="{{=URL('modelo_canvas')}}" alt="Modelo Canvas" title="Modelo Canvas">Começando o Canvas</a></li>
                     {{ else: }}
-                    <li><a href="{{=URL('index')}}" class="scroller">Home</a></li>
-                    <li><a href="{{=URL('modelo_canvas')}}" alt="Modelo Canvas" title="Modelo Canvas">Sobre Canvas</a></li>
+                    <li><a href="{{=URL('index')}}">Home</a></li>
+                    <li><a href="{{=URL('index#blocos_canvas')}}">Blocos Canvas</a></li>
+                    <li><a href="{{=URL('index#recursos')}}">Recursos</a></li>
+                    <li><a href="{{=URL('modelo_canvas')}}" alt="Modelo Canvas" title="Modelo Canvas">Começando o Canvas</a></li>
                     {{ pass }}
                     {{ if not auth.is_logged_in(): }}
                     <li>

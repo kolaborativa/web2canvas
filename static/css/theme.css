@@ -152,7 +152,7 @@ input[type="color"]:focus,
 }
 .navbar .nav.pull-right {
 	/*top: 10px;*/
-	margin-right: 80px;
+	margin-right: 110px;
 }
 .navbar .nav > li > a {
 	color: #F8F8F8;
@@ -386,7 +386,7 @@ input[type="color"]:focus,
 	line-height: 32px;
 	width: 83%;
 	margin: 0 auto;
-	margin-bottom: 70px;
+	margin-bottom: 30px;
 	font-size: 18px;
 }
 .canvas .bloco {
@@ -548,7 +548,6 @@ input[type="color"]:focus,
 #footer {
 	background: url("../img/footer_bg.jpg") 0 0 repeat;
 	min-height: 300px;
-	margin-top: 100px;
 	color: #fff;
 }
 #footer h3 {
@@ -1033,6 +1032,7 @@ i.myspace { background-position: -233px -51px; }
   ==================== 
 */
 
+
 .nav .dropdown-toggle .caret {
 	border-top-color: #fff;
 }
@@ -1052,4 +1052,19 @@ i.myspace { background-position: -233px -51px; }
 	background: linear-gradient(to bottom, #414A57 0%,#292f38 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#414A57', endColorstr='#292f38',GradientType=0 );
 	border: 1px solid #13161b;
+}
+
+/*
+  =====================
+   PAGINA SOBRE CANVAS
+  ===================== 
+*/
+
+#sobre_canvas li {
+	line-height: 30px;
+}
+
+#sobre_canvas span {
+	color: rgb(57, 100, 17);
+	font-style: italic;
 }
