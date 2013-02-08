@@ -310,7 +310,6 @@ h3 {
 	font-size: 13px;
 }
 
-
  .content-container table.canvas td.area:hover {
 /* CSS */
 background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSJyZ2JhKDI0MCwgMjI1LCAyMTMsIDAuODkxKSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0icmdiYSgyMTYsIDE2NiwgMTQ2LCAwLjc2NCkiLz48L3JhZGlhbEdyYWRpZW50PjxyZWN0IHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0icmdiYSgyMTYsIDE2NiwgMTQ2LCAwLjc2NCkiIC8+PHJlY3QgeD0iLTYuMTUwMSUiIHk9Ii01OS44OCUiIHdpZHRoPSIxMTIuMzAwMiUiIGhlaWdodD0iMjE5Ljc2JSIgZmlsbD0idXJsKCNnKSIgLz48L3N2Zz4=);
@@ -340,26 +339,4 @@ ctx.fillRect(0, 0, 227, 116);
 }
 
 
-/* Home */
 
-h2#home {
-    font-family: "Arial Black",Gadget,sans-serif;
-    background-color: #c0c6e4;
-    border-radius: 9px;
-    padding: 12px;
-}
-section#home {
-    font-family: "Arial Black",Gadget,sans-serif;
-    background-color: #c0c6e4;
-    border-radius: 9px;
-    padding: 12px;
-}
-div#meus-projetos {
-    margin-bottom: 10px;
-}
-div#projetos-colaborador {
-    margin-bottom: 10px;
-}
-.projetos {
-    font-family: "Arial Black",Gadget,sans-serif;
-}

@@ -1,43 +1,49 @@
 {{extend 'default/layout_base.html'}}
 
 <div class="container">
-    <h2 id="home">Projetos</h2>
-    <section id="home">
-        <h3 class="span12">Criar novo Projeto</h3>
-        <div class="span12">
-        {{=form}}
+    <section id="projetos" class="row-fluid">
+        <div class="span3 projeto">
+            <h3>Criar novo Projeto</h3>
+            {{=form.custom.begin}}
+                {{ form.elements('#projeto_nome')[0] ['_placeholder'] = "Nome" }}
+                {{=form.custom.widget.nome}}
+                <br>
+                <br>
+                <input type="submit" class="btn btn-primary" value="Entrar"/>
+            {{=form.custom.end}}
         </div>
-        <div style="clear:both" ></div>
-        <div id="meus-projetos">
-            {{ if meus_projetos: }}
-                <h3>Meus Projetos</h3>
-                {{ for projeto in meus_projetos: }}
-                    <div class="projetos span3">
-                       <p>Projeto - <b>{{=projeto.nome}}</b></p> 
-                        <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.id])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
+        {{ if meus_projetos: }}
+        <div class="span9 projeto">
+            <h3>Meus Projetos</h3>
+            {{ for projeto in meus_projetos: }}
+                <div class="projeto span3">
+                    <p>Nome: <strong>{{=projeto.nome}}</strong></p>
+                    <p>Criado em: <strong>{{=projeto.criado_em.strftime("%d/%m/%Y")}}</strong></p>
+                    <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.id])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
                         <img src="{{=URL('static', 'images/selecionar_projeto.png')}}" />
-                            <img src="{{=URL('static', 'images/botao_editar.png')}}" />
-                        </a>
-                    </div>
-                {{ pass }}
+                        <img src="{{=URL('static', 'images/botao_editar.png')}}" />
+                    </a>
+                </div>
             {{ pass }}
-            <div style="clear:both" ></div>
         </div>
-        <div id="projetos-colaborador">
-            <hr id="home" class="span12" />
-            {{ if projetos_colaborador: }}
-                <h3 class="span12">Projetos que faço parte</h3>
-                {{ for projeto in projetos_colaborador: }}
-                    <div class="projetos span3">
-                       <p>{{=projeto.projeto_id.nome}}</p> 
+        {{ pass }}
+    </section>
+    <hr />
+    <section id="projetos-colaborador" class="row-fluid">
+        {{ if projetos_colaborador: }}
+        <div class="span9 offset3 projeto">
+            <h3>Projetos que faço parte</h3>
+            {{ for projeto in projetos_colaborador: }}
+                <div class="projeto span3">
+                    <p>Nome: <strong>{{=projeto.projeto_id.nome}}</strong></p>
+                    <p>Criado em: <strong>{{=projeto.projeto_id.criado_em.strftime("%d/%m/%Y")}}</strong></p>
+                    <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.projeto_id])}}" alt="Abrir Projeto {{=projeto.projeto_id.nome}}" title="Abrir Projeto {{=projeto.nome}}">
                         <img src="{{=URL('static', 'images/selecionar_projeto.png')}}" />
-                        <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.projeto_id])}}">
-                            <img src="{{=URL('static', 'images/botao_editar.png')}}" />
-                        </a>
-                    </div>
-                {{ pass }}
+                        <img src="{{=URL('static', 'images/botao_editar.png')}}" />
+                    </a>
+                </div>
             {{ pass }}
-            <div style="clear:both" ></div>
-        </div> 
+        </div>
+        {{ pass }}
     </section>
 </div> 

@@ -205,6 +205,9 @@ input[type="color"]:focus,
 	background: none;
 	color: #fff;
 }
+.pagina_atual a {
+	color: #ffff00!important;
+}
 .dropdown-menu li > a:hover,
 .dropdown-menu li > a:focus,
 .dropdown-submenu:hover > a {
@@ -547,7 +550,7 @@ input[type="color"]:focus,
 /* footer section */
 #footer {
 	background: url("../img/footer_bg.jpg") 0 0 repeat;
-	min-height: 300px;
+	/*min-height: 300px;*/
 	color: #fff;
 }
 #footer h3 {
@@ -1067,4 +1070,23 @@ i.myspace { background-position: -233px -51px; }
 #sobre_canvas span {
 	color: rgb(57, 100, 17);
 	font-style: italic;
+}
+
+/*
+  ====================
+   PAGINA DE PROJETOS
+  ==================== 
+*/
+
+#projetos input[type="text"] {
+	margin-bottom: 0px;
+}
+.projeto {
+    font-family: "Arial Black",Gadget,sans-serif;
+    background-color: #c0c6e4;
+    border-radius: 9px;
+    padding: 12px;
+}
+.titulo_projeto {
+    font-size: 20px!important;
 }

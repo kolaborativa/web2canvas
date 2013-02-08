@@ -12,3 +12,10 @@ Here is their sweet home.
 
 ## Global functions
 
+def g_pagina_atual(url, classe, vazio=''):
+    '''retorna a classe caso esteja na url. Senao retorna vazio'''
+    url_server = '%s/%s' % (request.controller, request.function)
+    if url == url_server:
+        return classe
+    else:
+        return vazio

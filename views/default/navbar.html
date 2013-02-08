@@ -16,16 +16,34 @@
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">
                     {{ if request.function == 'index': }}
-                    <li><a href="#" class="scroller" data-section="body">Home</a></li>
-                    <li><a href="#" class="scroller" data-section="#blocos_canvas">Blocos Canvas</a></li>
-                    <li><a href="#" class="scroller" data-section="#footer">Recursos</a></li>
-                    <li><a href="{{=URL('modelo_canvas')}}" alt="Modelo Canvas" title="Modelo Canvas">Começando o Canvas</a></li>
+                    <li class='{{=g_pagina_atual("default/index","pagina_atual")}}'>
+                        <a href="#" class="scroller" data-section="body">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="scroller" data-section="#blocos_canvas">Blocos Canvas</a>
+                    </li>
+                    <li>
+                        <a href="#" class="scroller" data-section="#footer">Recursos</a>
+                    </li>
+                    <li class='{{=g_pagina_atual("default/modelo_canvas","pagina_atual")}}'>
+                        <a href="{{=URL('modelo_canvas')}}" alt="Modelo Canvas" title="Modelo Canvas">Começando o Canvas</a>
+                    </li>
+
                     {{ else: }}
-                    <li><a href="{{=URL('index')}}">Home</a></li>
-                    <li><a href="{{=URL('index#blocos_canvas')}}">Blocos Canvas</a></li>
-                    <li><a href="{{=URL('index#recursos')}}">Recursos</a></li>
-                    <li><a href="{{=URL('modelo_canvas')}}" alt="Modelo Canvas" title="Modelo Canvas">Começando o Canvas</a></li>
+                    <li class='{{=g_pagina_atual("default/index","pagina_atual")}}'>
+                        <a href="{{=URL('index')}}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{=URL('index#blocos_canvas')}}">Blocos Canvas</a>
+                    </li>
+                    <li>
+                        <a href="{{=URL('index#recursos')}}">Recursos</a>
+                    </li>
+                    <li class='{{=g_pagina_atual("default/modelo_canvas","pagina_atual")}}'>
+                        <a href="{{=URL('modelo_canvas')}}" alt="Modelo Canvas" title="Modelo Canvas">Começando o Canvas</a>
+                    </li>
                     {{ pass }}
+
                     {{ if not auth.is_logged_in(): }}
                     <li>
                         <a class="btn-header" href="{{=URL(f='user',args='register')}}">Cadastre-se</a>
@@ -34,7 +52,7 @@
                         <a class="btn-header" href="{{=URL(f='user',args='login')}}">Entrar</a>
                     </li>
                     {{ else: }}
-                    <li>
+                    <li class='{{=g_pagina_atual("default/projetos","pagina_atual")}}'>
                         <a href="{{=URL('projetos')}}">Meus projetos</a>
                     </li>
                     <div class="btn-group">
