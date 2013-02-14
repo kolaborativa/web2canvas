@@ -32,7 +32,7 @@
                             </a>
                           </div>
                         </h3>
-                        <div class="add-new-item principais_parcerias">
+                        <div class="drag_drop add-new-item principais_parcerias">
                           <!-- gero os itens dinamicamente -->
                           {{import json}}
                           {{ if projeto.principais_parcerias: }}
@@ -44,13 +44,13 @@
                         </div>
                       </td>
                     </tr>
-                    <tr class="adicionar">
-                      <td class="bottom">
+                    <tr>
+                      <td>
                         <button class="principais_parcerias btn-adicionar btn btn-primary" style="display:none;">
                             Adicionar
                         </button>
                       </td>
-                    </tr>
+                    </tr>                     
                   </tbody>
                 </table> <!-- fim da tabela secundaria  -->
               </td>
@@ -69,7 +69,7 @@
                             </a>
                           </div>
                           </h3>
-                        <div class="add-new-item atividades_principais">
+                        <div class="drag_drop add-new-item atividades_principais">
                           <!-- gero os itens dinamicamente -->
                           {{import json}}
                           {{ if projeto.atividades_principais: }}
@@ -80,13 +80,13 @@
                         </div>
                       </td>
                     </tr>
-                    <tr class="adicionar">
-                      <td class="bottom">
+                    <tr>
+                      <td>
                         <button class="atividades_principais btn-adicionar btn btn-primary" style="display: none;">
                             Adicionar
                         </button>
                       </td>
-                    </tr>
+                    </tr>                     
                   </tbody>
                 </table> <!-- fim da tabela secundaria  -->
               </td>
@@ -105,7 +105,7 @@
                             </a>
                           </div>
                           </h3>
-                        <div class="add-new-item proposta_valor">
+                        <div class="drag_drop add-new-item proposta_valor">
                           <!-- gero os itens dinamicamente -->
                           {{import json}}
                           {{ if projeto.proposta_valor: }}
@@ -116,13 +116,13 @@
                         </div>
                       </td>
                     </tr>
-                    <tr class="adicionar">
-                      <td class="bottom">
+                    <tr>
+                      <td>
                         <button  class="proposta_valor btn-adicionar btn btn-primary" style="display: none;">
                             Adicionar
                         </button>
                       </td>
-                    </tr>
+                    </tr>                     
                   </tbody>
                 </table> <!-- fim da tabela secundaria  -->
               </td>
@@ -140,7 +140,7 @@
                             </a>
                           </div>
                           </h3>
-                        <div class="add-new-item relacionamento_clientes">
+                        <div class="drag_drop add-new-item relacionamento_clientes">
                           <!-- gero os itens dinamicamente -->
                           {{import json}}
                           {{ if projeto.relacionamento_clientes: }}
@@ -151,13 +151,13 @@
                         </div>
                       </td>
                     </tr>
-                    <tr class="adicionar">
-                      <td class="bottom">
+                    <tr>
+                      <td>
                         <button  class="relacionamento_clientes btn-adicionar btn btn-primary" style="display: none;">
                             Adicionar
                         </button>
                       </td>
-                    </tr>
+                    </tr>                     
                   </tbody>
                 </table> <!-- fim da tabela secundaria  -->
               </td>
@@ -175,7 +175,7 @@
                             </a>
                           </div>
                           </h3>
-                        <div class="add-new-item segmento_clientes">
+                        <div class="drag_drop add-new-item segmento_clientes">
                           <!-- gero os itens dinamicamente -->
                           {{import json}}
                           {{ if projeto.segmento_clientes: }}
@@ -186,13 +186,13 @@
                         </div>
                       </td>
                     </tr>
-                    <tr class="adicionar">
-                      <td class="bottom">
+                    <tr>
+                      <td>
                         <button class="segmento_clientes btn-adicionar btn btn-primary" style="display: none;">
                             Adicionar
                         </button>
                       </td>
-                    </tr>
+                    </tr>                     
                   </tbody>
                 </table> <!-- fim da tabela secundaria  -->
               </td>
@@ -212,7 +212,7 @@
                             </a>
                           </div>
                           </h3>
-                        <div class="add-new-item recursos_principais">
+                        <div class="drag_drop add-new-item recursos_principais">
                           <!-- gero os itens dinamicamente -->
                           {{import json}}
                           {{ if projeto.recursos_principais: }}
@@ -223,13 +223,13 @@
                         </div>
                     </td>
                   </tr>
-                  <tr class="adicionar">
-                    <td class="bottom">
+                  <tr>
+                    <td>
                       <button  class="recursos_principais btn-adicionar btn btn-primary" style="display: none;">
                           Adicionar
                       </button>
                     </td>
-                  </tr>
+                  </tr>                   
                 </tbody>
               </table>
             </td>
@@ -247,7 +247,7 @@
                             </a>
                           </div>
                           </h3>
-                        <div class="add-new-item canais">
+                        <div class="drag_drop add-new-item canais">
                           <!-- gero os itens dinamicamente -->
                           {{import json}}
                           {{ if projeto.canais: }}
@@ -258,13 +258,13 @@
                         </div>
                       </td>
                     </tr>
-                    <tr class="adicionar">
-                      <td class="bottom">
+                    <tr>
+                      <td>
                         <button class="canais btn-adicionar btn btn-primary" style="display: none;">
                             Adicionar
                         </button>
                       </td>
-                    </tr>
+                    </tr>                     
                   </tbody>
                 </table>
               </td>
@@ -284,7 +284,7 @@
                             </a>
                           </div>
                         </h3>
-                      <div class="add-new-item estrutura_custos">
+                      <div class="drag_drop add-new-item estrutura_custos">
                         <!-- gero os itens dinamicamente -->
                           {{import json}}
                           {{ if projeto.estrutura_custos: }}
@@ -293,18 +293,15 @@
                               {{ pass }}
                           {{ pass }}
                       </div>
-                      <footer>
-
-                      </footer>
                     </td>
                   </tr>
-                  <tr class="adicionar">
-                    <td class="bottom">
+                  <tr>
+                    <td>
                       <button class="estrutura_custos btn-adicionar btn btn-primary" style="display: none;">
                           Adicionar
                       </button>
                     </td>
-                  </tr>
+                  </tr>                   
                 </tbody>
               </table>
             </td>
@@ -321,31 +318,31 @@
                               <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
-                          </h3>
-                        <div class="add-new-item receitas">
-                          <!-- gero os itens dinamicamente -->
-                          {{import json}}
-                          {{ if projeto.receitas: }}
-                              {{ for i in json.loads(projeto.receitas): }}
-                              <p><a href="#" class="campo_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></p>
-                              {{ pass }}
-                          {{ pass }}
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="adicionar">
-                      <td class="bottom">
-                        <button  class="receitas btn-adicionar btn btn-primary" style="display: none;">
-                            Adicionar
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-          </tbody>
-        </table> <!-- fim da tabela principal -->
+                      </h3>
+                      <div class="drag_drop add-new-item receitas">
+                        <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.receitas: }}
+                            {{ for i in json.loads(projeto.receitas): }}
+                            <p><a href="#" class="campo_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></p>
+                            {{ pass }}
+                        {{ pass }}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button  class="receitas btn-adicionar btn btn-primary" style="display: none;">
+                          Adicionar
+                      </button>
+                    </td>
+                  </tr>                  
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table> <!-- fim da tabela principal -->
 
         <div class="collaborators-container">
           <div class="pull-left">
