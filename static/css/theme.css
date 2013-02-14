@@ -494,13 +494,6 @@ input[type="color"]:focus,
 	font-size: 15px;
 }
 
-@media (max-width: 979px) {
-	.canvas h3.intro {
-		font-size: 17px;
-		line-height: 20px;
-	}
-}
-
 /* testimonials section */
 #testimonials {
 	margin-top: 50px;
@@ -756,6 +749,9 @@ input[type="color"]:focus,
 		background: linear-gradient(to bottom, #545F6D 0%,#303946 100%); 
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545F6D', endColorstr='#303946',GradientType=0 );
 	}
+	.navbar .nav.pull-right {
+	    margin-right: 90px;
+	}
 }
 @media (max-width: 979px) {
 	body {
@@ -783,6 +779,10 @@ input[type="color"]:focus,
 	}
 	#footer {
 		margin-top: 20px;
+	}
+	.canvas h3.intro {
+		font-size: 17px;
+		line-height: 20px;
 	}
 }
 /* Portrait tablet to landscape and desktop */
@@ -947,10 +947,18 @@ input[type="color"]:focus,
 	display: inline-block;
 }
 .i_download {
-	background: url('../img/i_download.png') no-repeat;
+	background: url('../img/icon_download.png') no-repeat;
 	display: inline-block;
 	width: 32px;
 	height: 23px;
+	position: relative;
+	top: 2px;
+}
+.i_dica {
+	background: url('../img/icon_dica.png') no-repeat;
+	display: inline-block;
+	width: 24px;
+	height: 24px;
 	position: relative;
 	top: 2px;
 }

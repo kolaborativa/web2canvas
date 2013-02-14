@@ -1,4 +1,5 @@
 {{extend 'default/layout_base.html'}}
+{{ include 'default/modals_ajuda.html'}}
 
 <div class="container">
 {{ if request.function == "projeto_canvas": }}
@@ -25,13 +26,9 @@
                           <div id="img_parcerias_p" class="area-title">Parcerias<br>Principais</div>
                           <hr>
                           <div class="help">
-                            <a class="helpIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
-                            </a>
-                          </div>
-                          <div class="dica">
-                            <a class="dicaIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                            <!-- link modal -->
+                            <a href="#parcerias_ajuda" role="button" data-toggle="modal" class="helpIcon">
+                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
                         </h3>
@@ -66,13 +63,9 @@
                           <div id="img_atividades_p" class="area-title">Atividades<br>Principais</div>
                           <hr>
                           <div class="help">
-                            <a class="helpIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
-                            </a>
-                          </div>
-                          <div class="dica">
-                            <a class="dicaIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                            <!-- link modal -->
+                            <a href="#atividades_p_ajuda" role="button" data-toggle="modal" class="helpIcon">
+                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
                           </h3>
@@ -106,13 +99,9 @@
                           <div id="img_proposta_v" class="area-title">Proposta<br>de valor</div>
                           <hr>
                           <div class="help">
-                            <a class="helpIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
-                            </a>
-                          </div>
-                          <div class="dica">
-                            <a class="dicaIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                            <!-- link modal -->
+                            <a href="#proposta_valor_ajuda" role="button" data-toggle="modal" class="helpIcon">
+                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
                           </h3>
@@ -146,13 +135,8 @@
                           <div id="img_relacionamento_c" class="area-title">Relacionamento<br>com Clientes</div>
                           <hr>
                           <div class="help">
-                            <a class="helpIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
-                            </a>
-                          </div>
-                          <div class="dica">
-                            <a class="dicaIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                            <a href="#relacionamento_clientes_ajuda" role="button" data-toggle="modal" class="helpIcon">
+                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
                           </h3>
@@ -186,13 +170,8 @@
                           <div id="img_segmento_c" class="area-title">Segmento<br>de Clientes</div>
                           <hr>
                           <div class="help">
-                            <a class="helpIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
-                            </a>
-                          </div>
-                          <div class="dica">
-                            <a class="dicaIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                            <a href="#segmento_clientes_ajuda" role="button" data-toggle="modal" class="helpIcon">
+                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
                           </h3>
@@ -228,13 +207,8 @@
                         <div id="img_recursos_p" class="area-title">Recursos Principais</div>
                           <hr>
                           <div class="help">
-                            <a class="helpIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
-                            </a>
-                          </div>
-                          <div class="dica">
-                            <a class="dicaIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                            <a href="#recursos_principais_ajuda" role="button" data-toggle="modal" class="helpIcon">
+                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
                           </h3>
@@ -268,13 +242,8 @@
                         <div id="img_canais" class="area-title">Canais<br><span>.</span></div>
                           <hr>
                           <div class="help">
-                            <a class="helpIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
-                            </a>
-                          </div>
-                          <div class="dica">
-                            <a class="dicaIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                            <a href="#canais_ajuda" role="button" data-toggle="modal" class="helpIcon">
+                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
                           </h3>
@@ -310,13 +279,8 @@
                         <div id="img_estrutura_c" class="area-title">Estrutura<br>de Custos</div>
                           <hr>
                           <div class="help">
-                            <a class="helpIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
-                            </a>
-                          </div>
-                          <div class="dica">
-                            <a class="dicaIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                            <a href="#estrutura_custos_ajuda" role="button" data-toggle="modal" class="helpIcon">
+                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
                         </h3>
@@ -353,13 +317,8 @@
                         <div id="img_receita" class="area-title">Receitas<br><span>.</span></div>
                         <hr>
                           <div class="help">
-                            <a class="helpIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Help">
-                            </a>
-                          </div>
-                          <div class="dica">
-                            <a class="dicaIcon" href="#">
-                              <img height="24" src='{{=URL("static","images/icon_dica.png")}}' alt="Dica">
+                            <a href="#receitas_ajuda" role="button" data-toggle="modal" class="helpIcon">
+                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                             </a>
                           </div>
                           </h3>
@@ -389,46 +348,58 @@
         </table> <!-- fim da tabela principal -->
 
         <div class="collaborators-container">
-          <div class="left">
-            <a href="#"><img alt="Team" height="64" src='{{=URL("static","images/team.png")}}'></a>
+          <div class="pull-left">
+            <a href="#"><img alt="Team" height="64" src='{{=URL("static","img/time.png")}}'></a>
           </div>
-
-          <ul class="collaborators">
-          <li>
-              <div class="person">
-                  {{=projeto.criado_por.first_name}}
-              </div>
-          </li>
-          {{ for i in time_compartilhamento: }}
+          {{from random import randint}}
+          <div class="pull-left">
+            <ul class="collaborators">
               <li>
                   <div class="person">
-                      {{=i.usuario_id.first_name}}
+                    <div class="icon">
+                      <img alt="{{=projeto.criado_por.first_name}} avatar" title="{{=projeto.criado_por.first_name}} avatar" src='{{=URL("static","img/avatar%d.png" % randint(1,4))}}'>
+                    </div>
+                    <div class="name">
+                    {{=projeto.criado_por.first_name}}
+                    </div>
                   </div>
               </li>
-          {{ pass }}
-            <!--<li id="collaborator_39160">
-              <div class="person">
-                <div class="icon">
-                  <img alt="Esse é seu avatar!" src='{{=URL("static","images/avatar.png")}}'>
-                  <span class="status offline"></span>
+              {{ for i in time_compartilhamento: }}
+              <li>
+                  <div class="person">
+                    <div class="icon">
+                      <img alt="{{=i.usuario_id.first_name}} avatar" title="{{=i.usuario_id.first_name}} avatar" src='{{=URL("static","images/avatar.png")}}'>
+                    </div>
+                    <div class="name">
+                    {{=i.usuario_id.first_name}}
+                    </div>
+                  </div>
+              </li>
+              {{ pass }}
+              <!--<li id="collaborator_39160">
+                <div class="person">
+                  <div class="icon">
+                    <img alt="Esse é seu avatar!" src='{{=URL("static","images/avatar.png")}}'>
+                    <span class="status offline"></span>
+                  </div>
+                  <div class="name">
+                  Danielx4
+                  </div>
                 </div>
-                <div class="name">
-                Danielx4
+              </li>
+              <li id="collaborator_41302">
+                <div class="person">
+                  <div class="icon">
+                    <img alt="Esse é seu avatar!" src='{{=URL("static","images/avatar.png")}}' title="Gustavo de Souza is currently online">
+                    <span class="status online"></span>
+                  </div>
+                  <div class="name">
+                  Gustavo de Souza
+                  </div>
                 </div>
-              </div>
-            </li>
-            <li id="collaborator_41302">
-              <div class="person">
-                <div class="icon">
-                  <img alt="Esse é seu avatar!" src='{{=URL("static","images/avatar.png")}}' title="Gustavo de Souza is currently online">
-                  <span class="status online"></span>
-                </div>
-                <div class="name">
-                Gustavo de Souza
-                </div>
-              </div>
-            </li>-->
-          </ul>
+              </li>-->
+            </ul>
+          </div> <!-- fim do pull-left -->
         </div> <!-- fim do collaborators-container -->
       </div> <!-- fim do canvas -->
     </div> <!-- fim do content_area -->

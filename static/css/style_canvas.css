@@ -127,29 +127,13 @@ font-size: 24px; }
 display: none;
 position: absolute;
 top: 60px;
-right: 30px; }
+right: 10px; }
  .content-container table.canvas td.area h3 .help a.new:hover, .snapshots .content-container table.canvas td.area h3 .help a.new:hover, .risks .content-container table.canvas td.area h3 .help a.new:hover,
 .wizard .content-container table.canvas td.area h3 .help a.new:hover, .experiments .content-container table.canvas td.area h3 .help a.new:hover {
 text-decoration: none; }
  .content-container table.canvas td.area h3 .help h4, .snapshots .content-container table.canvas td.area h3 .help h4, .risks .content-container table.canvas td.area h3 .help h4,
 .wizard .content-container table.canvas td.area h3 .help h4, .experiments .content-container table.canvas td.area h3 .help h4 {
 background: url("/images/icon_help.png") no-repeat;
-cursor: pointer;
-height: 8px;
-width: 18px; }
- .content-container table.canvas td.area h3 .dica {
-display: none;
-position: absolute;
-top: 60px;
-right: 10px; }
-
-/*icone dica*/
- .content-container table.canvas td.area h3 .dica a.new:hover, .snapshots .content-container table.canvas td.area h3 .dica a.new:hover, .risks .content-container table.canvas td.area h3 .dica a.new:hover,
-.wizard .content-container table.canvas td.area h3 .dica a.new:hover, .experiments .content-container table.canvas td.area h3 .dica a.new:hover {
-text-decoration: none; }
- .content-container table.canvas td.area h3 .dica h4, .snapshots .content-container table.canvas td.area h3 .dica h4, .risks .content-container table.canvas td.area h3 .dica h4,
-.wizard .content-container table.canvas td.area h3 .dica h4, .experiments .content-container table.canvas td.area h3 .dica h4 {
-background: url("/images/icon_dica.png") no-repeat;
 cursor: pointer;
 height: 8px;
 width: 18px; }
@@ -177,8 +161,6 @@ background-color: #BDE5F0; }
 color: #A8A8A8;
 font-size: 0.8em; }
  .content-container table.canvas td.area:hover h3 .help {
-display: block; }
- .content-container table.canvas td.area:hover h3 .dica {
 display: block; }
  .content-container .collaborators-container, .snapshots .content-container .collaborators-container, .risks .content-container .collaborators-container,
 .wizard .content-container .collaborators-container, .experiments .content-container .collaborators-container {
@@ -294,7 +276,7 @@ h3 {
 }
 
 .add-new-item {
-	margin-top: 25px;
+	margin-top: 30px;
 }
 
 .add-new-item p {
