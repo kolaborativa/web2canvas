@@ -310,14 +310,17 @@ h3 {
  
 .add-new-item p:active {
   cursor: move;
-  -webkit-transform: rotate(10deg);
-     -moz-transform: rotate(10deg);
-       -o-transform: rotate(10deg);
-      -ms-transform: rotate(10deg);
-          transform: rotate(10deg);
 }
 
-.mover_item {
+.movendo_item {
+  -webkit-transform: rotate(10deg)!important;
+     -moz-transform: rotate(10deg)!important;
+       -o-transform: rotate(10deg)!important;
+      -ms-transform: rotate(10deg)!important;
+          transform: rotate(10deg)!important;
+}
+
+.placeholder_item {
     background-color: rgb(248, 233, 171)!important;
     border: 3px dotted rgb(39, 39, 39);
     height: 1.5em;

@@ -52,6 +52,18 @@ Changelog
 
 ---------------------------------------
 
+TODOLIST
+-----------
+
+- Salvar bloco aonde o cartão é arrastado.
+- Deletar cartões.
+- Melhorar notificações.
+- Ajustar layout responsivo para demais dispositivos.
+- Compartilhar projeto com outros usuários.
+- Login com redes sociais.
+
+---------------------------------------
+
 Desenvolvido por:
 -------
 

@@ -1,4 +1,4 @@
-var titulo_caixa = "Item",
+var titulo_caixa = "Editar Cartão",
     campo_vazio = "Click para escrever";
 
 // iniciar editables
