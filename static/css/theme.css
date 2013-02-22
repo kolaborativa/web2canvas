@@ -369,6 +369,16 @@ input[type="color"]:focus,
 	margin-top: 15px;
 	margin-left: 35px;
 }
+#recursos .mais_recuros ul {
+	margin-top: 15px;
+	margin-left: 35px;
+}
+ul.mais_recuros li {
+	list-style: none;
+}
+ul.mais_recuros i {
+	margin: 0 10px;
+}
 
 
 /* Blocos Canvas
@@ -961,6 +971,15 @@ input[type="color"]:focus,
 	height: 24px;
 	position: relative;
 	top: 2px;
+}
+.i_nova_janela {
+	background: url('../img/icon_nova_janela.png') no-repeat;
+	display: inline-block;
+	width: 13px;
+	height: 13px;
+	position: relative;
+	top: 0px;
+	left: 5px;
 }
 .i_bars, .i_bars_white{
 	background-position: 0 -303px ;
