@@ -43,6 +43,7 @@ Changelog
 
 - Novo layout.
 - Tela Home.
+- Compartilhar projeto com outros usuários.
 
 **v 1.0**:
 
@@ -59,7 +60,6 @@ TODOLIST
 - Deletar cartões.
 - Melhorar notificações.
 - Ajustar layout responsivo para demais dispositivos.
-- Compartilhar projeto com outros usuários.
 - Login com redes sociais.
 
 ---------------------------------------
