@@ -1098,3 +1098,13 @@ i.myspace { background-position: -233px -51px; }
 .titulo_projeto {
     font-size: 20px!important;
 }
+
+/* Adicionar usuario */
+div.autocomplete-suggestions {
+    background-color: #d6e5f1;    
+}
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+

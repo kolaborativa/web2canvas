@@ -365,7 +365,7 @@
               <li>
                   <div class="person">
                     <div class="icon">
-                      <img alt="{{=i.usuario_id.first_name}} avatar" title="{{=i.usuario_id.first_name}} avatar" src='{{=URL("static","images/avatar.png")}}'>
+                      <img alt="{{=i.usuario_id.first_name}} avatar" title="{{=i.usuario_id.first_name}} avatar" src='{{=URL("static","img/avatar%d.png" % randint(1,4))}}'>
                     </div>
                     <div class="name">
                     {{=i.usuario_id.first_name}}
@@ -373,28 +373,13 @@
                   </div>
               </li>
               {{ pass }}
-              <!--<li id="collaborator_39160">
-                <div class="person">
-                  <div class="icon">
-                    <img alt="Esse é seu avatar!" src='{{=URL("static","images/avatar.png")}}'>
-                    <span class="status offline"></span>
-                  </div>
-                  <div class="name">
-                  Danielx4
-                  </div>
-                </div>
-              </li>
-              <li id="collaborator_41302">
-                <div class="person">
-                  <div class="icon">
-                    <img alt="Esse é seu avatar!" src='{{=URL("static","images/avatar.png")}}' title="Gustavo de Souza is currently online">
-                    <span class="status online"></span>
-                  </div>
-                  <div class="name">
-                  Gustavo de Souza
-                  </div>
-                </div>
-              </li>-->
+              {{ if projeto.criado_por == auth.user.id:}}
+                  <div class="input-prepend">
+                  <span class="add-on">+</span>
+                  <input type="text" name="usuario" id="autocomplete" placeholder="Usuário"/>
+                  <a href="#" id="adicionar_usuario" class="btn btn-success">Add</a>
+              {{ pass }}
+              </div>
             </ul>
           </div> <!-- fim do pull-left -->
         </div> <!-- fim do collaborators-container -->
@@ -402,3 +387,23 @@
     </div> <!-- fim do content_area -->
   </div> <!-- fim do content-container -->
 </div> <!-- fim do container -->
+
+<!-- jQuery Autocomplete -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{=URL('static', 'js/jquery.autocomplete.js')}}"></script>
+
+<script type="text/javascript">
+    var usuarios= [];
+    var id_usuario = '';
+        {{for usuario in usuarios_para_adicionar:}}
+            usuarios.push({ "value": "{{=usuario}}", "data": "{{=usuarios_para_adicionar[usuario]}}" });
+        {{ pass }}
+    
+    $('#autocomplete').autocomplete({
+        lookup: usuarios,
+        onSelect: function (suggestion) {
+            id_usuario = suggestion.data;
+            $('#adicionar_usuario').attr('href', '{{=URL(c="default", f="adicionar_usuario", vars={"projeto_id": projeto.id})}}' + '&usuario_id=' + id_usuario);
+        }
+    });
+</script>
