@@ -37,7 +37,7 @@
                 <div class="projeto span3">
                     <p>Nome: <strong>{{=projeto.projeto_id.nome}}</strong></p>
                     <p>Criado em: <strong>{{=projeto.projeto_id.criado_em.strftime("%d/%m/%Y")}}</strong></p>
-                    <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.projeto_id])}}" alt="Abrir Projeto {{=projeto.projeto_id.nome}}" title="Abrir Projeto {{=projeto.nome}}">
+                    <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.projeto_id])}}" alt="Abrir Projeto {{=projeto.projeto_id.nome}}" title="Abrir Projeto {{=projeto.projeto_id.nome}}">
                         <img src="{{=URL('static', 'images/selecionar_projeto.png')}}" />
                         <img src="{{=URL('static', 'images/botao_editar.png')}}" />
                     </a>
