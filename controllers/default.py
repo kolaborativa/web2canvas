@@ -54,7 +54,14 @@ def projeto_canvas():
     if auth.user.id in usuarios_autorizados:
         projeto = db(Projeto.id==projeto_id).select().first()
         time_compartilhamento = db(Compartilhamento.projeto_id==projeto_id).select()
-        return dict(projeto=projeto, time_compartilhamento=time_compartilhamento)
+        id_time = [i.usuario_id for i in time_compartilhamento]
+        id_time.append(projeto.criado_por)
+
+        usuarios_para_adicionar = {'%s %s' % (i.first_name, i.last_name):i.id for i in db(db.auth_user).select() if not i.id in id_time}
+
+        return dict(projeto=projeto,
+                    time_compartilhamento=time_compartilhamento,
+                    usuarios_para_adicionar=usuarios_para_adicionar)
     else:
         redirect(URL('index'))
 
@@ -91,14 +98,14 @@ def adicionar_usuario():
     """Funcao que adiciona usuario a um projeto
     """
     projeto_id = request.vars['projeto_id'] or redirect(URL('index'))
-    usuario_id = request.vars['usuario_id'] or redirect(URL('index'))
+    usuario_id = int(request.vars['usuario_id']) or redirect(URL('index'))
 
     projeto = db(Projeto.id==projeto_id).select().first()
 
     if projeto.criado_por == auth.user.id:
         Compartilhamento.insert(usuario_id=usuario_id,
             projeto_id=projeto_id)
-    redirect(URL(c='default', f='projeto', args=[projeto_id]))
+    redirect(URL(c='default', f='projeto_canvas', args=[projeto_id]))
 
 
 def user():
