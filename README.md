@@ -58,6 +58,7 @@ TODOLIST
 
 - Salvar bloco aonde o cartão é arrastado.
 - Deletar cartões.
+- Excluir usuário de um projeto.
 - Melhorar notificações.
 - Ajustar layout responsivo para demais dispositivos.
 - Login com redes sociais.
