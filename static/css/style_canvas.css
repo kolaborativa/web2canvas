@@ -161,11 +161,6 @@ h3.main span {
 
 .content-container table.canvas td.area:hover{
   background:#FFF;
-  border-right:1px solid #FFF;
-  border-bottom:1px solid #FFF;
-  box-shadow: 0 10px 10px rgba(0,0,0,0.4);
-  -moz-box-shadow: 0 10px 10px rgba(0,0,0,0.4);
-  -o-box-shadow: 0 10px 10px rgba(0,0,0,0.4);
 }
 
 .content-container table.canvas td.area{
@@ -208,16 +203,23 @@ background-image: radial-gradient(farthest-corner circle at center center, rgba(
  CARTOES
 =========
 */
+a.editable-click, a.editable-click:hover {
+  font-size: 1.1em;
+}
+
 .itens p a.item_existente {
+  color: #000;
   color: #000;
   font-size: 13px;
 }
 
-.itens p
-{
-  position: relative;
-  width: 80%;
+.itens p {
+  width: 180px;
+  margin: 10px auto;
   background-color: #fff;
+  word-wrap: break-word;
+  position: relative;
+  line-height: 1.5;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -225,8 +227,6 @@ background-image: radial-gradient(farthest-corner circle at center center, rgba(
   padding: 1em 1.5em;
   color: rgba(0,0,0, .8);
   text-shadow: 0 1px 0 #fff;
-  line-height: 1.5;
-  margin: 10px auto;
   -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
   -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
   box-shadow: 0 5px 10px rgba(0,0,0,.2);
@@ -271,15 +271,17 @@ textarea.input-large {
 }
 
 img.deletar-cartao {
-  display: none;
+  /*display: none;*/
   display: pointer;
   position: relative;
   bottom: 5px;
   left: 12px;
+  opacity: 0;
 }
 
 p:hover img.deletar-cartao {
- display: block;
+ /*display: block;*/
+ opacity: 1;
 }
 
 img.deletar-cartao:hover {

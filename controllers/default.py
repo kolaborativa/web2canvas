@@ -109,9 +109,10 @@ def remove_item():
         else:
             dicionario_dados = {}
         
-        del dicionario_dados[pk]
-        dados = json.dumps(dicionario_dados)
-        Projeto[session.projeto_id]= {campo:dados}
+        if pk in dicionario_dados:
+            del dicionario_dados[pk]
+            dados = json.dumps(dicionario_dados)
+            Projeto[session.projeto_id]= {campo:dados}
 
         return True
     else:
