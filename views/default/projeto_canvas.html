@@ -12,345 +12,315 @@
 
   <div class="content-container">
     <div id="msg"></div>
+    <!-- mensagem de retorno da chamada ajax -->
+    <div id="target-deleted"></div>
     <div id="content_area">
       <div id="canvas">
         <table class="canvas" style="height: 368px; font-size: 11.833333333333334px;"> <!-- tabela principal -->
           <tbody>
             <tr>
-              <td class="area sessao_como" height="66%" id="problem" rowspan="2" width="20%">
+              <td id="container_parcerias_p" class="area sessao_como" height="66%" id="problem" rowspan="2" width="20%">
                 <table class="cell-container"> <!-- tabela secundaria  -->
                   <tbody>
-                    <tr>
-                      <td class="canvas-cell canvas-cell-main">
-                        <h3 class="main">
-                          <div id="img_parcerias_p" class="area-title">Parcerias<br>Principais</div>
-                          <hr>
-                          <div class="help">
-                            <!-- link modal -->
-                            <a href="#parcerias_ajuda" role="button" data-toggle="modal" class="helpIcon">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
-                            </a>
-                          </div>
-                        </h3>
-                        <div class="drag_drop add-new-item principais_parcerias">
-                          <!-- gero os itens dinamicamente -->
-                          {{import json}}
-                          {{ if projeto.principais_parcerias: }}
-                              {{ for i in json.loads(projeto.principais_parcerias): }}
-                              <p><a href="#" class="campo_existente" id="principais_parcerias" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.principais_parcerias)[i]}}</a></p>
-
-                              {{ pass }}
-                          {{ pass }}
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <button class="principais_parcerias btn-adicionar btn btn-primary" style="display:none;">
-                            Adicionar
-                        </button>
-                      </td>
-                    </tr>                     
-                  </tbody>
-                </table> <!-- fim da tabela secundaria  -->
-              </td>
-              <td class="area sessao_como" height="33%" id="solution" width="20%">
-                <table class="cell-container"> <!-- tabela secundaria  -->
-                  <tbody>
-                    <tr>
-                      <td class="canvas-cell canvas-cell-main">
-                        <h3 class="main">
-                          <div id="img_atividades_p" class="area-title">Atividades<br>Principais</div>
-                          <hr>
-                          <div class="help">
-                            <!-- link modal -->
-                            <a href="#atividades_p_ajuda" role="button" data-toggle="modal" class="helpIcon">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
-                            </a>
-                          </div>
-                          </h3>
-                        <div class="drag_drop add-new-item atividades_principais">
-                          <!-- gero os itens dinamicamente -->
-                          {{import json}}
-                          {{ if projeto.atividades_principais: }}
-                              {{ for i in json.loads(projeto.atividades_principais): }}
-                              <p><a href="#" class="campo_existente" id="atividades_principais" data-pk="{{=i}}">{{=json.loads(projeto.atividades_principais)[i]}}</a></p>
-                              {{ pass }}
-                          {{ pass }}
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <button class="atividades_principais btn-adicionar btn btn-primary" style="display: none;">
-                            Adicionar
-                        </button>
-                      </td>
-                    </tr>                     
-                  </tbody>
-                </table> <!-- fim da tabela secundaria  -->
-              </td>
-              <td class="area sessao_oque" colspan="2" height="66%" id="value_proposition" rowspan="2" width="20%">
-                <table class="cell-container"> <!-- tabela secundaria  -->
-                  <tbody>
-                    <tr>
-                      <td class="canvas-cell canvas-cell-main">
-                        <h3 class="main">
-                          <div id="img_proposta_v" class="area-title">Proposta<br>de valor</div>
-                          <hr>
-                          <div class="help">
-                            <!-- link modal -->
-                            <a href="#proposta_valor_ajuda" role="button" data-toggle="modal" class="helpIcon">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
-                            </a>
-                          </div>
-                          </h3>
-                        <div class="drag_drop add-new-item proposta_valor">
-                          <!-- gero os itens dinamicamente -->
-                          {{import json}}
-                          {{ if projeto.proposta_valor: }}
-                              {{ for i in json.loads(projeto.proposta_valor): }}
-                              <p><a href="#" class="campo_existente" id="proposta_valor" data-pk="{{=i}}">{{=json.loads(projeto.proposta_valor)[i]}}</a></p>
-                              {{ pass }}
-                          {{ pass }}
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <button  class="proposta_valor btn-adicionar btn btn-primary" style="display: none;">
-                            Adicionar
-                        </button>
-                      </td>
-                    </tr>                     
-                  </tbody>
-                </table> <!-- fim da tabela secundaria  -->
-              </td>
-              <td class="area sessao_parquem" height="33%" id="unfair_advantage" width="20%">
-                <table class="cell-container"> <!-- tabela secundaria  -->
-                  <tbody>
-                    <tr>
-                      <td class="canvas-cell canvas-cell-main">
-                        <h3 class="main">
-                          <div id="img_relacionamento_c" class="area-title">Relacionamento<br>com Clientes</div>
-                          <hr>
-                          <div class="help">
-                            <a href="#relacionamento_clientes_ajuda" role="button" data-toggle="modal" class="helpIcon">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
-                            </a>
-                          </div>
-                          </h3>
-                        <div class="drag_drop add-new-item relacionamento_clientes">
-                          <!-- gero os itens dinamicamente -->
-                          {{import json}}
-                          {{ if projeto.relacionamento_clientes: }}
-                              {{ for i in json.loads(projeto.relacionamento_clientes): }}
-                              <p><a href="#" class="campo_existente" id="relacionamento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></p>
-                              {{ pass }}
-                          {{ pass }}
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <button  class="relacionamento_clientes btn-adicionar btn btn-primary" style="display: none;">
-                            Adicionar
-                        </button>
-                      </td>
-                    </tr>                     
-                  </tbody>
-                </table> <!-- fim da tabela secundaria  -->
-              </td>
-              <td class="area sessao_parquem" height="66%" id="customer_segments" rowspan="2" width="20%">
-                <table class="cell-container"> <!-- tabela secundaria  -->
-                  <tbody>
-                    <tr>
-                      <td class="canvas-cell canvas-cell-main">
-                        <h3 class="main">
-                          <div id="img_segmento_c" class="area-title">Segmento<br>de Clientes</div>
-                          <hr>
-                          <div class="help">
-                            <a href="#segmento_clientes_ajuda" role="button" data-toggle="modal" class="helpIcon">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
-                            </a>
-                          </div>
-                          </h3>
-                        <div class="drag_drop add-new-item segmento_clientes">
-                          <!-- gero os itens dinamicamente -->
-                          {{import json}}
-                          {{ if projeto.segmento_clientes: }}
-                              {{ for i in json.loads(projeto.segmento_clientes): }}
-                              <p><a href="#" class="campo_existente" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></p>
-                              {{ pass }}
-                          {{ pass }}
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <button class="segmento_clientes btn-adicionar btn btn-primary" style="display: none;">
-                            Adicionar
-                        </button>
-                      </td>
-                    </tr>                     
-                  </tbody>
-                </table> <!-- fim da tabela secundaria  -->
-              </td>
-            </tr>
-            <tr>
-            <td class="area sessao_como" height="33%" id="key_activity" width="20%">
-              <table class="cell-container">
-                <tbody>
-                  <tr>
-                    <td class="canvas-cell canvas-cell-main">
+                    <div class="row-fluid titulo_bloco">
                       <h3 class="main">
-                        <div id="img_recursos_p" class="area-title">Recursos Principais</div>
-                          <hr>
-                          <div class="help">
-                            <a href="#recursos_principais_ajuda" role="button" data-toggle="modal" class="helpIcon">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
-                            </a>
-                          </div>
-                          </h3>
-                        <div class="drag_drop add-new-item recursos_principais">
-                          <!-- gero os itens dinamicamente -->
-                          {{import json}}
-                          {{ if projeto.recursos_principais: }}
-                              {{ for i in json.loads(projeto.recursos_principais): }}
-                              <p><a href="#" class="campo_existente" id="recursos_principais" data-pk="{{=i}}">{{=json.loads(projeto.recursos_principais)[i]}}</a></p>
-                              {{ pass }}
-                          {{ pass }}
-                        </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <button  class="recursos_principais btn-adicionar btn btn-primary" style="display: none;">
-                          Adicionar
-                      </button>
-                    </td>
-                  </tr>                   
-                </tbody>
-              </table>
-            </td>
-            <td class="area sessao_parquem" height="33%" id="channels" width="20%">
-              <table class="cell-container">
-                <tbody>
-                  <tr>
-                    <td class="canvas-cell canvas-cell-main">
-                      <h3 class="main">
-                        <div id="img_canais" class="area-title">Canais<br><span>.</span></div>
-                          <hr>
-                          <div class="help">
-                            <a href="#canais_ajuda" role="button" data-toggle="modal" class="helpIcon">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
-                            </a>
-                          </div>
-                          </h3>
-                        <div class="drag_drop add-new-item canais">
-                          <!-- gero os itens dinamicamente -->
-                          {{import json}}
-                          {{ if projeto.canais: }}
-                              {{ for i in json.loads(projeto.canais): }}
-                              <p><a href="#" class="campo_existente" id="canais" data-pk="{{=i}}">{{=json.loads(projeto.canais)[i]}}</a></p>
-                              {{ pass }}
-                          {{ pass }}
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <button class="canais btn-adicionar btn btn-primary" style="display: none;">
-                            Adicionar
-                        </button>
-                      </td>
-                    </tr>                     
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            <tr>
-            <td class="area sessao_quanto" colspan="3" height="33%" id="cost_structure" width="50%">
-              <table class="cell-container">
-                <tbody>
-                  <tr>
-                    <td class="canvas-cell canvas-cell-main">
-                      <h3 class="main">
-                        <div id="img_estrutura_c" class="area-title">Estrutura<br>de Custos</div>
-                          <hr>
-                          <div class="help">
-                            <a href="#estrutura_custos_ajuda" role="button" data-toggle="modal" class="helpIcon">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
-                            </a>
-                          </div>
-                        </h3>
-                      <div class="drag_drop add-new-item estrutura_custos">
-                        <!-- gero os itens dinamicamente -->
-                          {{import json}}
-                          {{ if projeto.estrutura_custos: }}
-                              {{ for i in json.loads(projeto.estrutura_custos): }}
-                              <p><a href="#" class="campo_existente" id="estrutura_custos" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.estrutura_custos)[i]}}</a></p>
-                              {{ pass }}
-                          {{ pass }}
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <button class="estrutura_custos btn-adicionar btn btn-primary" style="display: none;">
-                          Adicionar
-                      </button>
-                    </td>
-                  </tr>                   
-                </tbody>
-              </table>
-            </td>
-            <td class="area sessao_quanto" colspan="3" height="33%" id="revenue_streams" width="50%">
-              <table class="cell-container">
-                <tbody>
-                  <tr>
-                    <td class="canvas-cell canvas-cell-main">
-                      <h3 class="main">
-                        <div id="img_receita" class="area-title">Receitas<br><span>.</span></div>
+                        <div id="img_parcerias_p" class="area-title">Parcerias<br>Principais</div>
                         <hr>
-                          <div class="help">
-                            <a href="#receitas_ajuda" role="button" data-toggle="modal" class="helpIcon">
-                              <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
-                            </a>
-                          </div>
                       </h3>
-                      <div class="drag_drop add-new-item receitas">
+                    </div>
+                    <div class="row-fluid botoes_bloco">
+                      <button class="parcerias_principais adicionar_item btn btn-success btn-mini pull-left">
+                        Adicionar
+                      </button>
+                      <!-- link modal -->
+                      <a href="#parcerias_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
+                        <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                      </a>
+                    </div>
+                    <div class="row-fluid cartoes">
+                      <div class="itens drag_drop parcerias_principais">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
-                        {{ if projeto.receitas: }}
-                            {{ for i in json.loads(projeto.receitas): }}
-                            <p><a href="#" class="campo_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></p>
+                        {{ if projeto.parcerias_principais: }}
+                            {{ for i in json.loads(projeto.parcerias_principais): }}
+                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar-cartao pull-right" onclick='removeItem("parcerias_principais",{{=i}})'/><a href="#" class="item_existente" id="parcerias_principais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.parcerias_principais)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <button  class="receitas btn-adicionar btn btn-primary" style="display: none;">
-                          Adicionar
+                    </div>
+                  </tbody>
+                </table> <!-- fim da tabela secundaria  -->
+              </td>
+              <td id="container_atividades_p" class="area sessao_como" height="33%" id="solution" width="20%">
+                <table class="cell-container"> <!-- tabela secundaria  -->
+                  <tbody>
+                    <div class="row-fluid titulo_bloco">
+                      <h3 class="main">
+                        <div id="img_atividades_p" class="area-title">Atividades<br>Principais</div>
+                        <hr>
+                      </h3>
+                    </div>
+                    <div class="row-fluid botoes_bloco">
+                      <button class="atividades_principais adicionar_item btn btn-success btn-mini pull-left">
+                        Adicionar
                       </button>
-                    </td>
-                  </tr>                  
+                      <!-- link modal -->
+                      <a href="#atividades_p_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
+                        <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                      </a>
+                    </div>
+                    <div class="row-fluid cartoes">
+                      <div class="itens drag_drop atividades_principais">
+                        <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.atividades_principais: }}
+                            {{ for i in json.loads(projeto.atividades_principais): }}
+                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar-cartao pull-right" onclick='removeItem("atividades_principais",{{=i}})'/><a href="#" class="item_existente" id="atividades_principais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.atividades_principais)[i]}}</a></p>
+                            {{ pass }}
+                        {{ pass }}
+                      </div>
+                    </div>
+                  </tbody>
+                </table> <!-- fim da tabela secundaria  -->
+              </td>
+              <td id="container_proposta_v" class="area sessao_oque" colspan="2" height="66%" id="value_proposition" rowspan="2" width="20%">
+                <table class="cell-container"> <!-- tabela secundaria  -->
+                  <tbody>
+                    <div class="row-fluid titulo_bloco">
+                      <h3 class="main">
+                        <div id="img_proposta_v" class="area-title">Proposta<br>de valor</div>
+                        <hr>
+                      </h3>
+                    </div>
+                    <div class="row-fluid botoes_bloco">
+                      <button class="proposta_valor adicionar_item btn btn-success btn-mini pull-left">
+                        Adicionar
+                      </button>
+                      <!-- link modal -->
+                      <a href="#proposta_valor_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
+                        <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                      </a>
+                    </div>
+                    <div class="row-fluid cartoes">
+                      <div class="itens drag_drop proposta_valor">
+                        <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.proposta_valor: }}
+                            {{ for i in json.loads(projeto.proposta_valor): }}
+                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar-cartao pull-right" onclick='removeItem("proposta_valor",{{=i}})'/><a href="#" class="item_existente" id="proposta_valor" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.proposta_valor)[i]}}</a></p>
+                            {{ pass }}
+                        {{ pass }}
+                      </div>
+                    </div>
+                  </tbody>
+                </table> <!-- fim da tabela secundaria  -->
+              </td>
+              <td id="container_relacionamento_c" class="area sessao_parquem" height="33%" id="unfair_advantage" width="20%">
+                <table class="cell-container"> <!-- tabela secundaria  -->
+                  <tbody>
+                    <div class="row-fluid titulo_bloco">
+                      <h3 class="main">
+                        <div id="img_relacionamento_c" class="area-title">Relacionamento<br>com Clientes</div>
+                        <hr>
+                      </h3>
+                    </div>
+                    <div class="row-fluid botoes_bloco">
+                      <button class="relacionamento_clientes adicionar_item btn btn-success btn-mini pull-left">
+                        Adicionar
+                      </button>
+                      <!-- link modal -->
+                      <a href="#relacionamento_clientes_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
+                        <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                      </a>
+                    </div>
+                    <div class="row-fluid cartoes">
+                      <div class="itens drag_drop relacionamento_clientes">
+                        <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.relacionamento_clientes: }}
+                            {{ for i in json.loads(projeto.relacionamento_clientes): }}
+                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar-cartao pull-right" onclick='removeItem("relacionamento_clientes",{{=i}})'/><a href="#" class="item_existente" id="relacionamento_clientes" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></p>
+                            {{ pass }}
+                        {{ pass }}
+                      </div>
+                    </div>
+                  </tbody>
+                </table> <!-- fim da tabela secundaria  -->
+              </td>
+              <td id="container_segmento_c" class="area sessao_parquem" height="66%" id="customer_segments" rowspan="2" width="20%">
+                <table class="cell-container"> <!-- tabela secundaria  -->
+                  <tbody>
+                    <div class="row-fluid titulo_bloco">
+                      <h3 class="main">
+                        <div id="img_segmento_c" class="area-title">Segmento<br>de Clientes</div>
+                        <hr>
+                      </h3>
+                    </div>
+                    <div class="row-fluid botoes_bloco">
+                      <button class="segmento_clientes adicionar_item btn btn-success btn-mini pull-left">
+                        Adicionar
+                      </button>
+                      <!-- link modal -->
+                      <a href="#segmento_clientes_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
+                        <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                      </a>
+                    </div>
+                    <div class="row-fluid cartoes">
+                      <div class="itens drag_drop segmento_clientes">
+                        <!-- gero os itens dinamicamente -->
+                        {{import json}}
+                        {{ if projeto.segmento_clientes: }}
+                            {{ for i in json.loads(projeto.segmento_clientes): }}
+                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar-cartao pull-right" onclick='removeItem("segmento_clientes",{{=i}})'/><a href="#" class="item_existente" id="segmento_clientes" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.segmento_clientes)[i]}}</a></p>
+                            {{ pass }}
+                        {{ pass }}
+                      </div>
+                    </div>
+                  </tbody>
+                </table> <!-- fim da tabela secundaria  -->
+              </td>
+            </tr>
+            <tr>
+            <td id="container_recursos_p" class="area sessao_como" height="33%" id="key_activity" width="20%">
+              <table class="cell-container">
+                <tbody>
+                  <div class="row-fluid titulo_bloco">
+                    <h3 class="main">
+                      <div id="img_recursos_p" class="area-title">Recursos Principais</div>
+                      <hr>
+                    </h3>
+                  </div>
+                  <div class="row-fluid botoes_bloco">
+                    <button class="recursos_principais adicionar_item btn btn-success btn-mini pull-left">
+                      Adicionar
+                    </button>
+                    <!-- link modal -->
+                    <a href="#recursos_principais_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
+                      <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                    </a>
+                  </div>
+                  <div class="row-fluid cartoes">
+                    <div class="itens drag_drop recursos_principais">
+                      <!-- gero os itens dinamicamente -->
+                      {{import json}}
+                      {{ if projeto.recursos_principais: }}
+                          {{ for i in json.loads(projeto.recursos_principais): }}
+                          <p><img src='{{=URL("static","img/clear.png")}}' class="deletar-cartao pull-right" onclick='removeItem("recursos_principais",{{=i}})'/><a href="#" class="item_existente" id="recursos_principais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.recursos_principais)[i]}}</a></p>
+                          {{ pass }}
+                      {{ pass }}
+                    </div>
+                  </div>
+                </tbody>
+              </table>
+            </td>
+            <td id="container_canais" class="area sessao_parquem" height="33%" id="channels" width="20%">
+              <table class="cell-container">
+                <tbody>
+                  <div class="row-fluid titulo_bloco">
+                    <h3 class="main">
+                      <div id="img_canais" class="area-title">Canais</div>
+                      <hr>
+                    </h3>
+                  </div>
+                  <div class="row-fluid botoes_bloco">
+                    <button class="canais adicionar_item btn btn-success btn-mini pull-left">
+                      Adicionar
+                    </button>
+                    <!-- link modal -->
+                    <a href="#canais_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
+                      <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                    </a>
+                  </div>
+                  <div class="row-fluid cartoes">
+                    <div class="itens drag_drop canais">
+                      <!-- gero os itens dinamicamente -->
+                      {{import json}}
+                      {{ if projeto.canais: }}
+                          {{ for i in json.loads(projeto.canais): }}
+                          <p><img src='{{=URL("static","img/clear.png")}}' class="deletar-cartao pull-right" onclick='removeItem("canais",{{=i}})'/><a href="#" class="item_existente" id="canais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.canais)[i]}}</a></p>
+                          {{ pass }}
+                      {{ pass }}
+                    </div>
+                  </div>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td id="container_estrutura_c" class="area sessao_quanto" colspan="3" height="33%" id="cost_structure" width="50%">
+              <table class="cell-container">
+                <tbody>
+                  <div class="row-fluid titulo_bloco">
+                    <h3 class="main">
+                      <div id="img_estrutura_c" class="area-title">Estrutura<br>de Custos</div>
+                      <hr>
+                    </h3>
+                  </div>
+                  <div class="row-fluid botoes_bloco">
+                    <button class="estrutura_custos adicionar_item btn btn-success btn-mini pull-left">
+                      Adicionar
+                    </button>
+                    <!-- link modal -->
+                    <a href="#estrutura_custos_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
+                      <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                    </a>
+                  </div>
+                  <div class="row-fluid cartoes">
+                    <div class="itens drag_drop estrutura_custos">
+                      <!-- gero os itens dinamicamente -->
+                      {{import json}}
+                      {{ if projeto.estrutura_custos: }}
+                          {{ for i in json.loads(projeto.estrutura_custos): }}
+                          <p><img src='{{=URL("static","img/clear.png")}}' class="deletar-cartao pull-right" onclick='removeItem("estrutura_custos",{{=i}})'/><a href="#" class="item_existente" id="estrutura_custos" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.estrutura_custos)[i]}}</a></p>
+                          {{ pass }}
+                      {{ pass }}
+                    </div>
+                  </div>
+                </tbody>
+              </table>
+            </td>
+            <td id="container_receita" class="area sessao_quanto" colspan="3" height="33%" id="revenue_streams" width="50%">
+              <table class="cell-container">
+                <tbody>
+                  <div class="row-fluid titulo_bloco">
+                    <h3 class="main">
+                      <div id="img_receita" class="area-title">Receitas<br><span>.</span></div>
+                      <hr>
+                    </h3>
+                  </div>
+                  <div class="row-fluid botoes_bloco">
+                    <button class="receitas adicionar_item btn btn-success btn-mini pull-left">
+                      Adicionar
+                    </button>
+                    <!-- link modal -->
+                    <a href="#receitas_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
+                      <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                    </a>
+                  </div>
+                  <div class="row-fluid cartoes">
+                    <div class="itens drag_drop receitas">
+                      <!-- gero os itens dinamicamente -->
+                      {{import json}}
+                      {{ if projeto.receitas: }}
+                          {{ for i in json.loads(projeto.receitas): }}
+                          <p><img src='{{=URL("static","img/clear.png")}}' class="deletar-cartao pull-right" onclick='removeItem("receitas",{{=i}})'/><a href="#" class="item_existente" id="receitas" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.receitas)[i]}}</a></p>
+                          {{ pass }}
+                      {{ pass }}
+                    </div>
+                  </div>
                 </tbody>
               </table>
             </td>
           </tr>
         </tbody>
       </table> <!-- fim da tabela principal -->
-
-        <div class="collaborators-container">
+        <div class="colaboradores-container">
           <div class="pull-left">
             <a href="#"><img alt="Team" height="64" src='{{=URL("static","img/time.png")}}'></a>
           </div>
           {{from random import randint}}
           <div class="pull-left">
-            <ul class="collaborators">
+            <ul class="colaboradores">
               <li>
                   <div class="person">
                     <div class="icon">
@@ -382,28 +352,8 @@
               </div>
             </ul>
           </div> <!-- fim do pull-left -->
-        </div> <!-- fim do collaborators-container -->
+        </div> <!-- fim do colaboradores-container -->
       </div> <!-- fim do canvas -->
     </div> <!-- fim do content_area -->
   </div> <!-- fim do content-container -->
 </div> <!-- fim do container -->
-
-<!-- jQuery Autocomplete -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="{{=URL('static', 'js/jquery.autocomplete.js')}}"></script>
-
-<script type="text/javascript">
-    var usuarios= [];
-    var id_usuario = '';
-        {{for usuario in usuarios_para_adicionar:}}
-            usuarios.push({ "value": "{{=usuario}}", "data": "{{=usuarios_para_adicionar[usuario]}}" });
-        {{ pass }}
-    
-    $('#autocomplete').autocomplete({
-        lookup: usuarios,
-        onSelect: function (suggestion) {
-            id_usuario = suggestion.data;
-            $('#adicionar_usuario').attr('href', '{{=URL(c="default", f="adicionar_usuario", vars={"projeto_id": projeto.id})}}' + '&usuario_id=' + id_usuario);
-        }
-    });
-</script>

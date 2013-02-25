@@ -44,6 +44,7 @@ Changelog
 - Novo layout.
 - Tela Home.
 - Compartilhar projeto com outros usuários.
+- Deletar cartões.
 
 **v 1.0**:
 
@@ -57,8 +58,9 @@ TODOLIST
 -----------
 
 - Salvar bloco aonde o cartão é arrastado.
-- Deletar cartões.
-- Excluir usuário de um projeto.
+- Retirar um usuario de um projeto.
+- Enviar email para novos usuários cadastrados.
+- Quando adicionar um usuario mandar email pra ele.
 - Melhorar notificações.
 - Ajustar layout responsivo para demais dispositivos.
 - Login com redes sociais.

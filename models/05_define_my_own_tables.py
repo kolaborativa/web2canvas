@@ -7,7 +7,7 @@ if not "projeto" in db.tables:
         Field("nome", "string", length=200, default=None),
         Field("criado_por", db.auth_user, default=None),
         Field("criado_em", "datetime", default=None),
-        Field("principais_parcerias", "text", default=None),
+        Field("parcerias_principais", "text", default=None),
         Field("atividades_principais", "text", default=None),
         Field("recursos_principais", "text", default=None),
         Field("proposta_valor", "text", default=None),

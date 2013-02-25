@@ -93,6 +93,31 @@ def editar_dados():
         return dict(error="error",msg="erro ao gravar!")
 
 
+def remove_item():
+    """Funcao que atualiza dados do projeto
+    """
+    import json
+
+    if request.vars:
+        pk = request.vars.pk
+        campo = request.vars.name
+
+        dados_banco = db(Projeto.id==session.projeto_id).select().first()
+
+        if dados_banco[campo]:
+            dicionario_dados = json.loads(dados_banco[campo])
+        else:
+            dicionario_dados = {}
+        
+        del dicionario_dados[pk]
+        dados = json.dumps(dicionario_dados)
+        Projeto[session.projeto_id]= {campo:dados}
+
+        return True
+    else:
+        return False
+
+
 @auth.requires_login()
 def adicionar_usuario():
     """Funcao que adiciona usuario a um projeto

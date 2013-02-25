@@ -41,7 +41,7 @@
 <datatype>datetime</datatype>
 <default>NULL</default>
 </row>
-<row name="principais_parcerias" null="1" autoincrement="0">
+<row name="parcerias_principais" null="1" autoincrement="0">
 <datatype>text</datatype>
 <default>NULL</default>
 </row>
