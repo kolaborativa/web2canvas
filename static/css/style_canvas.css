@@ -270,7 +270,7 @@ textarea.input-large {
   height: 100%;
 }
 
-img.deletar-cartao {
+img.deletar_cartao {
   /*display: none;*/
   display: pointer;
   position: relative;
@@ -279,12 +279,12 @@ img.deletar-cartao {
   opacity: 0;
 }
 
-p:hover img.deletar-cartao {
+p:hover img.deletar_cartao {
  /*display: block;*/
  opacity: 1;
 }
 
-img.deletar-cartao:hover {
+img.deletar_cartao:hover {
   background: url("../img/clear_close.png");
 }
 

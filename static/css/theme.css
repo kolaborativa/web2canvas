@@ -760,7 +760,7 @@ ul.mais_recuros i {
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545F6D', endColorstr='#303946',GradientType=0 );
 	}
 	.navbar .nav.pull-right {
-	    margin-right: 90px;
+	    margin-right: 80px;
 	}
 }
 @media (max-width: 979px) {

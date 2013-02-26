@@ -8,7 +8,8 @@
 // OBS: outras variaveis globais são geradas no layout_base
 var titulo_caixa = "Editar Cartão",
     titulo_nova_caixa = "Novo Cartão",
-    campo_vazio = "Click para escrever";
+    campo_vazio = "Click para escrever",
+    mensagem_erro = "Não pode ser vazio!";
 
 // modificar stilo dos botoes
 $.fn.editableform.buttons = 
@@ -39,6 +40,11 @@ $('.item_existente').editable({
   title: titulo_caixa,
   emptytext: campo_vazio,
   placement: "top",
+  validate: function(value) {
+      if($.trim(value) == '') {
+          return mensagem_erro;
+      }
+  },
   success: function(response) {
       if(response.success) {
         $('#msg').addClass('alert-success').removeClass('alert-error').html(response.msg).show();
@@ -49,12 +55,6 @@ $('.item_existente').editable({
       }
   }
 });
-
-// fazer com que o campo seja required
-$('.item_existente').editable('option', 'validate', function(v) {
-    if(v == '') return 'Não pode ser vazio!';
-});
-
 
 /*
 =============================
@@ -67,6 +67,11 @@ $('.itens').editable({
   selector: 'a',
   url: urlJson,
   title: titulo_nova_caixa,
+  validate: function(value) {
+      if($.trim(value) == '') {
+          return mensagem_erro;
+      }
+  },
   success: function(response) {
       if(response.success) {
         $('#msg').addClass('alert-success').removeClass('alert-error').html(response.msg).show();
@@ -98,9 +103,9 @@ $('.adicionar_item').click(function(){
 
   // modifico a posicao da caixa de edicao nesses blocos para melhorar a visualizacao
   if(classeBotao == "estrutura_custos" || classeBotao == "parcerias_principais" ) {
-    html = '<p><img src="'+urlStatic+'clear.png" class="deletar-cartao pull-right" onclick=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'/><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right">'+campo_vazio+'</a></p>';
+    html = '<p><img src="'+urlStatic+'clear.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right">'+campo_vazio+'</a></p>';
   } else { 
-    html = '<p><img src="'+urlStatic+'clear.png" class="deletar-cartao pull-right" onclick=\'removeItem("'+classeBotao+'",'+(maiorIndice + 1)+')\'/><a href="#" id="'+classeBotao+'" class="campo_dinamico editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'">'+campo_vazio+'</a></p>';
+    html = '<p><img src="'+urlStatic+'clear.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'">'+campo_vazio+'</a></p>';
   }
   
   $("div."+classeBotao).append(html);
@@ -112,6 +117,22 @@ $('.adicionar_item').click(function(){
  REMOVER ITENS
 ===============
 */
+// para campos carregados com a pagina
+$(".deletar_cartao").click(function() {
+  item = $(this).next("a").attr('id');
+  id = $(this).next("a").attr('data-pk');
+
+  removeItem(item,id);
+});
+
+// para campos criados dinamicamente
+$(document).on("click", ".campo_dinamico", function(){
+  item = $(this).next("a").attr('id');
+  id = $(this).next("a").attr('data-pk');
+
+  removeItem(item,id);
+});
+
 function removeItem(item,id) {
 
   var confirma = confirm('Você tem certeza que deseja continuar?');

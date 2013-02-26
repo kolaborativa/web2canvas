@@ -59,11 +59,12 @@ TODOLIST
 
 - Salvar bloco aonde o cartão é arrastado.
 - Retirar um usuario de um projeto.
+- Melhorar notificações.
+- Login com redes sociais.
+- Ajustar layout responsivo para demais dispositivos.
 - Enviar email para novos usuários cadastrados.
 - Quando adicionar um usuario mandar email pra ele.
-- Melhorar notificações.
-- Ajustar layout responsivo para demais dispositivos.
-- Login com redes sociais.
+- Exportar Canvas em PDF.
 
 ---------------------------------------
 

@@ -49,9 +49,11 @@
     <!-- Javascripts -->
     <script src="{{=URL('static','js/jquery-1.9.0.min.js')}}"></script>
     <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
-    <script src="{{=URL('static','js/theme.js')}}"></script>
         
-    {{ if request.function == "projeto_canvas": }}
+    {{ if request.function == "index": }}
+        <script src="{{=URL('static','js/theme.js')}}"></script>
+
+    {{ elif request.function == "projeto_canvas": }}
         <!-- Bibliotecas JS -->
         <script src="{{=URL('static','js/bootstrap-editable.min.js')}}"></script>
         <script src="{{=URL('static','js/jquery-ui.min.js')}}"></script>
