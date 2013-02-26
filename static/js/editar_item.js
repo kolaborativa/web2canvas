@@ -9,7 +9,8 @@
 var titulo_caixa = "Editar Cartão",
     titulo_nova_caixa = "Novo Cartão",
     campo_vazio = "Click para escrever",
-    mensagem_erro = "Não pode ser vazio!";
+    mensagem_erro = "Não pode ser vazio!",
+    mensagem_confirma = 'Você tem certeza que deseja continuar?';
 
 // modificar stilo dos botoes
 $.fn.editableform.buttons = 
@@ -103,9 +104,9 @@ $('.adicionar_item').click(function(){
 
   // modifico a posicao da caixa de edicao nesses blocos para melhorar a visualizacao
   if(classeBotao == "estrutura_custos" || classeBotao == "parcerias_principais" ) {
-    html = '<p><img src="'+urlStatic+'clear.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right">'+campo_vazio+'</a></p>';
+    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right">'+campo_vazio+'</a></p>';
   } else { 
-    html = '<p><img src="'+urlStatic+'clear.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'">'+campo_vazio+'</a></p>';
+    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'">'+campo_vazio+'</a></p>';
   }
   
   $("div."+classeBotao).append(html);
@@ -117,49 +118,68 @@ $('.adicionar_item').click(function(){
  REMOVER ITENS
 ===============
 */
+
 // para campos carregados com a pagina
 $(".deletar_cartao").click(function() {
-  item = $(this).next("a").attr('id');
-  id = $(this).next("a").attr('data-pk');
 
-  removeItem(item,id);
+  if(confirm(mensagem_confirma)) {
+    id = $(this).next("a").attr('id');
+    indice = $(this).next("a").attr('data-pk');
+
+    removeItem(id,indice,true);
+  }  
 });
+
 
 // para campos criados dinamicamente
 $(document).on("click", ".campo_dinamico", function(){
-  item = $(this).next("a").attr('id');
-  id = $(this).next("a").attr('data-pk');
 
-  removeItem(item,id);
+  if(confirm(mensagem_confirma)) {
+    id = $(this).next("a").attr('id');
+    indice = $(this).next("a").attr('data-pk');
+
+    removeItem(id,indice,true);
+  }
 });
 
-function removeItem(item,id) {
 
-  var confirma = confirm('Você tem certeza que deseja continuar?');
-  if(confirma) {
-    ajax(urlRemove+'?name='+item+'&pk='+id+'', [''], 'target-deleted');
+function removeItem(id,indice,remove) {
 
-    statusRemoveItem(item,id);
-  }
+  ajax(urlRemove+'?name='+id+'&pk='+indice+'', [''], 'target_ajax');
+  statusItem(id,indice,remove);
 }
 
-function statusRemoveItem(item,id) {
-  var mensagem = $("#target-deleted").text(),
+
+function adicionaItem(id,indice,remove,texto) {
+
+  ajax(urlAdidiona+'?name='+id+'&pk='+indice+'&value='+texto+'', [''], 'target_ajax');
+  statusItem(id,indice,remove);
+}
+
+
+function statusItem(id,indice,remove) {
+  // o terceiro parametro diz se o elemento sera deletado no DOM
+  var mensagem = $("#target_ajax").text(),
       texto = "";
   // limpo o retorno da chamada ajax
-  $("#target-deleted").html("");
+  $("#target_ajax").html("");
 
   if (mensagem.length > 0) {
     if(mensagem === 'True') {
       texto = "Removido com Sucesso!";
+      
+      if(remove===true) {
+        // acho o elemento para ser deletado
+        $("a#"+id).each(function(){
+          if($(this).attr('data-pk') == indice)
+            $(this).parent().remove();
+        });
+      } else {
+        texto = "Adicionado com Sucesso!";
+      }
+
       $('#msg').addClass('alert-success').removeClass('alert-error').html(texto).show();
       setTimeout(removeMsg,3000);
-      
-      // acho o elemento para ser deletado
-      $("a#"+item).each(function(){
-        if($(this).attr('data-pk') == id)
-          $(this).parent().remove();
-      });
 
     } else if(mensagem === "False") {
       texto = "Erro na remoção!";
@@ -169,6 +189,6 @@ function statusRemoveItem(item,id) {
     }
   } else {
     console.log("aguardando resposta...")
-    setTimeout('statusRemoveItem("'+item+'",'+id+')', 300);
+    setTimeout('statusItem("'+id+'",'+indice+','+remove+')', 300);
   } 
 }

@@ -63,7 +63,8 @@
         <!-- criar/editar cartoes -->
         <script>
         var urlStatic = "{{=URL('static','img/')}}",
-            urlRemove = "{{=URL(c='default',f='remove_item')}}"
+            urlRemove = "{{=URL('remove_item')}}",
+            urlAdidiona = "{{=URL('adiciona_item')}}",
             urlJson = "{{=URL('editar_dados.json')}}";
         </script>
         <script src="{{=URL('static','js/editar_item.js')}}"></script>

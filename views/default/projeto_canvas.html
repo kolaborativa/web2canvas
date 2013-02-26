@@ -13,7 +13,7 @@
   <div class="content-container">
     <div id="msg"></div>
     <!-- mensagem de retorno da chamada ajax -->
-    <div id="target-deleted"></div>
+    <div id="target_ajax"></div>
     <div id="content_area">
       <div id="canvas">
         <table class="canvas" style="height: 368px; font-size: 11.833333333333334px;"> <!-- tabela principal -->
@@ -38,12 +38,12 @@
                       </a>
                     </div>
                     <div class="row-fluid cartoes">
-                      <div class="itens drag_drop parcerias_principais">
+                      <div class="parcerias_principais itens drag_drop">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.parcerias_principais: }}
                             {{ for i in json.loads(projeto.parcerias_principais): }}
-                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="parcerias_principais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.parcerias_principais)[i]}}</a></p>
+                            <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="parcerias_principais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.parcerias_principais)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -70,12 +70,12 @@
                       </a>
                     </div>
                     <div class="row-fluid cartoes">
-                      <div class="itens drag_drop atividades_principais">
+                      <div class="atividades_principais itens drag_drop">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.atividades_principais: }}
                             {{ for i in json.loads(projeto.atividades_principais): }}
-                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="atividades_principais" data-pk="{{=i}}">{{=json.loads(projeto.atividades_principais)[i]}}</a></p>
+                            <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="atividades_principais" data-pk="{{=i}}">{{=json.loads(projeto.atividades_principais)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -102,12 +102,12 @@
                       </a>
                     </div>
                     <div class="row-fluid cartoes">
-                      <div class="itens drag_drop proposta_valor">
+                      <div class="proposta_valor itens drag_drop">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.proposta_valor: }}
                             {{ for i in json.loads(projeto.proposta_valor): }}
-                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="proposta_valor" data-pk="{{=i}}">{{=json.loads(projeto.proposta_valor)[i]}}</a></p>
+                            <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="proposta_valor" data-pk="{{=i}}">{{=json.loads(projeto.proposta_valor)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -134,12 +134,12 @@
                       </a>
                     </div>
                     <div class="row-fluid cartoes">
-                      <div class="itens drag_drop relacionamento_clientes">
+                      <div class="relacionamento_clientes itens drag_drop">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.relacionamento_clientes: }}
                             {{ for i in json.loads(projeto.relacionamento_clientes): }}
-                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="relacionamento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></p>
+                            <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="relacionamento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -166,12 +166,12 @@
                       </a>
                     </div>
                     <div class="row-fluid cartoes">
-                      <div class="itens drag_drop segmento_clientes">
+                      <div class="segmento_clientes itens drag_drop">
                         <!-- gero os itens dinamicamente -->
                         {{import json}}
                         {{ if projeto.segmento_clientes: }}
                             {{ for i in json.loads(projeto.segmento_clientes): }}
-                            <p><img src='{{=URL("static","img/clear.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></p>
+                            <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></p>
                             {{ pass }}
                         {{ pass }}
                       </div>
@@ -200,12 +200,12 @@
                     </a>
                   </div>
                   <div class="row-fluid cartoes">
-                    <div class="itens drag_drop recursos_principais">
+                    <div class="recursos_principais itens drag_drop">
                       <!-- gero os itens dinamicamente -->
                       {{import json}}
                       {{ if projeto.recursos_principais: }}
                           {{ for i in json.loads(projeto.recursos_principais): }}
-                          <p><img src='{{=URL("static","img/clear.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="recursos_principais" data-pk="{{=i}}">{{=json.loads(projeto.recursos_principais)[i]}}</a></p>
+                          <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="recursos_principais" data-pk="{{=i}}">{{=json.loads(projeto.recursos_principais)[i]}}</a></p>
                           {{ pass }}
                       {{ pass }}
                     </div>
@@ -232,12 +232,12 @@
                     </a>
                   </div>
                   <div class="row-fluid cartoes">
-                    <div class="itens drag_drop canais">
+                    <div class="canais itens drag_drop">
                       <!-- gero os itens dinamicamente -->
                       {{import json}}
                       {{ if projeto.canais: }}
                           {{ for i in json.loads(projeto.canais): }}
-                          <p><img src='{{=URL("static","img/clear.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="canais" data-pk="{{=i}}">{{=json.loads(projeto.canais)[i]}}</a></p>
+                          <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="canais" data-pk="{{=i}}">{{=json.loads(projeto.canais)[i]}}</a></p>
                           {{ pass }}
                       {{ pass }}
                     </div>
@@ -266,12 +266,12 @@
                     </a>
                   </div>
                   <div class="row-fluid cartoes">
-                    <div class="itens drag_drop estrutura_custos">
+                    <div class="estrutura_custos itens drag_drop">
                       <!-- gero os itens dinamicamente -->
                       {{import json}}
                       {{ if projeto.estrutura_custos: }}
                           {{ for i in json.loads(projeto.estrutura_custos): }}
-                          <p><img src='{{=URL("static","img/clear.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="estrutura_custos" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.estrutura_custos)[i]}}</a></p>
+                          <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="estrutura_custos" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.estrutura_custos)[i]}}</a></p>
                           {{ pass }}
                       {{ pass }}
                     </div>
@@ -298,12 +298,12 @@
                     </a>
                   </div>
                   <div class="row-fluid cartoes">
-                    <div class="itens drag_drop receitas">
+                    <div class="receitas itens drag_drop">
                       <!-- gero os itens dinamicamente -->
                       {{import json}}
                       {{ if projeto.receitas: }}
                           {{ for i in json.loads(projeto.receitas): }}
-                          <p><img src='{{=URL("static","img/clear.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></p>
+                          <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></p>
                           {{ pass }}
                       {{ pass }}
                     </div>

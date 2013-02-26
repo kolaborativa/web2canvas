@@ -231,6 +231,10 @@ a.editable-click, a.editable-click:hover {
   -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
   box-shadow: 0 5px 10px rgba(0,0,0,.2);
 }
+
+.estrutura_custos p, .receitas p {
+  margin: 10px;
+}
  
 .itens p:hover {
   cursor: pointer;
@@ -271,7 +275,6 @@ textarea.input-large {
 }
 
 img.deletar_cartao {
-  /*display: none;*/
   display: pointer;
   position: relative;
   bottom: 5px;
@@ -280,15 +283,14 @@ img.deletar_cartao {
 }
 
 p:hover img.deletar_cartao {
- /*display: block;*/
  opacity: 1;
 }
 
 img.deletar_cartao:hover {
-  background: url("../img/clear_close.png");
+  background: url("../img/close_focus.png");
 }
 
-#target-deleted {
+#target_ajax {
   display: none;
 }
 

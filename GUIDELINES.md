@@ -18,12 +18,12 @@ Bibliotecas JS
 - Modernizr [link](http://modernizr.com/)
 
 
-/layout_base.html
-|
-|
-+-- jQuery(1.9.0) =>  jquery-1.9.0.min.js
-	Twitter Bootstrap(2.3.0) =>  bootstrap.min.js
-	Modernizr(2.6.2) =>  modernizr.custom.js
+	/layout_base.html
+	|
+	|
+	+-- jQuery(1.9.0) =>  jquery-1.9.0.min.js
+		Twitter Bootstrap(2.3.0) =>  bootstrap.min.js
+		Modernizr(2.6.2) =>  modernizr.custom.js
 				
 	/index.html
 	|
@@ -49,10 +49,27 @@ Bibliotecas JS
 
 ---------------------------------------
 
+layout_base.html
+------------
+
+*Observações importantes:*
+
+ Existem variáveis globais para serem acessadas posteriormente dentro dos arquivos JS:
+
+-urlStatic
+-urlRemove
+-urlMove
+-urlJson
+
+
+---------------------------------------
+
 projeto_canvas.html
 ------------
 
 *Observações importantes:*
 
 - A DIV que comtém os cartões gerados dinamicamente possui a classe "itens" e o plugin X-editable apartir daí os gera, tendo assim exclusividade do uso da tag A(link) dentro no escopo dessa DIV.
+
+*editar_item.js* - função statusItem(id,indice,bool) => primeiro parametro é o id do elemento no DOM, o segundo parametro é o indice dele no Bloco canvas e o terceiro parametro diz se o elemento sera deletado no DOM com "true"
 

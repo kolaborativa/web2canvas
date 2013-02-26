@@ -119,6 +119,33 @@ def remove_item():
         return False
 
 
+def adiciona_item():
+    """Funcao que atualiza dados do projeto
+    """
+    import json
+
+    if request.vars:
+        valor = request.vars.value
+        pk = request.vars.pk
+        campo = request.vars.name
+
+        dados_banco = db(Projeto.id==session.projeto_id).select().first()
+
+        if dados_banco[campo]:
+            dicionario_dados = json.loads(dados_banco[campo])
+        else:
+            dicionario_dados = {}
+
+        dicionario_dados[pk] = valor
+        dados = json.dumps(dicionario_dados)
+
+        Projeto[session.projeto_id]= {campo:dados}
+
+        return True
+    else:
+        return False
+
+
 @auth.requires_login()
 def adicionar_usuario():
     """Funcao que adiciona usuario a um projeto
