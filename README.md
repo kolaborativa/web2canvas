@@ -45,6 +45,8 @@ Changelog
 - Tela Home.
 - Compartilhar projeto com outros usuários.
 - Deletar cartões.
+- Cartões são salvos automaticamente.
+- Melhoraria nas notificações.
 
 **v 1.0**:
 
@@ -57,14 +59,13 @@ Changelog
 TODOLIST
 -----------
 
-- Salvar bloco aonde o cartão é arrastado.
-- Retirar um usuario de um projeto.
-- Melhorar notificações.
 - Login com redes sociais.
+- Retirar um usuario de um projeto.
+- Exportar Canvas em PDF.
 - Ajustar layout responsivo para demais dispositivos.
 - Enviar email para novos usuários cadastrados.
 - Quando adicionar um usuario mandar email pra ele.
-- Exportar Canvas em PDF.
+- Poder incluir imagens ao canvas.
 
 ---------------------------------------
 

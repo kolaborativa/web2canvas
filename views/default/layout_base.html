@@ -23,6 +23,7 @@
     {{ elif request.function == "projeto_canvas": }}
     <link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
     <link href="{{=URL('static','css/style_canvas.css')}}" rel="stylesheet">
+    <link href="{{=URL('static','css/jquery.pnotify.default.css')}}" rel="stylesheet">
     {{ elif request.function == "user": }}
     <!-- css -->
     <link href="{{=URL('static','css/user.css')}}" rel="stylesheet">
@@ -69,6 +70,7 @@
         </script>
         <script src="{{=URL('static','js/editar_item.js')}}"></script>
         <script src="{{=URL('static','js/mover_item.js')}}"></script>
+        <script src="{{=URL('static','js/jquery.pnotify.min.js')}}"></script>
         <!-- adicionar usuario ao projeto -->
         <script type="text/javascript">
             var usuarios= [];

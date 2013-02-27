@@ -11,16 +11,14 @@ var titulo_caixa = "Editar Cartão",
     campo_vazio = "Click para escrever",
     mensagem_erro = "Não pode ser vazio!",
     mensagem_confirma = 'Você tem certeza que deseja continuar?';
+    msg_titulo = "",
+    msg_texto = "",
+    msg_tipo = "";
 
 // modificar stilo dos botoes
 $.fn.editableform.buttons = 
   '<button type="submit" class="btn btn-success editable-submit"><i class="icon-ok icon-white"></i></button>' +
  '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>'; 
-
-// esconde mensagem
-function removeMsg(){
-  $('#msg').hide('slow');
-}
 
 // para saber o maior indice do array
 Array.max = function( array ){
@@ -47,13 +45,20 @@ $('.item_existente').editable({
       }
   },
   success: function(response) {
+      msg_titulo = "Cartão";
       if(response.success) {
-        $('#msg').addClass('alert-success').removeClass('alert-error').html(response.msg).show();
-        setTimeout(removeMsg,3000)
+        msg_texto = response.msg;
+        msg_tipo = "success";
       } else if(response.error) {
-        $('#msg').removeClass('alert-success').addClass('alert-error').html(response.msg).show();
-        setTimeout(removeMsg,3000)
+        msg_texto = response.msg;
+        msg_tipo = "error";
       }
+      // notificacao
+      $.pnotify({
+        title: msg_titulo,
+        text: msg_texto,
+        type: msg_tipo
+      });
   }
 });
 
@@ -74,13 +79,20 @@ $('.itens').editable({
       }
   },
   success: function(response) {
+      msg_titulo = "Cartão";
       if(response.success) {
-        $('#msg').addClass('alert-success').removeClass('alert-error').html(response.msg).show();
-        setTimeout(removeMsg,3000);
+        msg_texto = response.msg;
+        msg_tipo = "success";
       } else if(response.error) {
-        $('#msg').removeClass('alert-success').addClass('alert-error').html(response.msg).show();
-        setTimeout(removeMsg,3000);
+        msg_texto = response.msg;
+        msg_tipo = "error";
       }
+      // notificacao
+      $.pnotify({
+        title: msg_titulo,
+        text: msg_texto,
+        type: msg_tipo
+      });    
   }
 });
 
@@ -179,8 +191,11 @@ function statusItem(id,indice,remove) {
       texto = "";
 
   if (mensagem.length > 0) {
+
     if(mensagem === 'True') {
-      texto = "Removido com Sucesso!";
+      msg_titulo = "Cartão";
+      msg_texto = "Removido com Sucesso!";
+      msg_tipo = "success";
       
       if(remove===true) {
         // encontro elemento a ser deletado
@@ -189,18 +204,22 @@ function statusItem(id,indice,remove) {
             $(this).parent().fadeOut("slow", function() { $(this).remove() })
         });
       } else if(remove===false) {
-        texto = "Movido com Sucesso!";
+        msg_texto = "Movido com Sucesso!";
       }
 
-      $('#msg').addClass('alert-success').removeClass('alert-error').html(texto).show();
-      setTimeout(removeMsg,3000);
 
     } else if(mensagem === "False") {
-      texto = "Erro na remoção!";
-      $('#msg').removeClass('alert-success').addClass('alert-error').html(texto).show();
-      setTimeout(removeMsg,3000);
-      
+      msg_texto = "Erro na remoção!";
+      msg_tipo = "error";
     }
+
+    // notificacao
+    $.pnotify({
+      title: msg_titulo,
+      text: msg_texto,
+      type: msg_tipo
+    });
+
   } else {
     console.log("aguardando resposta...")
     setTimeout('statusItem("'+id+'",'+indice+','+remove+')', 300);
