@@ -115,9 +115,9 @@ $('.adicionar_item').click(function(){
 
 
 /*
-===============
- REMOVER ITENS
-===============
+=================
+ MODIFICAR ITENS
+=================
 */
 
 // para campos carregados com a pagina
@@ -143,6 +143,7 @@ $(document).on("click", ".campo_dinamico", function(){
   }
 });
 
+// para remover itens
 function removeItem(id,indice,remove) {
 
   ajax(urlRemove+'?name='+id+'&pk='+indice+'', [''], 'target_ajax');
@@ -154,21 +155,21 @@ function removeItem(id,indice,remove) {
   }
 }
 
-
-function adicionaItem(id,indice,remove,texto) {
-  ajax(urlAdiciona+'?name='+id+'&pk='+indice+'&value='+texto+'', [''], 'target_ajax');
-  var status = statusItem(id,indice,remove);
-  if(status === true) {
-    return true
-  } else {
-    return false
-  }
-}
-
-
-function atualizaIndiceItens(indice) {
-  // ajax(urlAdiciona+'?name='+id+'&pk='+indice+'&value='+texto+'', [''], 'target_ajax');
-
+// atualiza indices e cria o cartao movido
+function atualizaIndiceItens(id,indice) {
+  var values = {},
+      value,
+      valuesUrl;
+  $("."+id).children("p").each(function(index) {
+    index += 1;
+    value = $(this).text();
+    values[index] = value;
+    $(this).children("a").attr('data-pk',index)
+  });
+  
+  valuesUrl = jQuery.param(values);
+  ajax(urlAtualiza+'?name='+id+'&'+valuesUrl, [''], 'target_ajax');
+  // statusItem(id,indice,false);
 }
 
 
@@ -176,18 +177,19 @@ function statusItem(id,indice,remove) {
   // o terceiro parametro diz se o elemento sera deletado no DOM
   var mensagem = $("#target_ajax").text(),
       texto = "";
+
   if (mensagem.length > 0) {
     if(mensagem === 'True') {
       texto = "Removido com Sucesso!";
       
       if(remove===true) {
-        // acho o elemento para ser deletado
+        // encontro elemento a ser deletado
         $("a#"+id).each(function(){
           if($(this).attr('data-pk') == indice)
-            $(this).parent().remove();
+            $(this).parent().fadeOut("slow", function() { $(this).remove() })
         });
-      } else {
-        texto = "Adicionado com Sucesso!";
+      } else if(remove===false) {
+        texto = "Movido com Sucesso!";
       }
 
       $('#msg').addClass('alert-success').removeClass('alert-error').html(texto).show();
@@ -205,6 +207,5 @@ function statusItem(id,indice,remove) {
   }
   // limpo o retorno da chamada ajax
   $("#target_ajax").empty();
-  // $("#target_ajax").remove();
   return true
 }

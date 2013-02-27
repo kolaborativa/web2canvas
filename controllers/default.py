@@ -75,7 +75,6 @@ def editar_dados():
         valor = request.vars.value
         pk = request.vars.pk
         campo = request.vars.name
-        print pk
 
         dados_banco = db(Projeto.id==session.projeto_id).select().first()
 
@@ -120,34 +119,24 @@ def remove_item():
         return False
 
 
-def adiciona_item():
+def atualiza_itens():
     """Funcao que atualiza dados do projeto
     """
     import json
 
     if request.vars:
-        valor = request.vars.value
-        pk = request.vars.pk
         campo = request.vars.name
+        todas_variaveis = request.vars
+
+        valores =  {}
+        for v in todas_variaveis:
+            if not v == "name":
+                valores[v] = todas_variaveis[v]
 
         dados_banco = db(Projeto.id==session.projeto_id).select().first()
+        dados = json.dumps(valores)
 
-        if dados_banco[campo]:
-            dicionario_dados = json.loads(dados_banco[campo])
-        else:
-            dicionario_dados = {}
-
-        if not pk in dicionario_dados:
-            dicionario_dados[pk] = valor
-            dados = json.dumps(dicionario_dados)
-
-            Projeto[session.projeto_id]= {campo:dados}
-        else:            
-            pk = int(max(dicionario_dados)) + 1
-            dicionario_dados[pk] = valor
-            dados = json.dumps(dicionario_dados)
-
-            Projeto[session.projeto_id]= {campo:dados}
+        Projeto[session.projeto_id]= {campo:dados}
 
         return True
     else:
