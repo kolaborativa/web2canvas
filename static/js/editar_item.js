@@ -37,7 +37,7 @@ return Math.max.apply( Math, array );
 // chamada do plugin x-editable
 $('.item_existente').editable({
   type: 'textarea',
-  url: urlJson,
+  url: urlNovoEdita,
   title: titulo_caixa,
   emptytext: campo_vazio,
   placement: "top",
@@ -66,7 +66,7 @@ $('.item_existente').editable({
 // chamada do plugin x-editable
 $('.itens').editable({
   selector: 'a',
-  url: urlJson,
+  url: urlNovoEdita,
   title: titulo_nova_caixa,
   validate: function(value) {
       if($.trim(value) == '') {
@@ -97,16 +97,17 @@ $('.adicionar_item').click(function(){
   });
 
   if(keys.length > 0) {
-    var maiorIndice = Array.max(keys);
+    var maiorIndice = Array.max(keys),
+        indiceItem = maiorIndice + 1;
   } else {
-    var maiorIndice = 0;
+    var indiceItem = 1;
   }
 
   // modifico a posicao da caixa de edicao nesses blocos para melhorar a visualizacao
   if(classeBotao == "estrutura_custos" || classeBotao == "parcerias_principais" ) {
-    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'" data-placement="right">'+campo_vazio+'</a></p>';
+    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'" data-placement="right">'+campo_vazio+'</a></p>';
   } else { 
-    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+(maiorIndice + 1)+'">'+campo_vazio+'</a></p>';
+    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a></p>';
   }
   
   $("div."+classeBotao).append(html);
@@ -142,18 +143,32 @@ $(document).on("click", ".campo_dinamico", function(){
   }
 });
 
-
 function removeItem(id,indice,remove) {
 
   ajax(urlRemove+'?name='+id+'&pk='+indice+'', [''], 'target_ajax');
-  statusItem(id,indice,remove);
+  var status = statusItem(id,indice,remove);
+  if(status === true) {
+    return true
+  } else {
+    return false
+  }
 }
 
 
 function adicionaItem(id,indice,remove,texto) {
+  ajax(urlAdiciona+'?name='+id+'&pk='+indice+'&value='+texto+'', [''], 'target_ajax');
+  var status = statusItem(id,indice,remove);
+  if(status === true) {
+    return true
+  } else {
+    return false
+  }
+}
 
-  ajax(urlAdidiona+'?name='+id+'&pk='+indice+'&value='+texto+'', [''], 'target_ajax');
-  statusItem(id,indice,remove);
+
+function atualizaIndiceItens(indice) {
+  // ajax(urlAdiciona+'?name='+id+'&pk='+indice+'&value='+texto+'', [''], 'target_ajax');
+
 }
 
 
@@ -161,9 +176,6 @@ function statusItem(id,indice,remove) {
   // o terceiro parametro diz se o elemento sera deletado no DOM
   var mensagem = $("#target_ajax").text(),
       texto = "";
-  // limpo o retorno da chamada ajax
-  $("#target_ajax").html("");
-
   if (mensagem.length > 0) {
     if(mensagem === 'True') {
       texto = "Removido com Sucesso!";
@@ -190,5 +202,9 @@ function statusItem(id,indice,remove) {
   } else {
     console.log("aguardando resposta...")
     setTimeout('statusItem("'+id+'",'+indice+','+remove+')', 300);
-  } 
+  }
+  // limpo o retorno da chamada ajax
+  $("#target_ajax").empty();
+  // $("#target_ajax").remove();
+  return true
 }

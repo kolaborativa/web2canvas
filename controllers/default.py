@@ -75,6 +75,7 @@ def editar_dados():
         valor = request.vars.value
         pk = request.vars.pk
         campo = request.vars.name
+        print pk
 
         dados_banco = db(Projeto.id==session.projeto_id).select().first()
 
@@ -136,10 +137,17 @@ def adiciona_item():
         else:
             dicionario_dados = {}
 
-        dicionario_dados[pk] = valor
-        dados = json.dumps(dicionario_dados)
+        if not pk in dicionario_dados:
+            dicionario_dados[pk] = valor
+            dados = json.dumps(dicionario_dados)
 
-        Projeto[session.projeto_id]= {campo:dados}
+            Projeto[session.projeto_id]= {campo:dados}
+        else:            
+            pk = int(max(dicionario_dados)) + 1
+            dicionario_dados[pk] = valor
+            dados = json.dumps(dicionario_dados)
+
+            Projeto[session.projeto_id]= {campo:dados}
 
         return True
     else:
