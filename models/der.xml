@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
-<!-- Active URL: file:///media/Terinha/r4bugento/Documentos/Bagulhos/Trampo/Programa%C3%A7%C3%A3o/wwwsqldesigner-2.6/index.html -->
+<!-- Active URL: file:///home/gustavo/arquivos/Programacao/LABS/wwwsqldesigner-2.6/index.html -->
 <sql>
 <datatypes db="web2py">
 	<group label="Numeric" color="rgb(238,238,170)">
@@ -35,7 +35,7 @@
 <row name="criado_por" null="1" autoincrement="0">
 <datatype>integer</datatype>
 <default>NULL</default>
-<relation table="auth_user" row="id" />
+<relation table="pessoa" row="id" />
 </row>
 <row name="criado_em" null="1" autoincrement="0">
 <datatype>datetime</datatype>
@@ -89,16 +89,28 @@
 <part>id</part>
 </key>
 </table>
-<table x="392" y="35" name="auth_user">
+<table x="727" y="19" name="auth_user">
 <row name="id" null="1" autoincrement="1">
 <datatype>integer</datatype>
 <default>NULL</default>
+</row>
+<row name="tipo_rede" null="1" autoincrement="0">
+<datatype>string(128)</datatype>
+<default>""</default>
+</row>
+<row name="token" null="1" autoincrement="0">
+<datatype>string(128)</datatype>
+<default>""</default>
+</row>
+<row name="primeira_vez" null="1" autoincrement="0">
+<datatype>boolean</datatype>
+<default>True</default>
 </row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="424" y="219" name="compartilhamento">
+<table x="316" y="302" name="compartilhamento">
 <row name="id" null="1" autoincrement="1">
 <datatype>integer</datatype>
 <default>NULL</default>
@@ -106,7 +118,7 @@
 <row name="usuario_id" null="1" autoincrement="0">
 <datatype>integer</datatype>
 <default>NULL</default>
-<relation table="auth_user" row="id" />
+<relation table="pessoa" row="id" />
 </row>
 <row name="projeto_id" null="1" autoincrement="0">
 <datatype>integer</datatype>
@@ -121,5 +133,35 @@
 <part>id</part>
 </key>
 </table>
+<table x="358" y="33" name="pessoa">
+<row name="id" null="1" autoincrement="1">
+<datatype>integer</datatype>
+<default>NULL</default>
+</row>
+<row name="nome" null="1" autoincrement="0">
+<datatype>string(128)</datatype>
+<default>""</default>
+</row>
+<row name="usuario1" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>NULL</default>
+<relation table="auth_user" row="id" />
+</row>
+<row name="usuario2" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>NULL</default>
+<relation table="auth_user" row="id" />
+</row>
+<row name="_object_name" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>Pessoa</default>
+</row>
+<row name="_format" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>'%(nome)s'</default>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
 </sql>
-

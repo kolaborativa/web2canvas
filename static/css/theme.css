@@ -37,9 +37,6 @@ a:focus {
 }
 
 /* Old versions of IE patches */
-.old-ie #hero .carousel-inner .row {
-	padding-left: 55px;
-}
 .old-ie #box_login .box .social a.face_login span.text {
     font-size: 16px;
     margin: 8px 0 0 10px;
@@ -266,51 +263,6 @@ input[type="color"]:focus,
 /* Index
 -------------------------------------------------- */
 
-/* carousel section */
-#hero {
-	padding-top: 50px;
-	background: #ffffff; /* Old browsers */
-	background: -moz-linear-gradient(top,  #ffffff 1%, #f9f9f9 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ffffff), color-stop(100%,#f9f9f9)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #ffffff 1%,#f9f9f9 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #ffffff 1%,#f9f9f9 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #ffffff 1%,#f9f9f9 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #ffffff 1%,#f9f9f9 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f9f9f9',GradientType=0 ); /* IE6-9 */
-	height: auto;
-	padding-bottom: 50px;
-	border-bottom: 1px solid #d1d2d4;
-	box-shadow: 0px 3px 8px 0px #e7e7e7;
-}
-#hero .carousel-control.left {
-	left: 0px;
-	padding-right: 1px;
-}
-#hero .carousel-control.right {
-	right: 0px;
-}
-#hero .carousel-inner .item img {
-	max-height: 349px;
-	margin: 0 auto;
-}
-#hero .carousel-inner .item.slide3 img {
-	display: block;
-	margin: 0 auto;
-}
-#hero .item h1 {
-	font-size: 24px;
-	font-weight: bolder;
-	margin-top: 10px;
-}
-#hero .item p {
-	font-size: 13px;
-	color: #4E4E4E;
-	line-height: 20px;
-}
-#hero .item .btn {
-	margin-top: 10px;
-	font-weight: bolder;
-}
 /* introduction heading section*/
 #intro {
 	text-align: center;
@@ -688,30 +640,6 @@ ul.mais_recuros i {
 	#pricing .price_wrapper.standard {
 		left: -30px;
 	}
-	#hero .carousel-inner .item.slide1 .span6 img {
-		margin-left: 15px;
-	}
-	#hero .carousel-inner .item.slide1 .span4 {
-		padding-left: 30px;
-	}
-	#hero .carousel-inner .item.slide2 .span6 img {
-		margin-left: 30px;
-	}
-	#hero .item h1 {
-		font-size: 30px;
-		margin-top: 40px;
-		margin-left: 20px;
-	}
-	#hero .item p {
-		font-size: 16px;
-		line-height: 24px;
-		margin-left: 20px;
-	}
-	#hero .item .btn {
-		margin-top: 25px;
-		margin-left: 20px;
-		font-size: 18px;
-	}
 	footer .contact_us input[type="text"], 
 	footer .contact_us textarea{
 		width: 270px;
@@ -727,9 +655,6 @@ ul.mais_recuros i {
 		height: 420px;
 		z-index: 9;
 		box-shadow: 0px 0px 5px 4px #E8E8E8;
-	}
-	#hero .carousel-inner .item {
-		padding: 0px 70px;
 	}
 	.navbar .nav .btn-header {
 		background: #414A57;
@@ -776,13 +701,6 @@ ul.mais_recuros i {
 	#pricing .price_wrapper {
 		margin: 0 auto;
 		margin-bottom: 20px !important;
-	}
-	#hero .item h1 {
-		font-size: 18px;
-		line-height: 18px;
-	}
-	#hero .carousel-inner .item.slide2 img {
-		margin-top: 20px;
 	}
 	#testimonials .phrases_wrapper .phrase .pic .position {
 		display: block;
@@ -837,40 +755,11 @@ ul.mais_recuros i {
 	#footer .contact_us button[type="submit"] {
 		margin-left: 0px;
 	}
-	#hero { }
-	#hero .carousel-control.left {
-		left: -55px;
-	}
-	#hero .carousel-control.right {
-		right: -15px;
-	}
-	#hero .item .span4 {
-		margin-left: 50px;
-	}
 }
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {	
 	#intro h1 {
 		width: 90%;
-	}
-	#hero {
-		padding: 50px 20px 20px 20px;
-		margin-right: -20px;
-		margin-left: -20px;
-		height: auto;
-	}
-	#hero .carousel-inner .item {
-		padding: 0px 70px;
-	}
-	#hero .item img {
-		/*display: none;*/
-		width: 240px;
-		display: block;
-		margin: 0 auto;
-	}
-	#hero .carousel-inner .item .btn {
-		font-size: 13px;
-		padding: 7px 10px;
 	}
 	#footer {
 		margin-right: -20px;

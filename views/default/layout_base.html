@@ -19,7 +19,8 @@
     <link rel="stylesheet" type="text/css" href="{{=URL('static','css/theme.css')}}">
     
     {{ if request.function == "index": }}
-    <link href="{{=URL('static','css/animate.css')}}" rel="stylesheet">
+    <link href="{{=URL('static','css/slide.css')}}" rel="stylesheet">
+    <!-- <link href="{{=URL('static','css/animate.css')}}" rel="stylesheet"> -->
     {{ elif request.function == "projeto_canvas": }}
     <link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
     <link href="{{=URL('static','css/style_canvas.css')}}" rel="stylesheet">
@@ -53,6 +54,17 @@
         
     {{ if request.function == "index": }}
         <script src="{{=URL('static','js/theme.js')}}"></script>
+        <script src="{{=URL('static','js/jquery.cslider.js')}}"></script>
+        <script type="text/javascript">
+            $(function() {
+            
+                $('#da-slider').cslider({
+                    autoplay    : true,
+                    bgincrement : 450
+                });
+            
+            });
+        </script>
 
     {{ elif request.function == "projeto_canvas": }}
         <!-- Bibliotecas JS -->

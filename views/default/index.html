@@ -1,84 +1,42 @@
 {{extend 'default/layout_base.html'}}
 
 <a href="https://github.com/gustavox4ids/hackathon_sebrae" target="_blank" class="navbar-fixed-top"><img style="-webkit-user-select: none; position: absolute; top: 0; right: 0; border: 0; z-index:9999;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" width="127" height="127"></a>
-<div id="hero">
-    <div class="container">
-        <!-- starts carousel -->
-        <div class="row animated fadeInDown">
-            <div class="span12">
-                <div id="myCarousel" class="carousel slide">
-                    <!-- carousel items -->
-                    <div class="carousel-inner">
-                        <!-- slide -->
-                        <div class="active item slide1">
-                            <div class="row">
-                                <div class="span6">
-                                    <img src="{{=URL('static','img/slide1.png')}}" alt="slide1" />
-                                </div>
-                                <div class="span4">
-                                    <h1>
-                                        Faça seu Modelo de Negócio
-                                    </h1>
-                                    <p>
-                                        O Modelo de Negócio define o que sua empresa faz, como ela vai gerar lucro e se sustentar no mercado. Definr o Modelo é o primeiro passo para um negócio de sucesso.
-                                    </p>
-                                    <a href="{{=URL('modelo_canvas')}}" class="btn btn-success btn-large">
-                                        Saiba mais
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide -->
-                        <div class="item slide2">
-                            <div class="row">
-                                <div class="span4 animated fadeInUpBig">
-                                    <h1>Cross-platform e Open Source</h1>
-                                    <p>
-                                        Totalmente Web, o Web2Canvas é acessível independe do seu Sistema Operacional.
-                                    </p>
-                                    <p>
-                                        Além disso ele é Open Source e não têm custo de licença.
-                                    </p>
-                                    <a href="https://github.com/gustavox4ids/hackathon_sebrae" target="_blank" class="btn btn-primary btn-large">
-                                        <i class="i_download"></i>
-                                        Acesse o código
-                                    </a>
-                                </div>
-                                <div class="span6 animated fadeInDownBig">
-                                    <img src="{{=URL('static','img/slide2.png')}}" alt="slide2" />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide -->
-                        <div class="item slide3">
-                            <div class="row">
-                                <div class="span6 animated fadeInDownBig">
-                                    <img src="{{=URL('static','img/slide3.png')}}" alt="slide3" />
-                                </div>
-                                <div class="span4 animated fadeInRight">
-                                    <h1>
-                                        Design responsivo
-                                    </h1>
-                                    <p>
-                                        Adaptado para tablets, smartphones, notebooks e desktops. A evolução do design responsivo consegue trazer as vantagens de diversos sites para um só lugar.
-                                    </p>
-                                    <a href="{{=URL(f='user',args='register')}}" class="btn btn-success btn-large">
-                                        Cadastrar-se
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide -->
-                        <div class="item slide4 animated fadeInUpBig">
-                            <img src="{{=URL('static','img/slide4.png')}}" alt="slide4" />
-                        </div>
-                    </div>
-                    <!-- Carousel nav -->
-                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-                </div>
-            </div>
+
+<div id="slider" class="container">
+    <div id="da-slider" class="da-slider">
+        <div class="da-slide slide1">
+            <h2>Faça seu Modelo de Negócio</h2>
+            <p>O Modelo de Negócio define o que sua empresa faz, como ela vai gerar lucro e se sustentar no mercado. Definr o Modelo é o primeiro passo para um negócio de sucesso.</p>
+            <a href="{{=URL('modelo_canvas')}}" class="btn btn-success btn-large da-link">
+                Saiba mais
+            </a>
+            <div class="da-img"><img src="{{=URL('static','img/slide1.png')}}" alt="Modelo de Negócio Canvas" title="Modelo de Negócio Canvas" /></div>
         </div>
+        <div class="da-slide slide2">
+            <h2>Design responsivo</h2>
+            <p>Adaptado para tablets, smartphones, notebooks e desktops. A evolução do design responsivo consegue trazer as vantagens de diversos sites para um só lugar.</p>
+            <a href="https://github.com/gustavox4ids/hackathon_sebrae" target="_blank" class="btn btn-primary btn-large da-link download_codigo">
+                <i class="i_download"></i>
+                Acesse o código
+            </a>
+            <div class="da-img"><img src="{{=URL('static','img/slide2.png')}}" alt="Design responsivo" title="Design responsivo" /></div>
+        </div>
+        <div class="da-slide">
+            <h2>Cross-platform e Open Source</h2>
+            <p>
+                Totalmente Web, o Web2Canvas é acessível independe do seu Sistema Operacional.
+                <br>
+                Além disso ele é Open Source e não têm custo de licença.
+            </p>
+            <a href="{{=URL(f='user',args='register')}}" class="btn btn-success btn-large da-link">
+                Cadastrar-se
+            </a>
+            <div class="da-img"><img src="{{=URL('static','img/slide3.png')}}" alt="Cross-platform e Open Source" title="Cross-platform e Open Source" /></div>
+        </div>
+        <nav class="da-arrows">
+            <span class="da-arrows-prev"></span>
+            <span class="da-arrows-next"></span>
+        </nav>
     </div>
 </div>
 <div id="intro">
@@ -234,7 +192,7 @@
                   <li>Deletar cartões.</li>
                   <li>Drag and Drop.</li>
                   <li>Cartões são salvos automaticamente.</li>
-                  <li>Melhoraria nas notificações.</li>
+                  <li>Melhoria nas notificações.</li>
               </ul>
           </li>
           <li><strong>v 1.0:</strong>

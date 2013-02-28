@@ -158,6 +158,27 @@ def adicionar_usuario():
     redirect(URL(c='default', f='projeto_canvas', args=[projeto_id]))
 
 
+def login():
+    if request.vars:
+        if request.vars['rede'] == 'facebook':
+            session.auth_with = 'facebook'
+
+    redirect(URL('_cadastrar_pessoa'))
+
+
+@auth.requires_login()
+def _cadastrar_pessoa():
+    nome = '%s %s' % (session.auth.user.first_name, session.auth.user.last_name)
+    count = db((Pessoa.usuario1==session.auth.user.id) | (Pessoa.usuario2==session.auth.user.id)).count()
+    if count == 0:
+        pessoa_id = Pessoa.insert(
+                        nome=nome.strip(),
+                        usuario1=session.auth.user.id,
+                        )
+
+    redirect(URL('projetos'))
+
+
 def user():
     """
     exposes:
@@ -172,7 +193,19 @@ def user():
         @auth.requires_permission('read','table name',record_id)
     to decorate functions that need access control
     """
-    return dict(form=auth())
+    if request.args(0) == 'register':
+        import random
+        form = auth.register()
+        form.element(_name='username')['_value'] = "%s" %random.random()
+
+        return dict(form=form)        
+
+    elif request.args(0) == 'logout':
+        session.clear()
+
+    return dict(form = auth())
+
+
 
 
 def download():

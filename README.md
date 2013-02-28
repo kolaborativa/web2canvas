@@ -46,7 +46,7 @@ Changelog
 - Compartilhar projeto com outros usuários.
 - Deletar cartões.
 - Cartões são salvos automaticamente.
-- Melhoraria nas notificações.
+- Melhoria nas notificações.
 
 **v 1.0**:
 
@@ -65,6 +65,7 @@ TODOLIST
 - Ajustar layout responsivo para demais dispositivos.
 - Enviar email para novos usuários cadastrados.
 - Quando adicionar um usuario mandar email pra ele.
+- Internacionalização.
 - Poder incluir imagens ao canvas.
 
 ---------------------------------------

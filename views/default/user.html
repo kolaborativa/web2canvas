@@ -19,8 +19,9 @@
                     </div>
                 	{{if request.args(0)=='login':}}
                 	<div class="form">
-	<!--                     <div class="social">
-	                        <a class="face_login" href="#">
+	                    <div class="social">
+                            <!-- <a href="{{=URL(port=8080, r=request, f='login', vars={'rede':'facebook'})}}" class="face_login"> -->
+	                        <a href="{{=URL(f='login', vars={'rede':'facebook'})}}" class="face_login">
 	                            <span class="face_icon">
 	                                <img src="{{=URL('static','img/i_face.png')}}" alt="fb" alt=""/>
 	                            </span>
@@ -31,7 +32,7 @@
 	                            <span>ou</span>
 	                            <hr class="right">
 	                        </div>
-	                    </div>  -->                   
+	                    </div>                    
 						{{=form.custom.begin}}
 							<!-- email -->
                             {{ form.elements('#auth_user_email')[0] ['_placeholder'] = "Email" }}
@@ -64,10 +65,14 @@
                             {{ form.elements('#auth_user_last_name')[0] ['_placeholder'] = "Último Nome" }}
                             {{=form.custom.widget.last_name}}
 
-							<!-- email -->
+                            <!-- email -->
                             {{ form.elements('#auth_user_email')[0] ['_placeholder'] = "Email" }}
                             {{ form.elements('#auth_user_email')[0] ['_type'] = "email" }}
                             {{=form.custom.widget.email}}
+
+							<!-- username (gero numero randomico) -->
+                            {{ form.elements('#auth_user_username')[0] ['_style'] = "display:none" }}
+                            {{=form.custom.widget.username}}
                             
 							<!-- senha -->
                             {{ form.elements('#auth_user_password')[0] ['_placeholder'] = "Senha" }}
@@ -79,6 +84,7 @@
                             
                             <input type="submit" class="btn" value="Entrar"/>
                         {{=form.custom.end}}
+
                     </div> <!-- form -->
                     {{elif request.args(0)=='profile':}}
                 	<div class="form">

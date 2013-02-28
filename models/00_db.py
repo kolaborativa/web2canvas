@@ -44,7 +44,53 @@ auth = Auth(db)
 crud, service, plugins = Crud(db), Service(), PluginManager()
 
 ## create all tables needed by auth if not custom tables
-auth.define_tables(username=False, signature=False)
+
+# creates all needed tables
+auth.define_tables(username=True, signature=False)
+
+auth.settings.extra_fields['auth_user']= [
+        Field("tipo_rede", "string", length=128, default=""),
+        Field("token", "string", length=128, default=""),
+        Field("primeira_vez", "boolean", default=True),
+    ]
+
+if not "pessoa" in db.tables:
+    Pessoa = db.define_table("pessoa",
+        Field("nome", "string", length=128, default=""),
+        Field("usuario1", db.auth_user, default=None),
+        Field("usuario2", db.auth_user, default=None),
+        format='%(nome)s',
+        migrate="pessoa.table")
+
+if not "projeto" in db.tables:
+    Projeto = db.define_table("projeto",
+        Field("nome", "string", length=200, default=None),
+        Field("criado_por", db.pessoa, default=None),
+        Field("criado_em", "datetime", default=None),
+        Field("parcerias_principais", "text", default=None),
+        Field("atividades_principais", "text", default=None),
+        Field("recursos_principais", "text", default=None),
+        Field("proposta_valor", "text", default=None),
+        Field("relacionamento_clientes", "text", default=None),
+        Field("canais", "text", default=None),
+        Field("segmento_clientes", "text", default=None),
+        Field("estrutura_custos", "text", default=None),
+        Field("receitas", "text", default=None),
+        format='%(nome)s',
+        migrate="projeto.table")
+
+if not "compartilhamento" in db.tables:
+    Compartilhamento = db.define_table("compartilhamento",
+        Field("usuario_id", db.pessoa, default=None),
+        Field("projeto_id", db.projeto, default=None),
+        migrate="compartilhamento.table")
+
+""" Relations between tables (remove fields you don't need from requires) """
+db.projeto.criado_por.requires = IS_IN_DB(db, 'pessoa.id', db.pessoa._format)
+db.compartilhamento.usuario_id.requires = IS_IN_DB(db, 'pessoa.id', db.pessoa._format)
+db.compartilhamento.projeto_id.requires = IS_IN_DB(db, 'projeto.id', db.projeto._format)
+db.pessoa.usuario1.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
+db.pessoa.usuario2.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
 
 ## configure email
 mail = auth.settings.mailer
@@ -62,8 +108,18 @@ auth.settings.reset_password_requires_verification = True
 from gluon.contrib.login_methods.rpx_account import use_janrain
 use_janrain(auth, filename='private/janrain.key')
 
+# forço o login apenas com email
+auth.settings.login_userfield = 'email'
+
+if session.auth_with:
+    if session.auth_with == 'facebook':
+        from facebook_account import FaceBookAccount
+        auth.settings.login_form=FaceBookAccount(globals(),db)
+
 # redireciona depois do login
 auth.settings.login_next=URL('projetos')
+# redireciona depois do cadastro
+auth.settings.register_next = URL('_cadastrar_pessoa')
 
 #########################################################################
 ## Define your tables below (or better in another model file) for example
