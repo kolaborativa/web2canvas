@@ -45,14 +45,14 @@ crud, service, plugins = Crud(db), Service(), PluginManager()
 
 ## create all tables needed by auth if not custom tables
 
-# creates all needed tables
-auth.define_tables(username=True, signature=False)
-
 auth.settings.extra_fields['auth_user']= [
         Field("tipo_rede", "string", length=128, default=""),
         Field("token", "string", length=128, default=""),
         Field("primeira_vez", "boolean", default=True),
     ]
+
+# creates all needed tables
+auth.define_tables(username=True, signature=False)
 
 if not "pessoa" in db.tables:
     Pessoa = db.define_table("pessoa",
