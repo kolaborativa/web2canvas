@@ -26,13 +26,14 @@ def projetos():
     """Pagina com opcao de criar projetos
     """
     from datetime import datetime
-    meus_projetos = db(Projeto.criado_por==auth.user.id).select()
-    projetos_colaborador = db(Compartilhamento.usuario_id==auth.user).select()
+    pessoa = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
+    meus_projetos = db(Projeto.criado_por==pessoa.id).select()
+    projetos_colaborador = ''
+    #projetos_colaborador = db(Compartilhamento.usuario_id==auth.user).select()
 
     form = SQLFORM(Projeto, fields=['nome'], submit_button="Criar")
 
     if form.process().accepted:
-        pessoa = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
         db(Projeto.id==form.vars.id).update(criado_por=pessoa.id, criado_em=datetime.now())
         redirect(URL('projetos'))
 
