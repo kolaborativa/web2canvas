@@ -32,7 +32,8 @@ def projetos():
     form = SQLFORM(Projeto, fields=['nome'], submit_button="Criar")
 
     if form.process().accepted:
-        db(Projeto.id==form.vars.id).update(criado_por=auth.user.id, criado_em=datetime.now())
+        pessoa = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
+        db(Projeto.id==form.vars.id).update(criado_por=pessoa.id, criado_em=datetime.now())
         redirect(URL('projetos'))
 
     return dict(form=form, meus_projetos=meus_projetos, projetos_colaborador=projetos_colaborador)
@@ -108,7 +109,7 @@ def remove_item():
             dicionario_dados = json.loads(dados_banco[campo])
         else:
             dicionario_dados = {}
-        
+
         if pk in dicionario_dados:
             del dicionario_dados[pk]
             dados = json.dumps(dicionario_dados)
