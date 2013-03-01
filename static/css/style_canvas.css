@@ -317,6 +317,7 @@ img.deletar_cartao:hover {
 }
 
 .content-container .colaboradores-container .person {
+  font-size: 1.4em;
   float: left;
   padding-right: 20px;
 }
@@ -346,5 +347,6 @@ img.deletar_cartao:hover {
   color: #000;
 }
 
-
-
+.modal-body {
+  font-size: 1.4em;
+}

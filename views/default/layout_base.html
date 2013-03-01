@@ -30,7 +30,7 @@
     <link href="{{=URL('static','css/user.css')}}" rel="stylesheet">
     <link href="{{=URL('static','css/web2py.css')}}" rel="stylesheet">
     {{ pass }}
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'> -->
 </head>
 <body>
     <a href="#" class="scrolltop">
@@ -51,16 +51,16 @@
     <!-- Javascripts -->
     <script src="{{=URL('static','js/jquery-1.9.0.min.js')}}"></script>
     <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+    <script src="{{=URL('static','js/theme.js')}}"></script>
         
     {{ if request.function == "index": }}
-        <script src="{{=URL('static','js/theme.js')}}"></script>
         <script src="{{=URL('static','js/jquery.cslider.js')}}"></script>
         <script type="text/javascript">
             $(function() {
             
                 $('#da-slider').cslider({
                     autoplay    : true,
-                    bgincrement : 450
+                    bgincrement : 100
                 });
             
             });

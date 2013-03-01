@@ -7,11 +7,11 @@
 	            <span class="icon-bar"></span>
           	</a>
             {{ if request.function == 'index': }}
-            <a class="brand scroller" data-section="body" href="{{=URL('index')}}">
+            <a id="logo" class="brand scroller" data-section="body" href="{{=URL('index')}}">
             {{ else: }}
-            <a class="brand scroller" href="{{=URL('index')}}">
+            <a id="logo" class="brand scroller" href="{{=URL('index')}}">
             {{ pass }}
-                Web2Canvas
+                web2<span>canvas</span>
             </a>
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">

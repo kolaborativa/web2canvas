@@ -1,15 +1,32 @@
+@font-face {
+ font-family: Molle-Regular;
+ src: url("../fonts/Molle-Regular.ttf") /* TTF file for CSS3 browsers */
+}
+
 html {
 	margin: 0;
 }
 body {
 	position: relative;
-	padding-top: 69px;
+	padding-top: 54px;
 	background: #DDDCE2 url(../img/content_bg.jpg) repeat left top;
 	-webkit-font-smoothing: antialiased;
-	font-size: 14px;
-	font-family: 'Lato', sans-serif !important;
+	/*font-size: 1.4em;*/
+	font-size: 10px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	color: #333;
 }
+
+#logo {
+	font-family:'Molle-Regular', "Trebuchet MS", sans-serif;
+	font-size: 40px;
+	color:#99dc30;
+}
+
+#logo span {
+	color:rgb(48, 186, 220);
+}
+
 a:focus {
 	color: #ccc!important;
 }
@@ -34,11 +51,12 @@ a:focus {
 	position: relative;
 	top: 9px;
 	left: 5px;
+	font-size: 1.4em;
 }
 
 /* Old versions of IE patches */
 .old-ie #box_login .box .social a.face_login span.text {
-    font-size: 16px;
+    font-size: 1.6em;
     margin: 8px 0 0 10px;
 }
 .old-ie .nav-collapse.collapse {
@@ -85,7 +103,7 @@ a:focus {
   width: 30px;
   height: 30px;
   margin-top: -20px;
-  font-size: 35px;
+  font-size: 3.5em;
   font-weight: bold;
   line-height: 23px;
   color: #ffffff;
@@ -129,6 +147,7 @@ input[type="color"]:focus,
 -------------------------------------------------- */
 .navbar-fixed-top {
     margin-bottom: 0;
+    line-height: 34px;
 }
 .navbar-fixed-top.scroll {
     opacity: 0.96;
@@ -140,11 +159,11 @@ input[type="color"]:focus,
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     filter: none;
     padding: 7px 0 8px 0;
-    /*background: none repeat scroll 0 0 #242b35;*/
     background: url("../img/nav_bg.jpg") 0 0 repeat;
+    padding: 0px;
 }
 .navbar .brand {
-    font-size: 26px;
+    font-size: 2.6em;
 	text-shadow: none;
 }
 .navbar .nav.pull-right {
@@ -153,7 +172,7 @@ input[type="color"]:focus,
 }
 .navbar .nav > li > a {
 	color: #F8F8F8;
-	font-size: 15px;
+	font-size: 1.5em;
 	font-weight: bold;
     text-shadow: none;
 	-webkit-transition: all .2s linear;
@@ -203,7 +222,7 @@ input[type="color"]:focus,
 	color: #fff;
 }
 .pagina_atual a {
-	color: #ffff00!important;
+	color: rgb(224, 250, 122)!important;
 }
 .dropdown-menu li > a:hover,
 .dropdown-menu li > a:focus,
@@ -270,14 +289,16 @@ input[type="color"]:focus,
 }
 #intro h1 {
 	width: 55%;
-	font-size: 28px;
+	font-size: 2.8em;
 	margin: 0 auto;
 	color: #252B34;
 	font-weight: normal;
 	text-shadow: white 2px 2px 1px;
 }
 /* sessao recursos */
-#recursos { }
+#recursos {
+	font-size: 1.4em;
+}
 #recursos .container { }
 #recursos .section_header {
 	margin-top: 55px;
@@ -300,7 +321,7 @@ input[type="color"]:focus,
 	box-shadow: 0px 0px 7px 1px #8cbe5b;
 }
 #recursos .feature h3 {
-	font-size: 22px;
+	font-size: 2.2em;
 	font-weight: bolder;
 	color: #fff;
 	margin-top: 25px;
@@ -332,11 +353,23 @@ ul.mais_recuros i {
 	margin: 0 10px;
 }
 
+#todos_recursos {
+	font-size: 1.2em;
+}
+
+#modelo_canvas p {
+	font-size: 1.4em;
+}
+
+#modelo_canvas ol {
+	font-size: 1.4em;
+}
 
 /* Blocos Canvas
 -------------------------------------------------- */
-#blocos_canvas {
-	/*font-size: 12px;*/
+#blocos_canvas, #comentarios, #footer {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 .canvas .section_header {
 	margin-top: 55px;
@@ -347,12 +380,12 @@ ul.mais_recuros i {
 	/*color: #fff;*/
 	text-align: center;
 	font-weight: normal;
-	font-size: 22px;
+	/*font-size: 2.2em;*/
 	line-height: 32px;
 	width: 83%;
 	margin: 0 auto;
 	margin-bottom: 30px;
-	font-size: 18px;
+	font-size: 1.8em;
 }
 .canvas .bloco {
 	margin-bottom: 20px;
@@ -449,58 +482,61 @@ ul.mais_recuros i {
 	width: 70%;
 }
 .canvas .bloco p {
-	font-size: 12px;
+	font-size: 1.2em;
 }
 .canvas .bloco h4 {
 	line-height: 25px;
-	font-size: 15px;
+	font-size: 1.5em;
 }
 
-/* testimonials section */
-#testimonials {
+/* comentarios section */
+#comentarios {
 	margin-top: 50px;
 }
-#testimonials .controls hr {
+#comentarios .controls hr {
 	border-top: 1px solid #BEC0C3;
 	border-bottom: 2px solid white;
 }
-#testimonials .phrases_wrapper {
+#comentarios .frases_wrapper {
 	margin-bottom: 50px;
 	padding: 20px 10px 0px 10px;
 }
-#testimonials .phrases_wrapper .phrase { }
-#testimonials .phrases_wrapper .phrase p.testimony {
+#comentarios .frases_wrapper .frases { }
+#comentarios .frases_wrapper .frases p.frase {
 	color:#3a3f46;
 	font-style: italic;
-	font-size: 21px;
+	font-size: 2.1em;
 	/*width: 60%;*/
 	line-height: 28px;
 	position: relative;
 	float: left;
 }
-#testimonials .phrases_wrapper .phrase p.testimony span {
+#comentarios .frases_wrapper .frases p.frase span {
 	font-family: "Georgia", Arial;
-	font-size: 50px;
+	font-size: 3em;
 	color: #c9cbce;
 	position: absolute;
 	margin-left: 10px;
 	margin-top: 15px;
 }
-#testimonials .phrases_wrapper .phrase .pic {
+#comentarios .frases_wrapper .frases .pic {
 	float: right;
 }
-#testimonials .phrases_wrapper .phrase .pic img {
+#comentarios .frases_wrapper .frases .pic img {
 	max-width: 55px;
 	float: left;
 	margin-right: 20px;
 	position: relative;
 	top: -6px;
 }
-#testimonials .phrases_wrapper .phrase .pic .name {
+#comentarios .frases_wrapper .frases .pic .name {
 	font-weight: bold;
 	color: #2C3644;
+	font-size: 1.4em;
 }
-#testimonials .phrases_wrapper .phrase .pic .position { }
+#comentarios .frases_wrapper .frases .pic .position {
+	font-size: 1.4em;
+}
 
 /* footer section */
 #footer {
@@ -522,16 +558,16 @@ ul.mais_recuros i {
 	border: 0px;
 }
 #footer .blog_post .title {
-	font-size: 17px;
+	font-size: 1.7em;
 	font-weight: bold;
 	color: #fff;
 }
 #footer .blog_post .intro {
 	margin: 10px 0px;
-	font-size: 15px;
+	font-size: 1.5em;
 }
 #footer .blog_post .date {
-	font-size: 13px;
+	font-size: 1.3em;
 	color: #B7B9BD;
 }
 #footer .contact_us .field {
@@ -586,6 +622,7 @@ ul.mais_recuros i {
 }
 #footer .copyright .copy p {
 	margin-top: 20px;
+	font-size: 1.4em;
 }
 
 /* section header */
@@ -619,7 +656,7 @@ ul.mais_recuros i {
 }
 .section_header small {
 	margin-left: 20px;
-	font-size: 16px;
+	font-size: 1.6em;
 	color: #7f8387;
 	display: none;
 }
@@ -686,6 +723,7 @@ ul.mais_recuros i {
 	}
 	.navbar .nav.pull-right {
 	    margin-right: 80px;
+	    margin-top: 10px;
 	}
 }
 @media (max-width: 979px) {
@@ -702,14 +740,14 @@ ul.mais_recuros i {
 		margin: 0 auto;
 		margin-bottom: 20px !important;
 	}
-	#testimonials .phrases_wrapper .phrase .pic .position {
+	#comentarios .frases_wrapper .frases .pic .position {
 		display: block;
 	}
 	#footer {
 		margin-top: 20px;
 	}
 	.canvas h3.intro {
-		font-size: 17px;
+		font-size: 1.7em;
 		line-height: 20px;
 	}
 }
@@ -731,7 +769,7 @@ ul.mais_recuros i {
 		width: 240px !important;
 	}
 	#pricing .price_wrapper .header .price span {
-		font-size: 25px;
+		font-size: 2.5em;
 	}
 	#pricing .price_wrapper.pro {
 		min-height: 400px;
@@ -744,11 +782,11 @@ ul.mais_recuros i {
 	#pricing .price_wrapper.pro .header {
 		background: url('../img/chart2_small.png') 0 0 no-repeat;
 	}
-	#testimonials .phrases_wrapper {
+	#comentarios .frases_wrapper {
 		padding-left: 0px;
 		padding-right: 0px;
 	}
-	#testimonials .phrases_wrapper .phrase .span3 {
+	#comentarios .frases_wrapper .frases .span3 {
 		margin-left: 30px;
 		width: 228px;
 	}
@@ -761,24 +799,20 @@ ul.mais_recuros i {
 	#intro h1 {
 		width: 90%;
 	}
-	#footer {
-		margin-right: -20px;
-		margin-left: -20px;
-	}
 	#recursos .feature .btn {
 		margin-top: 8px;
 	}
 	#recursos .feature {
 		margin-bottom: 30px;
 	}
-	#testimonials .phrases_wrapper .phrase > p {
+	#comentarios .frases_wrapper .frases > p {
 		width: 100%;
-		font-size: 18px;
+		font-size: 1.8em;
 	}
-	#testimonials .phrases_wrapper .phrase .pic {
+	#comentarios .frases_wrapper .frases .pic {
 		float: left;
 		margin-top: 8px;
-		font-size: 13px;
+		font-size: 1.3em;
 	}
 	#footer .container {
 		padding: 0px 20px;
@@ -803,14 +837,14 @@ ul.mais_recuros i {
 		width: auto;
 	}
 	#intro h1 {
-		font-size: 22px;
+		font-size: 2.2em;
 		line-height: 30px;
 	}
 	#pricing .price_wrapper {
 		width: 321px !important;
 	}
 	#pricing .price_wrapper .header .price span {
-		font-size: 38px;
+		font-size: 3.8em;
 	}
 	#footer .contact_us button[type="submit"] {
 		margin-left: 0px;
@@ -994,17 +1028,25 @@ i.myspace { background-position: -233px -51px; }
   ==================== 
 */
 
+#projetos {
+	margin-top: 10px;
+	font-size: 1.4em;
+}
+
+#projetos .error {
+	color: red;
+}
+
 #projetos input[type="text"] {
 	margin-bottom: 0px;
 }
 .projeto {
-    font-family: "Arial Black",Gadget,sans-serif;
     background-color: #c0c6e4;
     border-radius: 9px;
     padding: 12px;
 }
 .titulo_projeto {
-    font-size: 20px!important;
+    font-size: 2em!important;
 }
 
 /* Adicionar usuario */
