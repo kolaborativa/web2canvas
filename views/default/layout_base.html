@@ -84,16 +84,16 @@
         <script src="{{=URL('static','js/jquery.pnotify.min.js')}}"></script>
         <!-- adicionar usuario ao projeto -->
         <script type="text/javascript">
-            var usuarios= [];
+            var pessoas= [];
             {{for usuario in usuarios_para_adicionar:}}
-                usuarios.push({ "value": "{{=usuario}}", "data": "{{=usuarios_para_adicionar[usuario]}}" });
+                pessoas.push({ "value": "{{=usuario}}", "data": "{{=usuarios_para_adicionar[usuario]}}" });
             {{ pass }}
             var id_usuario = '';
             $('#autocomplete').autocomplete({
-                lookup: usuarios,
+                lookup: pessoas,
                 onSelect: function (suggestion) {
-                    id_usuario = suggestion.data;
-                    $('#adicionar_usuario').attr('href', '{{=URL(c="default", f="adicionar_usuario", vars={"projeto_id": projeto.id})}}' + '&usuario_id=' + id_usuario);
+                    id_pessoa = suggestion.data;
+                    $('#adicionar_usuario').attr('href', '{{=URL(c="default", f="adicionar_usuario", vars={"projeto_id": projeto.id})}}' + '&pessoa_id=' + id_pessoa);
                 }
             });
         </script>
