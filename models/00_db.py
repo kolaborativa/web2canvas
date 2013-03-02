@@ -54,6 +54,13 @@ auth.settings.extra_fields['auth_user']= [
 # creates all needed tables
 auth.define_tables(username=True, signature=False)
 
+if not "auth_user" in db.tables:
+    db.define_table("auth_user",
+        Field("tipo_rede", "string", length=128, default=""),
+        Field("token", "string", length=128, default=""),
+        Field("primeira_vez", "boolean", default=True),
+        migrate="auth_user.table")
+        
 if not "pessoa" in db.tables:
     Pessoa = db.define_table("pessoa",
         Field("nome", "string", length=128, default=""),
@@ -81,16 +88,18 @@ if not "projeto" in db.tables:
 
 if not "compartilhamento" in db.tables:
     Compartilhamento = db.define_table("compartilhamento",
-        Field("usuario_id", db.pessoa, default=None),
+        Field("pessoa_id", db.pessoa, default=None),
         Field("projeto_id", db.projeto, default=None),
         migrate="compartilhamento.table")
 
+
 """ Relations between tables (remove fields you don't need from requires) """
 db.projeto.criado_por.requires = IS_IN_DB(db, 'pessoa.id', db.pessoa._format)
-db.compartilhamento.usuario_id.requires = IS_IN_DB(db, 'pessoa.id', db.pessoa._format)
+db.compartilhamento.pessoa_id.requires = IS_IN_DB(db, 'pessoa.id', db.pessoa._format)
 db.compartilhamento.projeto_id.requires = IS_IN_DB(db, 'projeto.id', db.projeto._format)
 db.pessoa.usuario1.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
 db.pessoa.usuario2.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
+
 
 ## configure email
 mail = auth.settings.mailer

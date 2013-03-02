@@ -26,13 +26,14 @@ def projetos():
     """Pagina com opcao de criar projetos
     """
     from datetime import datetime
-    meus_projetos = db(Projeto.criado_por==auth.user.id).select()
-    projetos_colaborador = db(Compartilhamento.usuario_id==auth.user).select()
+    pessoa = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
+    meus_projetos = db(Projeto.criado_por==pessoa.id).select()
+    projetos_colaborador = db(Compartilhamento.pessoa_id==pessoa.id).select()
 
     form = SQLFORM(Projeto, fields=['nome'], submit_button="Criar")
 
     if form.process().accepted:
-        db(Projeto.id==form.vars.id).update(criado_por=auth.user.id, criado_em=datetime.now())
+        db(Projeto.id==form.vars.id).update(criado_por=pessoa.id, criado_em=datetime.now())
         redirect(URL('projetos'))
 
     return dict(form=form, meus_projetos=meus_projetos, projetos_colaborador=projetos_colaborador)
@@ -45,22 +46,24 @@ def projeto_canvas():
     import json
     projeto_id = request.args(0) or redirect(URL('index'))
     session.projeto_id = projeto_id
-    usuarios_autorizados =  [i.criado_por for i in db(Projeto.id==projeto_id).select()]
+    pessoa = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
+    pessoas_autorizadas =  [i.criado_por for i in db(Projeto.id==projeto_id).select()]
 
     for i in db(Compartilhamento.projeto_id==projeto_id).select():
-        if not i.usuario_id in usuarios_autorizados:
-            usuarios_autorizados.append(i.usuario_id)
+        if not i.pessoa_id in pessoas_autorizadas:
+            pessoas_autorizadas.append(i.pessoa_id)
 
-    if auth.user.id in usuarios_autorizados:
+    if pessoa.id in pessoas_autorizadas:
         projeto = db(Projeto.id==projeto_id).select().first()
         time_compartilhamento = db(Compartilhamento.projeto_id==projeto_id).select()
-        id_time = [i.usuario_id for i in time_compartilhamento]
+        id_time = [i.pessoa_id for i in time_compartilhamento]
         id_time.append(projeto.criado_por)
 
-        usuarios_para_adicionar = {'%s %s' % (i.first_name, i.last_name):i.id for i in db(db.auth_user).select() if not i.id in id_time}
+        usuarios_para_adicionar = {i.nome:i.id for i in db(db.pessoa).select() if not i.id in id_time}
 
         return dict(projeto=projeto,
                     time_compartilhamento=time_compartilhamento,
+                    pessoa_logada=pessoa.id,
                     usuarios_para_adicionar=usuarios_para_adicionar)
     else:
         redirect(URL('index'))
@@ -108,7 +111,7 @@ def remove_item():
             dicionario_dados = json.loads(dados_banco[campo])
         else:
             dicionario_dados = {}
-        
+
         if pk in dicionario_dados:
             del dicionario_dados[pk]
             dados = json.dumps(dicionario_dados)
@@ -148,12 +151,13 @@ def adicionar_usuario():
     """Funcao que adiciona usuario a um projeto
     """
     projeto_id = request.vars['projeto_id'] or redirect(URL('index'))
-    usuario_id = int(request.vars['usuario_id']) or redirect(URL('index'))
+    pessoa_id = int(request.vars['pessoa_id']) or redirect(URL('index'))
+    pessoa_logada = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
 
     projeto = db(Projeto.id==projeto_id).select().first()
 
-    if projeto.criado_por == auth.user.id:
-        Compartilhamento.insert(usuario_id=usuario_id,
+    if projeto.criado_por == pessoa_logada.id:
+        Compartilhamento.insert(pessoa_id=pessoa_id,
             projeto_id=projeto_id)
     redirect(URL(c='default', f='projeto_canvas', args=[projeto_id]))
 
