@@ -1,6 +1,3 @@
-
-
-
 /*===============*/
 /*   LOGAR-SE*    /
 /*===============*/
@@ -13,8 +10,8 @@
 }
 #box_user .box_wrapper p.already{
 	text-align: center;
-	font-style: 15px;
 	color: #454B52;
+	font-size: 1.4em;
 }
 #box_user .box_wrapper p.already a{
 	color: #454B52;
@@ -176,13 +173,14 @@
 }
 #box_user .box .form .remember .right{
 	float: right;
+	font-size: 1.4em;
 }
 #box_user .box .form .remember .right a{
 	color: #7EA05E;
 	float: right;
     line-height: 16px;
     margin: 3px 0 0;
-	font-style: 14px;
+	font-style: 1.4em;
 	font-weight: bold;
 	
 }

@@ -1,4 +1,5 @@
 {{extend 'default/layout_base.html'}}
+<div class="flash">{{=response.flash or ''}}</div>
 <div id="box_user">
     <div class="container">
         <div class="span12 box_wrapper">
@@ -48,7 +49,7 @@
                                     <!-- <label for="remember_me">Remember me</label> -->
                                 </div>
                                 <div class="right">
-                                    <a href="{{=URL(f='user',args='request_reset_password')}}">Esqueceu a senha?</a>
+                                    <a id="reset_password" href="{{=URL(f='user',args='request_reset_password')}}">Esqueceu a senha?</a>
                                 </div>
                             </div>                             
                             <input type="submit" class="btn" value="Entrar"/>

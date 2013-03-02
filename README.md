@@ -48,6 +48,7 @@ Changelog
 - Cartões são salvos automaticamente.
 - Melhoria nas notificações.
 - Login com Facebook.
+- Reset de senha do usuário.
 
 **v 1.0**:
 
@@ -60,13 +61,16 @@ Changelog
 TODOLIST
 -----------
 
+- Fale conosco (feedback).
+- Excluir projeto.
+- Realtime em projetos compartilhados.
 - Retirar um usuario de um projeto.
 - Exportar Canvas em PDF.
 - Ajustar layout responsivo para demais dispositivos.
 - Enviar email para novos usuários cadastrados.
 - Quando adicionar um usuario mandar email pra ele.
-- Internacionalização.
 - Poder incluir imagens ao canvas.
+- Internacionalização.
 
 ---------------------------------------
 

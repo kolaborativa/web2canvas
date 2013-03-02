@@ -296,7 +296,7 @@ input[type="color"]:focus,
 }
 /* sessao recursos */
 #recursos {
-	font-size: 1.4em;
+	/*font-size: 1.4em;*/
 }
 #recursos .container { }
 #recursos .section_header {
@@ -336,6 +336,7 @@ input[type="color"]:focus,
 	color: #fff;
 	width: 85%;
 	padding-left: 35px;
+	font-size: 1.3em;
 }
 #recursos .feature .btn {
 	margin-top: 15px;
@@ -347,6 +348,7 @@ input[type="color"]:focus,
 }
 ul.mais_recuros li {
 	list-style: none;
+	font-size: 1.3em;
 }
 ul.mais_recuros i {
 	margin: 0 10px;
@@ -357,11 +359,11 @@ ul.mais_recuros i {
 }
 
 #modelo_canvas p {
-	font-size: 1.4em;
+	font-size: 1.6em;
 }
 
 #modelo_canvas ol {
-	font-size: 1.4em;
+	font-size: 1.6em;
 }
 
 /* Blocos Canvas
@@ -369,6 +371,7 @@ ul.mais_recuros i {
 #blocos_canvas, #comentarios, #footer {
     padding-left: 20px;
     padding-right: 20px;
+    font-size: 1.3em;
 }
 .canvas .section_header {
 	margin-top: 55px;
@@ -501,7 +504,7 @@ ul.mais_recuros i {
 #comentarios .frases_wrapper .frases p.frase {
 	color:#3a3f46;
 	font-style: italic;
-	font-size: 2.1em;
+	font-size: 1.8em;
 	line-height: 28px;
 	position: relative;
 	float: left;
@@ -728,6 +731,9 @@ ul.mais_recuros i {
 	}
 	.section_header small {
 		display: none;
+	}
+	.section_header span {
+		width: 100%;
 	}
 	#pricing .price_wrapper {
 		margin: 0 auto;
@@ -1058,3 +1064,13 @@ div.autocomplete-suggestions {
 .autocomplete-selected { background: #F0F0F0; }
 .autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
 
+
+/*
+  ==============
+   NOTIFICAÇÕES
+  ============== 
+*/
+
+.ui-pnotify-text {
+	font-size: 1.4em;
+}

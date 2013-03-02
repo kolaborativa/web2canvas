@@ -1,13 +1,14 @@
 # encoding:utf-8
 
-## Autenticação com Facebook
-
-CLIENT_ID ='515375828505924'
-CLIENT_SECRET ='b1f75c46edc869ab3621bb22225f0544'
-
 
 from facebook import GraphAPI, GraphAPIError
 from gluon.contrib.login_methods.oauth20_account import OAuthAccount
+
+## Variaveis importada
+from data_config import *
+
+CLIENT_ID = FACEBOOK_ID
+CLIENT_SECRET = FACEBOOK_SECRET
 
 class FaceBookAccount(OAuthAccount):
     """OAuth impl for FaceBook"""

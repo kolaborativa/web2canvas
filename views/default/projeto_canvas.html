@@ -313,9 +313,11 @@
           </tr>
         </tbody>
       </table> <!-- fim da tabela principal -->
+        <br> 
+        <h4>Compartilhe e edite seu projeto com outras pessoas:</h4>
         <div class="colaboradores-container">
           <div class="pull-left">
-            <a href="#"><img alt="Team" height="64" src='{{=URL("static","img/time.png")}}'></a>
+            <img src='{{=URL("static","img/time.png")}}' alt="Time de Colaboradores" title="Time de Colaboradores" height="64" >
           </div>
           {{from random import randint}}
           <div class="pull-left">
@@ -343,12 +345,11 @@
               </li>
               {{ pass }}
               {{ if projeto.criado_por == pessoa_logada:}}
-                  <div class="input-prepend">
-                  <span class="add-on">+</span>
-                  <input type="text" name="usuario" id="autocomplete" placeholder="Usuário"/>
-                  <a href="#" id="adicionar_usuario" class="btn btn-success">Add</a>
+                  <div class="input-append">
+                    <input class="span2" id="autocomplete" type="text" name="usuario" placeholder="Buscar Usuário"/>
+                    <a href="#" id="adicionar_usuario" class="btn btn-success">+</a>
+                  </div>
               {{ pass }}
-              </div>
             </ul>
           </div> <!-- fim do pull-left -->
         </div> <!-- fim do colaboradores-container -->
