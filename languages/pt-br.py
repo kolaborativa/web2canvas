@@ -200,6 +200,7 @@
 'User Voice': 'User Voice',
 'Username': 'Username',
 'value already in database or empty': 'value already in database or empty',
+'value not in database': 'value not in database',
 'Verify Password': 'Verify Password',
 'Videos': 'Videos',
 'View': 'Visualização',

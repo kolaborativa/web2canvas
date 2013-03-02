@@ -7,9 +7,9 @@
 	            <span class="icon-bar"></span>
           	</a>
             {{ if request.function == 'index': }}
-            <a id="logo" class="brand scroller" data-section="body" href="{{=URL('index')}}">
+            <a id="logo" href="{{=URL('index')}}" class="brand scroller" data-section="body" alt="Logo Web2Canvas" title="Logo Web2Canvas">
             {{ else: }}
-            <a id="logo" class="brand scroller" href="{{=URL('index')}}">
+            <a id="logo" href="{{=URL('index')}}" class="brand scroller" alt="Logo Web2Canvas" title="Logo Web2Canvas">
             {{ pass }}
                 web2<span>canvas</span>
             </a>

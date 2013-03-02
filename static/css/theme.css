@@ -1021,9 +1021,16 @@ i.myspace { background-position: -233px -51px; }
   ==================== 
 */
 
+#projetos, #projetos-colaborador {
+	font-size: 1.4em;
+}
+
+#projetos-colaborador {
+	margin-bottom: 20px;
+}
+
 #projetos {
 	margin-top: 10px;
-	font-size: 1.4em;
 }
 
 #projetos .error {

@@ -47,6 +47,7 @@ Changelog
 - Deletar cartões.
 - Cartões são salvos automaticamente.
 - Melhoria nas notificações.
+- Login com Facebook.
 
 **v 1.0**:
 
@@ -59,7 +60,6 @@ Changelog
 TODOLIST
 -----------
 
-- Login com redes sociais.
 - Retirar um usuario de um projeto.
 - Exportar Canvas em PDF.
 - Ajustar layout responsivo para demais dispositivos.
