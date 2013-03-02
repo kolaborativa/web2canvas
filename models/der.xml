@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
-<!-- Active URL: file:///home/gustavo/arquivos/Programacao/LABS/wwwsqldesigner-2.6/index.html -->
+<!-- Active URL: file:///media/Terinha/r4bugento/Documentos/Bagulhos/Trampo/Programa%C3%A7%C3%A3o/wwwsqldesigner-2.6/index.html -->
 <sql>
 <datatypes db="web2py">
 	<group label="Numeric" color="rgb(238,238,170)">
@@ -110,12 +110,12 @@
 <part>id</part>
 </key>
 </table>
-<table x="316" y="302" name="compartilhamento">
+<table x="324" y="304" name="compartilhamento">
 <row name="id" null="1" autoincrement="1">
 <datatype>integer</datatype>
 <default>NULL</default>
 </row>
-<row name="usuario_id" null="1" autoincrement="0">
+<row name="pessoa_id" null="1" autoincrement="0">
 <datatype>integer</datatype>
 <default>NULL</default>
 <relation table="pessoa" row="id" />
@@ -133,7 +133,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="358" y="33" name="pessoa">
+<table x="330" y="21" name="pessoa">
 <row name="id" null="1" autoincrement="1">
 <datatype>integer</datatype>
 <default>NULL</default>
@@ -165,3 +165,4 @@
 </key>
 </table>
 </sql>
+

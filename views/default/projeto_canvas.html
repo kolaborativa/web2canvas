@@ -5,7 +5,7 @@
 {{ if request.function == "projeto_canvas": }}
   <h1>
     {{=projeto.nome}}
-    <small>- criado por: {{=projeto.criado_por.first_name}}</small>
+    <small>- criado por: {{=projeto.criado_por.nome}}</small>
     <small> - {{=projeto.criado_em.strftime("%d/%m/%Y")}}</small>
   </h1>
 {{ pass }}
@@ -323,10 +323,10 @@
               <li>
                   <div class="person">
                     <div class="icon">
-                      <img alt="{{=projeto.criado_por.first_name}} avatar" title="{{=projeto.criado_por.first_name}} avatar" src='{{=URL("static","img/avatar%d.png" % randint(1,4))}}'>
+                      <img alt="{{=projeto.criado_por.nome}} avatar" title="{{=projeto.criado_por.nome}} avatar" src='{{=URL("static","img/avatar%d.png" % randint(1,4))}}'>
                     </div>
                     <div class="name">
-                    {{=projeto.criado_por.first_name}}
+                    {{=projeto.criado_por.nome}}
                     </div>
                   </div>
               </li>
@@ -342,7 +342,7 @@
                   </div>
               </li>
               {{ pass }}
-              {{ if projeto.criado_por == auth.user.id:}}
+              {{ if projeto.criado_por == pessoa_logada:}}
                   <div class="input-prepend">
                   <span class="add-on">+</span>
                   <input type="text" name="usuario" id="autocomplete" placeholder="Usuário"/>
