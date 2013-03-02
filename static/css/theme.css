@@ -1,6 +1,7 @@
+/*TTF file for CSS3 browsers*/
 @font-face {
  font-family: Molle-Regular;
- src: url("../fonts/Molle-Regular.ttf") /* TTF file for CSS3 browsers */
+ src: url("../fonts/Molle-Regular.ttf") 
 }
 
 html {
@@ -11,7 +12,6 @@ body {
 	padding-top: 54px;
 	background: #DDDCE2 url(../img/content_bg.jpg) repeat left top;
 	-webkit-font-smoothing: antialiased;
-	/*font-size: 1.4em;*/
 	font-size: 10px;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	color: #333;
@@ -42,7 +42,6 @@ a:focus {
 	filter: alpha(opacity=60);
 	position: fixed;
 	right: 2%;
-	/*text-indent: -9999px;*/
 	top: 51%;
 	width: 40px;
 	z-index: 33;
@@ -374,13 +373,10 @@ ul.mais_recuros i {
 .canvas .section_header {
 	margin-top: 55px;
 	margin-bottom: 10px;
-	/*color: #fff;*/
 }
 .canvas h3.intro {
-	/*color: #fff;*/
 	text-align: center;
 	font-weight: normal;
-	/*font-size: 2.2em;*/
 	line-height: 32px;
 	width: 83%;
 	margin: 0 auto;
@@ -506,7 +502,6 @@ ul.mais_recuros i {
 	color:#3a3f46;
 	font-style: italic;
 	font-size: 2.1em;
-	/*width: 60%;*/
 	line-height: 28px;
 	position: relative;
 	float: left;
@@ -541,14 +536,12 @@ ul.mais_recuros i {
 /* footer section */
 #footer {
 	background: url("../img/footer_bg.jpg") 0 0 repeat;
-	/*min-height: 300px;*/
 	color: #fff;
 }
 #footer h3 {
 	margin-bottom: 25px;
 }
 #footer .blog_post {
-	/*width: 80%;*/
 }
 #footer .blog_post .img-circle {
 	width: 120px;
