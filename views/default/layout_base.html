@@ -9,6 +9,14 @@
 
     <!-- http://dev.w3.org/html5/markup/meta.name.html -->
     <meta name="application-name" content="Web2Canvas" />
+    
+    {{ #uso servidor de cache na porta 8080, por isso criei essa condicional para limpar a URL }}
+    {{ porta = 8080 }}
+    {{ if request.env.http_host.endswith(":8080") and request.function == "projetos":}}
+        {{ redirect(URL(port=80, r=request, f='projetos')) }}
+    {{ else: }}
+        {{ porta = request.env.server_port }}
+    {{ pass }}
 
     <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{=URL('static','images/favicon.png')}}">

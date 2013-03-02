@@ -20,8 +20,8 @@
                     {{if request.args(0)=='login':}}
                     <div class="form">
                         <div class="social">
-                            <!-- <a href="{{=URL(port=8080, r=request, f='login', vars={'rede':'facebook'})}}" class="face_login"> -->
-                            <a href="{{=URL(f='login', vars={'rede':'facebook'})}}" class="face_login">
+                            <a href="{{=URL(port=porta, r=request, f='login', vars={'rede':'facebook'})}}" class="face_login">
+                            <!-- <a href="{{=URL(f='login', vars={'rede':'facebook'})}}" class="face_login"> -->
                                 <span class="face_icon">
                                     <img src="{{=URL('static','img/i_face.png')}}" alt="fb" alt=""/>
                                 </span>
@@ -57,8 +57,8 @@
                     {{elif request.args(0)=='register':}}
                     <div class="form">
                         <div class="social">
-                            <!-- <a href="{{=URL(port=8080, r=request, f='login', vars={'rede':'facebook'})}}" class="face_login"> -->
-                            <a href="{{=URL(f='login', vars={'rede':'facebook'})}}" class="face_login">
+                            <a href="{{=URL(port=porta, r=request, f='login', vars={'rede':'facebook'})}}" class="face_login">
+                            <!-- <a href="{{=URL(f='login', vars={'rede':'facebook'})}}" class="face_login"> -->
                                 <span class="face_icon">
                                     <img src="{{=URL('static','img/i_face.png')}}" alt="fb" alt=""/>
                                 </span>

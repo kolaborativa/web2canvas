@@ -18,6 +18,17 @@ Bibliotecas JS
 - Modernizr [link](http://modernizr.com/)
 
 
+                +------------------+
+                | layout_base.html |
+                +------------------+
+	                     |
+       +-----------------+---------------+----------------------+
+       |                 |               |						|
++------------+   +-----------+   +---------------+   +---------------------+
+| index.html |   | user.html |   | projetos.html |   | projeto_canvas.html |
++------------+   +-----------+   +---------------+   +---------------------+
+
+
 	/layout_base.html
 	|
 	|
@@ -47,6 +58,9 @@ Bibliotecas JS
 
 
 
+
+
+
 ---------------------------------------
 
 layout_base.html
@@ -72,4 +86,6 @@ projeto_canvas.html
 - A DIV que comtém os cartões gerados dinamicamente possui a classe "itens" e o plugin X-editable apartir daí os gera, tendo assim exclusividade do uso da tag A(link) dentro no escopo dessa DIV.
 
 *editar_item.js* - função statusItem(id,indice,bool) => primeiro parametro é o id do elemento no DOM, o segundo parametro é o indice dele no Bloco canvas e o terceiro parametro diz se o elemento sera deletado no DOM com "true"
+
+*uso servidor de cache na porta 8080, por isso criei essa condicional para limpar a URL no callback do login com redes sociais.
 
