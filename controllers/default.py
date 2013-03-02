@@ -28,7 +28,7 @@ def projetos():
     from datetime import datetime
     pessoa = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
     meus_projetos = db(Projeto.criado_por==pessoa.id).select()
-    projetos_colaborador = db(Compartilhamento.pessoa_id==auth.user).select()
+    projetos_colaborador = db(Compartilhamento.pessoa_id==pessoa.id).select()
 
     form = SQLFORM(Projeto, fields=['nome'], submit_button="Criar")
 
