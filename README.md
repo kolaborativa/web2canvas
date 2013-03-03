@@ -39,7 +39,13 @@ Instalação
 Changelog
 -----------
 
-**v 1.0.1**:
+**v 1.2**:
+
+- Login com Facebook.
+- Reset de senha do usuário.
+- Fale conosco (feedback).
+
+**v 1.1**:
 
 - Novo layout.
 - Tela Home.
@@ -47,8 +53,6 @@ Changelog
 - Deletar cartões.
 - Cartões são salvos automaticamente.
 - Melhoria nas notificações.
-- Login com Facebook.
-- Reset de senha do usuário.
 
 **v 1.0**:
 
@@ -61,7 +65,6 @@ Changelog
 TODOLIST
 -----------
 
-- Fale conosco (feedback).
 - Excluir projeto.
 - Realtime em projetos compartilhados.
 - Retirar um usuario de um projeto.

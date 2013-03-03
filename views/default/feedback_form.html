@@ -1,7 +1,7 @@
 <div class="hide fade modal" id="feedback-modal">
     <div class="modal-header">
         <button id="dismiss_feedback" type="button" class="close" data-dismiss="modal">×</button>
-        <h2> <i class="i_dica"></i> Sugerir uma idéia</h2>
+        <h2><i class="i_dica"></i>Envie seu feedback</h2>
     </div>
 
     <div class="modal-body">
@@ -10,20 +10,24 @@
         <div id="feedback_form">
             <ul>
                 <li>
-                    {{ form.elements('#feedback_ideia')[0] ['_placeholder'] = "Digite a sua ideia" }}
-                    {{ form.elements('#feedback_ideia')[0] ['_required'] = True }}
-                    {{ =form.custom.widget.ideia }}
-                </li>
-                <li>
-                    {{ form.elements('#feedback_descricao_ideia')[0] ['_placeholder'] = "Descreva a sua idéia..." }}
-                    {{ form.elements('#feedback_descricao_ideia')[0] ['_required'] = True }}
-                    {{ =form.custom.widget.descricao_ideia }}
-                </li>
-                <li>
                     {{ form.elements('#feedback_email')[0] ['_placeholder'] = "Seu endereço de email" }}
                     {{ form.elements('#feedback_email')[0] ['_required'] = True }}
                     {{ form.elements('#feedback_email')[0] ['_type'] = 'email' }}
                     {{ =form.custom.widget.email }}
+                </li>
+                <li>
+                    {{ form.elements('#feedback_assunto')[0] ['_required'] = True }}
+                    {{ =form.custom.widget.assunto }}
+                </li>
+                <li>
+                    {{ form.elements('#feedback_titulo_mensagem')[0] ['_placeholder'] = "Digite o titulo da mensagem" }}
+                    {{ form.elements('#feedback_titulo_mensagem')[0] ['_required'] = True }}
+                    {{ =form.custom.widget.titulo_mensagem }}
+                </li>
+                <li>
+                    {{ form.elements('#feedback_mensagem')[0] ['_placeholder'] = "Descreva a sua mensagem..." }}
+                    {{ form.elements('#feedback_mensagem')[0] ['_required'] = True }}
+                    {{ =form.custom.widget.mensagem }}
                 </li>
             </ul>
         </div>
@@ -43,11 +47,11 @@
     // volta o cursor ao normal no callback
     function enviarMensagem(callback) {
         document.body.style.cursor = 'default';
-      if(callback === 'sucess') {
-        alert("Email enviado!")
-      } else {
-        alert("Houve um ERRO no envio Email, tente novamente mais tarde!")
-      }
+        if(callback === 'sucess') {
+            alert("Feedback enviado!")
+        } else {
+            alert("Houve um ERRO no envio do Feedback, tente novamente mais tarde!")
+        }
     }
 </script>
 

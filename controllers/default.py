@@ -169,17 +169,19 @@ def feedback_form():
     from data_config import *
 
     form = SQLFORM.factory(
-        Field('ideia', requires=IS_NOT_EMPTY(error_message='Preencha a sua idéia')),
-        Field('descricao_ideia','text', requires=IS_NOT_EMPTY(error_message='Escreva a descrição da sua idéia')),
         Field('email', label= 'E-mail', requires=IS_EMAIL()),
+        Field('assunto',
+        requires=IS_IN_SET(['Sugestão','Dúvida','Reclamação'], zero='Sobre o que você quer falar?',error_message='Escolha o assunto')),
+        Field('titulo_mensagem', requires=IS_NOT_EMPTY(error_message='Prencha o título da sua mensagem')),
+        Field('mensagem','text', requires=IS_NOT_EMPTY(error_message='Prencha a sua mensagem')),
         table_name='feedback',
         submit_button="Enviar Ideia")
     if form.accepts(request.vars):
-        mensagem = '<strong>Ideia:</strong> ' + form.vars.ideia+'<br> <strong>E-mail:</strong> '+form.vars.email+'<br> <strong>Mensagem:</strong> <br>'+form.vars.descricao_ideia
+        mensagem = '<strong>Email: </strong>%s<br><strong>Assunto: </strong>%s<br><strong>Titulo: </strong>%s<br><strong>Mensagem:</strong><br>%s<strong>' % (form.vars.email, form.vars.assunto, form.vars.titulo_mensagem, form.vars.titulo_mensagem )
 
         status = mail.send(to=[CLIENT_EMAIL],reply_to=form.vars.email,
-                subject=form.vars.email + ' enviou uma ideia para o "Feedback Web2Canvas"',
-                 message=[None,mensagem])
+                subject='Email recebido "Feedback Web2Canvas": %s - %s' % (form.vars.email, form.vars.assunto) ,
+                message=[None,mensagem])
 
         if status == True:
             return dict(form=form, status='sucess')
