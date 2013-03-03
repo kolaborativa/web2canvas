@@ -147,6 +147,7 @@ input[type="color"]:focus,
 .navbar-fixed-top {
     margin-bottom: 0;
     line-height: 34px;
+    z-index: 3000;
 }
 .navbar-fixed-top.scroll {
     opacity: 0.96;
@@ -1073,4 +1074,39 @@ div.autocomplete-suggestions {
 
 .ui-pnotify-text {
 	font-size: 1.4em;
+}
+
+
+/*
+  ===============
+   FORM FEEDBACK
+  ===============
+*/
+
+.btn_feedback {
+	background-image: url('../img/icon_feedback.png');
+	background-position: 10% 50%;
+	background-repeat: no-repeat;
+	width: 80px;
+	position: fixed;
+	/*top: 2px;*/
+	bottom: 0px;
+	right: 10px;
+	text-align: right;
+	padding: 5px 10px 5px 30px;
+}
+.btn_feedback:hover {
+	background-position: 10% 50%;
+}
+.btn.btn_feedback, .btn_feedback:active {
+	background-image: url('../img/icon_feedback.png');
+}
+#feedback-modal {
+	z-index: 9999;
+}
+#feedback_form li {
+	list-style: none;
+}
+#feedback_form input, #feedback_form textarea {
+	width: 90%;
 }

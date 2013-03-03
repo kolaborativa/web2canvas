@@ -28,7 +28,6 @@
     
     {{ if request.function == "index": }}
     <link href="{{=URL('static','css/slide.css')}}" rel="stylesheet">
-    <!-- <link href="{{=URL('static','css/animate.css')}}" rel="stylesheet"> -->
     {{ elif request.function == "projeto_canvas": }}
     <link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
     <link href="{{=URL('static','css/style_canvas.css')}}" rel="stylesheet">
@@ -59,7 +58,7 @@
     <script src="{{=URL('static','js/jquery-1.9.0.min.js')}}"></script>
     <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
     <script src="{{=URL('static','js/theme.js')}}"></script>
-        
+
     {{ if request.function == "index": }}
         <script src="{{=URL('static','js/jquery.cslider.js')}}"></script>
         <script type="text/javascript">
@@ -78,7 +77,6 @@
         <script src="{{=URL('static','js/bootstrap-editable.min.js')}}"></script>
         <script src="{{=URL('static','js/jquery-ui.min.js')}}"></script>
         <script src="{{=URL('static','js/jquery.autocomplete.js')}}"></script>
-        <script src="{{=URL('static','js/web2py.js')}}"></script>
         <!-- Meus scripts -->
         <!-- criar/editar cartoes -->
         <script>
@@ -108,7 +106,6 @@
 
     {{ elif request.function == "user": }}
         <!-- javascript -->
-        <script src="{{=URL('static','js/web2py.js')}}"></script>
         <!-- chamada funcao para mostrar força da senha -->
         <script language="javascript"><!--
         jQuery("#web2py_user_form input:visible:enabled:first").focus();
@@ -123,7 +120,14 @@
     <!-- All JavaScript at the bottom, except for Modernizr which enables
        HTML5 elements & feature detects -->
     <script src="{{=URL('static','js/modernizr.custom.js')}}"></script>
-
+    <script src="{{=URL('static','js/web2py.js')}}"></script>
+    <!-- Bootstrap trigger to feedback-modal -->
+    <a href="#feedback-modal" class="btn btn-danger btn_feedback" data-toggle="modal">
+      feedback
+    </a>
+    <!-- form feedback ajax -->
+    {{=LOAD('default', 'feedback_form', ajax=True)}}
+    
     <!-- Google Analytics -->
     <script type="text/javascript">
 

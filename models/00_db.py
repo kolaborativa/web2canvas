@@ -101,7 +101,7 @@ db.pessoa.usuario1.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
 db.pessoa.usuario2.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
 
 
-## Variaveis importada
+## Variaveis importadas
 from data_config import *
 
 ## configure email

@@ -162,6 +162,33 @@ def adicionar_usuario():
     redirect(URL(c='default', f='projeto_canvas', args=[projeto_id]))
 
 
+def feedback_form():
+    '''Formulario de feedback do site.
+    '''
+    ## Variaveis importadas
+    from data_config import *
+
+    form = SQLFORM.factory(
+        Field('ideia', requires=IS_NOT_EMPTY(error_message='Preencha a sua idéia')),
+        Field('descricao_ideia','text', requires=IS_NOT_EMPTY(error_message='Escreva a descrição da sua idéia')),
+        Field('email', label= 'E-mail', requires=IS_EMAIL()),
+        table_name='feedback',
+        submit_button="Enviar Ideia")
+    if form.accepts(request.vars):
+        mensagem = '<strong>Ideia:</strong> ' + form.vars.ideia+'<br> <strong>E-mail:</strong> '+form.vars.email+'<br> <strong>Mensagem:</strong> <br>'+form.vars.descricao_ideia
+
+        status = mail.send(to=[CLIENT_EMAIL],reply_to=form.vars.email,
+                subject=form.vars.email + ' enviou uma ideia para o "Feedback Web2Canvas"',
+                 message=[None,mensagem])
+
+        if status == True:
+            return dict(form=form, status='sucess')
+        else:
+            return dict(form=form, status='error')
+
+    return dict(form=form)
+
+
 def login():
     if request.vars:
         if request.vars['rede'] == 'facebook':
