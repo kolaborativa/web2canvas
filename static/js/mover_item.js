@@ -17,6 +17,9 @@ $(function() {
 
             atualizaIndiceItens(id_novo,indice_novo)
         },
+        over: function( event, ui ) {
+            calculaTamanhoCartoes();
+        },
         receive: function(event, ui) {
             var id_velho = $(ui.item).children("a").attr('id'),
                 id_novo = $(this).attr('class').split(" ")[0],
@@ -31,13 +34,13 @@ $(function() {
             // Disable before dragdrop
             var panel = $(this),
                 body = $('body');            
-            $(this).sortable("disable");
+            // $(this).sortable("disable");
             $('body').css('cursor', 'wait');
 
             setTimeout(function () {
                 body.css('cursor', 'default');
-                panel.sortable("enable");
-            }, 2000); // Enable after 2000 ms.
+                // panel.sortable("enable");
+            }, 1000); // Enable after 1000 ms.
 
         },
         update: function(event, ui) {

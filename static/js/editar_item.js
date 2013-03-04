@@ -20,10 +20,69 @@ $.fn.editableform.buttons =
   '<button type="submit" class="btn btn-success editable-submit"><i class="icon-ok icon-white"></i></button>' +
  '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>'; 
 
-// para saber o maior indice do array
-Array.max = function( array ){
-return Math.max.apply( Math, array );
-};
+// para igualar o tamanho das colunas
+function equalizarAltura() {
+    var blocos = $(".blocos").map(function () {
+            return $(this).height();
+        }).get();
+    var blocos_maior = $(".blocos_maior").map(function () {
+            return $(this).height();
+        }).get();
+
+    maior_bloco = Math.max.apply(null, blocos);
+    maiores_blocos = Math.max.apply(null, blocos_maior);
+
+    $('.blocos').css('min-height',maior_bloco + 'px');
+    $('.blocos_maior').css('min-height',(maiores_blocos) + 'px');
+}
+
+function equalizarDragdrop() {
+    var blocos = $(".blocos").map(function () {
+            return $(this).height();
+        }).get();
+    var blocos_maior = $(".blocos_maior").map(function () {
+            return $(this).height();
+        }).get();
+
+    maior_bloco = Math.max.apply(null, blocos);
+    maiores_blocos = Math.max.apply(null, blocos_maior);
+    // bloco_menor = Math.min.apply(null, blocos);
+    $('.blocos > .drag_drop').css('min-height',(maior_bloco-50) + 'px');
+    $('.blocos_maior > .drag_drop').css('min-height',(maiores_blocos-50) + 'px');
+    // $('.bloco_metade > .drag_drop').css('min-height',bloco_menor + 'px');
+    // $('.blocos_maior > .drag_drop').css('min-height',(maior_bloco/3) + 'px');
+}
+
+function calculaTamanhoCartoes() {
+    // redimensiona para dimensoes apartir de 768px de largura
+    if ($(window).width() > 767) {
+        var sessao1 = $(".sessao1").height(),
+            sessao2 = $(".sessao2").height(),
+            blocos = $(".blocos").map(function () {
+                return $(this).height();
+            }).get(),
+            blocos_maior = $(".blocos_maior").map(function () {
+                return $(this).height();
+            }).get();
+
+        var maior_bloco = Math.min.apply(null, blocos);
+        var maiores_blocos = Math.min.apply(null, blocos_maior);
+        if(sessao1 > maior_bloco) {
+            equalizarDragdrop();
+            equalizarAltura();
+        }else if(sessao2 > maiores_blocos) {
+            equalizarDragdrop();
+            equalizarAltura();
+        }
+    }
+}
+
+$(document).ready(function() {
+   if ($(window).width() > 767) {
+    equalizarDragdrop();
+    equalizarAltura();
+   }
+});
 
 
 /*
@@ -99,30 +158,31 @@ $('.itens').editable({
 // ao clicar no botao de adicionar novo item
 $('.adicionar_item').click(function(){
 
-  var todasClassesBotao = $(this).attr('class'),
+    var todasClassesBotao = $(this).attr('class'),
       classeBotao = todasClassesBotao.split(" ")[0],
       keys = [],
       html;
-  
-  $("a#"+classeBotao).each(function() {
-    keys.push(parseInt($(this).attr('data-pk')));
-  });
 
-  if(keys.length > 0) {
-    var maiorIndice = Array.max(keys),
-        indiceItem = maiorIndice + 1;
-  } else {
+    $("a#"+classeBotao).each(function() {
+        keys.push(parseInt($(this).attr('data-pk')));
+    });
+
     var indiceItem = 1;
-  }
 
-  // modifico a posicao da caixa de edicao nesses blocos para melhorar a visualizacao
-  if(classeBotao == "estrutura_custos" || classeBotao == "parcerias_principais" ) {
-    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'" data-placement="right">'+campo_vazio+'</a></p>';
-  } else { 
-    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a></p>';
-  }
-  
-  $("div."+classeBotao).append(html);
+    // modifico a posicao da caixa de edicao nesses blocos para melhorar a visualizacao
+    if(classeBotao == "estrutura_custos" || classeBotao == "parcerias_principais" ) {
+        html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'" data-placement="right">'+campo_vazio+'</a></p>';
+    } else { 
+        html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a></p>';
+    }
+
+    $("div."+classeBotao).prepend(html);
+    calculaTamanhoCartoes();
+    setTimeout(function () {
+       $("a.novo").trigger('click');
+    }, 100);
+    
+    atualizaIndiceItens(classeBotao,indiceItem);
 });
 
 

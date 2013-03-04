@@ -1028,6 +1028,66 @@ i.myspace { background-position: -233px -51px; }
   ==================== 
 */
 
+#projetos_container {
+	margin-top: 20px;
+	font-size: 1.6em;
+}
+
+#projetos_container .nav-tabs {
+	background-color: #fff;
+	border-bottom: none;
+	border: 2px solid #000;
+	padding: 10px 0 10px 0;
+}
+
+#projetos_container .nav-tabs a {
+	background-color: rgb(218, 242, 255);
+}
+
+#projetos_container .nav-tabs a:hover {
+	background-color: rgb(243, 243, 243);
+}
+
+#projetos_container .nav-tabs .active a, #projetos_container .nav-tabs .active a:hover {
+	background-color: rgb(136, 209, 250);
+}
+
+#projetos_container .nav-tabs h3 {
+	line-height: 20px;
+	color: rgb(54, 64, 185);
+	font-weight: normal;
+}
+
+#projetos_container .nav-tabs .active h3 {
+	color: #fff;
+}
+
+#projetos_container .nav-tabs .span4 {
+	margin-left: 10px;
+}
+
+#projetos_container .tab-content {
+	border: 2px solid #000;
+}
+
+#projetos_container .lista_projetos img {
+	width: 100px;
+	height: 100px;
+	float: left;
+	background-color: #ccc;
+}
+
+#projetos_container .lista_projetos li {
+	float: left;
+	list-style: none;
+}
+
+
+
+
+
+
+
 #projetos, #projetos-colaborador {
 	font-size: 1.4em;
 }
