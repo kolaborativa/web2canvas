@@ -56,9 +56,15 @@
             <br>
             <p><strong>Tente. Invente. Aprenda.</strong></p>
             <p>MÃOS À OBRA! E BOM PROVEITO!</p>
+            {{ if auth.is_logged_in(): }}
+                <a href="{{=URL(f='projetos')}}" class="btn btn-success btn-large">
+                    Meus projetos
+                </a>
+            {{ else: }}
                 <a href="{{=URL(f='user',args='register')}}" class="btn btn-success btn-large">
                     Cadastrar-se
                 </a>
+            {{ pass }}
             <br><br><br>
             <p>
                 <sup>[1]</sup> Saiba mais sobre Alexander Osterwalder em seu <a href="http://alexosterwalder.com/" id="citacao_ref-1" target="_blank">Site</a>.
