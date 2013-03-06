@@ -27,25 +27,22 @@ def projetos():
     """
     import os
     from datetime import datetime
+
     pessoa = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
     meus_projetos = db(Projeto.criado_por==pessoa.id).select()
     projetos_colaborador = db(Compartilhamento.pessoa_id==pessoa.id).select()
 
-    # form = SQLFORM(Projeto, uploadfolder=os.path.join(request.folder,'static/uploads/thumbnail/'), fields=['nome','thumbnail'], submit_button="Criar")
-
-    # if form.process().accepted:
-    #     db(Projeto.id==form.vars.id).update(criado_por=pessoa.id, criado_em=datetime.now())
-    #     redirect(URL('projetos'))
-
+    folder = 'static/uploads/thumbnail/'
     form = SQLFORM.factory(
         Field('nome', label= 'Nome', requires=IS_NOT_EMPTY(error_message='Preencha o campo nome')),
         Field('thumbnail', type='upload',
-        uploadfolder=os.path.join(request.folder,'static/uploads/thumbnail/')),
+        uploadfolder=os.path.join(request.folder, folder)),
         table_name='projeto',
         submit_button="CRIAR")
     
     if form.accepts(request.vars):
-        fname = converterImage(form.vars.thumbnail)
+        fname = _converterImagem(form.vars.thumbnail,folder)
+        
         Projeto.insert(
                         nome=form.vars.nome,
                         criado_por=pessoa.id,
@@ -60,13 +57,13 @@ def projetos():
     return dict(form=form, meus_projetos=meus_projetos, projetos_colaborador=projetos_colaborador)
 
 
-def converterImage(base64txt):
+def _converterImagem(base64txt,folder):
     import os
     import base64
 
     arglen = len(base64txt)
     if arglen > 1:
-        uploadfolder=os.path.join(request.folder,'static/uploads/thumbnail/')
+        uploadfolder=os.path.join(request.folder,folder)
         b64file = open(uploadfolder+base64txt, 'rb').read()
         if b64file.startswith("data:image/png;base64,"):
             b64file = b64file[22:]
@@ -80,6 +77,7 @@ def converterImage(base64txt):
         return fname
     else:
         return False
+
 
 @auth.requires_login()
 def projeto_canvas():
