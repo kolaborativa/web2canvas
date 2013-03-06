@@ -220,6 +220,8 @@ a.editable-click, a.editable-click:hover {
 
 #container_estrutura_c .itens p, #container_receita .itens p {
   width: 31%;
+  float:left;
+  margin-left: 10%;
 }
 
 .itens p:hover {

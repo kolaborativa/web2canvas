@@ -51,11 +51,8 @@ function equalizarDragdrop() {
 
     maior_bloco = Math.max.apply(null, blocos);
     maiores_blocos = Math.max.apply(null, blocos_maior);
-    // bloco_menor = Math.min.apply(null, blocos);
     $('.blocos > .drag_drop').css('min-height',(maior_bloco-50) + 'px');
     $('.blocos_maior > .drag_drop').css('min-height',(maiores_blocos-50) + 'px');
-    // $('.bloco_metade > .drag_drop').css('min-height',bloco_menor + 'px');
-    // $('.blocos_maior > .drag_drop').css('min-height',(maior_bloco/3) + 'px');
 }
 
 function calculaTamanhoCartoes() {
