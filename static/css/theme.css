@@ -1042,6 +1042,10 @@ i.myspace { background-position: -233px -51px; }
 	padding: 10px 0 10px 0;
 }
 
+#projetos_container .nav-tabs li {
+	width: 32.2%;
+}
+
 #projetos_container .nav-tabs small {
 	font-size: 1.4em;
 	color: #333;
@@ -1076,12 +1080,9 @@ i.myspace { background-position: -233px -51px; }
 }
 
 #projetos_container .tab-content {
-	padding: 20px;
+	padding: 20px 0 0px 20px;
+	margin-bottom: 50px;
 	border: 2px solid #85a4c1;
-}
-
-#projetos_container .tab-pane {
-	/*margin-bottom: 10px;*/
 }
 
 #projetos_container .novo_projeto #image_content {
@@ -1125,7 +1126,9 @@ i.myspace { background-position: -233px -51px; }
 }
 
 .lista_projetos img, .lista_projetos .sem_imagem { 
-   width: 200px; padding: 5px; border: 1px solid black; 
+   width: 200px;
+   padding: 5px;
+   border: 1px solid black; 
    -webkit-transition: all .3s ease-out; 
    -moz-transition: all .3s ease-out; 
    -o-transition: all .3s ease-out; 
@@ -1173,13 +1176,9 @@ filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',
 	display: none;
 }
 
-/*#projeto_thumbnail {*/
-	/*display: none;*/
-/*}*/
-
 #projetos_container .novo_projeto {
 	height: 165px;
-	margin-right: 10px;
+	margin-right: 18px;
 	padding-bottom: 5px;
 	border: 2px dashed #85a4c1;
 }
@@ -1187,9 +1186,11 @@ filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',
 #projetos_container .novo_projeto ul {
 	margin: 0px;
 	margin-top: 10px;
+	width: 90%;
 }
 
 #projetos_container .novo_projeto li {
+	width: 100%;
 	float: left;
 	list-style: none;
 }
@@ -1199,20 +1200,26 @@ filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',
 }
 
 #projetos_container .novo_projeto li input[type="text"] {
-	width: 90%;
+	width: 92%;
+}
+
+#projetos_container .novo_projeto li input[type="submit"] {
+	width: 100%;
+	font-size: 1.8em;
 }
 
 #projetos_container .lista_projetos {
 	height: 165px;
-	margin: 0px 10px 10px 0px;
+	margin: 0px 18px 20px 0px;
 	padding: 10px 10px 25px 0px;
 	background-color: #d4ecff;
 }
 
 #projetos_container .lista_projetos img {
-	width: 100px;
-	height: 100px;
+	max-width: 100%;
+	height: auto;
 	margin-left: 10px;
+	margin-top: 2px;
 	float: left;
 	background-color: #fff;
 }
@@ -1222,6 +1229,7 @@ filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',
 	float: left;
 	list-style: none;
 	margin-bottom: 10px;
+	clear: both;
 }
 
 /*mensagens de erros*/

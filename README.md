@@ -42,6 +42,7 @@ Changelog
 **v 1.2**:
 
 - Login com Facebook.
+- Nova tela de Projetos.
 - Reset de senha do usuário.
 - Fale conosco (feedback).
 
@@ -73,7 +74,7 @@ TODOLIST
 - Enviar email para novos usuários cadastrados.
 - Quando adicionar um usuario mandar email pra ele.
 - Poder incluir imagens ao canvas.
-- Internacionalização.
+- Tradução do aplicativo para o inglês.
 
 ---------------------------------------
 
@@ -82,7 +83,9 @@ Desenvolvido por:
 
 **Dodilei**
 
-+ Twitter: [@dodilei](http://twitter.com/dodilei "Twitter") | Facebook: [gustavo.w4lker](http://www.facebook.com/gustavo.w4lker/ "Facebook") | GitHub: [gustavox4ids](http://github.com/gustavox4ids)
++ Twitter: [@dodilei](http://twitter.com/dodilei "Twitter") | Facebook: [gustavo.w4lker](http://www.facebook.com/gustavo.w4lker/ "Facebook") | GitHub: [gustavox4ids](http://github.com/gustavox4ids "GitHub")
++ Twitter: [@R4bugento](http://twitter.com/r4bugento "Twitter") | Facebook: [rabugento.diego](http://www.facebook.com/rabugento.diego/ "Facebook") | GitHub: [r4bugento](http://github.com/r4bugento "GitHub")
++ Twitter: [@Entedi4do](http://twitter.com/entedi4do "Twitter") | Facebook: [entediado.agenciaxfour](http://www.facebook.com/entediado.agenciaxfour/ "Facebook")
 
 ---------------------------------------
 

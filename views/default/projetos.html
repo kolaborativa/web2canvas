@@ -99,19 +99,19 @@
                             {{ if projeto.thumbnail == "False":}}
                                 <div class="sem_imagem" width="100px" height="100px"></div>
                             {{ else: }}
-                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Imagem do projeto {{=projeto.nome}}" title="Imagem do projeto {{=projeto.nome}}">
+                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
                             {{ pass }}
                         </a>
                     </div>
                     <div class="span8">
                         <ul>
                             <li>
-                                <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
+                                <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.id])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
                                     <strong>Nome: </strong>{{=projeto.nome}}
                                 </a>
                             </li>
                             <li><strong>Criado em: </strong>{{=projeto.criado_em.strftime("%d/%m/%Y")}}</li>
-                            <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li>
+                            <!-- <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -125,19 +125,20 @@
                             {{ if projeto.projeto_id.thumbnail == "False":}}
                                 <div class="sem_imagem" width="100px" height="100px"></div>
                             {{ else: }}
-                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.projeto_id.thumbnail)}}' width="100px" height="100px" alt="Imagem do projeto {{=projeto.projeto_id.nome}}" title="Imagem do projeto {{=projeto.projeto_id.nome}}">
+                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.projeto_id.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
                             {{ pass }}
                         </a>
                     </div>
                     <div class="span8">
                         <ul>
                             <li>
-                                <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto])}}" alt="Abrir Projeto {{=projeto.projeto_id.nome}}" title="Abrir Projeto {{=projeto.projeto_id.nome}}">
+                                <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.projeto_id])}}" alt="Abrir Projeto {{=projeto.projeto_id.nome}}" title="Abrir Projeto {{=projeto.projeto_id.nome}}">
                                     <strong>Nome: </strong>{{=projeto.projeto_id.nome}}
                                 </a>
                             </li>
                             <li><strong>Criado em: </strong>{{=projeto.projeto_id.criado_em.strftime("%d/%m/%Y")}}</li>
-                            <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li>
+                            <li><strong>Por: </strong>{{=projeto.projeto_id.criado_por.nome}}</li>
+                            <!-- <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -157,19 +158,19 @@
                             {{ if projeto.thumbnail == "False":}}
                                 <div class="sem_imagem" width="100px" height="100px"></div>
                             {{ else: }}
-                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Imagem do projeto {{=projeto.nome}}" title="Imagem do projeto {{=projeto.nome}}">
+                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
                             {{ pass }}
                         </a>
                     </div>
                     <div class="span8">
                         <ul>
                             <li>
-                                <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
+                                <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.id])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
                                     <strong>Nome: </strong>{{=projeto.nome}}
                                 </a>
                             </li>
                             <li><strong>Criado em: </strong>{{=projeto.criado_em.strftime("%d/%m/%Y")}}</li>
-                            <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li>
+                            <!-- <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -193,19 +194,20 @@
                             {{ if projeto.projeto_id.thumbnail == "False":}}
                                 <div class="sem_imagem" width="100px" height="100px"></div>
                             {{ else: }}
-                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.projeto_id.thumbnail)}}' width="100px" height="100px" alt="Imagem do projeto {{=projeto.projeto_id.nome}}" title="Imagem do projeto {{=projeto.projeto_id.nome}}">
+                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.projeto_id.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
                             {{ pass }}
                         </a>
                     </div>
                     <div class="span8">
                         <ul>
                             <li>
-                                <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto])}}" alt="Abrir Projeto {{=projeto.projeto_id.nome}}" title="Abrir Projeto {{=projeto.projeto_id.nome}}">
+                                <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.projeto_id])}}" alt="Abrir Projeto {{=projeto.projeto_id.nome}}" title="Abrir Projeto {{=projeto.projeto_id.nome}}">
                                     <strong>Nome: </strong>{{=projeto.projeto_id.nome}}
                                 </a>
                             </li>
                             <li><strong>Criado em: </strong>{{=projeto.projeto_id.criado_em.strftime("%d/%m/%Y")}}</li>
-                            <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li>
+                            <li><strong>Por: </strong>{{=projeto.projeto_id.criado_por.nome}}</li>
+                            <!-- <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li> -->
                         </ul>
                     </div>
                 </div>
