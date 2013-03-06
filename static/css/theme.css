@@ -1080,7 +1080,7 @@ i.myspace { background-position: -233px -51px; }
 }
 
 #projetos_container .tab-content {
-	padding: 20px 0 0px 20px;
+	padding: 20px 0 20px 20px;
 	margin-bottom: 50px;
 	border: 2px solid #85a4c1;
 }
