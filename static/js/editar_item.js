@@ -20,6 +20,11 @@ $.fn.editableform.buttons =
   '<button type="submit" class="btn btn-success editable-submit"><i class="icon-ok icon-white"></i></button>' +
  '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>'; 
 
+// para saber o maior indice do array
+Array.max = function( array ){
+return Math.max.apply( Math, array );
+};
+
 // para igualar o tamanho das colunas
 function equalizarAltura() {
     var blocos = $(".blocos").map(function () {
@@ -167,7 +172,12 @@ $('.adicionar_item').click(function(){
         keys.push(parseInt($(this).attr('data-pk')));
     });
 
-    var indiceItem = 1;
+    if(keys.length > 0) {
+      var maiorIndice = Array.max(keys),
+          indiceItem = maiorIndice + 1;
+    } else {
+      var indiceItem = 1;
+    }
 
     // modifico a posicao da caixa de edicao nesses blocos para melhorar a visualizacao
     if(classeBotao == "estrutura_custos" || classeBotao == "parcerias_principais" ) {
@@ -176,13 +186,13 @@ $('.adicionar_item').click(function(){
         html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a></p>';
     }
 
-    $("div."+classeBotao).prepend(html);
+    $("div."+classeBotao).append(html);
     calculaTamanhoCartoes();
     setTimeout(function () {
-       $("a.novo").trigger('click');
+       $("a.novo:last").trigger('click');
     }, 100);
     
-    atualizaIndiceItens(classeBotao,indiceItem);
+    atualizaIndiceItens(classeBotao);
 });
 
 
@@ -228,15 +238,18 @@ function removeItem(id,indice,remove) {
 }
 
 // atualiza indices e cria o cartao movido
-function atualizaIndiceItens(id,indice) {
+function atualizaIndiceItens(id) {
   var values = {},
       value,
       valuesUrl;
   $("."+id).children("p").each(function(index) {
-    index += 1;
+    
     value = $(this).text();
-    values[index] = value;
-    $(this).children("a").attr('data-pk',index)
+    if(value !== campo_vazio) {
+      index += 1;
+      values[index] = value;
+      $(this).children("a").attr('data-pk',index)
+    }
   });
   
   valuesUrl = jQuery.param(values);

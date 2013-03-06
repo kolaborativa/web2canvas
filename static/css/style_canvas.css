@@ -339,6 +339,17 @@ img.deletar_cartao:hover {
 
 
 /*
+=======
+ ERROS
+=======
+*/
+
+.editable-error-block {
+  font-size: 1.4em;
+}
+
+
+/*
 ===================
  LAYOUT RESPONSIVO
 ===================

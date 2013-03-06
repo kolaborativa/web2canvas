@@ -97,7 +97,7 @@
                 <div class="lista_projetos span4">
                     <div class="span4">
                         <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.id])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
-                            {{ if projeto.thumbnail == "False" or projeto.thumbnail == "None" or projeto.thumbnail == "":}}
+                            {{ if projeto.thumbnail == "False" or projeto.thumbnail == None or projeto.thumbnail == "":}}
                                 <div class="sem_imagem" width="100px" height="100px"></div>
                             {{ else: }}
                                 <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
@@ -156,7 +156,7 @@
                 <div class="lista_projetos span4">
                     <div class="span4">
                         <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.id])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
-                            {{ if projeto.thumbnail == "False" or projeto.thumbnail == "None" or projeto.thumbnail == "":}}
+                            {{ if projeto.thumbnail == "False" or projeto.thumbnail == None or projeto.thumbnail == "":}}
                                 <div class="sem_imagem" width="100px" height="100px"></div>
                             {{ else: }}
                                 <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">

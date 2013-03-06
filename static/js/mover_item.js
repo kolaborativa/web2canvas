@@ -12,10 +12,9 @@ $(function() {
         },
         stop: function( event, ui ) {
             ui.item.removeClass( "movendo_item" );
-            var id_novo = $(ui.item).children("a").attr('id'),
-                indice_novo = $(ui.item).index();
+            var id_novo = $(ui.item).children("a").attr('id');
 
-            atualizaIndiceItens(id_novo,indice_novo)
+            atualizaIndiceItens(id_novo)
         },
         over: function( event, ui ) {
             calculaTamanhoCartoes();
