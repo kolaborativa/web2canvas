@@ -28,6 +28,9 @@
     
     {{ if request.function == "index": }}
     <link href="{{=URL('static','css/slide.css')}}" rel="stylesheet">
+    {{ elif request.function == "projetos": }}
+    <link href="{{=URL('static','css/imgareaselect-default.css')}}" rel="stylesheet">
+    <link href="{{=URL('static','css/jquery.awesome-cropper.css')}}" rel="stylesheet">
     {{ elif request.function == "projeto_canvas": }}
     <link href="{{=URL('static','css/bootstrap-editable.css')}}" rel="stylesheet">
     <link href="{{=URL('static','css/style_canvas.css')}}" rel="stylesheet">
@@ -71,6 +74,11 @@
             
             });
         </script>
+
+    {{ elif request.function == "projetos": }}
+        <script src="{{=URL('static','js/jquery.imgareaselect.min.js')}}"></script>
+        <script src="{{=URL('static','js/jquery.awesome-cropper.js')}}"></script>
+        <script src="{{=URL('static','js/projetos.js')}}"></script>
 
     {{ elif request.function == "projeto_canvas": }}
         <!-- Bibliotecas JS -->
