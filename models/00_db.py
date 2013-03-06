@@ -60,7 +60,7 @@ if not "auth_user" in db.tables:
         Field("token", "string", length=128, default=""),
         Field("primeira_vez", "boolean", default=True),
         migrate="auth_user.table")
-        
+
 if not "pessoa" in db.tables:
     Pessoa = db.define_table("pessoa",
         Field("nome", "string", length=128, default=""),
@@ -83,6 +83,7 @@ if not "projeto" in db.tables:
         Field("segmento_clientes", "text", default=None),
         Field("estrutura_custos", "text", default=None),
         Field("receitas", "text", default=None),
+        Field("thumbnail", "upload", default=None),
         format='%(nome)s',
         migrate="projeto.table")
 
@@ -92,17 +93,16 @@ if not "compartilhamento" in db.tables:
         Field("projeto_id", db.projeto, default=None),
         migrate="compartilhamento.table")
 
-
 """ Relations between tables (remove fields you don't need from requires) """
+db.pessoa.usuario1.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
+db.pessoa.usuario2.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
 db.projeto.criado_por.requires = IS_IN_DB(db, 'pessoa.id', db.pessoa._format)
 db.compartilhamento.pessoa_id.requires = IS_IN_DB(db, 'pessoa.id', db.pessoa._format)
 db.compartilhamento.projeto_id.requires = IS_IN_DB(db, 'projeto.id', db.projeto._format)
-db.pessoa.usuario1.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
-db.pessoa.usuario2.requires = IS_IN_DB(db, 'auth_user.id', db.auth_user._format)
 
 
 ## Variaveis importadas
-from data_config import *
+from data_config import EMAIL_SERVER, CLIENT_EMAIL, CLIENT_LOGIN
 
 ## configure email
 mail = Mail()

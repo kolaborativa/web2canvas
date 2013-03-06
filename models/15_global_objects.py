@@ -19,3 +19,13 @@ def g_pagina_atual(url, classe, vazio=''):
         return classe
     else:
         return vazio
+
+def g_formata_numero(numero):
+    '''retorna o numero formatado com 0 antes do numero se for menor que 10'''
+    if numero < 10:
+        numero_zero = "0%s" % numero
+    else:
+        numero_zero = numero
+
+    return numero_zero
+    
