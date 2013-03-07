@@ -1,48 +1,18 @@
-<div class="hide fade modal" id="feedback-modal">
-    <div class="modal-header">
+<div id='feedback-modal' class='modal hide fade'>
+    <div class='modal-header'>
         <button id="dismiss_feedback" type="button" class="close" data-dismiss="modal">×</button>
         <h2><i class="i_dica"></i>Envie seu feedback</h2>
     </div>
-
-    <div class="modal-body">
-    <!-- form ajax -->
-    {{ =form.custom.begin }}
-        <div id="feedback_form">
-            <ul>
-                <li>
-                    {{ form.elements('#feedback_email')[0] ['_placeholder'] = "Seu endereço de email" }}
-                    {{ form.elements('#feedback_email')[0] ['_required'] = True }}
-                    {{ form.elements('#feedback_email')[0] ['_type'] = 'email' }}
-                    {{ =form.custom.widget.email }}
-                </li>
-                <li>
-                    {{ form.elements('#feedback_assunto')[0] ['_required'] = True }}
-                    {{ =form.custom.widget.assunto }}
-                </li>
-                <li>
-                    {{ form.elements('#feedback_titulo_mensagem')[0] ['_placeholder'] = "Digite o titulo da mensagem" }}
-                    {{ form.elements('#feedback_titulo_mensagem')[0] ['_required'] = True }}
-                    {{ =form.custom.widget.titulo_mensagem }}
-                </li>
-                <li>
-                    {{ form.elements('#feedback_mensagem')[0] ['_placeholder'] = "Descreva a sua mensagem..." }}
-                    {{ form.elements('#feedback_mensagem')[0] ['_required'] = True }}
-                    {{ =form.custom.widget.mensagem }}
-                </li>
-            </ul>
-        </div>
+    <div class='modal-body'>
+    {{=form}}
     </div>
-    <div class="modal-footer">
-        <input id="modal-form-submit" class="btn btn-primary pull-right" type="submit" id="enviar" value="Enviar" />
-    </div>
-    {{ =form.custom.end }} <!-- fim do form -->
 </div>
 
 <script type='text/javascript'>
     $('.modal-body form').submit(function() {
         $('#dismiss_feedback').trigger('click');
-        // muda o cursor do mouse ao submeter o form
         document.body.style.cursor = 'wait';
+        return true;
     });
     // volta o cursor ao normal no callback
     function enviarMensagem(callback) {

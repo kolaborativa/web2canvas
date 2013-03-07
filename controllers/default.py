@@ -206,16 +206,33 @@ def feedback_form():
     '''Formulario de feedback do site.
     '''
     ## Variaveis importadas
-    from data_config import CLIENT_EMAIL, FACEBOOK_SECRET
+    from data_config import CLIENT_EMAIL
 
     form = SQLFORM.factory(
-        Field('email', label= 'E-mail', requires=IS_EMAIL()),
+        Field('email',
+            requires=IS_EMAIL(),
+            widget=lambda field, value:
+            SQLFORM.widgets.string.widget(field, value, _required='True', _type='email')),
         Field('assunto',
-        requires=IS_IN_SET(['Sugestão','Dúvida','Reclamação'], zero='Sobre o que você quer falar?',error_message='Escolha o assunto')),
-        Field('titulo_mensagem', requires=IS_NOT_EMPTY(error_message='Prencha o título da sua mensagem')),
-        Field('mensagem','text', requires=IS_NOT_EMPTY(error_message='Prencha a sua mensagem')),
+            label= 'Assunto',
+            requires=IS_IN_SET(['Sugestão','Dúvida','Reclamação'],
+            zero='Sobre o que você quer falar?',
+            error_message='Escolha o assunto'),
+            widget=lambda field, value:
+            SQLFORM.widgets.options.widget(field, value, _required='True')),
+        Field('titulo_mensagem',
+            label= 'Titulo da Mensagem',
+            requires=IS_NOT_EMPTY(error_message='Prencha o título da sua mensagem'),
+            widget=lambda field, value:
+            SQLFORM.widgets.string.widget(field, value, _required='True')),
+        Field('mensagem','text',
+            label= 'Mensagem',
+            requires=IS_NOT_EMPTY(error_message='Prencha a sua mensagem'),
+            widget=lambda field, value:
+            SQLFORM.widgets.text.widget(field, value, _required='True')),
         table_name='feedback',
-        submit_button="Enviar Ideia")
+        submit_button="ENVIAR")
+
     if form.accepts(request.vars):
         mensagem = '<strong>Email: </strong>%s<br><strong>Assunto: </strong>%s<br><strong>Titulo: </strong>%s<br><strong>Mensagem:</strong><br>%s<strong>' % (form.vars.email, form.vars.assunto, form.vars.titulo_mensagem, form.vars.titulo_mensagem )
 
