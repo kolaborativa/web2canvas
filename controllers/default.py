@@ -80,6 +80,22 @@ def _converterImagem(base64txt,folder):
 
 
 @auth.requires_login()
+def excluir_projeto():
+    """Funcao que exclui um projeto. Somente quem criou o projeto pode
+    exclui-lo
+    """
+    projeto_id = request.vars['projeto_id'] or redirect(URL('index'))
+    projeto = db(Projeto.id==projeto_id).select().first()
+    pessoa = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
+
+    if projeto:
+        if pessoa.id == projeto.criado_por:
+            db(Projeto.id==projeto_id).delete()
+
+    redirect(URL('projetos'))
+
+
+@auth.requires_login()
 def projeto_canvas():
     """Pagina com o Canvas do projeto, onde os dados serao editados
     """

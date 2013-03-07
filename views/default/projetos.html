@@ -110,9 +110,7 @@
                                 <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.id])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
                                     <strong>Nome: </strong>{{=projeto.nome}}
                                 </a>
-                            </li>
-                            <li><strong>Criado em: </strong>{{=projeto.criado_em.strftime("%d/%m/%Y")}}</li>
-                            <!-- <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li> -->
+                            <li id="{{=projeto.id}}" class="btn btn-danger excluir_projeto">Deletar Projeto</li> 
                         </ul>
                     </div>
                 </div>
@@ -139,7 +137,6 @@
                             </li>
                             <li><strong>Criado em: </strong>{{=projeto.projeto_id.criado_em.strftime("%d/%m/%Y")}}</li>
                             <li><strong>Por: </strong>{{=projeto.projeto_id.criado_por.nome}}</li>
-                            <!-- <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -171,7 +168,7 @@
                                 </a>
                             </li>
                             <li><strong>Criado em: </strong>{{=projeto.criado_em.strftime("%d/%m/%Y")}}</li>
-                            <!-- <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li> -->
+                            <li id="{{=projeto.id}}" class="btn btn-danger excluir_projeto">Deletar Projeto</li> 
                         </ul>
                     </div>
                 </div>
@@ -208,7 +205,6 @@
                             </li>
                             <li><strong>Criado em: </strong>{{=projeto.projeto_id.criado_em.strftime("%d/%m/%Y")}}</li>
                             <li><strong>Por: </strong>{{=projeto.projeto_id.criado_por.nome}}</li>
-                            <!-- <li><a href="#" class="btn btn-danger">Deletar Projeto</a></li> -->
                         </ul>
                     </div>
                 </div>
