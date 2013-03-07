@@ -123,7 +123,14 @@
             web2py_validate_entropy(jQuery('#no_table_new_password'),100);
         {{pass}}
     //--></script>
+    {{ else: }}
     {{ pass }}
+    
+    <!-- Meus scripts globais para a aplicacao -->
+    <!-- excluir projeto -->
+    <script>
+        var urlExcluiProjeto = "{{=URL(c='default',f='excluir_projeto', vars={'projeto_id':''})}}";
+    </script>
 
     <!-- All JavaScript at the bottom, except for Modernizr which enables
        HTML5 elements & feature detects -->
