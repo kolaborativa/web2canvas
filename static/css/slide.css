@@ -712,19 +712,23 @@
     width: 35%;
 }
 
-.slide3 .da-img {
+.slide4 .da-img {
     top: 0px;
 }
 
 .slide1 a.btn {
-    min-width: 90px;
+    min-width: 110px;
 }
 
 .slide2 a.btn {
-    min-width: 180px;
+    min-width: 90px;
 }
 
 .slide3 a.btn {
+    min-width: 180px;
+}
+
+.slide4 a.btn {
     min-width: 110px;
 }
 
@@ -800,7 +804,7 @@
         position: relative;
         width: 47%;
     }
-    .slide2 .da-img {
+    .slide3 .da-img {
         top: 20px;
         margin-left: -39px;
         width: 37%;

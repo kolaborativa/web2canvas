@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- SQL XML created by WWW SQL Designer, http://code.google.com/p/wwwsqldesigner/ -->
-<!-- Active URL: file:///media/Terinha/r4bugento/Documentos/Bagulhos/Trampo/Programa%C3%A7%C3%A3o/wwwsqldesigner-2.6/index.html -->
+<!-- Active URL: file:///home/gustavo/arquivos/Programacao/LABS/wwwsqldesigner-2.6/index.html -->
 <sql>
 <datatypes db="web2py">
 	<group label="Numeric" color="rgb(238,238,170)">
@@ -23,7 +23,38 @@
 		<type label="Password" length="0" sql="password" quote=""/>
 		<type label="List:reference" length="0" sql="list:reference" quote=""/>
 	</group>
-</datatypes><table x="24" y="16" name="projeto">
+</datatypes><table x="348" y="43" name="pessoa">
+<row name="id" null="1" autoincrement="1">
+<datatype>integer</datatype>
+<default>NULL</default>
+</row>
+<row name="nome" null="1" autoincrement="0">
+<datatype>string(128)</datatype>
+<default>""</default>
+</row>
+<row name="usuario1" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>NULL</default>
+<relation table="auth_user" row="id" />
+</row>
+<row name="usuario2" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>NULL</default>
+<relation table="auth_user" row="id" />
+</row>
+<row name="_object_name" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>Pessoa</default>
+</row>
+<row name="_format" null="1" autoincrement="0">
+<datatype>integer</datatype>
+<default>'%(nome)s'</default>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="540" y="146" name="projeto">
 <row name="id" null="1" autoincrement="1">
 <datatype>integer</datatype>
 <default>NULL</default>
@@ -77,6 +108,10 @@
 <datatype>text</datatype>
 <default>NULL</default>
 </row>
+<row name="thumbnail" null="1" autoincrement="0">
+<datatype>upload</datatype>
+<default>NULL</default>
+</row>
 <row name="_object_name" null="1" autoincrement="0">
 <datatype>integer</datatype>
 <default>Projeto</default>
@@ -89,7 +124,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="727" y="19" name="auth_user">
+<table x="102" y="142" name="auth_user">
 <row name="id" null="1" autoincrement="1">
 <datatype>integer</datatype>
 <default>NULL</default>
@@ -110,7 +145,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="324" y="304" name="compartilhamento">
+<table x="780" y="26" name="compartilhamento">
 <row name="id" null="1" autoincrement="1">
 <datatype>integer</datatype>
 <default>NULL</default>
@@ -133,36 +168,4 @@
 <part>id</part>
 </key>
 </table>
-<table x="330" y="21" name="pessoa">
-<row name="id" null="1" autoincrement="1">
-<datatype>integer</datatype>
-<default>NULL</default>
-</row>
-<row name="nome" null="1" autoincrement="0">
-<datatype>string(128)</datatype>
-<default>""</default>
-</row>
-<row name="usuario1" null="1" autoincrement="0">
-<datatype>integer</datatype>
-<default>NULL</default>
-<relation table="auth_user" row="id" />
-</row>
-<row name="usuario2" null="1" autoincrement="0">
-<datatype>integer</datatype>
-<default>NULL</default>
-<relation table="auth_user" row="id" />
-</row>
-<row name="_object_name" null="1" autoincrement="0">
-<datatype>integer</datatype>
-<default>Pessoa</default>
-</row>
-<row name="_format" null="1" autoincrement="0">
-<datatype>integer</datatype>
-<default>'%(nome)s'</default>
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
 </sql>
-

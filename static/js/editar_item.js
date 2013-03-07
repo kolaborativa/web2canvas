@@ -25,6 +25,67 @@ Array.max = function( array ){
 return Math.max.apply( Math, array );
 };
 
+// para igualar o tamanho das colunas
+function equalizarAltura() {
+    var blocos = $(".blocos").map(function () {
+            return $(this).height();
+        }).get();
+    var blocos_maior = $(".blocos_maior").map(function () {
+            return $(this).height();
+        }).get();
+
+    maior_bloco = Math.max.apply(null, blocos);
+    maiores_blocos = Math.max.apply(null, blocos_maior);
+
+    $('.blocos').css('min-height',maior_bloco + 'px');
+    $('.blocos_maior').css('min-height',(maiores_blocos) + 'px');
+}
+
+function equalizarDragdrop() {
+    var blocos = $(".blocos").map(function () {
+            return $(this).height();
+        }).get();
+    var blocos_maior = $(".blocos_maior").map(function () {
+            return $(this).height();
+        }).get();
+
+    maior_bloco = Math.max.apply(null, blocos);
+    maiores_blocos = Math.max.apply(null, blocos_maior);
+    $('.blocos > .drag_drop').css('min-height',(maior_bloco-50) + 'px');
+    $('.blocos_maior > .drag_drop').css('min-height',(maiores_blocos-50) + 'px');
+}
+
+function calculaTamanhoCartoes() {
+    // redimensiona para dimensoes apartir de 768px de largura
+    if ($(window).width() > 767) {
+        var sessao1 = $(".sessao1").height(),
+            sessao2 = $(".sessao2").height(),
+            blocos = $(".blocos").map(function () {
+                return $(this).height();
+            }).get(),
+            blocos_maior = $(".blocos_maior").map(function () {
+                return $(this).height();
+            }).get();
+
+        var maior_bloco = Math.min.apply(null, blocos);
+        var maiores_blocos = Math.min.apply(null, blocos_maior);
+        if(sessao1 > maior_bloco) {
+            equalizarDragdrop();
+            equalizarAltura();
+        }else if(sessao2 > maiores_blocos) {
+            equalizarDragdrop();
+            equalizarAltura();
+        }
+    }
+}
+
+$(document).ready(function() {
+   if ($(window).width() > 767) {
+    equalizarDragdrop();
+    equalizarAltura();
+   }
+});
+
 
 /*
 ===============================
@@ -99,30 +160,36 @@ $('.itens').editable({
 // ao clicar no botao de adicionar novo item
 $('.adicionar_item').click(function(){
 
-  var todasClassesBotao = $(this).attr('class'),
+    var todasClassesBotao = $(this).attr('class'),
       classeBotao = todasClassesBotao.split(" ")[0],
       keys = [],
       html;
-  
-  $("a#"+classeBotao).each(function() {
-    keys.push(parseInt($(this).attr('data-pk')));
-  });
 
-  if(keys.length > 0) {
-    var maiorIndice = Array.max(keys),
-        indiceItem = maiorIndice + 1;
-  } else {
-    var indiceItem = 1;
-  }
+    $("a#"+classeBotao).each(function() {
+        keys.push(parseInt($(this).attr('data-pk')));
+    });
 
-  // modifico a posicao da caixa de edicao nesses blocos para melhorar a visualizacao
-  if(classeBotao == "estrutura_custos" || classeBotao == "parcerias_principais" ) {
-    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'" data-placement="right">'+campo_vazio+'</a></p>';
-  } else { 
-    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a></p>';
-  }
-  
-  $("div."+classeBotao).append(html);
+    if(keys.length > 0) {
+      var maiorIndice = Array.max(keys),
+          indiceItem = maiorIndice + 1;
+    } else {
+      var indiceItem = 1;
+    }
+
+    // modifico a posicao da caixa de edicao nesses blocos para melhorar a visualizacao
+    if(classeBotao == "estrutura_custos" || classeBotao == "parcerias_principais" ) {
+        html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'" data-placement="right">'+campo_vazio+'</a></p>';
+    } else { 
+        html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a></p>';
+    }
+
+    $("div."+classeBotao).append(html);
+    calculaTamanhoCartoes();
+    setTimeout(function () {
+       $("a.novo:last").trigger('click');
+    }, 100);
+    
+    atualizaIndiceItens(classeBotao);
 });
 
 
@@ -168,15 +235,18 @@ function removeItem(id,indice,remove) {
 }
 
 // atualiza indices e cria o cartao movido
-function atualizaIndiceItens(id,indice) {
+function atualizaIndiceItens(id) {
   var values = {},
       value,
       valuesUrl;
   $("."+id).children("p").each(function(index) {
-    index += 1;
+    
     value = $(this).text();
-    values[index] = value;
-    $(this).children("a").attr('data-pk',index)
+    if(value !== campo_vazio) {
+      index += 1;
+      values[index] = value;
+      $(this).children("a").attr('data-pk',index)
+    }
   });
   
   valuesUrl = jQuery.param(values);

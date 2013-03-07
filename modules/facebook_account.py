@@ -5,7 +5,7 @@ from facebook import GraphAPI, GraphAPIError
 from gluon.contrib.login_methods.oauth20_account import OAuthAccount
 
 ## Variaveis importada
-from data_config import *
+from data_config import FACEBOOK_ID, FACEBOOK_SECRET
 
 CLIENT_ID = FACEBOOK_ID
 CLIENT_SECRET = FACEBOOK_SECRET

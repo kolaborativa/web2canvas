@@ -1,0 +1,1 @@
+Essa pasta é responsavel por conter os uploads e o gitignore nao versiona a pasta thumbnail

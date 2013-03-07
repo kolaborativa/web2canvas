@@ -1,0 +1,18 @@
+.awesome-cropper {
+}
+.awesome-cropper-drop-area {
+}
+.awesome-cropper .preview {
+}
+.awesome-cropper .modal, .awesome-cropper .modal.fade.in {
+  /*width: 900px;*/
+  /*width: 60%;*/
+  /*margin-left: -450px;*/
+  /*margin-right: -480px;*/
+  /*top: 10%;*/
+}
+.awesome-cropper .modal-body {
+  max-height: none;
+  /*width: 100%;*/
+}
+ 

@@ -12,10 +12,12 @@ $(function() {
         },
         stop: function( event, ui ) {
             ui.item.removeClass( "movendo_item" );
-            var id_novo = $(ui.item).children("a").attr('id'),
-                indice_novo = $(ui.item).index();
+            var id_novo = $(ui.item).children("a").attr('id');
 
-            atualizaIndiceItens(id_novo,indice_novo)
+            atualizaIndiceItens(id_novo)
+        },
+        over: function( event, ui ) {
+            calculaTamanhoCartoes();
         },
         receive: function(event, ui) {
             var id_velho = $(ui.item).children("a").attr('id'),
@@ -31,13 +33,13 @@ $(function() {
             // Disable before dragdrop
             var panel = $(this),
                 body = $('body');            
-            $(this).sortable("disable");
+            // $(this).sortable("disable");
             $('body').css('cursor', 'wait');
 
             setTimeout(function () {
                 body.css('cursor', 'default');
-                panel.sortable("enable");
-            }, 2000); // Enable after 2000 ms.
+                // panel.sortable("enable");
+            }, 1000); // Enable after 1000 ms.
 
         },
         update: function(event, ui) {
