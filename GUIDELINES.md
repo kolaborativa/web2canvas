@@ -18,15 +18,15 @@ Bibliotecas JS
 - Modernizr [link](http://modernizr.com/)
 
 
-                +------------------+
-                | layout_base.html |
-                +------------------+
-	                     |
-       +-----------------+---------------+----------------------+
-       |                 |               |						|
-+------------+   +-----------+   +---------------+   +---------------------+
-| index.html |   | user.html |   | projetos.html |   | projeto_canvas.html |
-+------------+   +-----------+   +---------------+   +---------------------+
+	                +------------------+
+	                | layout_base.html |
+	                +------------------+
+		                     |
+	       +-----------------+---------------+----------------------+
+	       |                 |               |						|
+	+------------+   +-----------+   +---------------+   +---------------------+
+	| index.html |   | user.html |   | projetos.html |   | projeto_canvas.html |
+	+------------+   +-----------+   +---------------+   +---------------------+
 
 
 	/layout_base.html
@@ -53,7 +53,7 @@ Bibliotecas JS
 		X-editable(1.4.1) =>  bootstrap-editable.min.js
 		Autocomplete(1.2.4) =>  jquery.autocomplete.js
 		web2py =>  web2py.js
-		Javascript =>  editar_item.js
+		Javascript =>  projeto_canvas.js
 		Javascript =>  mover_item.js
 
 

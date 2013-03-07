@@ -32,7 +32,7 @@
                         {{import json}}
                         {{ if projeto.parcerias_principais: }}
                         {{ for i in sorted(json.loads(projeto.parcerias_principais)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="parcerias_principais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.parcerias_principais)[i]}}</a></p>
+                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="parcerias_principais" data-pk="{{=i}}">{{=json.loads(projeto.parcerias_principais)[i]}}</a></p>
                         {{ pass }}
                         {{ pass }}
                     </div>
@@ -54,7 +54,7 @@
                                 {{import json}}
                                 {{ if projeto.atividades_principais: }}
                                 {{ for i in sorted(json.loads(projeto.atividades_principais)): }}
-                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="atividades_principais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.atividades_principais)[i]}}</a></p>
+                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="atividades_principais" data-pk="{{=i}}">{{=json.loads(projeto.atividades_principais)[i]}}</a></p>
                                 {{ pass }}
                                 {{ pass }}
                             </div>
@@ -76,7 +76,7 @@
                                 {{import json}}
                                 {{ if projeto.recursos_principais: }}
                                 {{ for i in sorted(json.loads(projeto.recursos_principais)): }}
-                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="recursos_principais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.recursos_principais)[i]}}</a></p>
+                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="recursos_principais" data-pk="{{=i}}">{{=json.loads(projeto.recursos_principais)[i]}}</a></p>
                                 {{ pass }}
                                 {{ pass }}
                             </div>
@@ -98,7 +98,7 @@
                         {{import json}}
                         {{ if projeto.proposta_valor: }}
                         {{ for i in sorted(json.loads(projeto.proposta_valor)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="proposta_valor" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.proposta_valor)[i]}}</a></p>
+                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="proposta_valor" data-pk="{{=i}}">{{=json.loads(projeto.proposta_valor)[i]}}</a></p>
                         {{ pass }}
                         {{ pass }}
                     </div>
@@ -120,7 +120,7 @@
                                 {{import json}}
                                 {{ if projeto.relacionamento_clientes: }}
                                 {{ for i in sorted(json.loads(projeto.relacionamento_clientes)): }}
-                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="relacionamento_clientes" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></p>
+                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="relacionamento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></p>
                                 {{ pass }}
                                 {{ pass }}
                             </div>
@@ -142,7 +142,7 @@
                                 {{import json}}
                                 {{ if projeto.canais: }}
                                 {{ for i in sorted(json.loads(projeto.canais)): }}
-                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="canais" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.canais)[i]}}</a></p>
+                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="canais" data-pk="{{=i}}">{{=json.loads(projeto.canais)[i]}}</a></p>
                                 {{ pass }}
                                 {{ pass }}
                             </div>
@@ -164,7 +164,7 @@
                         {{import json}}
                         {{ if projeto.segmento_clientes: }}
                         {{ for i in sorted(json.loads(projeto.segmento_clientes)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="segmento_clientes" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.segmento_clientes)[i]}}</a></p>
+                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></p>
                         {{ pass }}
                         {{ pass }}
                     </div>
@@ -187,7 +187,7 @@
                         {{import json}}
                         {{ if projeto.estrutura_custos: }}
                         {{ for i in sorted(json.loads(projeto.estrutura_custos)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="estrutura_custos" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.estrutura_custos)[i]}}</a></p>
+                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="estrutura_custos" data-pk="{{=i}}">{{=json.loads(projeto.estrutura_custos)[i]}}</a></p>
                         {{ pass }}
                         {{ pass }}
                     </div>
@@ -207,7 +207,7 @@
                         {{import json}}
                         {{ if projeto.receitas: }}
                         {{ for i in sorted(json.loads(projeto.receitas)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="receitas" data-pk="{{=i}}" data-placement="right">{{=json.loads(projeto.receitas)[i]}}</a></p>
+                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></p>
                         {{ pass }}
                         {{ pass }}
                     </div>

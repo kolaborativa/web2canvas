@@ -19,11 +19,22 @@ var titulo_caixa = "Editar Cartão",
 $.fn.editableform.buttons = 
   '<button type="submit" class="btn btn-success editable-submit"><i class="icon-ok icon-white"></i></button>' +
  '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>'; 
+// $.fn.editable.defaults.mode = 'inline';
 
 // para saber o maior indice do array
 Array.max = function( array ){
-return Math.max.apply( Math, array );
+  return Math.max.apply( Math, array );
 };
+
+/*
+==============================
+ EXECUTA AO CARREGAR A PAGINA
+==============================
+*/
+
+$(document).ready(function() {
+    calculaTamanhoCartoes();
+});
 
 // para igualar o tamanho das colunas
 function equalizarAltura() {
@@ -41,6 +52,7 @@ function equalizarAltura() {
     $('.blocos_maior').css('min-height',(maiores_blocos) + 'px');
 }
 
+// para aumentar o tamanho da area de dragdrop
 function equalizarDragdrop() {
     var blocos = $(".blocos").map(function () {
             return $(this).height();
@@ -55,6 +67,7 @@ function equalizarDragdrop() {
     $('.blocos_maior > .drag_drop').css('min-height',(maiores_blocos-50) + 'px');
 }
 
+// calcula a necessidade de aumentar as colunas
 function calculaTamanhoCartoes() {
     // redimensiona para dimensoes apartir de 768px de largura
     if ($(window).width() > 767) {
@@ -79,13 +92,6 @@ function calculaTamanhoCartoes() {
     }
 }
 
-$(document).ready(function() {
-   if ($(window).width() > 767) {
-    equalizarDragdrop();
-    equalizarAltura();
-   }
-});
-
 
 /*
 ===============================
@@ -99,7 +105,6 @@ $('.item_existente').editable({
   url: urlNovoEdita,
   title: titulo_caixa,
   emptytext: campo_vazio,
-  placement: "top",
   validate: function(value) {
       if($.trim(value) == '') {
           return mensagem_erro;
@@ -134,6 +139,7 @@ $('.itens').editable({
   selector: 'a',
   url: urlNovoEdita,
   title: titulo_nova_caixa,
+  placement: "top",
   validate: function(value) {
       if($.trim(value) == '') {
           return mensagem_erro;
@@ -176,12 +182,7 @@ $('.adicionar_item').click(function(){
       var indiceItem = 1;
     }
 
-    // modifico a posicao da caixa de edicao nesses blocos para melhorar a visualizacao
-    if(classeBotao == "estrutura_custos" || classeBotao == "parcerias_principais" ) {
-        html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'" data-placement="right">'+campo_vazio+'</a></p>';
-    } else { 
-        html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a></p>';
-    }
+    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a></p>';
 
     $("div."+classeBotao).append(html);
     calculaTamanhoCartoes();
@@ -189,7 +190,6 @@ $('.adicionar_item').click(function(){
        $("a.novo:last").trigger('click');
     }, 100);
     
-    atualizaIndiceItens(classeBotao);
 });
 
 

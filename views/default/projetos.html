@@ -8,16 +8,6 @@
     {{ len_colaborador = g_formata_numero(len(projetos_colaborador)) }}
 {{ pass }}
 
-{{ if meus_projetos and projetos_colaborador: }}
-    {{ len_todos_projetos = len(meus_projetos) + len(projetos_colaborador) }}
-    {{ todos_projetos = g_formata_numero(len_todos_projetos) }}
-{{ elif meus_projetos: }}
-    {{ todos_projetos = g_formata_numero(len(meus_projetos)) }}
-{{ elif projetos_colaborador: }}
-    {{ todos_projetos = g_formata_numero(len(projetos_colaborador)) }}
-{{ pass }}
-
-
 <div class="container">
     <div id="projetos_container" class="tabbable"> <!-- Only required for left/right tabs -->
       <div class="row-fluid">
@@ -28,13 +18,13 @@
                     {{ if meus_projetos and projetos_colaborador: }}
                         {{ len_todos_projetos = len(meus_projetos) + len(projetos_colaborador) }}
                         {{ todos_projetos = g_formata_numero(len_todos_projetos) }}
-                        <small>{{ =todos_projetos }} projetos no total</small>
+                        <small>{{ =todos_projetos }} projeto(s) no total</small>
                     {{ elif meus_projetos: }}
                         {{ todos_projetos = g_formata_numero(len(meus_projetos)) }}
-                        <small>{{ =todos_projetos }} projetos no total</small>
+                        <small>{{ =todos_projetos }} projeto(s) no total</small>
                     {{ elif projetos_colaborador: }}
                         {{ todos_projetos = g_formata_numero(len(projetos_colaborador)) }}
-                        <small>{{ =todos_projetos }} projetos no total</small>
+                        <small>{{ =todos_projetos }} projeto(s) no total</small>
                     {{ else: }}
                         <small>não existem projetos ainda</small>
                     {{ pass }}
