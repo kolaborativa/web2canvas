@@ -1089,7 +1089,7 @@ i.myspace { background-position: -233px -51px; }
 	width: 110px;
 	height: 110px;
 	margin: 10px 0 0 10px;
-	background-color: #fff;
+	background: url("../img/projeto_sem_imagem.jpg") 50% no-repeat;
 	display: block;
 	line-height: 20px;
 	-webkit-border-radius: 4px;
@@ -1126,9 +1126,7 @@ i.myspace { background-position: -233px -51px; }
 }
 
 .lista_projetos img, .lista_projetos .sem_imagem { 
-   width: 200px;
    padding: 5px;
-   border: 1px solid black; 
    -webkit-transition: all .3s ease-out; 
    -moz-transition: all .3s ease-out; 
    -o-transition: all .3s ease-out; 
@@ -1142,7 +1140,7 @@ i.myspace { background-position: -233px -51px; }
    -ms-transform: scale(1.1);
 filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',
    M11=2, M12=-0, M21=0, M22=2);
-   }
+}
 
 #projetos_container .sem_imagem {
 	width: 100px;
