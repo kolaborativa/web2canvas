@@ -39,10 +39,10 @@ def projetos():
         uploadfolder=os.path.join(request.folder, folder)),
         table_name='projeto',
         submit_button="CRIAR")
-    
+
     if form.accepts(request.vars):
         fname = _converterImagem(form.vars.thumbnail,folder)
-        
+
         Projeto.insert(
                         nome=form.vars.nome,
                         criado_por=pessoa.id,
@@ -84,6 +84,8 @@ def excluir_projeto():
     """Funcao que exclui um projeto. Somente quem criou o projeto pode
     exclui-lo
     """
+    import subprocess
+    diretorio_upload = '%sstatic/uploads/thumbnail' % request.folder
     projeto_id = request.vars['projeto_id'] or redirect(URL('index'))
     projeto = db(Projeto.id==projeto_id).select().first()
     pessoa = db((Pessoa.usuario1==auth.user.id) | (Pessoa.usuario2==auth.user.id)).select().first()
@@ -91,6 +93,9 @@ def excluir_projeto():
     if projeto:
         if pessoa.id == projeto.criado_por:
             db(Projeto.id==projeto_id).delete()
+            # Deleta a imagem do projeto
+            subprocess.call('rm %s/%s' % (diretorio_upload, projeto.thumbnail), shell=True)
+
 
     redirect(URL('projetos'))
 
