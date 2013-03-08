@@ -187,7 +187,7 @@ $('.adicionar_item').click(function(){
     $("div."+classeBotao).append(html);
     calculaTamanhoCartoes();
     setTimeout(function () {
-       $("a.novo:last").trigger('click');
+       $("a#"+classeBotao+":last").trigger('click');
     }, 100);
     
 });

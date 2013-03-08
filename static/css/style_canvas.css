@@ -73,6 +73,8 @@
 
 /*titulo*/
 .title h4 {
+  width: 70%;
+  min-height: 50px;
   font-family: "Arial";
   text-transform: uppercase;
   font-weight: bold;
@@ -80,29 +82,19 @@
   margin: 0px;
   font-size: 1.5em;
   text-align: right;
-  padding: 10px 25px 0 20px;
+  position: relative;
+  top: 12%;
+  left: 15%;
 }
 
-#container_proposta_v .title h4 {
-  padding: 10px 25px 0px 40px;
+#container_relacionamento_c .title h4, #container_segmento_c .title h4 {
+  top: 15%;
+  left: 23%;
 }
 
-#container_relacionamento_c .title h4 {
-  padding: 10px 10px 0px 30px;
-}
-
-#container_canais .title h4 {
-  padding: 20px 20px 10px 20px;
-}
-
-#container_estrutura_c .title h4 {
+#container_estrutura_c .title h4, #container_receita .title h4 {
   text-align: left;
-  padding: 20px 0px 10px 60px;
-}
-
-#container_receita .title h4 {
-  text-align: left;
-  padding: 20px 0px 10px 70px;
+  left: 12%;
 }
 
 hr {
@@ -136,7 +128,7 @@ hr {
 #container_relacionamento_c .title {
   background-image: url("../images/icon_relacionamento.png");
   background-repeat: no-repeat;
-  background-position: 10%;
+  background-position: 5%;
 }
 
 #container_canais .title {
@@ -361,7 +353,6 @@ img.deletar_cartao:hover {
 }
 
 .colaboradores-container .name {
-  /*float: left;*/
   padding-top: 8px;
   color: #000;
 }
@@ -392,6 +383,14 @@ img.deletar_cartao:hover {
 
 }
 
+@media (min-width: 1600px) {
+  .title h4 {
+    top: 30%;
+    left: 23%;
+  }
+
+}
+
 @media (min-width: 1200px) and (max-width: 1919px) {
   .blocos {
     width: 16.4%!important;
@@ -399,6 +398,14 @@ img.deletar_cartao:hover {
   .blocos_maior {
     width: 41.3%!important;
   }
+/*  #container_relacionamento_c .title h4 {
+    left: 20%;
+  }*/
+
+#container_estrutura_c .title h4, #container_receita .title h4 {
+  text-align: left;
+  left: 12%;
+}
 }
 
 @media (max-width: 1200px) {
@@ -415,7 +422,6 @@ img.deletar_cartao:hover {
   }
   .title h4 {
     font-size: 1.2em;
-    padding: 10px 20px 0 20px;
   }
 }
 
@@ -453,6 +459,9 @@ img.deletar_cartao:hover {
 }
 
 @media (max-width: 767px) {
+  #modelo_canvas #dados_projeto h4 {
+    font-size: 0.8em;
+  }
   .sessao2 .offset1, .sessao1 .offset1 {
       margin-left: 0% !important;
   }
@@ -469,19 +478,26 @@ img.deletar_cartao:hover {
     background-size: 5%;
   }
   .title h4 {
-    font-size: 1.6em;
+    font-size: 0.7em;
     text-align: left;
-    padding: 30px 0px 0 0px!important;
-    position: relative;
-    bottom: 10px;
-    left: 100px;
+    top: 30%;
+  }
+  #container_relacionamento_c .title h4, #container_segmento_c .title h4, #container_receita .title h4 {
+    top: 30%;
+    left: 15%;
   }
   #container_estrutura_c .itens p, #container_receita .itens p {
     width: 80%;
     margin: 10px auto;
     float: none;
   }
-
+  .colaboradores-container .name {
+    font-size: 0.5em;
+  }
+  .scrolltop span {
+      font-size: 0.6em;
+      top: 0px;
+  }
 }
 
 @media (max-width: 640px) {
