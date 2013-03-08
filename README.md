@@ -41,6 +41,7 @@ Changelog
 
 **v 1.2**:
 
+- Excluir projeto.
 - Login com Facebook.
 - Nova tela de Projetos.
 - Reset de senha do usuário.
@@ -66,7 +67,6 @@ Changelog
 TODOLIST
 -----------
 
-- Excluir projeto.
 - Realtime em projetos compartilhados.
 - Retirar um usuario de um projeto.
 - Exportar Canvas em PDF.
