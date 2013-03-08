@@ -44,6 +44,18 @@
   background-color: rgb(176, 190, 186);
 }
 
+#modelo_canvas {
+  /*margin: 20px;*/
+}
+
+#modelo_canvas #dados_projeto div {
+  float: left;
+}
+
+#modelo_canvas #dados_projeto li {
+  list-style: none;
+}
+
 #modelo_canvas p {
   font-size: 1.3em;
 }
@@ -160,28 +172,24 @@ hr {
 }
 
 .adicionar_item {
-  display: none;
+  position: relative;
+  top: 3px;
+  left: 10px;
 }
 
 .cartoes {
   height: 100%;
 }
 
-#container_parcerias_p:hover button.adicionar_item, #container_atividades_p:hover button.adicionar_item, #container_proposta_v:hover button.adicionar_item, #container_relacionamento_c:hover button.adicionar_item, #container_segmento_c:hover button.adicionar_item, #container_recursos_p:hover button.adicionar_item, #container_canais:hover button.adicionar_item, #container_estrutura_c:hover button.adicionar_item, #container_receita:hover button.adicionar_item {
-  display: block;
-  position: relative;
-  top: 3px;
-  left: 10px;
-}
-
 .ajuda {
-  display: none;
-}
-
-#container_parcerias_p:hover a.ajuda, #container_atividades_p:hover a.ajuda, #container_proposta_v:hover a.ajuda, #container_relacionamento_c:hover a.ajuda, #container_segmento_c:hover a.ajuda, #container_recursos_p:hover a.ajuda, #container_canais:hover a.ajuda, #container_estrutura_c:hover a.ajuda, #container_receita:hover a.ajuda {
   display: block;
   position: relative;
   right: 10px;
+  opacity: 0.5;
+}
+
+.ajuda:hover {
+  opacity: 1;
 }
 
 /*
@@ -200,8 +208,7 @@ a.editable-click:hover {
 }
 
 textarea.input-large {
-  /*width: 90%;*/
-  height: 70px!important;
+  height: 70px;
   margin: 0 auto;
   display: block;
 }
@@ -212,7 +219,6 @@ textarea.input-large {
 
 .editable-input {
   display: block;
-  /*padding: 20px 10px 10px 10px;*/
   padding: 0px 10px 10px 10px;
 }
 

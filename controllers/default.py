@@ -281,6 +281,7 @@ def _cadastrar_pessoa():
                         nome=nome.strip(),
                         usuario1=session.auth.user.id,
                         )
+        db(db.auth_user.id == session.auth.user.id).update(primeira_vez=True)
 
     redirect(URL('projetos'))
 

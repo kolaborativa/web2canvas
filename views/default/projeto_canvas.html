@@ -1,21 +1,36 @@
 {{extend 'default/layout_base.html'}}
 {{ include 'default/modals_ajuda.html'}}
-<div class="container">
-  {{ if request.function == "projeto_canvas": }}
-    <h1>
-      {{=projeto.nome}}
-      <small>- criado por: {{=projeto.criado_por.nome}}</small>
-      <small> - {{=projeto.criado_em.strftime("%d/%m/%Y")}}</small>
-    </h1>
-  {{ pass }}
 
-  <!--/mensagem de retorno da chamada ajax -->
-  <div id="target_ajax"></div>
-</div> <!--/fim do container -->
+{{ import json }}
+{{tem_cartao = {} }}
 
 <div id="modelo_canvas" class="container-fluid">
+    {{ if request.function == "projeto_canvas": }}
+    <div id="dados_projeto" class="offset1">
+        <div>
+            {{ if projeto.thumbnail == "False" or projeto.thumbnail == None or projeto.thumbnail == "":}}
+                <img class="thumbnails" src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
+            {{ else: }}
+                <img class="thumbnails" src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
+            {{ pass }}
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <h4>Nome: {{=projeto.nome}}</h4>
+                </li>
+                <li><h4>Por: {{=projeto.criado_por.nome}}</h4></li>
+                <li><h4>Criado em: {{=projeto.criado_em.strftime("%d/%m/%Y")}}</h4></li>
+            </ul>
+        </div>
+    </div>
+    {{ pass }}
+    <!--/mensagem de retorno da chamada ajax -->
+    <div id="target_ajax"></div>
+
     <div class="row-fluid">
         <div class="span12">
+        <br>
             <div class="row-fluid sessao1">
                 <div id="container_parcerias_p" class="span2 offset1 blocos sessao_como">
                     <div class="title"><h4>PARCERIAS PRINCIPAIS</h4><hr></div>
@@ -23,17 +38,18 @@
                         <button class="parcerias_principais adicionar_item btn btn-success btn-mini pull-left">
                         Adicionar
                         </button>
-                        <a href="#parcerias_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
-                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                        <a href="#parcerias_ajuda" class="ajuda pull-right" role="button" data-toggle="modal">
+                            <img height="24" src='{{=URL("static","img/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                         </a><!--/link modal -->
                     </div><!--/row-->
                     <div class="parcerias_principais itens drag_drop">
                         <!--/gero os itens dinamicamente -->
-                        {{import json}}
+                        {{ tem_cartao["bloco1"] = False }}
                         {{ if projeto.parcerias_principais: }}
-                        {{ for i in sorted(json.loads(projeto.parcerias_principais)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="parcerias_principais" data-pk="{{=i}}">{{=json.loads(projeto.parcerias_principais)[i]}}</a></p>
-                        {{ pass }}
+                            {{ for i in sorted(json.loads(projeto.parcerias_principais)): }}
+                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="parcerias_principais" data-pk="{{=i}}">{{=json.loads(projeto.parcerias_principais)[i]}}</a></p>
+                                {{ tem_cartao["bloco1"] = True }}
+                            {{ pass }}
                         {{ pass }}
                     </div>
                 </div><!--/span--><!--/PARCERIAS PRINCIPAIS -->
@@ -45,17 +61,18 @@
                                 <button class="atividades_principais adicionar_item btn btn-success btn-mini pull-left">
                                 Adicionar
                                 </button>
-                                <a href="#atividades_p_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
-                                    <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                                <a href="#atividades_p_ajuda" class="ajuda pull-right" role="button" data-toggle="modal">
+                                    <img height="24" src='{{=URL("static","img/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                                 </a><!--/link modal -->
                             </div><!--/row-->
                             <div class="atividades_principais itens drag_drop">
                                 <!--/gero os itens dinamicamente -->
-                                {{import json}}
+                                {{ tem_cartao["bloco2"] = False }}
                                 {{ if projeto.atividades_principais: }}
-                                {{ for i in sorted(json.loads(projeto.atividades_principais)): }}
-                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="atividades_principais" data-pk="{{=i}}">{{=json.loads(projeto.atividades_principais)[i]}}</a></p>
-                                {{ pass }}
+                                    {{ for i in sorted(json.loads(projeto.atividades_principais)): }}
+                                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="atividades_principais" data-pk="{{=i}}">{{=json.loads(projeto.atividades_principais)[i]}}</a></p>
+                                        {{ tem_cartao["bloco2"] = True }}
+                                    {{ pass }}
                                 {{ pass }}
                             </div>
                         </div>
@@ -67,17 +84,18 @@
                                 <button class="recursos_principais adicionar_item btn btn-success btn-mini pull-left">
                                 Adicionar
                                 </button>
-                                <a href="#recursos_principais_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
-                                    <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                                <a href="#recursos_principais_ajuda" class="ajuda pull-right" role="button" data-toggle="modal">
+                                    <img height="24" src='{{=URL("static","img/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                                 </a><!--/link modal -->
                             </div><!--/row-->
                             <div class="recursos_principais itens drag_drop">
                                 <!--/gero os itens dinamicamente -->
-                                {{import json}}
+                                {{ tem_cartao["bloco3"] = False }}
                                 {{ if projeto.recursos_principais: }}
-                                {{ for i in sorted(json.loads(projeto.recursos_principais)): }}
-                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="recursos_principais" data-pk="{{=i}}">{{=json.loads(projeto.recursos_principais)[i]}}</a></p>
-                                {{ pass }}
+                                    {{ for i in sorted(json.loads(projeto.recursos_principais)): }}
+                                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="recursos_principais" data-pk="{{=i}}">{{=json.loads(projeto.recursos_principais)[i]}}</a></p>
+                                        {{ tem_cartao["bloco3"] = True }}
+                                    {{ pass }}
                                 {{ pass }}
                             </div>
                         </div>
@@ -89,17 +107,18 @@
                         <button class="proposta_valor adicionar_item btn btn-success btn-mini pull-left">
                         Adicionar
                         </button>
-                        <a href="#proposta_valor_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
-                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                        <a href="#proposta_valor_ajuda" class="ajuda pull-right" role="button" data-toggle="modal">
+                            <img height="24" src='{{=URL("static","img/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                         </a><!--/link modal -->
                     </div><!--/row-->
                     <div class="proposta_valor itens drag_drop">
                         <!--/gero os itens dinamicamente -->
-                        {{import json}}
+                        {{ tem_cartao["bloco4"] = False }}
                         {{ if projeto.proposta_valor: }}
-                        {{ for i in sorted(json.loads(projeto.proposta_valor)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="proposta_valor" data-pk="{{=i}}">{{=json.loads(projeto.proposta_valor)[i]}}</a></p>
-                        {{ pass }}
+                            {{ for i in sorted(json.loads(projeto.proposta_valor)): }}
+                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="proposta_valor" data-pk="{{=i}}">{{=json.loads(projeto.proposta_valor)[i]}}</a></p>
+                                {{ tem_cartao["bloco4"] = True }}
+                            {{ pass }}
                         {{ pass }}
                     </div>
                 </div><!--/span--><!--/PROPOSTA DE VALOR -->
@@ -111,17 +130,18 @@
                                 <button class="relacionamento_clientes adicionar_item btn btn-success btn-mini pull-left">
                                 Adicionar
                                 </button>
-                                <a href="#relacionamento_clientes_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
-                                    <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                                <a href="#relacionamento_clientes_ajuda" class="ajuda pull-right" role="button" data-toggle="modal">
+                                    <img height="24" src='{{=URL("static","img/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                                 </a><!--/link modal -->
                             </div><!--/row-->
                             <div class="relacionamento_clientes itens drag_drop">
                                 <!--/gero os itens dinamicamente -->
-                                {{import json}}
+                                {{ tem_cartao["bloco5"] = False }}
                                 {{ if projeto.relacionamento_clientes: }}
-                                {{ for i in sorted(json.loads(projeto.relacionamento_clientes)): }}
-                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="relacionamento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></p>
-                                {{ pass }}
+                                    {{ for i in sorted(json.loads(projeto.relacionamento_clientes)): }}
+                                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="relacionamento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.relacionamento_clientes)[i]}}</a></p>
+                                        {{ tem_cartao["bloco5"] = True }}
+                                    {{ pass }}
                                 {{ pass }}
                             </div>
                         </div>
@@ -133,17 +153,18 @@
                                 <button class="canais adicionar_item btn btn-success btn-mini pull-left">
                                 Adicionar
                                 </button>
-                                <a href="#canais_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
-                                    <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                                <a href="#canais_ajuda" class="ajuda pull-right" role="button" data-toggle="modal">
+                                    <img height="24" src='{{=URL("static","img/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                                 </a><!--/link modal -->
                             </div><!--/row-->
                             <div class="canais itens drag_drop">
                                 <!--/gero os itens dinamicamente -->
-                                {{import json}}
+                                {{ tem_cartao["bloco6"] = False }}
                                 {{ if projeto.canais: }}
-                                {{ for i in sorted(json.loads(projeto.canais)): }}
-                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="canais" data-pk="{{=i}}">{{=json.loads(projeto.canais)[i]}}</a></p>
-                                {{ pass }}
+                                    {{ for i in sorted(json.loads(projeto.canais)): }}
+                                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="canais" data-pk="{{=i}}">{{=json.loads(projeto.canais)[i]}}</a></p>
+                                        {{ tem_cartao["bloco6"] = True }}
+                                    {{ pass }}
                                 {{ pass }}
                             </div>
                         </div>
@@ -155,17 +176,18 @@
                         <button class="segmento_clientes adicionar_item btn btn-success btn-mini pull-left">
                         Adicionar
                         </button>
-                        <a href="#segmento_clientes_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
-                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                        <a href="#segmento_clientes_ajuda" class="ajuda pull-right" role="button" data-toggle="modal">
+                            <img height="24" src='{{=URL("static","img/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                         </a><!--/link modal -->
                     </div><!--/row-->
                     <div class="segmento_clientes itens drag_drop">
                         <!--/gero os itens dinamicamente -->
-                        {{import json}}
+                        {{ tem_cartao["bloco7"] = False }}
                         {{ if projeto.segmento_clientes: }}
-                        {{ for i in sorted(json.loads(projeto.segmento_clientes)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></p>
-                        {{ pass }}
+                            {{ for i in sorted(json.loads(projeto.segmento_clientes)): }}
+                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="segmento_clientes" data-pk="{{=i}}">{{=json.loads(projeto.segmento_clientes)[i]}}</a></p>
+                                {{ tem_cartao["bloco7"] = True }}
+                            {{ pass }}
                         {{ pass }}
                     </div>
                 </div><!--/span--><!--/span--><!--/SEGMENTO DE CLIENTES -->
@@ -178,17 +200,18 @@
                         <button class="estrutura_custos adicionar_item btn btn-success btn-mini pull-left">
                         Adicionar
                         </button>
-                        <a href="#estrutura_custos_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
-                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                        <a href="#estrutura_custos_ajuda" class="ajuda pull-right" role="button" data-toggle="modal">
+                            <img height="24" src='{{=URL("static","img/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                         </a><!--/link modal -->
                     </div><!--/row-->
                     <div class="estrutura_custos itens drag_drop">
                         <!--/gero os itens dinamicamente -->
-                        {{import json}}
+                        {{ tem_cartao["bloco8"] = False }}
                         {{ if projeto.estrutura_custos: }}
-                        {{ for i in sorted(json.loads(projeto.estrutura_custos)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="estrutura_custos" data-pk="{{=i}}">{{=json.loads(projeto.estrutura_custos)[i]}}</a></p>
-                        {{ pass }}
+                            {{ for i in sorted(json.loads(projeto.estrutura_custos)): }}
+                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="estrutura_custos" data-pk="{{=i}}">{{=json.loads(projeto.estrutura_custos)[i]}}</a></p>
+                                {{ tem_cartao["bloco8"] = True }}
+                            {{ pass }}
                         {{ pass }}
                     </div>
                 </div><!--/span--><!--/span--><!--/ESTRUTURA DE CUSTOS -->
@@ -198,17 +221,18 @@
                         <button class="receitas adicionar_item btn btn-success btn-mini pull-left">
                         Adicionar
                         </button>
-                        <a href="#receitas_ajuda" class="ajuda pull-right" role="button" data-toggle="modal" class="helpIcon">
-                            <img height="24" src='{{=URL("static","images/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
+                        <a href="#receitas_ajuda" class="ajuda pull-right" role="button" data-toggle="modal">
+                            <img height="24" src='{{=URL("static","img/icon_help.png")}}' alt="Saiba Mais" title="Saiba Mais">
                         </a><!--/link modal -->
                     </div><!--/row-->
                     <div class="receitas itens drag_drop">
                         <!--/gero os itens dinamicamente -->
-                        {{import json}}
+                        {{ tem_cartao["bloco9"] = False }}
                         {{ if projeto.receitas: }}
-                        {{ for i in sorted(json.loads(projeto.receitas)): }}
-                        <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></p>
-                        {{ pass }}
+                            {{ for i in sorted(json.loads(projeto.receitas)): }}
+                                <p><img src='{{=URL("static","img/close.png")}}' class="deletar_cartao pull-right" /><a href="#" class="item_existente" id="receitas" data-pk="{{=i}}">{{=json.loads(projeto.receitas)[i]}}</a></p>
+                                {{ tem_cartao["bloco9"] = True }}
+                            {{ pass }}
                         {{ pass }}
                     </div>
                 </div><!--/span--><!--/span--><!--/RECEITAS -->
@@ -267,3 +291,50 @@
     </div>
 </div>
 <br>
+
+
+<a href="#" id="guia-btn">
+    <span class="guia-btn-slide-text">guia</span>
+    <span class="guia-btn-icon-left"><span></span></span>
+</a>
+
+<!-- verifico se algum bloco possui cartao -->
+{{ for i in range(1,10): }}
+    {{ if tem_cartao["bloco%d"%i] == True: }}
+        <script>var chama_guia = false;</script>
+        {{break}}
+    {{ else: }}
+        <script>var chama_guia = true;</script>
+    {{ pass }}
+{{ pass }}
+
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+  <li data-button="Próximo">
+    <h2>Já conhece o Modelo Canvas?</h2>
+    <p>Então vamos conhecer os recursos do seu projeto Canvas.</p>
+    <small>(Você pode parar o guia fechando essa janela)</small>
+    <br>
+    <br>
+  </li>
+  <li data-class="parcerias_principais" data-text="Próximo">
+    <h2>#1</h2>
+    <p>Clicando no botão "Adicionar" você irá criar um cartão nesse bloco.</p>
+  </li>
+  <li data-class="ajuda" data-button="Próximo">
+    <h2>#2</h2>
+    <p>Clicando no botão "?" você irá receber dicas de cada bloco.</p>
+  </li>
+  <li data-class="colaboradores-container" data-button="Próximo" data-options="tipLocation:top">
+    <h2>#3</h2>
+    <p>Aqui você pode compartilhar seu projeto com outros usuários.</p>
+  </li>
+  <li data-id="autocomplete" data-button="Próximo" data-options="tipLocation:top">
+    <h2>#4</h2>
+    <p>Basta buscar o nome do usuário que deseja adicionar nesse campo e depois clicar no botão "+".</p>
+  </li>
+  <li data-id="guia-btn" data-button="Fim" data-options="tipLocation:right" style="position:fixed;">
+    <h2>Guia</h2>
+    <p>Para assistir novamente o guia CLICK AQUI.</p>
+  </li>
+</ol>

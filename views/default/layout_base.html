@@ -40,6 +40,11 @@
     <link href="{{=URL('static','css/user.css')}}" rel="stylesheet">
     <link href="{{=URL('static','css/web2py.css')}}" rel="stylesheet">
     {{ pass }}
+    {{ if request.function == "projeto_canvas" or request.function == "projetos": }}
+    <!-- jQuery Feature Tours Plugin - Joyride -->
+    <link href="{{=URL('static','css/joyride-2.0.3.css')}}" rel="stylesheet">
+    <link href="{{=URL('static','css/mobile.css')}}" rel="stylesheet">
+    {{ pass }}
 </head>
 <body>
     <a href="#" class="scrolltop">
@@ -79,6 +84,10 @@
         <script src="{{=URL('static','js/jquery.imgareaselect.min.js')}}"></script>
         <script src="{{=URL('static','js/jquery.awesome-cropper.js')}}"></script>
         <script src="{{=URL('static','js/projetos.js')}}"></script>
+        <!-- excluir projeto -->
+        <script>
+            var urlExcluiProjeto = "{{=URL(c='default',f='excluir_projeto', vars={'projeto_id':''})}}";
+        </script>
 
     {{ elif request.function == "projeto_canvas": }}
         <!-- Bibliotecas JS -->
@@ -86,6 +95,7 @@
         <script src="{{=URL('static','js/jquery-ui.min.js')}}"></script>
         <script src="{{=URL('static','js/jquery.ui.touch-punch.min.js')}}"></script>
         <script src="{{=URL('static','js/jquery.autocomplete.js')}}"></script>
+
         <!-- Meus scripts -->
         <!-- criar/editar cartoes -->
         <script>
@@ -124,14 +134,16 @@
             web2py_validate_entropy(jQuery('#no_table_new_password'),100);
         {{pass}}
     //--></script>
-    {{ else: }}
+    {{ pass }}
+
+    {{ if request.function == "projeto_canvas" or request.function == "projetos": }}
+        <!-- jQuery Feature Tours Plugin - Joyride -->
+        <script src="{{=URL('static','js/jquery.joyride-2.0.3.js')}}"></script>
+        <script src="{{=URL('static','js/jquery.cookie.js')}}"></script>
+        <script src="{{=URL('static','js/guia_tour.js')}}"></script>
     {{ pass }}
     
     <!-- Meus scripts globais para a aplicacao -->
-    <!-- excluir projeto -->
-    <script>
-        var urlExcluiProjeto = "{{=URL(c='default',f='excluir_projeto', vars={'projeto_id':''})}}";
-    </script>
 
     <!-- All JavaScript at the bottom, except for Modernizr which enables
        HTML5 elements & feature detects -->

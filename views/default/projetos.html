@@ -1,11 +1,18 @@
 {{extend 'default/layout_base.html'}}
 
 {{ if meus_projetos: }}
-    {{ len_meus_projetos = g_formata_numero(len(meus_projetos)) }}
+    {{ len_meus_projetos = len(meus_projetos) }}
+    <script>
+        var chama_guia = false;
+    </script>
+{{ else: }}
+    <script>
+        var chama_guia = true;
+    </script>
 {{ pass }}
 
 {{ if projetos_colaborador: }}
-    {{ len_colaborador = g_formata_numero(len(projetos_colaborador)) }}
+    {{ len_colaborador = len(projetos_colaborador) }}
 {{ pass }}
 
 <div class="container">
@@ -13,17 +20,17 @@
       <div class="row-fluid">
           <ul class="nav nav-tabs span12">
             <li class="span4 active">
-                <a href="#tab1" data-toggle="tab">
+                <a href="#tab1" id="guiatab1" data-toggle="tab">
                     <h3>Todos os Projetos</h3>
                     {{ if meus_projetos and projetos_colaborador: }}
-                        {{ len_todos_projetos = len(meus_projetos) + len(projetos_colaborador) }}
+                        {{ len_todos_projetos = len_meus_projetos + len_colaborador }}
                         {{ todos_projetos = g_formata_numero(len_todos_projetos) }}
                         <small>{{ =todos_projetos }} projeto(s) no total</small>
                     {{ elif meus_projetos: }}
-                        {{ todos_projetos = g_formata_numero(len(meus_projetos)) }}
+                        {{ todos_projetos = g_formata_numero(len_meus_projetos) }}
                         <small>{{ =todos_projetos }} projeto(s) no total</small>
                     {{ elif projetos_colaborador: }}
-                        {{ todos_projetos = g_formata_numero(len(projetos_colaborador)) }}
+                        {{ todos_projetos = g_formata_numero(len_colaborador) }}
                         <small>{{ =todos_projetos }} projeto(s) no total</small>
                     {{ else: }}
                         <small>não existem projetos ainda</small>
@@ -31,9 +38,10 @@
                 </a>
             </li>
             <li class="span4">
-                <a href="#tab2" data-toggle="tab">
+                <a href="#tab2" id="guiatab2" data-toggle="tab">
                     <h3>Seus Projetos</h3>
                     {{ if meus_projetos: }}
+                        {{ len_meus_projetos = g_formata_numero(len_meus_projetos) }}
                         <small>{{ =len_meus_projetos }} projeto(s) criado(s) por você</small>
                     {{ else: }}
                         <small>nenhum projeto criado por você</small>
@@ -41,9 +49,10 @@
                 </a>
             </li>
             <li class="span4">
-                <a href="#tab3" data-toggle="tab">
+                <a href="#tab3" id="guiatab3" data-toggle="tab">
                     <h3>Projetos Compartilhados</h3>
                     {{ if projetos_colaborador: }}
+                        {{ len_colaborador = g_formata_numero(len_colaborador) }}
                         <small>{{ =len_colaborador }} projeto(s) compartilhado(s) com você</small>
                     {{ else: }}
                         <small>nenhum projeto compartilhado com você</small>
@@ -59,7 +68,7 @@
                   TAB 1 
                  =======  -->
             <div class="tab-pane active" id="tab1">
-                <div class="novo_projeto span4">
+                <div id="novo_projeto" class="span4">
                     {{=form.custom.begin}}
                     <div class="span5">
                         <div id="image_content">
@@ -76,7 +85,7 @@
                                 {{=form.custom.widget.nome}}
                             </li>
                             <li>
-                                <input type="submit" class="btn btn-success" value="Criar Projeto"/>
+                                <input id="criar_projeto" type="submit" class="btn btn-success" value="Criar Projeto"/>
                             </li>
                         </ul>
                     </div>
@@ -88,9 +97,9 @@
                     <div class="span4">
                         <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.id])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
                             {{ if projeto.thumbnail == "False" or projeto.thumbnail == None or projeto.thumbnail == "":}}
-                                <img src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
+                                <img class="thumbnails" src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
                             {{ else: }}
-                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
+                                <img class="thumbnails" src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
                             {{ pass }}
                         </a>
                     </div>
@@ -114,9 +123,9 @@
                     <div class="span4">
                         <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.projeto_id])}}" alt="Abrir Projeto {{=projeto.projeto_id.nome}}" title="Abrir Projeto {{=projeto.projeto_id.nome}}">
                             {{ if projeto.projeto_id.thumbnail == "False" or projeto.projeto_id.thumbnail == None or projeto.projeto_id.thumbnail == "":}}
-                                <img src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
+                                <img class="thumbnails" src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
                             {{ else: }}
-                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.projeto_id.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
+                                <img class="thumbnails" src='{{=URL("static","/uploads/thumbnail/%s" %projeto.projeto_id.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
                             {{ pass }}
                         </a>
                     </div>
@@ -146,9 +155,9 @@
                     <div class="span4">
                         <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.id])}}" alt="Abrir Projeto {{=projeto.nome}}" title="Abrir Projeto {{=projeto.nome}}">
                             {{ if projeto.thumbnail == "False" or projeto.thumbnail == None or projeto.thumbnail == "":}}
-                                <img src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
+                                <img class="thumbnails" src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
                             {{ else: }}
-                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
+                                <img class="thumbnails" src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
                             {{ pass }}
                         </a>
                     </div>
@@ -182,9 +191,9 @@
                     <div class="span4">
                         <a href="{{=URL(c='default', f='projeto_canvas', args=[projeto.projeto_id])}}" alt="Abrir Projeto {{=projeto.projeto_id.nome}}" title="Abrir Projeto {{=projeto.projeto_id.nome}}">
                             {{ if projeto.projeto_id.thumbnail == "False" or projeto.projeto_id.thumbnail == None or projeto.projeto_id.thumbnail == "":}}
-                                <img src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
+                                <img class="thumbnails" src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
                             {{ else: }}
-                                <img src='{{=URL("static","/uploads/thumbnail/%s" %projeto.projeto_id.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
+                                <img class="thumbnails" src='{{=URL("static","/uploads/thumbnail/%s" %projeto.projeto_id.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.projeto_id.nome}}" title="Projeto {{=projeto.projeto_id.nome}}">
                             {{ pass }}
                         </a>
                     </div>
@@ -212,3 +221,43 @@
       </div>
     </div>
 </div>
+
+<a href="#" id="guia-btn">
+    <span class="guia-btn-slide-text">guia</span>
+    <span class="guia-btn-icon-left"><span></span></span>
+</a>
+
+<!-- Tip Content -->
+<ol id="joyRideTipContent">
+  <li data-button="Próximo">
+    <h2>Ainda não criou seu Projeto?</h2>
+    <p>Então vamos conhecer sua tela de Projetos.</p>
+    <small>(Você pode parar o guia fechando essa janela)</small>
+    <br>
+    <br>
+  </li>
+  <li data-id="guiatab1" data-text="Próximo" data-options="tipAnimation:fade">
+    <h2>#1</h2>
+    <p>Click nesse botão para listar TODOS SEUS PROJETOS.</p>
+  </li>
+  <li data-id="guiatab2" data-button="Próximo" data-options=";tipAnimation:fade">
+    <h2>#2</h2>
+    <p>Click nesse botão para listar APENAS SEUS PROJETOS.</p>
+  </li>
+  <li data-id="guiatab3" data-button="Próximo" data-options="tipAnimation:fade">
+    <h2>#3</h2>
+    <p>Click nesse botão para listar PROJETOS COMPARTILHADOS COM VOCÊ.</p>
+  </li>
+  <li data-id="novo_projeto" data-button="Próximo" data-options="tipLocation:right;tipAnimation:fade">
+    <h2>#4</h2>
+    <p>Para criar um projeto coloque um nome e se desejar escolha também uma imagem.</p>
+  </li>
+  <li data-id="criar_projeto" data-button="Próximo" data-options="tipLocation:right;tipAnimation:fade">
+    <h2>#5</h2>
+    <p>Agora click em "Criar Projeto".</p>
+  </li>
+  <li data-id="guia-btn" data-button="Fim" data-options="tipLocation:right;tipAnimation:fade">
+    <h2>Guia</h2>
+    <p>Para assistir novamente o guia CLICK AQUI.</p>
+  </li>
+</ol>
