@@ -4,30 +4,26 @@ $(function() {
     $( ".drag_drop" ).sortable({
         connectWith: ".drag_drop",
         placeholder: "placeholder_item",
-        // distance: 5,
-        // delay: 300,
+        delay: 100,
         opacity: 0.6,
         start: function( event, ui ) {
             ui.item.addClass( "movendo_item" );
         },
         stop: function( event, ui ) {
             ui.item.removeClass( "movendo_item" );
-            var id_novo = $(ui.item).children("a").attr('id');
-
+            var id_novo = $(ui.item).parent().parent().attr('class').split(" ")[0];
+            console.log("era para ser id: "+id_novo)
             atualizaIndiceItens(id_novo)
         },
-        over: function( event, ui ) {
-            calculaTamanhoCartoes();
-        },
         receive: function(event, ui) {
-            var id_velho = $(ui.item).children("a").attr('id'),
+            var id_velho = $(ui.item).find('a.cartao').attr('id'),
                 id_novo = $(this).attr('class').split(" ")[0],
-                indice_velho = $(ui.item).children("a").attr('data-pk'),
+                indice_velho = $(ui.item).find('a.cartao').attr('data-pk'),
                 indice_novo = $(ui.item).index();
 
             var statusRemove = removeItem(id_velho,indice_velho,false);
             if(statusRemove === true) {
-                $(ui.item).children("a").attr('id',id_novo)
+                $(ui.item).find('a.cartao').attr('id',id_novo)
             }
 
             // Disable before dragdrop
@@ -42,7 +38,9 @@ $(function() {
             }, 1000); // Enable after 1000 ms.
 
         },
-        update: function(event, ui) {
-        }
-    }).disableSelection();
+        // over: function( event, ui ) {
+        // },
+        // update: function(event, ui) {
+        // }
+    });
 });

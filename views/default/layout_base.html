@@ -43,13 +43,9 @@
     {{ if request.function == "projeto_canvas" or request.function == "projetos": }}
     <!-- jQuery Feature Tours Plugin - Joyride -->
     <link href="{{=URL('static','css/joyride-2.0.3.css')}}" rel="stylesheet">
-    <link href="{{=URL('static','css/mobile.css')}}" rel="stylesheet">
     {{ pass }}
 </head>
 <body>
-    <a href="#" class="scrolltop">
-        <span>subir</span>
-    </a>
     <!-- begins navbar -->
     {{ include 'default/navbar.html'}}
     <!-- ends navbar -->
@@ -65,10 +61,13 @@
     <!-- Javascripts -->
     <script src="{{=URL('static','js/jquery-1.9.0.min.js')}}"></script>
     <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
-    <script src="{{=URL('static','js/theme.js')}}"></script>
 
     {{ if request.function == "index": }}
+    <a href="#" class="scrolltop">
+        <span>subir</span>
+    </a>
         <script src="{{=URL('static','js/jquery.cslider.js')}}"></script>
+        <script src="{{=URL('static','js/theme.js')}}"></script>
         <script type="text/javascript">
             $(function() {
             

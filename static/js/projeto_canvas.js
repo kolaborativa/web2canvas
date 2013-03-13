@@ -19,79 +19,12 @@ var titulo_caixa = "Editar Cartão",
 $.fn.editableform.buttons = 
   '<button type="submit" class="btn btn-success editable-submit"><i class="icon-ok icon-white"></i></button>' +
  '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>'; 
-// $.fn.editable.defaults.mode = 'inline';
+$.fn.editable.defaults.mode = 'inline';
 
 // para saber o maior indice do array
 Array.max = function( array ){
   return Math.max.apply( Math, array );
 };
-
-/*
-==============================
- EXECUTA AO CARREGAR A PAGINA
-==============================
-*/
-
-$(document).ready(function() {
-    calculaTamanhoCartoes();
-});
-
-// para igualar o tamanho das colunas
-function equalizarAltura() {
-    var blocos = $(".blocos").map(function () {
-            return $(this).height();
-        }).get();
-    var blocos_maior = $(".blocos_maior").map(function () {
-            return $(this).height();
-        }).get();
-
-    maior_bloco = Math.max.apply(null, blocos);
-    maiores_blocos = Math.max.apply(null, blocos_maior);
-
-    $('.blocos').css('min-height',maior_bloco + 'px');
-    $('.blocos_maior').css('min-height',(maiores_blocos) + 'px');
-}
-
-// para aumentar o tamanho da area de dragdrop
-function equalizarDragdrop() {
-    var blocos = $(".blocos").map(function () {
-            return $(this).height();
-        }).get();
-    var blocos_maior = $(".blocos_maior").map(function () {
-            return $(this).height();
-        }).get();
-
-    maior_bloco = Math.max.apply(null, blocos);
-    maiores_blocos = Math.max.apply(null, blocos_maior);
-    $('.blocos > .drag_drop').css('min-height',(maior_bloco-50) + 'px');
-    $('.blocos_maior > .drag_drop').css('min-height',(maiores_blocos-50) + 'px');
-}
-
-// calcula a necessidade de aumentar as colunas
-function calculaTamanhoCartoes() {
-    // redimensiona para dimensoes apartir de 768px de largura
-    if ($(window).width() > 767) {
-        var sessao1 = $(".sessao1").height(),
-            sessao2 = $(".sessao2").height(),
-            blocos = $(".blocos").map(function () {
-                return $(this).height();
-            }).get(),
-            blocos_maior = $(".blocos_maior").map(function () {
-                return $(this).height();
-            }).get();
-
-        var maior_bloco = Math.min.apply(null, blocos);
-        var maiores_blocos = Math.min.apply(null, blocos_maior);
-        if(sessao1 > maior_bloco) {
-            equalizarDragdrop();
-            equalizarAltura();
-        }else if(sessao2 > maiores_blocos) {
-            equalizarDragdrop();
-            equalizarAltura();
-        }
-    }
-}
-
 
 /*
 ===============================
@@ -100,11 +33,12 @@ function calculaTamanhoCartoes() {
 */
 
 // chamada do plugin x-editable
-$('.item_existente').editable({
+$('.cartao').editable({
   type: 'textarea',
   url: urlNovoEdita,
   title: titulo_caixa,
   emptytext: campo_vazio,
+  disabled: true,
   validate: function(value) {
       if($.trim(value) == '') {
           return mensagem_erro;
@@ -125,6 +59,8 @@ $('.item_existente').editable({
         text: msg_texto,
         type: msg_tipo
       });
+      $('.cartao').editable("disable");
+      $(this).parent().next().removeClass("efeito_opcoes_cartao");
   }
 });
 
@@ -159,13 +95,14 @@ $('.itens').editable({
         title: msg_titulo,
         text: msg_texto,
         type: msg_tipo
-      });    
+      });
+      $('.cartao').editable("disable");
+      $(this).parent().next().removeClass("efeito_opcoes_cartao");
   }
 });
 
 // ao clicar no botao de adicionar novo item
 $('.adicionar_item').click(function(){
-
     var todasClassesBotao = $(this).attr('class'),
       classeBotao = todasClassesBotao.split(" ")[0],
       keys = [],
@@ -182,10 +119,9 @@ $('.adicionar_item').click(function(){
       var indiceItem = 1;
     }
 
-    html = '<p><img src="'+urlStatic+'close.png" class="deletar_cartao campo_dinamico pull-right" /><a href="#" id="'+classeBotao+'" class="editable-click editable-empty novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a></p>';
+    html = '<li><p><a href="#" id="'+classeBotao+'" class="editable-click editable-empty cartao novo" data-type="textarea" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a><span class="mais_opcoes_cartao pull-right"><i class="icon-chevron-down"></i></span></p>  <div class="opcoes_cartao"><img src="'+urlStatic+'edit.png" class="editar_cartao" alt="Editar" title="Editar"/><img src="'+urlStatic+'icon_color.png" class="colorir_cartao" alt="Colorir Cartão" title="Colorir Cartão"/><img src="'+urlStatic+'close.png" class="deletar_cartao" alt="Deletar" title="Deletar"/></div></li>';
 
-    $("div."+classeBotao).append(html);
-    calculaTamanhoCartoes();
+    $("div."+classeBotao+" > ul").append(html);
     setTimeout(function () {
        $("a#"+classeBotao+":last").trigger('click');
     }, 100);
@@ -199,24 +135,30 @@ $('.adicionar_item').click(function(){
 =================
 */
 
-// para campos carregados com a pagina
-$(".deletar_cartao").click(function() {
+// chamada para editar cartao
+// para campos criados dinamicamente chamo assim
 
-  if(confirm(mensagem_confirma)) {
-    id = $(this).next("a").attr('id');
-    indice = $(this).next("a").attr('data-pk');
-
-    removeItem(id,indice,true);
-  }  
+$(document).on("click", ".editar_cartao", function(){
+    $(this).parent().prev().children(".cartao").editable("enable");
 });
 
+$(document).on("click", ".mais_opcoes_cartao", function(){
+  $(this).parent().next().toggleClass("efeito_opcoes_cartao");
+});
 
-// para campos criados dinamicamente
-$(document).on("click", ".campo_dinamico", function(){
+$(document).on("click", ".editar_cartao", function(){
+    var cartao = $(this);
+    setTimeout(function(cartao){
+        cartao.parent().prev().children(".cartao").trigger('click');
+    }, 100, cartao);
+});
+
+// deletar_cartao
+$(document).on("click", ".deletar_cartao", function(){
 
   if(confirm(mensagem_confirma)) {
-    id = $(this).next("a").attr('id');
-    indice = $(this).next("a").attr('data-pk');
+    id = $(this).parent().parent().find('a.cartao').attr('id');
+    indice = $(this).parent().parent().find('a.cartao').attr('data-pk');
 
     removeItem(id,indice,true);
   }
@@ -239,7 +181,7 @@ function atualizaIndiceItens(id) {
   var values = {},
       value,
       valuesUrl;
-  $("."+id).children("p").each(function(index) {
+  $("."+id).children("ul").find('a.cartao').each(function(index) {
     
     value = $(this).text();
     if(value !== campo_vazio) {
@@ -248,10 +190,8 @@ function atualizaIndiceItens(id) {
       $(this).children("a").attr('data-pk',index)
     }
   });
-  
   valuesUrl = jQuery.param(values);
   ajax(urlAtualiza+'?name='+id+'&'+valuesUrl, [''], 'target_ajax');
-  // statusItem(id,indice,false);
 }
 
 
@@ -271,7 +211,7 @@ function statusItem(id,indice,remove) {
         // encontro elemento a ser deletado
         $("a#"+id).each(function(){
           if($(this).attr('data-pk') == indice)
-            $(this).parent().fadeOut("slow", function() { $(this).remove() })
+            $(this).parent().parent().fadeOut("slow", function() { $(this).remove() })
         });
       } else if(remove===false) {
         msg_texto = "Movido com Sucesso!";
