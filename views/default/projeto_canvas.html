@@ -55,7 +55,7 @@
                                     {{ if projeto.parcerias_principais: }}
                                         {{ for i in sorted(json.loads(projeto.parcerias_principais)): }}
                                             <li>
-                                                <p><a href="#" class="cartao" id="parcerias_principais" data-pk="{{=i}}">{{=json.loads(projeto.parcerias_principais)[i]}}</a><span class="mais_opcoes_cartao pull-right"><i class="icon-chevron-down"></i></span></p>
+                                                <p><a href="#" class="cartao" id="parcerias_principais" data-type="address" data-pk="{{=i}}" data-color="#ffffff">{{=json.loads(projeto.parcerias_principais)[i]}}</a><span class="mais_opcoes_cartao pull-right"><i class="icon-chevron-down"></i></span></p>
                                                 <div class="opcoes_cartao">
                                                     <img src='{{=URL("static","img/edit.png")}}' class="editar_cartao" alt="Editar" title="Editar"/>
                                                     <img src='{{=URL("static","img/icon_color.png")}}' class="colorir_cartao" alt="Colorir Cartão" title="Colorir Cartão"/>

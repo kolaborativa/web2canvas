@@ -140,6 +140,8 @@ def editar_dados():
         pk = request.vars.pk
         campo = request.vars.name
 
+        print request.vars
+
         dados_banco = db(Projeto.id==session.projeto_id).select().first()
 
         if dados_banco[campo]:

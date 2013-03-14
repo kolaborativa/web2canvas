@@ -300,10 +300,6 @@ textarea.input-large {
     -webkit-transition:all 0.5s ease;
     -moz-transition:all 0.6s ease;
 }
-/*.opcoes_cartao img {
-    float: left;
-    height: 55%;
-}*/
 
 .efeito_opcoes_cartao {
     opacity:1!important;
@@ -404,6 +400,20 @@ textarea.input-large {
 }
 
 #target_ajax {
+  display: none;
+}
+
+/*cores*/
+
+.cores_cartao {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  float: left;
+  margin-right: 10px;
+  border: 1px solid #fff;
+}
+textarea[name="cor"] {
   display: none;
 }
 

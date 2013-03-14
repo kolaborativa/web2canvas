@@ -16,6 +16,8 @@
                         <h4>Mudar a senha</h4>
                         {{elif request.args(0)=='request_reset_password':}}
                         <h4>Solicitar nova senha</h4>
+                        {{elif request.args(0)=='reset_password':}}
+                        <h4>Definir nova senha</h4>
                         {{pass}}
                     </div>
                     {{if request.args(0)=='login':}}
@@ -146,6 +148,23 @@
                             <input type="submit" class="btn" value="Salvar"/>
                         {{=form.custom.end}}
                     </div> <!-- form -->
+                    {{elif request.args(0)=='reset_password':}}
+                    <div class="form">
+                        {{=form.custom.begin}}
+                            <!-- nova senha -->
+                            {{ form.elements('#no_table_new_password')[0] ['_placeholder'] = "Nova Senha" }}
+                            {{ form.elements('#no_table_new_password')[0] ['_type'] = "password" }}
+                            {{=form.custom.widget.new_password}}
+
+                           <!-- confirma nova senha -->
+                            {{ form.elements('#no_table_new_password2')[0] ['_placeholder'] = "Confirma Senha" }}
+                            {{ form.elements('#no_table_new_password2')[0] ['_type'] = "password" }}
+                            {{=form.custom.widget.new_password2}}
+
+                            <input type="submit" class="btn" value="Solicitar nova senha"/>
+                        {{=form.custom.end}}
+                    </div> <!-- form -->
+
                     {{pass}}
                 </div>
             </div>

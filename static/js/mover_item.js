@@ -12,7 +12,6 @@ $(function() {
         stop: function( event, ui ) {
             ui.item.removeClass( "movendo_item" );
             var id_novo = $(ui.item).parent().parent().attr('class').split(" ")[0];
-            console.log("era para ser id: "+id_novo)
             atualizaIndiceItens(id_novo)
         },
         receive: function(event, ui) {
