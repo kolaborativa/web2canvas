@@ -107,7 +107,7 @@
                     <div class="form">
                         {{ if auth.user.username.startswith('1'):}}
                         <!-- usuario facebook -->
-                        <img src='https://graph.facebook.com/{{=auth.user.username}}/picture?width=9999&height=9999'>
+                        <img src='https://graph.facebook.com/{{=auth.user.username}}/picture?width=9999&height=9999' class="thumbnails">
                         {{else:}}
                         <!-- gravatar do usuario -->
                         <img src='{{=Gravatar(auth.user.email).thumb}}' class="thumbnails">

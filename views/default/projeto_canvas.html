@@ -381,9 +381,9 @@
                         <!-- gravatar do usuario -->
                           {{ if usuario_dados["username"].startswith('1'):}}
                           <!-- usuario facebook -->
-                          <img src='https://graph.facebook.com/{{=usuario_dados["username"]}}/picture?width=9999&height=9999' alt='{{=usuario_dados["nome"]}}' title='{{=usuario_dados["nome"]}}'>
+                          <img src='https://graph.facebook.com/{{=usuario_dados["username"]}}/picture?width=9999&height=9999' class="colaboradores_avatares" alt='{{=usuario_dados["nome"]}}' title='{{=usuario_dados["nome"]}}'>
                           {{else:}}
-                          <img src='{{=Gravatar(usuario_dados["email"]).thumb}}' alt='{{=usuario_dados["nome"]}}' title='{{=usuario_dados["nome"]}}'>
+                          <img src='{{=Gravatar(usuario_dados["email"]).thumb}}' class="colaboradores_avatares" alt='{{=usuario_dados["nome"]}}' title='{{=usuario_dados["nome"]}}'>
                           {{pass}}
                         </div>
                         <div class="name">
@@ -398,9 +398,9 @@
                         <!-- gravatar do usuario -->
                           {{ if pessoas_compartilhadas[i]["username"].startswith('1'):}}
                           <!-- usuario facebook -->
-                          <img src='https://graph.facebook.com/{{=pessoas_compartilhadas[i]["username"]}}/picture?width=9999&height=9999' alt='{{=pessoas_compartilhadas[i]["nome"]}}' title='{{=pessoas_compartilhadas[i]["nome"]}}'>
+                          <img src='https://graph.facebook.com/{{=pessoas_compartilhadas[i]["username"]}}/picture?width=9999&height=9999' class="colaboradores_avatares" alt='{{=pessoas_compartilhadas[i]["nome"]}}' title='{{=pessoas_compartilhadas[i]["nome"]}}'>
                           {{else:}}
-                          <img src='{{=Gravatar(pessoas_compartilhadas[i]["email"]).thumb}}' alt='{{=pessoas_compartilhadas[i]["nome"]}}' title='{{=pessoas_compartilhadas[i]["nome"]}}'>
+                          <img src='{{=Gravatar(pessoas_compartilhadas[i]["email"]).thumb}}' alt='{{=pessoas_compartilhadas[i]["nome"]}}' class="colaboradores_avatares" title='{{=pessoas_compartilhadas[i]["nome"]}}'>
                           {{pass}}
                         </div>
                         <div class="name">

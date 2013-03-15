@@ -1211,6 +1211,7 @@ img.thumbnails {
 	width: 100px;
 	height: 100px;
 	margin: 10px 0 0 10px;
+	padding: 5px;
 	background-color: #fff;
 	display: block;
 	line-height: 20px;
@@ -1221,19 +1222,12 @@ img.thumbnails {
 	-moz-box-shadow: 0 1px 3px rgb(141, 141, 141);
 	box-shadow: 0 1px 3px rgb(141, 141, 141);
 	box-shadow: 0 1px 3px rgb(141, 141, 141);
-	-webkit-transition: all 0.2s ease-in-out;
-	-moz-transition: all 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out;
+	-webkit-transition: all .3s ease-out; 
+	-moz-transition: all .3s ease-out; 
+	-o-transition: all .3s ease-out; 
+	transition: all .3s ease-out;
 }
 
-img.thumbnails { 
-   padding: 5px;
-   -webkit-transition: all .3s ease-out; 
-   -moz-transition: all .3s ease-out; 
-   -o-transition: all .3s ease-out; 
-   transition: all .3s ease-out;
-}
 img.thumbnails:hover { 
 	translate3d:(0,0,0); /*forcar renderizacar por GPU*/
    -moz-transform: scale(1.1);
