@@ -1,4 +1,28 @@
 /*
+=======
+ ICONS
+=======
+*/
+
+.icon_forward, .icon_back{
+  background: url(../img/back_forward.png) no-repeat;
+  display: inline-block;
+}
+
+.icon_forward{
+  background-position: 0 0;
+  width: 14px;
+  height: 10px;
+}
+
+.icon_back{
+  background-position: 0 -51px ;
+  width: 14px;
+  height: 10px;
+}
+
+
+/*
 ========
  BLOCOS
 ========
@@ -277,6 +301,7 @@ textarea.input-large {
   color: #000;
   font-size: 13px;
   display: block;
+  padding-top: 10px;
 }
 
 ul.drag_drop {
@@ -423,11 +448,12 @@ textarea[name="cor"] {
 /*colaboradores*/
 
 .colaboradores-container {
+  width: 98%;
   background-color: #fff;
   color: #333;
   margin-top: 20px;
   padding: 0px;
-  width: 98%;
+  padding-bottom: 10px;
 }
 
 .colaboradores-container ul {
@@ -484,6 +510,8 @@ textarea[name="cor"] {
 
 .editable-error-block {
   font-size: 1.4em;
+  clear: both;
+  padding-top: 10px;
 }
 
 

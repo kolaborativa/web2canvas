@@ -17,7 +17,7 @@ var titulo_caixa = "Editar Cartão",
 
 // modificar stilo dos botoes
 $.fn.editableform.buttons = 
- '<button type="button" class="btn editable-cancel pull-left"><i class="icon-arrow-left"></i></button>'+
+ '<button type="button" class="btn editable-cancel pull-left"><i class="icon_back"></i></button>'+
   '<button type="submit" class="btn btn-success editable-submit pull-right"><i class="icon-ok icon-white"></i></button>';
 $.fn.editable.defaults.mode = 'inline';
 
@@ -123,7 +123,9 @@ $('.cartao').editable({
         cor: ""
     }, // End value
     validate: function(value) {
-        if(value.texto === '') return mensagem_erro; 
+        if(value.texto === '') return mensagem_erro;
+        // capturo a cor inserida para caso o usuario cancele
+        $(this).attr('data-color',value.cor)
     }, // End validate function()
     display: function(value) {
         if(!value) {
@@ -148,6 +150,7 @@ $('.cartao').editable({
           text: msg_texto,
           type: msg_tipo
         });
+        // cancelo a edicao do cartao novamente
         $('.cartao').editable("disable");
     },
 }); // End editable()
@@ -155,7 +158,7 @@ $('.cartao').editable({
 
 /*
 =============================
- ITENSeditar_cartao GERADOS DINAMICAMENTE
+ ITENS GERADOS DINAMICAMENTE
 =============================
 */
 
@@ -169,9 +172,9 @@ $('.drag_drop').editable({
       cor: ""
   },
   validate: function(value) {
-      if(value.texto === '') return mensagem_erro; 
+      if(value.texto === '') return mensagem_erro;
   }, // End validate function()
-  success: function(response) {
+  success: function(value,response) {
       msg_titulo = "Cartão";
       if(response.success) {
         msg_texto = response.msg;
@@ -186,6 +189,7 @@ $('.drag_drop').editable({
         text: msg_texto,
         type: msg_tipo
       });
+      // cancelo a edicao do cartao novamente
       $('.cartao').editable("disable");
   }
 });

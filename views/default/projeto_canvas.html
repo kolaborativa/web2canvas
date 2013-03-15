@@ -375,26 +375,36 @@
               </div>
               <div class="pull-left">
                 <ul class="colaboradores">
-                  <li class="span3">
+                  <li class="span2">
                       <div class="person">
                         <div class="icon">
                         <!-- gravatar do usuario -->
-                          <img src='{{=Gravatar(auth.user.email).thumb}}' alt="{{=projeto.criado_por.nome}}" title="{{=projeto.criado_por.nome}}">
+                          {{ if auth.user.username.startswith('0'):}}
+                          <!-- usuario facebook -->
+                          <img src='{{=Gravatar(email_usuario).thumb}}' alt="{{=projeto.criado_por.nome}}" title="{{=projeto.criado_por.nome}}">
+                          {{else:}}
+                          <img src='https://graph.facebook.com/{{=auth.user.username}}/picture?width=9999&height=9999'alt="{{=projeto.criado_por.nome}}" title="{{=projeto.criado_por.nome}}">
+                          {{pass}}
                         </div>
                         <div class="name">
                         {{=projeto.criado_por.nome}}
                         </div>
                       </div>
                   </li>
-                  {{ for i in time_compartilhamento: }}
-                  <li class="span3">
+                  {{ for i in pessoas_compartilhadas: }}
+                  <li class="span2">
                       <div class="person">
                         <div class="icon">
                         <!-- gravatar do usuario -->
-                          <img src='{{=Gravatar(auth.user.email).thumb}}' alt="{{=i.pessoa_id.nome}}" title="{{=i.pessoa_id.nome}}">
+                          {{ if auth.user.username.startswith('0'):}}
+                          <!-- usuario facebook -->
+                          <img src='{{=Gravatar(pessoas_compartilhadas[i]["email"]).thumb}}' alt='{{=pessoas_compartilhadas[i]["nome"]}}' title='{{=pessoas_compartilhadas[i]["nome"]}}'>
+                          {{else:}}
+                          <img src='https://graph.facebook.com/{{=auth.user.username}}/picture?width=9999&height=9999' alt='{{=pessoas_compartilhadas[i]["nome"]}}' title='{{=pessoas_compartilhadas[i]["nome"]}}'>
+                          {{pass}}
                         </div>
                         <div class="name">
-                        {{=i.pessoa_id.nome}}
+                        {{=pessoas_compartilhadas[i]["nome"]}}
                         </div>
                       </div>
                   </li>
