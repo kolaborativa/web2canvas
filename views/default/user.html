@@ -105,8 +105,13 @@
                     </div> <!-- form -->
                     {{elif request.args(0)=='profile':}}
                     <div class="form">
+                        {{ if auth.user.username.startswith('1'):}}
+                        <!-- usuario facebook -->
+                        <img src='https://graph.facebook.com/{{=auth.user.username}}/picture?width=9999&height=9999'>
+                        {{else:}}
                         <!-- gravatar do usuario -->
                         <img src='{{=Gravatar(auth.user.email).thumb}}' class="thumbnails">
+                        {{pass}}
                         <br>
                         {{=form.custom.begin}}
                             <!-- primeiro nome -->

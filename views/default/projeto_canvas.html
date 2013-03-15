@@ -381,7 +381,7 @@
                         <!-- gravatar do usuario -->
                           {{ if usuario_dados["username"].startswith('1'):}}
                           <!-- usuario facebook -->
-                          <img src='https://graph.facebook.com/{{=usuario_dados["username"]}}/picture?width=9999&height=9999'alt='{{=usuario_dados["nome"]}}' title='{{=usuario_dados["nome"]}}'>
+                          <img src='https://graph.facebook.com/{{=usuario_dados["username"]}}/picture?width=9999&height=9999' alt='{{=usuario_dados["nome"]}}' title='{{=usuario_dados["nome"]}}'>
                           {{else:}}
                           <img src='{{=Gravatar(usuario_dados["email"]).thumb}}' alt='{{=usuario_dados["nome"]}}' title='{{=usuario_dados["nome"]}}'>
                           {{pass}}

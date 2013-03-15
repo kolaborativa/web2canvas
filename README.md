@@ -39,6 +39,11 @@ Instalação
 Changelog
 -----------
 
+**v 1.3**:
+
+- Cartões com possibilidade de colocar cores.
+- Foto do perfil através do Facebook ou Gravatar.
+
 **v 1.2**:
 
 - Excluir projeto.
@@ -46,7 +51,7 @@ Changelog
 - Nova tela de Projetos.
 - Reset de senha do usuário.
 - Fale conosco (feedback).
-- Gravatar dos usuarios.
+- Foto do perfil através do Facebook ou Gravatar.
 
 **v 1.1**:
 
