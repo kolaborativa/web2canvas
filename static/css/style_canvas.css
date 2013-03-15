@@ -422,7 +422,7 @@ textarea[name="cor"] {
 /*colaboradores*/
 
 img.colaboradores_avatares {
-  width: 100px;
+  max-width: 80px;
   height: auto;
   padding: 5px;
   background-color: #fff;
@@ -459,14 +459,10 @@ img.colaboradores_avatares {
 
 .colaboradores-container .person {
   font-size: 1.3em;
-  float: left;
-  padding-right: 20px;
 }
 
 .colaboradores-container .icon {
-  float: left;
   padding-right: 6px;
-  position: relative;
 }
 
 .colaboradores-container .icon .status {
