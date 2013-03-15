@@ -134,6 +134,12 @@ auth.settings.login_next=URL('projetos')
 # redireciona depois do cadastro
 auth.settings.register_next = URL('_cadastrar_pessoa')
 
+# import Gravatar
+try:
+    from gravatar import Gravatar
+except ImportError:
+    from gluon.contrib.gravatar import Gravatar
+
 #########################################################################
 ## Define your tables below (or better in another model file) for example
 ##

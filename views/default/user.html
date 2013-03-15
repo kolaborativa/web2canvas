@@ -105,6 +105,9 @@
                     </div> <!-- form -->
                     {{elif request.args(0)=='profile':}}
                     <div class="form">
+                        <!-- gravatar do usuario -->
+                        <img src='{{=Gravatar(auth.user.email).thumb}}' class="thumbnails">
+                        <br>
                         {{=form.custom.begin}}
                             <!-- primeiro nome -->
                             <label for="auth_user_first_name" class="pull-left">Primeiro Nome: </label>

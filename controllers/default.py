@@ -136,11 +136,12 @@ def editar_dados():
     import json
 
     if request.vars:
-        valor = request.vars.value
+        texto = request.vars['value[texto]']
+        cor = request.vars['value[cor]']
         pk = request.vars.pk
         campo = request.vars.name
 
-        print request.vars
+        valor = {"texto":texto, "cor":cor}
 
         dados_banco = db(Projeto.id==session.projeto_id).select().first()
 
@@ -189,18 +190,25 @@ def atualiza_itens():
     """Funcao que atualiza dados do projeto
     """
     import json
+    import urllib
 
     if request.vars:
         campo = request.vars.name
         todas_variaveis = request.vars
 
-        valores =  {}
+        novo_dict =  {}
         for v in todas_variaveis:
             if not v == "name":
-                valores[v] = todas_variaveis[v]
+                parse = urllib.unquote(todas_variaveis[v].encode('ascii')).decode('utf-8')
+                nova_lista = parse.split("&")
+                texto = nova_lista[0].split("=")
+                texto[1] = texto[1].replace("+"," ")
+                cor = nova_lista[1].split("=")
 
-        dados_banco = db(Projeto.id==session.projeto_id).select().first()
-        dados = json.dumps(valores)
+                valor = {"texto":texto[1], "cor":cor[1]}
+                novo_dict[v] = valor
+
+        dados = json.dumps(novo_dict)
 
         Projeto[session.projeto_id]= {campo:dados}
 

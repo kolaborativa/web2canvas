@@ -17,8 +17,8 @@ var titulo_caixa = "Editar Cartão",
 
 // modificar stilo dos botoes
 $.fn.editableform.buttons = 
-  '<button type="submit" class="btn btn-success editable-submit"><i class="icon-ok icon-white"></i></button>' +
- '<button type="button" class="btn editable-cancel"><i class="icon-remove"></i></button>'; 
+ '<button type="button" class="btn editable-cancel pull-left"><i class="icon-arrow-left"></i></button>'+
+  '<button type="submit" class="btn btn-success editable-submit pull-right"><i class="icon-ok icon-white"></i></button>';
 $.fn.editable.defaults.mode = 'inline';
 
 // para saber o maior indice do array
@@ -31,38 +31,6 @@ Array.max = function( array ){
  ITENS CARREGADOS COM A PAGINA
 ===============================
 */
-
-// chamada do plugin x-editable
-// $('.cartao').editable({
-//   type: 'textarea',
-//   url: urlNovoEdita,
-//   title: titulo_caixa,
-//   emptytext: campo_vazio,
-//   disabled: true,
-//   validate: function(value) {
-//       if($.trim(value) == '') {
-//           return mensagem_erro;
-//       }
-//   },
-//   success: function(response) {
-//       msg_titulo = "Cartão";
-//       if(response.success) {
-//         msg_texto = response.msg;
-//         msg_tipo = "success";
-//       } else if(response.error) {
-//         msg_texto = response.msg;
-//         msg_tipo = "error";
-//       }
-//       // notificacao
-//       $.pnotify({
-//         title: msg_titulo,
-//         text: msg_texto,
-//         type: msg_tipo
-//       });
-//       $('.cartao').editable("disable");
-//       $(this).parent().next().removeClass("efeito_opcoes_cartao");
-//   }
-// });
 
 (function ($) {
     var cartao = function (options) {
@@ -105,10 +73,12 @@ Array.max = function( array ){
        },                
           
        value2input: function(value) {
-           html = $(".cartao").closest('a').text();
-           console.log(html)
-           this.$input.filter('[name="texto"]').val(html);
-           this.$input.filter('[name="cor"]').val("#fff");
+           cor = $(".editable-container").prev(".cartao").attr("data-color");
+           html = $(".editable-container").prev(".cartao").text();
+           if(html!==campo_vazio) {
+             this.$input.filter('[name="texto"]').val(html);
+           }
+           this.$input.filter('[name="cor"]').val(cor);
        },       
            
        input2value: function() { 
@@ -132,10 +102,8 @@ Array.max = function( array ){
     });
 
     cartao.defaults = $.extend({}, $.fn.editabletypes.abstractinput.defaults, {
-        // tpl: '<div class="editable-address"><label><span>texto: </span><input type="text" name="texto" class="input-xlarge"></label></div>'+
-             // '<div class="editable-address"><label><span>cor: </span><input type="text" name="cor" class="input-mini"></label></div>',
         tpl: '<div class="editable-address"><textarea name="texto" rows="7"></textarea></div><br />'+
-             '<div class="editable-address clearfix"><textarea name="cor" class="input-mini"></textarea><div class="cores_cartao" data-color="#FF0000" style="background:#FF0000;"></div><div class="cores_cartao" data-color="#FF8000" style="background:#FF8000;"></div><div class="cores_cartao" data-color="#00FF80" style="background:#00FF80;"></div><div class="cores_cartao" data-color="#7AFFBD" style="background:#7AFFBD;"></div></div>',
+             '<div class="editable-address clearfix"><textarea name="cor" class="input-mini"></textarea><div class="cores_cartao" data-color="#FFFFFF" style="background-color:#FFFFFF;"></div><div class="cores_cartao" data-color="#FFFF9E" style="background-color:#FFFF9E;"></div><div class="cores_cartao" data-color="#C7FFFF" style="background-color:#C7FFFF;"></div><div class="cores_cartao" data-color="#BFFFB5" style="background-color:#BFFFB5;"></div><div class="cores_cartao" data-color="#CBBFFA" style="background-color:#CBBFFA;"></div><div class="cores_cartao" data-color="#FFA09D" style="background-color:#FFA09D;"></div><div class="cores_cartao" data-color="#E3E3E3" style="background-color:#E3E3E3;"></div></div>',
              
         inputclass: ''
     });
@@ -181,37 +149,28 @@ $('.cartao').editable({
           type: msg_tipo
         });
         $('.cartao').editable("disable");
-        $(this).parent().next().removeClass("efeito_opcoes_cartao");
     },
 }); // End editable()
-
-// $('#cor').colourPicker({
-//     title: false
-// });
-
 
 
 /*
 =============================
- ITENS GERADOS DINAMICAMENTE
+ ITENSeditar_cartao GERADOS DINAMICAMENTE
 =============================
 */
 
 // chamada do plugin x-editable
-$('.itens').editable({
+$('.drag_drop').editable({
   selector: 'a',
   url: urlNovoEdita,
   title: titulo_nova_caixa,
-  placement: "top",
   value: {
       texto: campo_vazio, 
-      cor: "#fff"
+      cor: ""
   },
   validate: function(value) {
-      if($.trim(value) == '') {
-          return mensagem_erro;
-      }
-  },
+      if(value.texto === '') return mensagem_erro; 
+  }, // End validate function()
   success: function(response) {
       msg_titulo = "Cartão";
       if(response.success) {
@@ -228,7 +187,6 @@ $('.itens').editable({
         type: msg_tipo
       });
       $('.cartao').editable("disable");
-      $(this).parent().next().removeClass("efeito_opcoes_cartao");
   }
 });
 
@@ -250,14 +208,15 @@ $('.adicionar_item').click(function(){
       var indiceItem = 1;
     }
 
-    html = '<li><p><a href="#" id="'+classeBotao+'" class="editable-click editable-empty cartao novo" data-type="address" data-value="" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'">'+campo_vazio+'</a><span class="mais_opcoes_cartao pull-right"><i class="icon-chevron-down"></i></span></p>  <div class="opcoes_cartao"><img src="'+urlStatic+'edit.png" class="editar_cartao" alt="Editar" title="Editar"/><img src="'+urlStatic+'icon_color.png" class="colorir_cartao" alt="Colorir Cartão" title="Colorir Cartão"/><img src="'+urlStatic+'close.png" class="deletar_cartao" alt="Deletar" title="Deletar"/></div></li>';
+    html = '<li><div class="card_container"><div class="row"><button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button><button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-edit"></i></button></div><a href="#" class="editable-click editable-empty cartao novo" id="'+classeBotao+'" data-type="address" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'" data-color="#FFFFFF">'+campo_vazio+'</a></div></li>';
 
     $("div."+classeBotao+" > ul").append(html);
+    // abro a edição do cartao apos cria-lo
     setTimeout(function () {
        $("a#"+classeBotao+":last").trigger('click');
     }, 100);
-    
-
+    // faz scroll ate o elemento
+    $('html,body').animate({ scrollTop: $("a#"+classeBotao+":last").offset().top - (200) }, 1500);
 });
 
 
@@ -272,31 +231,27 @@ $('.adicionar_item').click(function(){
 
 // libera para editar cartao
 $(document).on("click", ".editar_cartao", function(){
-    $(this).parent().prev().children(".cartao").editable("enable");
-    var cartao = $(this);
+    var cartao = $(this).parent().next(".cartao");
+    cartao.editable("enable");
+
     setTimeout(function(cartao){
-        cartao.parent().prev().children(".cartao").trigger('click');
+        cartao.trigger('click');
     }, 100, cartao);
 });
 
 // testa se a edicao no cartao foi cancelada
 $('.cartao').on('hidden', function(e, reason) {
     if(reason === 'onblur' || reason === 'cancel') {
-        $(this).closest("p").removeAttr( 'style' );
+        var cor = $(this).attr('data-color');
+        $(this).closest(".card_container").css("background-color",'"'+cor+'"');
         $('.cartao').editable("disable");
-        $(this).parent().next().removeClass("efeito_opcoes_cartao");
     } 
-});
-
-// abre opcoes de editar com efeito
-$(document).on("click", ".mais_opcoes_cartao", function(){
-  $(this).parent().next().toggleClass("efeito_opcoes_cartao");
 });
 
 // escolhe a cor do cartao
 $(document).on("click", ".cores_cartao", function(){
     var cor = $(this).attr('data-color');
-    $(this).closest("p").css("background-color",'"'+cor+'"');
+    $(this).closest(".card_container").css("background-color",'"'+cor+'"');
     $(this).parent().find('.input-mini').val(cor);
 });
 
@@ -304,8 +259,8 @@ $(document).on("click", ".cores_cartao", function(){
 $(document).on("click", ".deletar_cartao", function(){
 
   if(confirm(mensagem_confirma)) {
-    id = $(this).parent().parent().find('a.cartao').attr('id');
-    indice = $(this).parent().parent().find('a.cartao').attr('data-pk');
+    id = $(this).parent().parent().find('.cartao').attr('id');
+    indice = $(this).parent().parent().find('.cartao').attr('data-pk');
 
     removeItem(id,indice,true);
   }
@@ -325,19 +280,25 @@ function removeItem(id,indice,remove) {
 
 // atualiza indices e cria o cartao movido
 function atualizaIndiceItens(id) {
-  var values = {},
-      value,
-      valuesUrl;
-  $("."+id).children("ul").find('a.cartao').each(function(index) {
+  var allValues = {},
+      valuesUrl = "",
+      texto = "",
+      cor = "";
+
+  $("."+id).children("ul").find('.cartao').each(function(index) {
     
-    value = $(this).text();
-    if(value !== campo_vazio) {
+    if(texto !== campo_vazio) {
       index += 1;
-      values[index] = value;
+      texto = $(this).text();
+      cor = $(this).attr("data-color");
+
+      allValues[index] = jQuery.param({"value[texto]": texto, "value[cor]": cor});
+
       $(this).children("a").attr('data-pk',index)
+      $(this).children("a").attr('data-color',cor)
     }
   });
-  valuesUrl = jQuery.param(values);
+  valuesUrl = jQuery.param(allValues);
   ajax(urlAtualiza+'?name='+id+'&'+valuesUrl, [''], 'target_ajax');
 }
 

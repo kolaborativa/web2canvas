@@ -46,6 +46,7 @@ Changelog
 - Nova tela de Projetos.
 - Reset de senha do usuário.
 - Fale conosco (feedback).
+- Gravatar dos usuarios.
 
 **v 1.1**:
 

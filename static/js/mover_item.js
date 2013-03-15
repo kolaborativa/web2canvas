@@ -12,23 +12,21 @@ $(function() {
         stop: function( event, ui ) {
             ui.item.removeClass( "movendo_item" );
             var id_novo = $(ui.item).parent().parent().attr('class').split(" ")[0];
-            atualizaIndiceItens(id_novo)
+            atualizaIndiceItens(id_novo);
         },
         receive: function(event, ui) {
             var id_velho = $(ui.item).find('a.cartao').attr('id'),
-                id_novo = $(this).attr('class').split(" ")[0],
-                indice_velho = $(ui.item).find('a.cartao').attr('data-pk'),
-                indice_novo = $(ui.item).index();
+                id_novo = $(this).parent().attr('class').split(" ")[0],
+                indice_velho = $(ui.item).find('a.cartao').attr('data-pk');
 
             var statusRemove = removeItem(id_velho,indice_velho,false);
             if(statusRemove === true) {
-                $(ui.item).find('a.cartao').attr('id',id_novo)
+                $(ui.item).find('a.cartao').attr('id',id_novo);
             }
 
             // Disable before dragdrop
             var panel = $(this),
                 body = $('body');            
-            // $(this).sortable("disable");
             $('body').css('cursor', 'wait');
 
             setTimeout(function () {

@@ -71,20 +71,12 @@
   background-color: rgb(176, 190, 186);
 }
 
-#modelo_canvas {
-  /*margin: 20px;*/
-}
-
 #dados_projeto div {
   float: left;
 }
 
 #dados_projeto li {
   list-style: none;
-}
-
-#modelo_canvas p {
-  font-size: 1.3em;
 }
 
 /*
@@ -209,6 +201,7 @@ hr {
 /*botoes*/
 .botoes_bloco {
   height: 25px;
+  margin-bottom: 20px;
 }
 
 .adicionar_item {
@@ -224,7 +217,8 @@ hr {
 .ajuda {
   display: block;
   position: relative;
-  right: 10px;
+  top: 5px;
+  right: 17px;
   opacity: 0.5;
 }
 
@@ -237,6 +231,7 @@ hr {
  CARTOES
 =========
 */
+
 a.editable-click {
   font-size: 1.4em;
   /*display: block;*/
@@ -267,6 +262,14 @@ textarea.input-large {
 
 .editable-buttons {
   display: block;
+  margin-top: 20px;
+}
+
+.editable-buttons .editable-cancel {
+  margin-left: -7px;
+}
+
+.editableform {
   margin-top: 10px;
 }
 
@@ -276,60 +279,59 @@ textarea.input-large {
   display: block;
 }
 
-.itens ul {
+ul.drag_drop {
   margin: 0px;
   padding: 0px;
 }
 
-.itens li {
+ul.drag_drop li {
   list-style: none;
 }
 
-/*menu drop-down dos cartoes*/
-.opcoes_cartao {
-    width: 80%;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 1px 1px rgb(180, 171, 171);
-    opacity:0;
-    height:0px;
-    padding: 0px 10px 0px 10px!important;
-    position: relative;
-    bottom: 20px;
-    -webkit-transition:all 0.5s ease;
-    -moz-transition:all 0.6s ease;
-}
-
-.efeito_opcoes_cartao {
-    opacity:1!important;
-    height:50px;
-    z-index:0!important;
-}
-
-.efeito_opcoes_cartao img {
-  position: relative;
-  top: 15px;
-  cursor: pointer;
-}
-
-.mais_opcoes_cartao {
-  width: 20px;
+.editar_cartao {
   display: block;
-  padding: 10px 20px 10px 20px;
+  margin-right: 10px;
+/*  width: 20px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
   position: relative;
   left: 4px;
   background-color: rgb(214, 214, 214);
   -webkit-border-radius: 5px 0 5px;
   -moz-border-radius: 5px 0 5px;
   border-radius: 5px 0 5px;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.38);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.38);
+  display: pointer;*/
 }
 
-.mais_opcoes_cartao:hover {
-  background-color: rgb(192, 192, 192);
+.editar_cartao:hover {
+  /*background-color: rgb(192, 192, 192);*/
 }
 
-.itens p {
+.deletar_cartao {
+  display: block;
+/*  width: 20px;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  position: relative;
+  left: 4px;
+  background-color: rgb(214, 214, 214);
+  -webkit-border-radius: 5px 0 5px;
+  -moz-border-radius: 5px 0 5px;
+  border-radius: 5px 0 5px;
+  -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.38);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.38);
+  display: pointer;*/
+}
+
+.deletar_cartao:hover {
+  /*background-color: rgb(192, 192, 192);*/
+}
+
+.card_container {
   /*min-height: 50px;*/
   width: 80%;
   padding: 10px;
@@ -357,15 +359,16 @@ textarea.input-large {
   margin-left: 10%;
 }
 
-.itens p:hover {
+.card_container:hover {
   cursor: pointer;
 }
  
-.itens p:active {
+.card_container:active {
   cursor: move;
 }
 
-.estrutura_custos p, .receitas p {
+.estrutura_custos .card_container, .receitas .card_container {
+  width: 104%;
   margin: 10px;
 }
 
@@ -390,15 +393,6 @@ textarea.input-large {
   border-radius: 4px;
 }
 
-
-.deletar_cartao {
-  display: pointer;
-}
-
-.editar_cartao {
-  display: pointer;
-}
-
 #target_ajax {
   display: none;
 }
@@ -406,13 +400,22 @@ textarea.input-large {
 /*cores*/
 
 .cores_cartao {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 5px;
   float: left;
-  margin-right: 10px;
-  border: 1px solid #fff;
+  margin-right: 6px;
+  -webkit-box-shadow: 0px 0px 2px #000;
+  -moz-box-shadow: 0px 0px 2px #000;
+  box-shadow: 0px 0px 2px #000;
 }
+.cores_cartao:last-child {
+  margin-right: 0px;
+}
+.cores_cartao:hover {
+  opacity: 0.5;
+}
+
 textarea[name="cor"] {
   display: none;
 }
@@ -609,9 +612,6 @@ textarea[name="cor"] {
   }
   .btn_feedback, #guia-btn {
     display: none;
-  }
-  .efeito_opcoes_cartao img {
-    height: 47%;
   }
 }
 

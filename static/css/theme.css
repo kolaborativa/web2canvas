@@ -316,7 +316,7 @@ input[type="color"]:focus,
 }
 #recursos .feature img.thumb {
 	border: 3px solid #fff;
-	border-radius: 5px;
+	border-radius: 4px;
 	box-shadow: 0px 0px 0px 1px #bcbcbc;
 	display: block;
 	margin: 0 auto;
@@ -587,7 +587,7 @@ ul.mais_recuros i {
 #footer .contact_us .field textarea {
 	background-color: #1a1f26;
 	border: 1px solid #2f3743;
-	border-radius: 5px;
+	border-radius: 4px;
 	color: #fff;
 }
 #footer .contact_us .field textarea {
@@ -1140,6 +1140,7 @@ i.myspace { background-position: -233px -51px; }
 	border-bottom: none;
 	border: 2px solid #85a4c1;
 	padding: 10px 0 10px 0;
+	border-radius: 4px;
 }
 
 #projetos_container .nav-tabs li {
@@ -1154,7 +1155,7 @@ i.myspace { background-position: -233px -51px; }
 #projetos_container .nav-tabs a {
 	background-color: #f7fdff;
 	border: 1px solid #85a4c1;
-	border-radius: 0px;
+	border-radius: 4px;
 }
 
 #projetos_container .nav-tabs a:hover {
@@ -1183,6 +1184,7 @@ i.myspace { background-position: -233px -51px; }
 	padding: 20px 0 20px 20px;
 	margin-bottom: 50px;
 	border: 2px solid #85a4c1;
+	border-radius: 4px;
 }
 
 #projetos_container #novo_projeto #image_content {
@@ -1280,6 +1282,7 @@ filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',
 	margin-right: 18px;
 	padding-bottom: 5px;
 	border: 2px dashed #85a4c1;
+	border-radius: 4px;
 }
 
 #projetos_container #novo_projeto ul {
@@ -1312,6 +1315,7 @@ filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand',
 	margin: 0px 18px 20px 0px;
 	padding: 10px 10px 25px 0px;
 	background-color: #d4ecff;
+	border-radius: 4px;
 }
 
 #projetos_container .lista_projetos img {
@@ -1372,7 +1376,7 @@ div.autocomplete-suggestions {
 	position: fixed;
 	/*top: 2px;*/
 	bottom: 0px;
-	right: 100px;
+	right: 0px;
 	text-align: right;
 	padding: 5px 10px 5px 30px;
 }
