@@ -57,6 +57,7 @@ def projetos():
     return dict(form=form, meus_projetos=meus_projetos, projetos_colaborador=projetos_colaborador)
 
 
+@auth.requires_login()
 def _converterImagem(base64txt,folder):
     import os
     import base64
@@ -130,6 +131,7 @@ def projeto_canvas():
         redirect(URL('index'))
 
 
+@auth.requires_login()
 def editar_dados():
     """Funcao que atualiza dados do projeto
     """
@@ -160,6 +162,7 @@ def editar_dados():
         return dict(error="error",msg="erro ao gravar!")
 
 
+@auth.requires_login()
 def remove_item():
     """Funcao que atualiza dados do projeto
     """
@@ -186,6 +189,7 @@ def remove_item():
         return False
 
 
+@auth.requires_login()
 def atualiza_itens():
     """Funcao que atualiza dados do projeto
     """
