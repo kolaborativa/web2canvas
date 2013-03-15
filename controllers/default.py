@@ -123,32 +123,37 @@ def projeto_canvas():
 
         usuarios_para_adicionar = {i.nome:i.id for i in db(db.pessoa).select() if not i.id in id_time}
 
-        usuario_dados = _email_usuarios(pessoa.id)
-        email_usuario = usuario_dados["email"]
-        
+        usuario_dados = _email_usuarios(projeto.criado_por.id)
+
         pessoas_compartilhadas = time_compartilhamento.as_dict()
         for pessoas in pessoas_compartilhadas:
             usuario = _email_usuarios(pessoas_compartilhadas[pessoas]['pessoa_id'])
-            pessoas_compartilhadas[pessoas]["nome"] = usuario["nome"]
-            pessoas_compartilhadas[pessoas]["email"] = usuario["email"]
+            pessoas_compartilhadas[pessoas] = {
+                                                "nome": usuario["nome"],
+                                                "email": usuario["email"],
+                                                "username": usuario["username"]
+                                                }
         
         return dict(projeto=projeto,
                     pessoas_compartilhadas=pessoas_compartilhadas,
                     pessoa_logada=pessoa.id,
                     usuarios_para_adicionar=usuarios_para_adicionar,
-                    email_usuario=email_usuario)
+                    usuario_dados=usuario_dados)
     else:
         redirect(URL('index'))
 
 
 @auth.requires_login()
 def _email_usuarios(id):
-    pessoa = {}
-    usuario = db(Pessoa.id==id).select().first()
-    pessoa["nome"] = "%s %s" % (usuario.usuario1.first_name,usuario.usuario1.last_name)
-    pessoa["email"] = usuario.usuario1.email
+    dados_pessoa = {}
+    pessoa = db(Pessoa.id==id).select().first()
+    dados_pessoa = {
+                    "nome": "%s %s" % (pessoa.usuario1.first_name,pessoa.usuario1.last_name),
+                    "email": pessoa.usuario1.email,
+                    "username": pessoa.usuario1.username
+                    }
     
-    return pessoa
+    return dados_pessoa
 
 
 
