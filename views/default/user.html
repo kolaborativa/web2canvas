@@ -176,15 +176,43 @@
                     {{pass}}
                 </div>
             </div>
+            <p class="already">
             {{if request.args(0)=='login':}}
-            <p class="already">Não possui uma conta? 
+                Não possui uma conta? 
                 <a href="{{=URL(f='user',args='register')}}">Registrar-se</a>
-            </p>
             {{elif request.args(0)=='register':}}
-            <p class="already">Já possui uma conta? 
+                Já possui uma conta? 
                 <a href="{{=URL(f='user',args='login')}}">Entrar</a>
+            {{pass}}
+                <br>
+                <br>
+                <strong>ATENÇÃO. Termos de privacidade. <a data-toggle="modal" href="#termos_compromisso" title="Termos de compromisso">Clique aqui</a> e leia com calma.</strong>
             </p>
-            {{pass}}       
         </div>
+    </div>
+</div>
+
+
+
+<!-- OS TERMOS DE COMPROMISSO VAO ESCRITOS AQUI -->
+<div id="termos_compromisso" class="modal hide fade">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3>Termos de Compromisso do Web2canvas</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Privacidade do usuário:</h4>
+        <ul>
+            <li>O Web2canvas<strong> não cede ou vende seus dados para terceiros.</strong></li>
+            <li>Os dados dos seus projetos <strong>são acessível apenas por você</strong> e com aqueles com quem você decidir compartilhar, através da funcionalidade de adicionar usuários ao projeto.</li>
+            <li><strong>Não será solicitado em nenhuma hipótese, dados bancários ou senhas.</strong></li>
+        </ul>
+        <br />
+        <h4><strong>ATENÇÃO:</strong></h4>
+        <br />
+        <p>O Web2canvas <strong>se reserva no direito de modificar ou adicionar novos itens a estes Termos de Compromisso</strong>, mas não se preocupe, pois <strong>você será avisado por email ou em seu painel de controle.</strong></p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
     </div>
 </div>

@@ -185,6 +185,10 @@
 	
 }
 
+#termos_compromisso {
+	font-size: 14px;
+}
+
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) { 
 	#box_user .box{
