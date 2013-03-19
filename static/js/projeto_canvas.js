@@ -4,16 +4,17 @@
 =====================
 */
 
-// variaveis globais
+// global
 // OBS: outras variaveis globais são geradas no layout_base
-var titulo_caixa = "Editar Cartão",
-    titulo_nova_caixa = "Novo Cartão",
-    campo_vazio = "Click para escrever",
-    mensagem_erro = "Não pode ser vazio!",
-    mensagem_confirma = 'Você tem certeza que deseja continuar?';
-    msg_titulo = "",
-    msg_texto = "",
-    msg_tipo = "";
+
+var msg = {
+    titulo_caixa : "Editar Cartão",
+    titulo_nova_caixa : "Novo Cartão",
+    campo_vazio : "Click para escrever",
+    erro : "Não pode ser vazio!",
+    confirma : 'Você tem certeza que deseja continuar?',
+    titulo_cartao : "Cartão"
+};
 
 // modificar stilo dos botoes
 $.fn.editableform.buttons = 
@@ -75,7 +76,7 @@ Array.max = function( array ){
        value2input: function(value) {
            cor = $(".editable-container").prev(".cartao").attr("data-color");
            html = $(".editable-container").prev(".cartao").text();
-           if(html!==campo_vazio) {
+           if(html!==msg.campo_vazio) {
              this.$input.filter('[name="texto"]').val(html);
            }
            this.$input.filter('[name="cor"]').val(cor);
@@ -115,16 +116,16 @@ Array.max = function( array ){
 
 $('.cartao').editable({
     url: urlNovoEdita,
-    title: titulo_caixa,
-    emptytext: campo_vazio,
+    title: msg.titulo_caixa,
+    emptytext: msg.campo_vazio,
     disabled: true,
     value: {
         texto: "",
         cor: ""
     }, // End value
     validate: function(value) {
-        if(value.texto === '') return mensagem_erro;
-        // capturo a cor inserida para caso o usuario cancele
+        if(value.texto === '') return msg.erro;
+        // capturo a cor inserida e modifico o atributo no html
         $(this).attr('data-color',value.cor)
     }, // End validate function()
     display: function(value) {
@@ -136,18 +137,15 @@ $('.cartao').editable({
         $(this).html(html); 
     }, // End display option
     success: function(response) {
-        msg_titulo = "Cartão";
+        var msg_tipo = "success";
         if(response.success) {
-          msg_texto = response.msg;
-          msg_tipo = "success";
         } else if(response.error) {
-          msg_texto = response.msg;
           msg_tipo = "error";
         }
         // notificacao
         $.pnotify({
-          title: msg_titulo,
-          text: msg_texto,
+          title: msg.titulo_cartao,
+          text: response.msg,
           type: msg_tipo
         });
         // cancelo a edicao do cartao novamente
@@ -166,27 +164,26 @@ $('.cartao').editable({
 $('.drag_drop').editable({
   selector: 'a',
   url: urlNovoEdita,
-  title: titulo_nova_caixa,
+  title: msg.titulo_nova_caixa,
   value: {
-      texto: campo_vazio, 
+      texto: msg.campo_vazio, 
       cor: ""
   },
   validate: function(value) {
-      if(value.texto === '') return mensagem_erro;
+      if(value.texto === '') return msg.erro;
+      // capturo a cor inserida e modifico o atributo no html
+      $(this).attr('data-color',value.cor)
   }, // End validate function()
   success: function(value,response) {
-      msg_titulo = "Cartão";
+      var msg_tipo = "success";
       if(response.success) {
-        msg_texto = response.msg;
-        msg_tipo = "success";
       } else if(response.error) {
-        msg_texto = response.msg;
         msg_tipo = "error";
       }
       // notificacao
       $.pnotify({
-        title: msg_titulo,
-        text: msg_texto,
+        title: msg.titulo_cartao,
+        text: response.msg,
         type: msg_tipo
       });
       // cancelo a edicao do cartao novamente
@@ -212,7 +209,7 @@ $('.adicionar_item').click(function(){
       var indiceItem = 1;
     }
 
-    html = '<li><div class="card_container"><div class="row"><button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button><button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-edit"></i></button></div><a href="#" class="editable-click editable-empty cartao novo" id="'+classeBotao+'" data-type="address" data-placeholder="'+campo_vazio+'" data-pk="'+indiceItem+'" data-color="#FFFFFF">'+campo_vazio+'</a></div></li>';
+    html = '<li><div class="card_container"><div class="row"><button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button><button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-edit"></i></button></div><a href="#" class="editable-click editable-empty cartao novo" id="'+classeBotao+'" data-type="address" data-placeholder="'+msg.campo_vazio+'" data-pk="'+indiceItem+'" data-color="#FFFFFF">'+msg.campo_vazio+'</a></div></li>';
 
     $("div."+classeBotao+" > ul").append(html);
     // abro a edição do cartao apos cria-lo
@@ -243,13 +240,19 @@ $(document).on("click", ".editar_cartao", function(){
     }, 100, cartao);
 });
 
-// testa se a edicao no cartao foi cancelada
+// se a edicao no cartao foi cancelada
 $('.cartao').on('hidden', function(e, reason) {
     if(reason === 'onblur' || reason === 'cancel') {
         var cor = $(this).attr('data-color');
         $(this).closest(".card_container").css("background-color",'"'+cor+'"');
         $('.cartao').editable("disable");
     } 
+});
+
+// cartao criado dinamicamente eh cancelado
+$(document).on("click", ".editable-cancel", function(){
+  var cor = $(this).closest(".card_container").find(".cartao").attr('data-color');
+  $(this).closest(".card_container").css("background-color",'"'+cor+'"');
 });
 
 // escolhe a cor do cartao
@@ -262,9 +265,9 @@ $(document).on("click", ".cores_cartao", function(){
 // deletar_cartao
 $(document).on("click", ".deletar_cartao", function(){
 
-  if(confirm(mensagem_confirma)) {
-    id = $(this).parent().parent().find('.cartao').attr('id');
-    indice = $(this).parent().parent().find('.cartao').attr('data-pk');
+  if(confirm(msg.confirma)) {
+    id = $(this).closest(".card_container").find('.cartao').attr('id');
+    indice = $(this).closest(".card_container").find('.cartao').attr('data-pk');
 
     removeItem(id,indice,true);
   }
@@ -291,7 +294,7 @@ function atualizaIndiceItens(id) {
 
   $("."+id).children("ul").find('.cartao').each(function(index) {
     
-    if(texto !== campo_vazio) {
+    if(texto !== msg.campo_vazio) {
       index += 1;
       texto = $(this).text();
       cor = $(this).attr("data-color");
@@ -315,15 +318,14 @@ function statusItem(id,indice,remove) {
   if (mensagem.length > 0) {
 
     if(mensagem === 'True') {
-      msg_titulo = "Cartão";
-      msg_texto = "Removido com Sucesso!";
+      var msg_texto = "Removido com Sucesso!",
       msg_tipo = "success";
       
       if(remove===true) {
         // encontro elemento a ser deletado
         $("a#"+id).each(function(){
           if($(this).attr('data-pk') == indice)
-            $(this).parent().parent().fadeOut("slow", function() { $(this).remove() })
+            $(this).closest(".card_container").fadeOut("slow", function() { $(this).remove() })
         });
       } else if(remove===false) {
         msg_texto = "Movido com Sucesso!";
@@ -337,7 +339,7 @@ function statusItem(id,indice,remove) {
 
     // notificacao
     $.pnotify({
-      title: msg_titulo,
+      title: msg.titulo_cartao,
       text: msg_texto,
       type: msg_tipo
     });
