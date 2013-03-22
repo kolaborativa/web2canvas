@@ -193,14 +193,15 @@ $('.drag_drop').editable({
 
 // ao clicar no botao de adicionar novo item
 $('.adicionar_item').click(function(){
-    var todasClassesBotao = $(this).attr('class'),
-      classeBotao = todasClassesBotao.split(" ")[0],
-      keys = [],
-      html;
+    var container = $(this).parent().next(".itens"),
+        classeBotao = this.className.split(" ")[0],
+        keys = [];
 
-    $("a#"+classeBotao).each(function() {
-        keys.push(parseInt($(this).attr('data-pk')));
-    });
+    var cartoes = container[0].getElementsByClassName("cartao")
+    for (var i = 0, len = cartoes.length; i < len; i++){
+      var el = cartoes[i];
+      keys.push(parseInt(el.getAttribute("data-pk")));
+    }
 
     if(keys.length > 0) {
       var maiorIndice = Array.max(keys),
@@ -209,15 +210,15 @@ $('.adicionar_item').click(function(){
       var indiceItem = 1;
     }
 
-    html = '<li><div class="card_container"><div class="row"><button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button><button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-edit"></i></button></div><a href="#" class="editable-click editable-empty cartao novo" id="'+classeBotao+'" data-type="address" data-placeholder="'+msg.campo_vazio+'" data-pk="'+indiceItem+'" data-color="#FFFFFF">'+msg.campo_vazio+'</a></div></li>';
+    var html = '<li><div class="card_container"><div class="row"><button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button><button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-edit"></i></button></div><a href="#" class="editable-click editable-empty cartao novo" id="'+classeBotao+'" data-type="address" data-placeholder="'+msg.campo_vazio+'" data-pk="'+indiceItem+'" data-color="#FFFFFF">'+msg.campo_vazio+'</a></div></li>';
 
-    $("div."+classeBotao+" > ul").append(html);
+    container.find("ul").append(html);
     // abro a edição do cartao apos cria-lo
     setTimeout(function () {
-       $("a#"+classeBotao+":last").trigger('click');
+       container.find(".cartao:last").trigger('click');
     }, 100);
     // faz scroll ate o elemento
-    $('html,body').animate({ scrollTop: $("a#"+classeBotao+":last").offset().top - (200) }, 1500);
+    $('html,body').animate({ scrollTop: container.find(".cartao:last").offset().top - (200) }, 1500);
 });
 
 
@@ -251,8 +252,8 @@ $('.cartao').on('hidden', function(e, reason) {
 
 // cartao criado dinamicamente eh cancelado
 $(document).on("click", ".editable-cancel", function(){
-  var cor = $(this).closest(".card_container").find(".cartao").attr('data-color');
-  $(this).closest(".card_container").css("background-color",'"'+cor+'"');
+    var cor = $(this).closest(".card_container").find(".cartao").attr('data-color');
+    $(this).closest(".card_container").css("background-color",'"'+cor+'"');
 });
 
 // escolhe a cor do cartao
@@ -296,8 +297,8 @@ function atualizaIndiceItens(id) {
     
     if(texto !== msg.campo_vazio) {
       index += 1;
-      texto = $(this).text();
-      cor = $(this).attr("data-color");
+      texto = this.innerHTML;
+      cor = this.getAttribute("data-color");
 
       allValues[index] = jQuery.param({"value[texto]": texto, "value[cor]": cor});
 

@@ -15,13 +15,13 @@ $(function() {
             atualizaIndiceItens(id_novo);
         },
         receive: function(event, ui) {
-            var id_velho = $(ui.item).find('a.cartao').attr('id'),
+            var id_velho = $(ui.item).find('.cartao').attr('id'),
                 id_novo = $(this).parent().attr('class').split(" ")[0],
-                indice_velho = $(ui.item).find('a.cartao').attr('data-pk');
+                indice_velho = $(ui.item).find('.cartao').attr('data-pk');
 
             var statusRemove = removeItem(id_velho,indice_velho,false);
             if(statusRemove === true) {
-                $(ui.item).find('a.cartao').attr('id',id_novo);
+                $(ui.item).find('.cartao').attr('id',id_novo);
             }
 
             // Disable before dragdrop

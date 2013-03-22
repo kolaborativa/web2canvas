@@ -17,6 +17,8 @@ O Web2Canvas é uma aplicação do web2py e para rodá-lo você precisará de:
 - Web2Py 2.3.2
 - Firefox 15+, Chrome 20+
 
+Editar o arquivo "/modules/data_config.py" e inserir os dados da sua aplicação registrada no facebook e servidor de email para envio de recuperação de senha e outras rotinas.
+
 ---------------------------------------
 
 Instalação
@@ -26,7 +28,7 @@ Instalação
 
 *2.*  Clone o repositório do Web2Canvas dentro da pasta "applications" do Web2py.
 
-    git clone git@github.com:gustavox4ids/hackathon_sebrae.git
+    git clone https://github.com/gustavox4ids/hackathon_sebrae.git
 
 *3.*  Agora inicie o Web2py.
 
