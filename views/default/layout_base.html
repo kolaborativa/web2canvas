@@ -131,7 +131,7 @@
                 event.preventDefault();
                 var body = $('body');
                 body.css('cursor', 'wait');
-                $(".exportar_projeto").empty().append('<img src={{=URL("static","img/loading.gif")}}>');
+                // $(".exportar_projeto").empty().append('<img src={{=URL("static","img/loading.gif")}}>');
                 // escondo para gerar a imagem do canvas sem os botoes
                 $(".adicionar_item").hide();
                 $(".ajuda").hide();
@@ -142,9 +142,14 @@
                         allowTaint: true,
                         taintTest: false,
                         onrendered: function(canvas) {
-                            var download = '<br><a href="'+canvas.toDataURL()+'" id="downloadqrcode" download="Projeto_{{=projeto.nome}}" class="btn btn-success"><i class="icon-download-alt icon-white"></i> Baixar Canvas</a><br>';
+                            // var download = '<br><a href="'+canvas.toDataURL()+'" id="downloadqrcode" download="Projeto_{{=projeto.nome}}" class="btn btn-success"><i class="icon-download-alt icon-white"></i> Baixar Canvas</a><br>';
 
-                            $(".exportar_projeto").empty().append(download);
+                            var data = canvas.toDataURL();
+                            var img = document.getElementById('imgProjeto');
+                            img.setAttribute('href',data.replace('image/png','image/octet-stream'));
+                            img.click();
+
+                            // $(".exportar_projeto").empty().append(download);
                             body.css('cursor', 'default');
                             // mostro novamente os botoes
                             $(".adicionar_item").show();

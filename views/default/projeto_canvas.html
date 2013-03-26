@@ -5,6 +5,7 @@
 {{tem_cartao = {} }}
 
 <a href="#exportar_projeto" id="gerar_pdf" class="btn btn-primary pull-right" role="button" data-toggle="modal"><i class="icon-share-alt icon-white"></i> Exportar Canvas</a>
+<a id="imgProjeto" style="display:none;" href="" download="projeto_{{=projeto.nome}}.png">&nbsp;</a>
 
 <div id="quadro_canvas">
     {{ if request.function == "projeto_canvas": }}

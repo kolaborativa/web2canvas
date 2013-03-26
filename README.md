@@ -45,6 +45,7 @@ Changelog
 
 - Cartões com possibilidade de colocar cores.
 - Foto do perfil através do Facebook ou Gravatar.
+- Exportar Canvas em PNG.
 
 **v 1.2**:
 
@@ -77,7 +78,6 @@ TODOLIST
 
 - Realtime em projetos compartilhados.
 - Retirar um usuario de um projeto.
-- Exportar Canvas em PDF.
 - Ajustar layout responsivo para demais dispositivos.
 - Enviar email para novos usuários cadastrados.
 - Quando adicionar um usuario mandar email pra ele.
