@@ -107,6 +107,7 @@
         <script src="{{=URL('static','js/projeto_canvas.js')}}"></script>
         <script src="{{=URL('static','js/mover_item.js')}}"></script>
         <script src="{{=URL('static','js/jquery.pnotify.min.js')}}"></script>
+
         <!-- adicionar usuario ao projeto -->
         <script type="text/javascript">
             var pessoas= [];
@@ -120,6 +121,38 @@
                     id_pessoa = suggestion.data;
                     $('#adicionar_usuario').attr('href', '{{=URL(c="default", f="adicionar_usuario", vars={"projeto_id": projeto.id})}}' + '&pessoa_id=' + id_pessoa);
                 }
+            });
+        </script>
+
+        <script src="{{=URL('static','js/html2canvas.min.js')}}"></script>
+        <script>
+
+            $("#gerar_pdf").on("click", function(event) {
+                event.preventDefault();
+                var body = $('body');
+                body.css('cursor', 'wait');
+                $(".exportar_projeto").empty().append('<img src={{=URL("static","img/loading.gif")}}>');
+                // escondo para gerar a imagem do canvas sem os botoes
+                $(".adicionar_item").hide();
+                $(".ajuda").hide();
+                $(".botoes_cartao").hide();
+
+                setTimeout(function () {
+                    html2canvas($("#quadro_canvas"), {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            var download = '<br><a href="'+canvas.toDataURL()+'" id="downloadqrcode" download="Projeto_{{=projeto.nome}}" class="btn btn-success"><i class="icon-download-alt icon-white"></i> Baixar Canvas</a><br>';
+
+                            $(".exportar_projeto").empty().append(download);
+                            body.css('cursor', 'default');
+                            // mostro novamente os botoes
+                            $(".adicionar_item").show();
+                            $(".ajuda").show();                            
+                            $(".botoes_cartao").show();                            
+                        }
+                    });
+                }, 1000); // Enable after 500 ms.
             });
         </script>
 

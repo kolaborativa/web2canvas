@@ -1,36 +1,38 @@
 {{extend 'default/layout_base.html'}}
-{{ include 'default/modals_ajuda.html'}}
+{{ include 'default/modals_projeto_canvas.html'}}
 
 {{ import json }}
 {{tem_cartao = {} }}
 
-{{ if request.function == "projeto_canvas": }}
-<div id="dados_projeto" class="offset1">
-    <div>
-        {{ if projeto.thumbnail == "False" or projeto.thumbnail == None or projeto.thumbnail == "":}}
-            <img class="thumbnails" src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
-        {{ else: }}
-            <img class="thumbnails" src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
-        {{ pass }}
-    </div>
-    <div>
-        <ul>
-            <li>
-                <h4>Nome: {{=projeto.nome}}</h4>
-            </li>
-            <li><h4>Por: {{=projeto.criado_por.nome}}</h4></li>
-            <li><h4>Criado em: {{=projeto.criado_em.strftime("%d/%m/%Y")}}</h4></li>
-        </ul>
-    </div>
-</div>
-<div class="clearfix"></div>
-{{ pass }}
-<!--/mensagem de retorno da chamada ajax -->
-<div id="target_ajax"></div>
-
-<br>
+<a href="#exportar_projeto" id="gerar_pdf" class="btn btn-primary pull-right" role="button" data-toggle="modal"><i class="icon-share-alt icon-white"></i> Exportar Canvas</a>
 
 <div id="quadro_canvas">
+    {{ if request.function == "projeto_canvas": }}
+    <div id="dados_projeto" class="offset1">
+        <div>
+            {{ if projeto.thumbnail == "False" or projeto.thumbnail == None or projeto.thumbnail == "":}}
+                <img class="thumbnails" src='{{=URL("static","/img/projeto_sem_imagem.jpg")}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
+            {{ else: }}
+                <img class="thumbnails" src='{{=URL("static","/uploads/thumbnail/%s" %projeto.thumbnail)}}' width="100px" height="100px" alt="Projeto {{=projeto.nome}}" title="Projeto {{=projeto.nome}}">
+            {{ pass }}
+        </div>
+        <div>
+            <ul>
+                <li>
+                    <h4>Nome: {{=projeto.nome}}</h4>
+                </li>
+                <li><h4>Por: {{=projeto.criado_por.nome}}</h4></li>
+                <li><h4>Criado em: {{=projeto.criado_em.strftime("%d/%m/%Y")}}</h4></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    {{ pass }}
+    <!--/mensagem de retorno da chamada ajax -->
+    <div id="target_ajax"></div>
+
+    <br>
+
     <div id="container5" class="sessao_parquem">
         <div id="container4" class="sessao_parquem">
             <div id="container3" class="sessao_oque">
@@ -56,7 +58,7 @@
                                         {{ for i in sorted(json.loads(projeto.parcerias_principais)): }}
                                             <li>
                                                 <div class="card_container" style='background-color:{{=json.loads(projeto.parcerias_principais)[i]["cor"]}};'>
-                                                    <div class="row">
+                                                    <div class="row botoes_cartao">
                                                         <button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button>
                                                         <button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-pencil"></i></button>
                                                     </div>
@@ -92,7 +94,7 @@
                                             {{ for i in sorted(json.loads(projeto.atividades_principais)): }}
                                                 <li>
                                                     <div class="card_container" style='background-color:{{=json.loads(projeto.atividades_principais)[i]["cor"]}};'>
-                                                        <div class="row">
+                                                        <div class="row botoes_cartao">
                                                             <button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button>
                                                             <button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-pencil"></i></button>
                                                         </div>
@@ -125,7 +127,7 @@
                                             {{ for i in sorted(json.loads(projeto.recursos_principais)): }}
                                                 <li>
                                                     <div class="card_container" style='background-color:{{=json.loads(projeto.recursos_principais)[i]["cor"]}};'>
-                                                        <div class="row">
+                                                        <div class="row botoes_cartao">
                                                             <button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button>
                                                             <button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-pencil"></i></button>
                                                         </div>
@@ -161,7 +163,7 @@
                                         {{ for i in sorted(json.loads(projeto.proposta_valor)): }}
                                                 <li>
                                                     <div class="card_container" style='background-color:{{=json.loads(projeto.proposta_valor)[i]["cor"]}};'>
-                                                        <div class="row">
+                                                        <div class="row botoes_cartao">
                                                             <button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button>
                                                             <button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-pencil"></i></button>
                                                         </div>
@@ -197,7 +199,7 @@
                                             {{ for i in sorted(json.loads(projeto.relacionamento_clientes)): }}
                                                 <li>
                                                     <div class="card_container" style='background-color:{{=json.loads(projeto.relacionamento_clientes)[i]["cor"]}};'>
-                                                        <div class="row">
+                                                        <div class="row botoes_cartao">
                                                             <button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button>
                                                             <button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-pencil"></i></button>
                                                         </div>
@@ -230,7 +232,7 @@
                                             {{ for i in sorted(json.loads(projeto.canais)): }}
                                                 <li>
                                                     <div class="card_container" style='background-color:{{=json.loads(projeto.canais)[i]["cor"]}};'>
-                                                        <div class="row">
+                                                        <div class="row botoes_cartao">
                                                             <button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button>
                                                             <button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-pencil"></i></button>
                                                         </div>
@@ -266,7 +268,7 @@
                                         {{ for i in sorted(json.loads(projeto.segmento_clientes)): }}
                                                 <li>
                                                     <div class="card_container" style='background-color:{{=json.loads(projeto.segmento_clientes)[i]["cor"]}};'>
-                                                        <div class="row">
+                                                        <div class="row botoes_cartao">
                                                             <button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button>
                                                             <button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-pencil"></i></button>
                                                         </div>
@@ -309,7 +311,7 @@
                             {{ for i in sorted(json.loads(projeto.estrutura_custos)): }}
                                 <li>
                                     <div class="card_container" style='background-color:{{=json.loads(projeto.estrutura_custos)[i]["cor"]}};'>
-                                        <div class="row">
+                                        <div class="row botoes_cartao">
                                             <button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button>
                                             <button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-pencil"></i></button>
                                         </div>
@@ -344,7 +346,7 @@
                             {{ for i in sorted(json.loads(projeto.receitas)): }}
                                 <li>
                                     <div class="card_container" style='background-color:{{=json.loads(projeto.receitas)[i]["cor"]}};'>
-                                        <div class="row">
+                                        <div class="row botoes_cartao">
                                             <button class="btn deletar_cartao pull-right" alt="Deletar" title="Deletar"><i class="icon-remove"></i></button>
                                             <button class="btn editar_cartao pull-right" alt="Editar" title="Editar"><i class="icon-pencil"></i></button>
                                         </div>
@@ -361,6 +363,7 @@
             </div>
         </div>
     </div>
+    <div class="clearfix"></div>
 </div> <!-- fim quadro_canvas -->
 
 <br>
@@ -375,7 +378,7 @@
               </div>
               <div class="pull-left">
                 <ul class="colaboradores">
-                  <li class="span3">
+                  <li>
                       <div class="person">
                         <div class="icon">
                         <!-- gravatar do usuario -->
@@ -392,7 +395,7 @@
                       </div>
                   </li>
                   {{ for i in pessoas_compartilhadas: }}
-                  <li class="span3">
+                  <li>
                       <div class="person">
                         <div class="icon">
                         <!-- gravatar do usuario -->
@@ -410,16 +413,16 @@
                   </li>
                   {{ pass }}
                   {{ if projeto.criado_por == pessoa_logada:}}
-                  <li class="span3">
+                  <li>
                       <div class="input-append">
                         <input id="autocomplete" type="text" name="usuario" placeholder="buscar usuário"/>
                         <a href="#" id="adicionar_usuario" class="btn btn-success"><i class="icon-plus icon-white"></i></a>
                       </div>
                   </li>
                   {{ pass }}
+              <div class="clearfix"></div>
                 </ul>
               </div> <!-- fim do pull-left -->
-              <div class="clearfix"></div>
             </div> <!-- fim do colaboradores-container -->
         </div>
     </div>
@@ -463,7 +466,11 @@
     <h2>#3</h2>
     <p>Você pode compartilhar seu projeto com outros usuários. Basta buscar o nome e depois clicar no botão "+"</p>
   </li>
-  <li data-id="guia-btn" data-button="Fim" data-options="tipLocation:right" style="position:fixed;">
+  <li data-id="gerar_pdf" data-button="Próximo" data-options="tipLocation:right">
+    <h2>#4</h2>
+    <p>Você pode exportar seu projeto e baixar em seu computador!</p>
+  </li>
+  <li data-id="guia-btn" data-button="Fim" data-options="tipLocation:right">
     <h2>Guia</h2>
     <p>Para assistir novamente o guia CLICK AQUI.</p>
   </li>

@@ -26,9 +26,9 @@ $(function() {
 
             // Disable before dragdrop
             var panel = $(this),
-                body = $('body');            
-            $('body').css('cursor', 'wait');
+                body = $('body');
 
+            body.css('cursor', 'wait');
             setTimeout(function () {
                 body.css('cursor', 'default');
                 // panel.sortable("enable");

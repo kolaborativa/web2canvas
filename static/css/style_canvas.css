@@ -28,6 +28,13 @@
 ========
 */
 
+#gerar_pdf {
+  margin: 5% 10% 0 0;
+}
+.exportar_projeto {
+  text-align: center;
+}
+
 /* Start of Column CSS */
 #container1, #container2, #container3, #container4 {
   clear:left;
@@ -455,6 +462,9 @@ img.colaboradores_avatares {
 .colaboradores-container ul li {
   display: inline;
   float: left;
+  width: 90px;
+  text-align: center;
+  margin-right: 20px;
 }
 
 .colaboradores-container .person {
