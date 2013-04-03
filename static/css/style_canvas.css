@@ -28,11 +28,8 @@
 ========
 */
 
-#gerar_pdf {
+#exportar_canvas {
   margin: 5% 10% 0 0;
-}
-.exportar_projeto {
-  text-align: center;
 }
 
 /* Start of Column CSS */

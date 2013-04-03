@@ -4,8 +4,13 @@
 {{ import json }}
 {{tem_cartao = {} }}
 
-<a href="#exportar_projeto" id="gerar_pdf" class="btn btn-primary pull-right" role="button" data-toggle="modal"><i class="icon-share-alt icon-white"></i> Exportar Canvas</a>
-<a id="imgProjeto" style="display:none;" href="" download="projeto_{{=projeto.nome}}.png">&nbsp;</a>
+<a href="#exportar_projeto" id="exportar_canvas" class="btn btn-primary pull-right"><i class="icon-share-alt icon-white"></i> Exportar Canvas</a>
+
+
+<!-- form hidden for make download of base64 image -->
+<form action='{{=URL(f="exportar_canvas", vars={"filename": "projeto_%s.png" %projeto.nome})}}' Method="POST" name="storeImgForm">
+ <input type="hidden" name="imgSrc" value="">
+</form>
 
 <div id="quadro_canvas">
     {{ if request.function == "projeto_canvas": }}
@@ -33,7 +38,6 @@
     <div id="target_ajax"></div>
 
     <br>
-
     <div id="container5" class="sessao_parquem">
         <div id="container4" class="sessao_parquem">
             <div id="container3" class="sessao_oque">

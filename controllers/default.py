@@ -295,7 +295,7 @@ def feedback_form():
         submit_button="ENVIAR")
 
     if form.accepts(request.vars):
-        mensagem = '<strong>Email: </strong>%s<br><strong>Assunto: </strong>%s<br><strong>Titulo: </strong>%s<br><strong>Mensagem:</strong><br>%s<strong>' % (form.vars.email, form.vars.assunto, form.vars.titulo_mensagem, form.vars.titulo_mensagem )
+        mensagem = '<strong>Email: </strong>%s<br><strong>Assunto: </strong>%s<br><strong>Titulo: </strong>%s<br><strong>Mensagem:</strong><br>%s<strong>' % (form.vars.email, form.vars.assunto, form.vars.titulo_mensagem, form.vars.mensagem )
 
         status = mail.send(to=[CLIENT_EMAIL],reply_to=form.vars.email,
                 subject='Email recebido "Feedback Web2Canvas": %s - %s' % (form.vars.email, form.vars.assunto) ,
@@ -329,6 +329,23 @@ def _cadastrar_pessoa():
         db(db.auth_user.id == session.auth.user.id).update(primeira_vez=True)
 
     redirect(URL('projetos'))
+
+
+def exportar_canvas():
+    import base64
+
+    filename = request.vars['filename']
+    base64Img = request.vars['imgSrc']
+
+    response.headers['Content-Description'] = 'File Transfer'
+    response.headers['ContentType'] = 'application/octet-stream'
+    response.headers['Content-Disposition'] = 'attachment; filename=' + filename
+
+    if base64Img.startswith("data:image/png;base64,"):
+        base64Img = base64Img[22:]
+    image = base64.b64decode(base64Img)
+
+    return image
 
 
 def user():

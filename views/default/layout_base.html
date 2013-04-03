@@ -127,34 +127,38 @@
         <script src="{{=URL('static','js/html2canvas.min.js')}}"></script>
         <script>
 
-            $("#gerar_pdf").on("click", function(event) {
+            $("#exportar_canvas").on("click", function(event) {
                 event.preventDefault();
-                var body = $('body');
-                body.css('cursor', 'wait');
-                // $(".exportar_projeto").empty().append('<img src={{=URL("static","img/loading.gif")}}>');
+                document.body.style.cursor='wait';
                 // escondo para gerar a imagem do canvas sem os botoes
-                $(".adicionar_item").hide();
-                $(".ajuda").hide();
-                $(".botoes_cartao").hide();
+                var target = $('#quadro_canvas'),
+                    adicionarItem = $(".adicionar_item"),
+                    ajuda = $(".ajuda"),
+                    botoesCartao = $(".botoes_cartao"),
+                    tempElement = '<p id="poweredby" style="position: absolute;top: 160px;right: 80px;"><strong style="font-size:20px;margin-right:10px;">Projeto feito com</strong> <span id="logo">web2<span>canvas</span></span></p>';
+
+                adicionarItem.hide();
+                ajuda.hide();
+                botoesCartao.hide();
+                target.append(tempElement);
 
                 setTimeout(function () {
-                    html2canvas($("#quadro_canvas"), {
+                    html2canvas(target, {
                         allowTaint: true,
                         taintTest: false,
                         onrendered: function(canvas) {
-                            // var download = '<br><a href="'+canvas.toDataURL()+'" id="downloadqrcode" download="Projeto_{{=projeto.nome}}" class="btn btn-success"><i class="icon-download-alt icon-white"></i> Baixar Canvas</a><br>';
+                            var img = canvas.toDataURL();
+                            // store in (hidden) element of a form
+                            document.forms["storeImgForm"].elements["imgSrc"].value = img;
+                            document.forms["storeImgForm"].submit();
 
-                            var data = canvas.toDataURL();
-                            var img = document.getElementById('imgProjeto');
-                            img.setAttribute('href',data.replace('image/png','image/octet-stream'));
-                            img.click();
-
-                            // $(".exportar_projeto").empty().append(download);
-                            body.css('cursor', 'default');
+                            document.body.style.cursor='default';
                             // mostro novamente os botoes
-                            $(".adicionar_item").show();
-                            $(".ajuda").show();                            
-                            $(".botoes_cartao").show();                            
+                            adicionarItem.show();
+                            ajuda.show();
+                            botoesCartao.show();
+                            var temp = document.getElementById('poweredby');
+                            temp.parentNode.removeChild(temp);                         
                         }
                     });
                 }, 1000); // Enable after 500 ms.
