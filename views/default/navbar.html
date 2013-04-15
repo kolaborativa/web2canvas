@@ -13,12 +13,10 @@
             {{ pass }}
                 web2<span>canvas</span>
             </a>
+            <span id="beta">BETA</span>
             <div class="nav-collapse collapse">
                 <ul class="nav pull-right">
                     {{ if request.function == 'index': }}
-                    <li class='{{=g_pagina_atual("default/index","pagina_atual")}}'>
-                        <a href="#" class="scroller" data-section="body">Home</a>
-                    </li>
                     <li>
                         <a href="#" class="scroller" data-section="#blocos_canvas">Blocos Canvas</a>
                     </li>
@@ -30,9 +28,6 @@
                     </li>
 
                     {{ else: }}
-                    <li class='{{=g_pagina_atual("default/index","pagina_atual")}}'>
-                        <a href="{{=URL('index')}}">Home</a>
-                    </li>
                     <li class='{{=g_pagina_atual("default/modelo_canvas","pagina_atual")}}'>
                         <a href="{{=URL('modelo_canvas')}}" alt="Modelo Canvas" title="Modelo Canvas">Começando o Canvas</a>
                     </li>

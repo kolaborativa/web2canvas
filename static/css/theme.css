@@ -33,6 +33,18 @@ body {
 	color:rgb(48, 186, 220);
 }
 
+#beta {
+	position: relative;
+	float: left;
+	color: rgb(224, 250, 122);
+	font-size: 20px;
+	top: 25px;
+	right: 14px;
+	font-weight: bold;
+	font-family: 'trebuchet MS', arial, sans-serif
+}
+
+
 a:focus {
 	color: #ccc!important;
 }
@@ -188,7 +200,8 @@ input[type="color"]:focus,
 	transition: all .2s linear;	
 }
 .navbar .nav > li > a:hover {
-	color: #ccc;		
+	color: rgb(224, 250, 122);
+	/*text-shadow: 0px 0px 7px 1px #8cbe5b;*/
 }
 .navbar .nav > li.active > a,
 .navbar .nav > li.active:hover > a,
