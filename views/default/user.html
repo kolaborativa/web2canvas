@@ -127,6 +127,11 @@
                             {{ form.elements('#auth_user_email')[0] ['_placeholder'] = "Email" }}
                             {{ form.elements('#auth_user_email')[0] ['_type'] = "email" }}
                             {{=form.custom.widget.email}}
+
+                            <!-- username (gero numero randomico) -->
+                            {{ form.elements('#auth_user_username')[0] ['_style'] = "display:none" }}
+                            {{=form.custom.widget.username}}
+
                             <input type="submit" class="btn" value="Salvar"/>
                         {{=form.custom.end}}
                     </div> <!-- form -->
