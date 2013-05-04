@@ -9,7 +9,7 @@
 
     <!-- http://dev.w3.org/html5/markup/meta.name.html -->
     <meta name="application-name" content="Web2Canvas" />
-    
+
     {{ #uso servidor de cache na porta 8080, por isso criei essa condicional para limpar a URL }}
     {{ porta = 8080 }}
     {{ if request.env.http_host.endswith(":8080") and request.function == "projetos":}}
@@ -25,7 +25,7 @@
     <link href="{{=URL('static','css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- stylesheets -->
     <link rel="stylesheet" type="text/css" href="{{=URL('static','css/theme.css')}}">
-    
+
     {{ if request.function == "index": }}
     <link href="{{=URL('static','css/slide.css')}}" rel="stylesheet">
     {{ elif request.function == "projetos": }}
@@ -71,12 +71,12 @@
         <script src="{{=URL('static','js/theme.js')}}"></script>
         <script type="text/javascript">
             $(function() {
-            
+
                 $('#da-slider').cslider({
                     autoplay    : true,
                     bgincrement : 100
                 });
-            
+
             });
         </script>
 
@@ -158,7 +158,7 @@
                             ajuda.show();
                             botoesCartao.show();
                             var temp = document.getElementById('poweredby');
-                            temp.parentNode.removeChild(temp);                         
+                            temp.parentNode.removeChild(temp);
                         }
                     });
                 }, 1000); // Enable after 500 ms.
@@ -184,7 +184,7 @@
         <script src="{{=URL('static','js/jquery.cookie.js')}}"></script>
         <script src="{{=URL('static','js/guia_tour.js')}}"></script>
     {{ pass }}
-    
+
     <!-- Meus scripts globais para a aplicacao -->
 
     <!-- All JavaScript at the bottom, except for Modernizr which enables
@@ -197,7 +197,15 @@
     </a>
     <!-- form feedback ajax -->
     {{=LOAD('default', 'feedback_form', ajax=True)}}
-    
+
+    <!-- share-modal -->
+    <a href="#share-modal" class="btn btn-success share-modal" data-toggle="modal">
+        <i class="icon-share icon-white"></i>
+      Gostou? Ajude a divulgar
+    </a>
+
+    {{include "default/share_modal.html"}}
+
     <!-- Google Analytics -->
     <script type="text/javascript">
 
