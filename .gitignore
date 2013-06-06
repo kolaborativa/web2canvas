@@ -22,4 +22,6 @@ sessions/*
 static/uploads/thumbnail/*.png
 static/uploads/thumbnail/*.jpg
 static/uploads/thumbnail/*.gif
+static/uploads/temp/*.png
+static/uploads/temp/*.pdf
 

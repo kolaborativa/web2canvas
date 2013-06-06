@@ -28,7 +28,7 @@
 ========
 */
 
-#exportar_canvas {
+#exportar {
   margin: 5% 10% 0 0;
 }
 
@@ -365,7 +365,7 @@ ul.drag_drop li {
 .card_container:hover {
   cursor: pointer;
 }
- 
+
 .card_container:active {
   cursor: move;
 }
@@ -648,7 +648,7 @@ img.colaboradores_avatares {
 }
 
 @media (max-width: 360px) {
-      
+
 }
 
 @media (max-width: 320px) {

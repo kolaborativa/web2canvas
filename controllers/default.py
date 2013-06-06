@@ -97,7 +97,6 @@ def excluir_projeto():
             # Deleta a imagem do projeto
             subprocess.call('rm %s/%s' % (diretorio_upload, projeto.thumbnail), shell=True)
 
-
     redirect(URL('projetos'))
 
 
@@ -133,7 +132,7 @@ def projeto_canvas():
                                                 "email": usuario["email"],
                                                 "username": usuario["username"]
                                                 }
-        
+
         return dict(projeto=projeto,
                     pessoas_compartilhadas=pessoas_compartilhadas,
                     pessoa_logada=pessoa.id,
@@ -152,7 +151,7 @@ def _email_usuarios(id):
                     "email": pessoa.usuario1.email,
                     "username": pessoa.usuario1.username
                     }
-    
+
     return dados_pessoa
 
 
@@ -336,16 +335,37 @@ def exportar_canvas():
 
     filename = request.vars['filename']
     base64Img = request.vars['imgSrc']
-
-    response.headers['Content-Description'] = 'File Transfer'
-    response.headers['ContentType'] = 'application/octet-stream'
-    response.headers['Content-Disposition'] = 'attachment; filename=' + filename
+    tipo = request.vars['tipo']
 
     if base64Img.startswith("data:image/png;base64,"):
         base64Img = base64Img[22:]
     image = base64.b64decode(base64Img)
 
-    return image
+    response.headers['Content-Description'] = 'File Transfer'
+    response.headers['ContentType'] = 'application/octet-stream'
+
+    if tipo == "png":
+        response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.png'
+
+        return image
+
+    elif tipo == "pdf":
+        import os
+        import base64
+        import subprocess
+
+        response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.pdf'
+
+        diretorio_temp = '%sstatic/uploads/temp/' % request.folder
+
+        with open(diretorio_temp+filename+'.png', 'wb') as imgFile:
+            imgFile.write(image)
+
+        subprocess.call('convert %s/%s.png %s/%s.pdf' % (diretorio_temp, filename,diretorio_temp, filename), shell=True)
+        pdfFile = open(diretorio_temp+filename+'.pdf', 'rb')
+        subprocess.Popen('sleep 30 && rm %s/%s.*' % (diretorio_temp, filename), shell=True)
+
+        return pdfFile
 
 
 def user():
@@ -367,7 +387,7 @@ def user():
         form = auth.register()
         form.element(_name='username')['_value'] = "%s" %random.random()
 
-        return dict(form=form)        
+        return dict(form=form)
 
     elif request.args(0) == 'logout':
         session.clear()
