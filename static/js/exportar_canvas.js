@@ -8,7 +8,7 @@ $(".exportar_canvas").on("click", function(event) {
         ajuda = $(".ajuda"),
         botoesCartao = $(".botoes_cartao"),
         tempElement = '<p id="poweredby" style="position: absolute;top: 160px;right: 80px;"><strong style="font-size:20px;margin-right:10px;">Projeto feito com</strong> <span id="logo">web2<span>canvas</span></span></p>';
-console.log(tipo);
+
     adicionarItem.hide();
     ajuda.hide();
     botoesCartao.hide();
