@@ -7,17 +7,17 @@
                 <div>
                     <div class="head">
                         {{if request.args(0)=='login':}}
-                        <h4>Faça login na sua conta</h4>
+                        <h4>{{=T('Faça login na sua conta')}}</h4>
                         {{elif request.args(0)=='register':}}
-                        <h4>Crie sua conta</h4>
+                        <h4>{{=T('Crie sua conta')}}</h4>
                         {{elif request.args(0)=='profile':}}
-                        <h4>Perfil</h4>
+                        <h4>{{=T('Perfil')}}</h4>
                         {{elif request.args(0)=='change_password':}}
-                        <h4>Mudar a senha</h4>
+                        <h4>{{=T('Mudar a senha')}}</h4>
                         {{elif request.args(0)=='request_reset_password':}}
-                        <h4>Solicitar nova senha</h4>
+                        <h4>{{=T('Solicitar nova senha')}}</h4>
                         {{elif request.args(0)=='reset_password':}}
-                        <h4>Definir nova senha</h4>
+                        <h4>{{=T('Definir nova senha')}}</h4>
                         {{pass}}
                     </div>
                     {{if request.args(0)=='login':}}
@@ -28,7 +28,7 @@
                                 <span class="face_icon">
                                     <img src="{{=URL('static','img/i_face.png')}}" alt="fb" alt=""/>
                                 </span>
-                                <span class="text">Entrar com Facebook</span>
+                                <span class="text">{{=T('Entrar com Facebook')}}</span>
                             </a>
                             <div class="division">
                                 <hr class="left">
@@ -47,11 +47,11 @@
                             {{=form.custom.widget.password}}
                             <div class="remember">
                                 <div class="left">
-                                    <input class="checkbox" id="auth_user_remember" name="remember" type="checkbox" value="on" checked /><label for="auth_user_remember">Lembrar-me (por 30 dias)</label>
+                                    <input class="checkbox" id="auth_user_remember" name="remember" type="checkbox" value="on" checked /><label for="auth_user_remember">{{=T('Lembrar-me (por 30 dias)')}}</label>
                                     <!-- <label for="remember_me">Remember me</label> -->
                                 </div>
                                 <div class="right">
-                                    <a id="reset_password" href="{{=URL(f='user',args='request_reset_password')}}">Esqueceu a senha?</a>
+                                    <a id="reset_password" href="{{=URL(f='user',args='request_reset_password')}}">{{=T('Esqueceu a senha?')}}</a>
                                 </div>
                             </div>                             
                             <input type="submit" class="btn" value="Entrar"/>
@@ -65,7 +65,7 @@
                                 <span class="face_icon">
                                     <img src="{{=URL('static','img/i_face.png')}}" alt="fb" alt=""/>
                                 </span>
-                                <span class="text">Entrar com Facebook</span>
+                                <span class="text">{{=T('Entrar com Facebook')}}</span>
                             </a>
                             <div class="division">
                                 <hr class="left">
@@ -115,11 +115,11 @@
                         <br>
                         {{=form.custom.begin}}
                             <!-- primeiro nome -->
-                            <label for="auth_user_first_name" class="pull-left">Primeiro Nome: </label>
+                        <label for="auth_user_first_name" class="pull-left">{{=T('Primeiro Nome')}}: </label>
                             {{=form.custom.widget.first_name}}
 
                             <!-- ultimo nome -->
-                            <label for="auth_user_last_name" class="pull-left">Último Nome: </label>
+                        <label for="auth_user_last_name" class="pull-left">{{=T('Último Nome')}}: </label>
                             {{=form.custom.widget.last_name}}
 
                             <!-- email -->
@@ -183,15 +183,15 @@
             </div>
             <p class="already">
             {{if request.args(0)=='login':}}
-                Não possui uma conta? 
-                <a href="{{=URL(f='user',args='register')}}">Registrar-se</a>
+                {{=T('Não possui uma conta?')}} 
+                <a href="{{=URL(f='user',args='register')}}">{{=T('Registrar-se')}}</a>
             {{elif request.args(0)=='register':}}
-                Já possui uma conta? 
-                <a href="{{=URL(f='user',args='login')}}">Entrar</a>
+                {{=T('Já possui uma conta?')}} 
+                <a href="{{=URL(f='user',args='login')}}">{{=T('Entrar')}}</a>
             {{pass}}
                 <br>
                 <br>
-                <strong>ATENÇÃO. Termos de privacidade. <a data-toggle="modal" href="#termos_compromisso" title="Termos de compromisso">Clique aqui</a> e leia com calma.</strong>
+                <strong>{{=T('ATENÇÃO. Termos de privacidade')}}. <a data-toggle="modal" href="#termos_compromisso" title="Termos de compromisso">{{=T('Clique aqui')}}</a> {{=T('e leia com calma')}}.</strong>
             </p>
         </div>
     </div>
@@ -203,21 +203,21 @@
 <div id="termos_compromisso" class="modal hide fade">
     <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
-    <h3>Termos de Compromisso do Web2canvas</h3>
+    <h3>{{=T('Termos de Compromisso do Web2canvas')}}</h3>
     </div>
     <div class="modal-body">
-        <h4>Privacidade do usuário:</h4>
+        <h4>{{=T('Privacidade do usuário')}}:</h4>
         <ul>
-            <li>O Web2canvas<strong> não cede ou vende seus dados para terceiros.</strong></li>
-            <li>Os dados dos seus projetos <strong>são acessível apenas por você</strong> e com aqueles com quem você decidir compartilhar, através da funcionalidade de adicionar usuários ao projeto.</li>
-            <li><strong>Não será solicitado em nenhuma hipótese, dados bancários ou senhas.</strong></li>
+            <li>{{=T('O Web2canvas')}}<strong> {{=T('não cede ou vende seus dados para terceiros')}}.</strong></li>
+            <li>{{=T('Os dados dos seus projetos')}} <strong>{{=T('são acessível apenas por você')}}</strong> {{=T('e com aqueles com quem você decidir compartilhar, através da funcionalidade de adicionar usuários ao projeto')}}.</li>
+            <li><strong>{{=T('Não será solicitado em nenhuma hipótese, dados bancários ou senhas')}}.</strong></li>
         </ul>
         <br />
-        <h4><strong>ATENÇÃO:</strong></h4>
+        <h4><strong>{{=T('ATENÇÃO')}}:</strong></h4>
         <br />
-        <p>O Web2canvas <strong>se reserva no direito de modificar ou adicionar novos itens a estes Termos de Compromisso</strong>, mas não se preocupe, pois <strong>você será avisado por email ou em seu painel de controle.</strong></p>
+        <p>{{=T('O Web2canvas')}} <strong>{{=T('se reserva no direito de modificar ou adicionar novos itens a estes Termos de Compromisso')}}</strong>, {{=T('mas não se preocupe, pois')}} <strong>{{=T('você será avisado por email ou em seu painel de controle')}}.</strong></p>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      <button class="btn btn-primary" data-dismiss="modal">{{=T('Fechar')}}</button>
     </div>
 </div>

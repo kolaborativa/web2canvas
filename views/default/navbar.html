@@ -1,4 +1,4 @@
-	<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
     		<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -35,30 +35,41 @@
 
                     {{ if not auth.is_logged_in(): }}
                     <li>
-                        <a class="btn-header" href="{{=URL(f='user',args='register')}}">Cadastre-se</a>
+                        <a class="btn-header" href="{{=URL(f='user',args='register')}}">{{=T('Cadastre-se')}}</a>
                     </li>
                     <li>
-                        <a class="btn-header" href="{{=URL(f='user',args='login')}}">Entrar</a>
+                        <a class="btn-header" href="{{=URL(f='user',args='login')}}">{{=T('Entrar')}}</a>
                     </li>
                     {{ else: }}
                     <li class='{{=g_pagina_atual("default/projetos","pagina_atual")}}'>
-                        <a href="{{=URL('projetos')}}">Meus projetos</a>
+                        <a href="{{=URL('projetos')}}">{{=T('Meus projetos')}}</a>
                     </li>
                     <div class="btn-group">
                         <a class="btn btn-inverse" href="#"><i class="icon-user icon-white"></i> <b>{{=auth.user.first_name}}</b></a>
                         <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="{{=URL(f='user',args='profile',vars={'_next':'index'})}}"><i class="icon-user"></i> Perfil</a>
+                                <a href="{{=URL(f='user',args='profile',vars={'_next':'index'})}}"><i class="icon-user"></i> {{=T('Perfil')}}</a>
                             </li>
                             <li>
-                                <a href="{{=URL(f='user',args='change_password',vars={'_next':'index'})}}"><i class="icon-lock"></i> Senha</a>
+                                <a href="{{=URL(f='user',args='change_password',vars={'_next':'index'})}}"><i class="icon-lock"></i> {{=T('Senha')}}</a>
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="{{=URL(f='user',args='logout',vars={'_next':'index'})}}"><i class="icon-off"></i> Sair</a>
+                                <a href="{{=URL(f='user',args='logout',vars={'_next':'index'})}}"><i class="icon-off"></i> {{=T('Sair')}}</a>
                             </li>
                         </ul>
+               
+        <! soporte para ultiples lenguages -->         
+        {{if hasattr(T,'get_possible_languages'):}}
+             <span class="pull-right">
+             <select name="adminlanguage" style="width:70px;margin-left:10px;"  onchange="var date = new Date();cookieDate=date.setTime(date.getTime()+(100*24*60*60*1000));document.cookie='siteLanguage='+this.options[this.selectedIndex].value+'; expires='+cookieDate+'; path=/';window.location.reload()">
+             {{for language in T.get_possible_languages():}}
+             <option {{=T.accepted_language==language and 'selected' or ''}} >{{=language}}</option>
+                  {{pass}}
+              </select>
+              </span>
+         {{pass}} <! listo -->
                     </div>
                     {{ pass }}
                 </ul>
