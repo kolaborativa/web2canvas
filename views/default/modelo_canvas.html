@@ -3,7 +3,7 @@
 <div id="modelo_canvas" class="container">
     <div class="row">
         <div class="span10 offset1">
-            <h3>Simples e fácil de usar</h3>
+            <h3>{{=T('Simples e fácil de usar')}}</h3>
         </div>
             
     </div>
@@ -12,63 +12,63 @@
             <img src="{{=URL('static','img/pic_blog.png')}}" alt="post image" class="img-circle" />
         </div>
         <div class="span8">
-            <h3>Afinal de contas, o que é o Modelo Canvas?</h3>
+            <h3>{{=T('Afinal de contas, o que é o Modelo Canvas?')}}</h3>
             <p>
-            O <strong>Business Model Canvas</strong> é uma ferramenta de gerenciamento estratégico, que permite desenvolver e esboçar modelos de negócio novos ou existentes. É um mapa visual pré-formatado contendo nove blocos do modelo de negócios.
+            {{=T('O')}} <strong>{{=T('Business Model Canvas')}}</strong> {{=T('é uma ferramenta de gerenciamento estratégico, que permite desenvolver e esboçar modelos de negócio novos ou existentes. É um mapa visual pré-formatado contendo nove blocos do modelo de negócios.')}}
             </p>
             <p>
-            O Business Model Canvas foi inicialmente proposto por <i>Alexander Osterwalder</i> baseado no seu trabalho anterior sobre Business Model Ontology. <sup><a href="http://alexosterwalder.com/" target="_blank">[1]</a></sup>
+            {{=T('O Business Model Canvas foi inicialmente proposto por')}} <i>Alexander Osterwalder</i> {{=T('baseado no seu trabalho anterior sobre Business Model Ontology.')}} <sup><a href="http://alexosterwalder.com/" target="_blank">[1]</a></sup>
 
             </p>
             <p>
-                O Business Model Canvas será um mapa dos principais itens que irão constituir uma empresa, que deverá estar sempre sendo revisado cada quadrante ao longo do tempo para saber se cada um está sendo bem atendido ou se é necessário fazer alteração em algum deles para se conseguir um melhor resultado.
+                {{=T('O Business Model Canvas será um mapa dos principais itens que irão constituir uma empresa, que deverá estar sempre sendo revisado cada quadrante ao longo do tempo para saber se cada um está sendo bem atendido ou se é necessário fazer alteração em algum deles para se conseguir um melhor resultado.')}}
             </p>
             <br>
-            <h3>Observe o quadro abaixo:</h3>
+            <h3>{{=T('Observe o quadro abaixo')}}:</h3>
             <img src="{{=URL('static','img/quadro_canvas.png')}}"/>
             <br>
             <div id="sobre_canvas">
                 <br>
                 <p>
-                    No quadro acima estão distribuidos os 9 blocos que se relacionam para descrever o seu <strong>Modelo de Negócio</strong>.
+                    {{=T('No quadro acima estão distribuidos os 9 blocos que se relacionam para descrever o seu')}} <strong>{{=T('Modelo de Negócio')}}</strong>.
                 </p>
                 <p>
-                    Você vai usar esse Quadro para pensar no negócio que quer criar, analisar ou atualizar.
+                    {{=T('Você vai usar esse Quadro para pensar no negócio que quer criar, analisar ou atualizar.')}}
                 </p>
                 <p>
-                    Analise o Quadro de acordo com o roteiro a seguir:
+                    {{=T('Analise o Quadro de acordo com o roteiro a seguir:')}}
                 </p>
                 <ol>
                     <li>
-                        Vou fazer <strong>O Que?</strong> Essa resposta será a sua <span>Proposta de Valor</span>.
+                        {{=T('Vou fazer')}} <strong>{{=T('O Que?')}}</strong> {{=T('Essa resposta será a sua')}} <span>{{=T('Proposta de Valor')}}</span>.
                     </li>
                     <li>
-                        Para <strong>Quem</strong> vou fazer? Aqui estão incluídos 3 blocos: <span>Segmento de Clientes</span>, <span>Canais</span> e <span>Relacionamento com Clientes</span>.
+                        {{=T('Para')}} <strong>{{=T('Quem')}}</strong> {{=T('vou fazer? Aqui estão incluídos 3 blocos')}}: <span>{{=T('Segmento de Clientes')}}</span>, <span>{{=T('Canais')}}</span> {{=T('e')}}<span>{{=T('Relacionamento com Clientes')}}</span>.
                     </li>
                     <li>
-                        <strong>Como</strong> vou fazer? Descubra quais os <span>Recursos Principais</span>, as <span>Atividades Principais</span> e as <span>Parcerias Principais</span>.
+                        <strong>{{=T('Como')}}</strong> {{=T('vou fazer? Descubra quais os')}} <span>{{=T('Recursos Principais')}}</span>,{{=T('as')}} <span>{{=T('Atividades Principais')}}</span>{{=T('e as')}} <span>{{=T('Parcerias Principais')}}</span>.
                     </li>
                     <li>
-                        <strong>Quanto</strong>? Avalie quais serão as <span>Receitas</span>, como serão obtidas e qual será a <span>Estrutura de Custos</span> para viabilizar o negócio.
+                        <strong>{{=T('Quanto')}}</strong>? {{=T('Avalie quais serão as')}} <span>{{=T('Receitas')}}</span>, {{=T('como serão obtidas e qual será a')}} <span>{{=T('Estrutura de Custos')}}</span> {{=T('para viabilizar o negócio.')}}
                     </li>
                 </ol>
             </div>
             <br>
-            <p><strong>Tente. Invente. Aprenda.</strong></p>
-            <p>MÃOS À OBRA! E BOM PROVEITO!</p>
+            <p><strong>{{=T('Tente. Invente. Aprenda.')}}</strong></p>
+            <p>{{=T('MÃOS À OBRA! E BOM PROVEITO!')}}</p>
             {{ if auth.is_logged_in(): }}
                 <a href="{{=URL(f='projetos')}}" class="btn btn-success btn-large">
-                    Meus projetos
+                    {{=T('Meus projetos')}}
                 </a>
             {{ else: }}
                 <a href="{{=URL(f='user',args='register')}}" class="btn btn-success btn-large">
-                    Cadastrar-se
+                    {{=T('Cadastrar-se')}}
                 </a>
             {{ pass }}
             <br><br><br>
             <p>
-                <h5>Fontes:</h5>
-                <p><a href="http://www.slideshare.net/ThiagoPaiva/apresentao-do-modelo-de-negcios-canvas" target="_blank">Slide</a> Thiago Paiva do startupbizmodel.com</p>
+                <h5>{{=T('Fontes')}}:</h5>
+                <p><a href="http://www.slideshare.net/ThiagoPaiva/apresentao-do-modelo-de-negcios-canvas" target="_blank">Slide</a> {{=T('Thiago Paiva do startupbizmodel.com')}}</p>
                 <p><a href="http://www.infoq.com/br/articles/business-model-canvas-introducao" target="_blank">infoq.com</a></p>
             </p>
         </div>
