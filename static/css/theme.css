@@ -187,6 +187,7 @@ input[type="color"]:focus,
 .navbar .nav.pull-right {
 	/*top: 10px;*/
 	margin-right: 110px;
+	width: 65%;
 }
 .navbar .nav > li > a {
 	color: #F8F8F8;
@@ -269,6 +270,12 @@ input[type="color"]:focus,
   -moz-box-shadow: none;
   box-shadow: none;
 }
+
+#multilanguages {
+	position: relative;
+	top: 6px;
+}
+
 @media (max-width: 979px) {
 	.nav-collapse .nav > li > a:hover,
 	.nav-collapse .dropdown-menu a:hover {

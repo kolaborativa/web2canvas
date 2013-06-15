@@ -140,6 +140,10 @@ try:
 except ImportError:
     from gluon.contrib.gravatar import Gravatar
 
+# multiples languages
+if 'siteLanguage' in request.cookies and not (request.cookies['siteLanguage'] is None):
+    T.force(request.cookies['siteLanguage'].value)
+
 #########################################################################
 ## Define your tables below (or better in another model file) for example
 ##

@@ -1,92 +1,92 @@
-Projeto Web2Canvas
+Web2Canvas
 =====================
 
-O **Web2Canvas** pretende ser um mapa visual pré-formatado contendo nove blocos do modelo de negócios para fácil gerenciamento.
-O Business Model Canvas é uma ferramenta de gerenciamento estratégico, que permite desenvolver e esboçar modelos de negócio novos ou existentes.
+The **Web2Canvas** intended to be a visual map containing preformatted nine blocks of the business model for easy management.
+The Business Model Canvas is a strategic management tool, which allows you to develop business models and outline new or existing.
 
-Saiba mais em [web2canvas.agenciax4.com.br](http://web2canvas.agenciax4.com.br/ "Projeto Web2Canvas")
+Learn more in [web2canvas.agenciax4.com.br](http://web2canvas.agenciax4.com.br/ "Web2Canvas")
 
 ---------------------------------------
 
-Dependências
+Dependencies
 --------------
 
-O Web2Canvas é uma aplicação do web2py e para rodá-lo você precisará de:
+The Web2Canvas is a web2py application and run it you will need:
 
 - Python 2.7.x
-- Web2Py 2.3.2
-- Firefox 15+, Chrome 20+
-
-Editar o arquivo "/modules/data_config.py" e inserir os dados da sua aplicação registrada no facebook e servidor de email para envio de recuperação de senha e outras rotinas.
+- Web2Py 2.5.1
+- Firefox 20+, Chrome 20+
 
 ---------------------------------------
 
-Instalação
+Installation
 ------------
 
-*1.*  Primeiro baixe o [Web2py](https://github.com/web2py/web2py)
+*1.*  First download [Web2py](https://github.com/web2py/web2py)
 
-*2.*  Clone o repositório do Web2Canvas dentro da pasta "applications" do Web2py.
+*2.*  Clone the repository Web2Canvas inside the folder "applications" of web2py.
 
     git clone https://github.com/gustavox4ids/hackathon_sebrae.git
 
-*3.*  Agora inicie o Web2py.
+*3.*  Now start web2py.
 
     python web2py -a 1
 
-*4.*  Acesse a aplicação pela URL.
+*4.*  Access the application by URL.
 
     http://localhost:8000/hackathon_sebrae
+
+*5.*  Edit the file "/modules/data_config.py" and enter the data of your application registered on facebook and mail server for sending password recovery and other routines.
 
 Changelog
 -----------
 
 **v 1.3**:
 
-- Cartões com possibilidade de colocar cores.
-- Foto do perfil através do Facebook ou Gravatar.
-- Exportar Canvas em PNG.
+- Cards with the possibility of putting colors.
+- Profile picture through Facebook or Gravatar.
+- Export Canvas in PDF and PNG.
+- Add Multilanguage support.
 
 **v 1.2**:
 
-- Excluir projeto.
-- Login com Facebook.
-- Nova tela de Projetos.
-- Reset de senha do usuário.
-- Fale conosco (feedback).
-- Foto do perfil através do Facebook ou Gravatar.
+- Delete project.
+- Login with Facebook.
+- New Project screen.
+- Reset user password.
+- Contact Us (Feedback).
+- Profile picture through Facebook or Gravatar.
 
 **v 1.1**:
 
-- Novo layout.
-- Tela Home.
-- Compartilhar projeto com outros usuários.
-- Deletar cartões.
-- Cartões são salvos automaticamente.
-- Melhoria nas notificações.
+- New layout.
+- Home Screen.
+- Share project with other users.
+- Delete cards.
+- Cards are automatically saved.
+- Improved notifications.
 
 **v 1.0**:
 
-- Sistema de login.
-- Criação de um novo projeto.
-- Edição do modelo Canvas.
+- System login.
+- Creation of a new project.
+- Issue Model Canvas.
 
 ---------------------------------------
 
 TODOLIST
 -----------
 
-- Realtime em projetos compartilhados.
-- Retirar um usuario de um projeto.
-- Ajustar layout responsivo para demais dispositivos.
-- Enviar email para novos usuários cadastrados.
-- Quando adicionar um usuario mandar email pra ele.
-- Poder incluir imagens ao canvas.
-- Tradução do aplicativo para o inglês.
+- Translation all the application to english.
+- Realtime on shared projects.
+- Removing a User from a project.
+- Adjust layout responsive to other devices.
+- Send email to new registered users.
+- When adding a User in Project emailing him.
 
 ---------------------------------------
 
-Desenvolvido por:
+Developed by:
 -------
 
 **Dodilei**
@@ -97,6 +97,6 @@ Desenvolvido por:
 
 ---------------------------------------
 
-Licença
+License
 ---------------------
-O Web2Canvas está sob licença MIT: [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php)
+The Web2Canvas is under MIT license: [http://www.opensource.org/licenses/mit-license.php](http://www.opensource.org/licenses/mit-license.php)
