@@ -363,7 +363,7 @@ def exportar_canvas():
 
         subprocess.call('convert %s/%s.png %s/%s.pdf' % (diretorio_temp, filename,diretorio_temp, filename), shell=True)
         pdfFile = open(diretorio_temp+filename+'.pdf', 'rb')
-        subprocess.call('rm %s/%s.*' % (diretorio_temp, filename), shell=True)
+        subprocess.call('rm %s%s.*' % (diretorio_temp, filename), shell=True)
 
         return pdfFile
 
