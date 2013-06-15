@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt_br">
 <head>
-	<title>Web2Canvas - Ferramenta visual para criar seu Modelo de Negócio Canvas</title>
+    <title>{{=T('Web2Canvas - Ferramenta visual para criar seu Modelo de Negócio Canvas')}}</title>
     <meta name="description" content="Aprenda a usar o Modelo de Negócio Canvas. Crie o seu modelo de negócios Canvas e compartilhe com seus sócios ou amigos." />
     <meta name="keywords" content="modelo canvas, modelo de plano de Negócio, ferramenta canvas, criar plano de negócios, planejamento estratégico, lean startup, software plano de negocios." />
 
@@ -123,6 +123,7 @@
                 }
             });
         </script>
+        
 
         <script src="{{=URL('static','js/html2canvas.min.js')}}"></script>
         <script src="{{=URL('static','js/exportar_canvas.js')}}"></script>
@@ -163,10 +164,11 @@
     <!-- share-modal -->
     <a href="#share-modal" class="btn btn-success share-modal" data-toggle="modal">
         <i class="icon-share icon-white"></i>
-      Gostou? Ajude a divulgar
+      {{=T('Gostou? Ajude a divulgar')}}
     </a>
 
     {{include "default/share_modal.html"}}
+    
 
     <!-- Google Analytics -->
     <script type="text/javascript">
@@ -182,5 +184,6 @@
       })();
 
     </script>
+    
 </body>
 </html>

@@ -5,40 +5,40 @@
 <div id="slider" class="container">
     <div id="da-slider" class="da-slider">
         <div class="da-slide slide1">
-            <h2>Faça seu Modelo de Negócio</h2>
-            <p>Experimente uma ferramenta feita para auxiliar você a descobrir como ganhar dinheiro por meio do entendimento das funções envolvidas em qualquer negócio.</p>
+            <h2>{{=T('Faça seu Modelo de Negócio')}}</h2>
+            <p>{{=T('Experimente uma ferramenta feita para auxiliar você a descobrir como ganhar dinheiro por meio do entendimento das funções envolvidas em qualquer negócio.')}}</p>
             <a href="{{=URL(f='user',args='register')}}" class="btn btn-success btn-large da-link">
-                Cadastrar-se
+                {{=T('Cadastrar-se')}}
             </a>
             <div class="da-img"><img src="{{=URL('static','img/slide1.png')}}" alt="Modelo de Negócio Canvas" title="Modelo de Negócio Canvas" /></div>
         </div>
         <div class="da-slide slide2">
-            <h2>Experimente!</h2>
-            <p>O Modelo de Negócio define o que sua empresa faz, como ela vai gerar lucro e se sustentar no mercado. Definir o Modelo é o primeiro passo para um negócio de sucesso.</p>
+            <h2>{{=T('Experimente!')}}</h2>
+            <p>{{=T('O Modelo de Negócio define o que sua empresa faz, como ela vai gerar lucro e se sustentar no mercado. Definir o Modelo é o primeiro passo para um negócio de sucesso.')}}</p>
             <a href="{{=URL('modelo_canvas')}}" class="btn btn-success btn-large da-link">
-                Saiba mais
+                {{=T('Saiba mais')}}
             </a>
             <div class="da-img"><img src="{{=URL('static','img/slide2.png')}}" alt="Design responsivo" title="Design responsivo" /></div>
         </div>
         <div class="da-slide slide3">
-            <h2>Cross-platform e Open Source</h2>
+            <h2>{{=T('Cross-platform e Open Source')}}</h2>
             <p>
-                Totalmente Web, o Web2Canvas é acessível independe do seu Sistema Operacional.
+                {{=T('Totalmente Web, o Web2Canvas é acessível independe do seu Sistema Operacional.')}}
                 <br>
-                Além disso ele é Open Source e não têm custo de licença, é gratis!
+                {{=T('Além disso ele é Open Source e não têm custo de licença, é gratis!')}}
             </p>
             <a href="https://github.com/gustavox4ids/hackathon_sebrae" target="_blank" class="btn btn-primary btn-large da-link">
                 <i class="i_download"></i>
-                Acesse o código
+                {{=T('Acesse o código')}}
             </a>
             <div class="da-img"><img src="{{=URL('static','img/slide3.png')}}" alt="Cross-platform e Open Source" title="Cross-platform e Open Source" /></div>
         </div>
         <div class="da-slide slide4">
-            <h2>Porque Modelo Canvas?</h2>
-            <p>Porque é uma forma fácil e rápida de testar diversos modelos de negócios para uma nova empresa ou um novo projeto.
+            <h2>{{=T('Porque Modelo Canvas ?')}}</h2>
+            <p>{{=T('Porque é uma forma fácil e rápida de testar diversos modelos de negócios para uma nova empresa ou um novo projeto.')}}
             </p>
             <a href="{{=URL(f='user',args='register')}}" class="btn btn-success btn-large da-link">
-                Cadastrar-se já
+                {{=T('Cadastrar-se já')}}
             </a>
             <div class="da-img"><img src="{{=URL('static','img/slide4.png')}}" alt="Design responsivo" title="Design responsivo" /></div>
         </div>
@@ -50,7 +50,7 @@
 </div>
 <div id="intro">
     <div class="container">
-        <h1>O Web2Canvas é um guia visual para construção do seu modelo de negócio.</h1>
+        <h1>{{=T('O Web2Canvas é um guia visual para construção do seu modelo de negócio.')}}</h1>
     </div>
 </div>
 
@@ -58,16 +58,15 @@
 <div id="blocos_canvas" class="container">
     <h2 class="section_header">
         <hr class="left visible-desktop">
-        <span>9 blocos para modelar seu negócio</span>
+        <span>{{=T('9 blocos para modelar seu negócio')}}</span>
         <hr class="right visible-desktop">
     </h2>
 
     <div class="row">
         <div class="span12">
             <h3 class="intro">
-                Após refletir sobre cada um dos blocos, anotar e relacionar as suas idéias,
-                você descobrirá como diferenciar seu empreendimento, reduzir custos e
-                obter receitas. <a href="{{=URL(f='user',args='register')}}">Faça sua conta e crie o seu Canvas agora!</a>
+                {{T('Após refletir sobre cada um dos blocos, anotar e relacionar as suas idéias, você descobrirá como \  diferenciar seu empreendimento, reduzir custos e \
+                obter receitas.')}} <a href="{{=URL(f='user',args='register')}}">{{=T('Faça sua conta e crie o seu Canvas agora!')}}</a>
             </h3>
         </div>
     </div>
@@ -76,26 +75,26 @@
         <div class="span4 bloco">
             <div class="icon">
                 <i class="icon_valor"></i></div>
-            <h4>Proposta de Valor</h4>
+            <h4>{{=T('Proposta de Valor')}}</h4>
             <p>
-                Qual seu pacote de produtos e serviços e o valor que ele possui para os clientes.
+                {{=T('Qual seu pacote de produtos e serviços e o valor que ele possui para os clientes.')}}
             </p>
         </div>
         <div class="span4 bloco">
             <div class="icon">
                 <i class="icon_atividades"></i></div>
-            <h4>Atividades Principais</h4>
+            <h4>{{=T('Atividades Principais')}}</h4>
             <p>
-                Liste ações/tarefas importantes que sua empresa deve atender conforme a
-                Proposta de Valor e para fazer seu Modelo de Negócio funcionar.
+                {{=T('Liste ações/tarefas importantes que sua empresa deve atender conforme a \
+                Proposta de Valor e para fazer seu Modelo de Negócio funcionar.')}}
             </p>
         </div>
         <div class="span4 bloco">
             <div class="icon">
                 <i class="icon_recursos"></i></div>
-            <h4>Recursos Principais</h4>
+            <h4>{{=T('Recursos Principais')}}</h4>
             <p>
-                Recursos mais importantes exigidos para fazer o Modelo de Negócio funcionar.
+                {{=T('Recursos mais importantes exigidos para fazer o Modelo de Negócio funcionar.')}}
             </p>
         </div>
     </div>
@@ -103,26 +102,26 @@
         <div class="span4 bloco">
             <div class="icon">
                 <i class="icon_parceiros"></i></div>
-            <h4>Parcerias Principais</h4>
+            <h4>{{=T('Parcerias Principais')}}</h4>
             <p>
-                Rede de fornecedores e parceiros que ajudam a sua empresa a funcionar.
+                {{=T('Rede de fornecedores e parceiros que ajudam a sua empresa a funcionar.')}}
             </p>
         </div>
         <div class="span4 bloco">
             <div class="icon">
                 <i class="icon_custos"></i></div>
-            <h4>Estrutura de Custos</h4>
+            <h4>{{=T('Estrutura de Custos')}}</h4>
             <p>
-                Todos os custos envolvidos na operação do seu Modelo de Negócio.
+                {{=T('Todos os custos envolvidos na operação do seu Modelo de Negócio.')}}
             </p>
         </div>
         <div class="span4 bloco">
             <div class="icon">
                 <i class="icon_segmento"></i></div>
-            <h4>Segmento de Clientes</h4>
+            <h4>{{=T('Segmento de Clientes')}}</h4>
             <p>
-                Quem são os clientes que você pretende atender? Eles têm um perfil específico?
-                Como eles estão agrupados? Como estão localizados? Há uma necessidade comum?
+                {{=T('Quem são os clientes que você pretende atender? Eles têm um perfil específico? \
+                Como eles estão agrupados? Como estão localizados? Há uma necessidade comum?')}}
             </p>
         </div>
     </div>
@@ -130,26 +129,25 @@
         <div class="span4 bloco">
             <div class="icon">
                 <i class="icon_relacionamento"></i></div>
-            <h4>Relacionamento com Clientes</h4>
+            <h4>{{=T('Relacionamento com Clientes')}}</h4>
             <p>
-                Tipos de relação que uma empresa estabelece com Segmento de Clientes para conquistá-los
-                e mantê-los.
+                {{=T('Tipos de relação que uma empresa estabelece com Segmento de Clientes para conquistá-los e mantê-los.')}}
             </p>
         </div>
         <div class="span4 bloco">
             <div class="icon">
                 <i class="icon_canais"></i></div>
-            <h4>Canais</h4>
+            <h4>{{=T('Canais')}}</h4>
             <p>
-                Como sua empresa se comunica e alcança seus clientes para entregar sua Proposta de Valor.
+                {{=T('Como sua empresa se comunica e alcança seus clientes para entregar sua Proposta de Valor.')}}
             </p>
         </div>
         <div class="span4 bloco">
             <div class="icon">
                 <i class="icon_receita"></i></div>
-            <h4>Receitas</h4>
+            <h4>{{=T('Receitas')}}</h4>
             <p>
-                Dinheiro que a empresa gera. Quanto e como você vai receber dos clientes.
+                {{=T('Dinheiro que a empresa gera. Quanto e como você vai receber dos clientes.')}}
             </p>
         </div>
     </div>
@@ -167,15 +165,15 @@
                 <div class="row">
                     <div class="span7">
                         <p class="frase">
-                            O Canvas é um modelo de negócio que aponta o potencial para uma ideia da economia digital se transformar num produto rentável...
+                            {{=T('O Canvas é um modelo de negócio que aponta o potencial para uma ideia da economia digital se  transformar num produto rentável...')}}
                             <span>"</span>
                         </p>
                     </div>
                     <div class="span3 offset1">
                         <div class="pic">
                             <img src="{{=URL('static','img/sebrae.jpg')}}" alt="author" class="img-circle" />
-                            <span class="name">Jornal Conexão Sebrae</span><br>
-                            <span class="position">Campo Grande/MS</span>
+                            <span class="name">{{=T('Jornal Conexão Sebrae')}}</span><br>
+                            <span class="position">{{=T('Campo Grande/MS')}}</span>
                         </div>
                     </div>
                 </div>
@@ -192,47 +190,47 @@
   </div>
   <div class="modal-body">
       <ul>
-        <h4>Changelog:</h4>
+        <h4>{{=T('Changelog:')}}</h4>
           <li><strong>v 1.0.1:</strong>
               <ul>
-                  <li>Novo layout.</li>
-                  <li>Tela Home.</li>
-                  <li>Compartilhar projeto com outros usuários.</li>
-                  <li>Deletar cartões.</li>
-                  <li>Drag and Drop.</li>
-                  <li>Cartões são salvos automaticamente.</li>
-                  <li>Melhoria nas notificações.</li>
-                  <li>Login com Facebook.</li>
+                  <li>{{=T('Novo layout.')}}</li>
+                  <li>{{=T('Tela Home.')}}</li>
+                  <li>{{=T('Compartilhar projeto com outros usuários.')}}</li>
+                  <li>{{=T('Deletar cartões.')}}</li>
+                  <li>{{=T('Drag and Drop.')}}</li>
+                  <li>{{=T('Cartões são salvos automaticamente.')}}</li>
+                  <li>{{=T('Melhoria nas notificações.')}}</li>
+                  <li>{{=T('Login com Facebook.')}}</li>
               </ul>
           </li>
           <li><strong>v 1.0:</strong>
               <ul>
-                  <li>Sistema de login.</li>
-                  <li>Criação de um novo projeto.</li>
-                  <li>Edição do modelo Canvas.</li>
+                  <li>{{=T('Sistema de login.')}}</li>
+                  <li>{{=T('Criação de um novo projeto.')}}</li>
+                  <li>{{=T('Edição do modelo Canvas.')}}</li>
               </ul>
           </li>
       </ul>
       <ul>
-        <h4>TodoList:</h4>
-          <li><strong>Aprovados:</strong>
+        <h4>{{=T('TodoList:')}}</h4>
+          <li><strong>{{=T('Aprovados:')}}</strong>
               <ul>
-                  <li>Ajustar layout responsivo para demais dispositivos.</li>
-                  <li>Exportar Canvas em PDF.</li>
-                  <li>Retirar um usuario de um projeto.</li>
+                  <li>{{=T('Ajustar layout responsivo para demais dispositivos.')}}</li>
+                  <li>{{=T('Exportar Canvas em PDF.')}}</li>
+                  <li>{{=T('Retirar um usuario de um projeto.')}}</li>
               </ul>
           </li>
-          <li><strong>Mais para frente:</strong>
+          <li><strong>{{=T('Mais para frente:')}}</strong>
               <ul>
-                  <li>Enviar email para novos usuários cadastrados.</li>
-                  <li>Quando adicionar um usuario mandar email pra ele.</li>
-                  <li>Poder incluir imagens ao canvas.</li>
-                  <li>Internacionalização.</li>
+                  <li>{{=T('Enviar email para novos usuários cadastrados.')}}</li>
+                  <li>{{=T('Quando adicionar um usuario mandar email pra ele.')}}</li>
+                  <li>{{=T('Poder incluir imagens ao canvas.')}}</li>
+                  <li>{{=T('Internacionalização.')}}</li>
               </ul>
           </li>
       </ul>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Fechar</button>
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">{{=T('Fechar')}}</button>
   </div>
 </div> <!-- fim parcerias_ajuda-->

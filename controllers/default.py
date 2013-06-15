@@ -329,7 +329,7 @@ def _cadastrar_pessoa():
 
     redirect(URL('projetos'))
 
-
+@auth.requires_login()
 def exportar_canvas():
     import base64
 
