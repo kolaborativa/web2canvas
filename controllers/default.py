@@ -366,6 +366,58 @@ def exportar_canvas():
         subprocess.call('rm %s%s.*' % (diretorio_temp, filename), shell=True)
 
         return pdfFile
+        
+    elif tipo == "txt":
+        import codecs
+        import json
+        import subprocess
+
+        response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.txt'
+    
+        projeto_id = request.vars['projeto_id']
+        projeto = db(Projeto.id==projeto_id).select().first()
+
+        strFile =  "PROJETO: " + projeto.nome
+        strFile += "\n\t" + T('PARCERIAS PRINCIPAIS')
+        if projeto.parcerias_principais:
+             for i in sorted(json.loads(projeto.parcerias_principais)):
+                  strFile += "\n\t\t" + json.loads(projeto.parcerias_principais)[i]["texto"]
+        strFile += "\n\t" + T('RECURSOS PRINCIPAIS')
+        if projeto.atividades_principais:
+             for i in sorted(json.loads(projeto.atividades_principais)):
+                  strFile += "\n\t\t" + json.loads(projeto.atividades_principais)[i]["texto"]
+        strFile += "\n\t" + T('PROPOSTA DE VALOR')
+        if projeto.proposta_valor:
+             for i in sorted(json.loads(projeto.proposta_valor)):
+                  strFile += "\n\t\t" + json.loads(projeto.proposta_valor)[i]["texto"]
+        strFile += "\n\t" + T('RELACIONAMENTO COM CLIENTES')
+        if projeto.relacionamento_clientes:
+             for i in sorted(json.loads(projeto.relacionamento_clientes)):
+                  strFile += "\n\t\t" + json.loads(projeto.relacionamento_clientes)[i]["texto"]
+        strFile += "\n\t" + T('CANAIS')
+        if projeto.canais:
+             for i in sorted(json.loads(projeto.canais)):
+                  strFile += "\n\t\t" + json.loads(projeto.canais)[i]["texto"]
+        strFile += "\n\t" + T('SEGMENTO DE CLIENTES')
+        if projeto.segmento_clientes:
+             for i in sorted(json.loads(projeto.segmento_clientes)):
+                  strFile += "\n\t\t" + json.loads(projeto.segmento_clientes)[i]["texto"]
+        strFile += "\n\t" + T('ESTRUTURA DE CUSTOS')
+        if projeto.estrutura_custos:
+             for i in sorted(json.loads(projeto.estrutura_custos)):
+                  strFile += "\n\t\t" + json.loads(projeto.estrutura_custos)[i]["texto"]
+        strFile += "\n\t" + T('RECEITAS')
+        if projeto.receitas:
+             for i in sorted(json.loads(projeto.receitas)):
+                  strFile += "\n\t\t" + json.loads(projeto.receitas)[i]["texto"]
+
+        diretorio_temp = '%sstatic/uploads/temp/' % request.folder
+        txtTempFileName = diretorio_temp+filename+'.txt'
+        with codecs.open(txtTempFileName, 'w', 'iso-8859-1') as f:
+             f.write(strFile)
+        txtTempFile = open(txtTempFileName, 'r')
+        subprocess.call('rm %s' % (txtTempFileName), shell=True)
+        return txtTempFile
 
 
 def user():
