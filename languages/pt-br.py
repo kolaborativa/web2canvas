@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 {
 '': '',
 ' e se diferencia da concorrência.': ' e se diferencia da concorrência.',
@@ -13,6 +13,7 @@
 '(Você pode parar o guia fechando essa janela)': '(Você pode parar o guia fechando essa janela)',
 '9 blocks to model your business': '9 blocos para modelar seu negócio',
 'A estrutura de todos os custos envolvidos nos principais custos decorrente da operação do Modelo de Negócios.': 'A estrutura de todos os custos envolvidos nos principais custos decorrente da operação do Modelo de Negócios.',
+'A platform in constant construction': 'Uma plataforma em construção constante',
 'A proposta de valor é como a empresa cria valor para um determinado': 'A proposta de valor é como a empresa cria valor para um determinado',
 'A redução de custos associada à diferenciação de valores ajuda a abrir espaços de mercado.': 'A redução de custos associada à diferenciação de valores ajuda a abrir espaços de mercado.',
 'About': 'About',
@@ -411,6 +412,7 @@
 'The Views': 'The Views',
 'The Web2Canvas is a visual guide to building your business model.': 'O Web2Canvas é um guia visual para construção do seu modelo de negócio.',
 'The Web2Canvas is a Web application that runs on multiple web browsers at the same time it can be accessed by various operating systems such as Windows, Linux, Mac and mobile devices such as Android and iOS.': 'O Web2Canvas é uma aplicação Web que roda em vários navegadores Web ao mesmo tempo que pode ser acessível por diversos Sistemas Operacionais como Windows, Linux, Mac e dispositivos móveis como Android e IOS.',
+'The Web2Canvas is an open source platform that has not been finalized. For this may present Instabilities during use.': 'O Web2Canvas é uma plataforma de código aberto que ainda não foi finalizada. Por isto pode apresentar instabilidades durante o uso.',
 'The Web2Canvas is created to provide a better view and experience, plus easy reading and navigation. Access from a mobile device, tablet or mobile phone, you will see that this site is suitable, the content is reorganized according to the browser size.': 'O Web2Canvas é criado para fornecer uma melhor visualização e experiência, além de fácil leitura e navegação. Acesse de um dispositivo móvel, tablet ou celular, verá que este site se adequa, o conteúdo se reorganiza de acordo com tamanho do navegador.',
 'The Web2Canvas is made with web2py, a framework of Open Source for web application development fast, scalable, secure and portable.': 'O Web2Canvas é feito com o Web2py, um framework de Código Aberto para desenvolvimento de aplicações web rápidas, escaláveis, seguras e portáteis.',
 'This App': 'This App',
@@ -432,6 +434,7 @@
 'unable to parse csv file': 'não foi possível analisar arquivo csv',
 'Update:': 'Atualizar:',
 'Use (...)&(...) for AND, (...)|(...) for OR, and ~(...)  for NOT to build more complex queries.': 'Use (...)&(...) para AND, (...)|(...) para OR, e ~(...)  para NOT para construir consultas mais complexas.',
+'Use with caution.': 'Use com precaução.',
 'User %(id)s Logged-in': 'User %(id)s Logged-in',
 'User %(id)s Logged-out': 'User %(id)s Logged-out',
 'User %(id)s Password changed': 'User %(id)s Password changed',
