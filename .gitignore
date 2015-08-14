@@ -1,3 +1,7 @@
+# macos
+._*
+
+
 # backup, log files and compiled sources
 *.*~
 *.bak
