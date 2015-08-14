@@ -16,6 +16,22 @@
 {{ pass }}
 
 <div class="container">
+    <div class="banner banner--stable banner--hide">
+      <div class="banner__logo">
+        <img src={{=URL('static', 'images/startercity-logo-interna.png' )}}>
+      </div>
+      <div class="banner__content">
+        <h2 class="banner__content__title">O Web2Canvas vai receber melhorias...</h2>
+        <p class="banner__content__description">
+          Descubra esta novidade na estréia da Starter TV na <strong>Starter City</strong>, a nova iniciativa da X4 Start para ajudar empreendedores de todo o Brasil.
+        </p>
+        <p class="banner__content__infos">
+          <strong>Hangout on air - 23 de Agosto de 2015</strong> <br>
+          Domingo às 14:00 (Horário de Brasília)
+        </p>
+        <a href="https://plus.google.com/events/crfv4lg3alt19fsgql4vcqnjlps" target="_blank" class="banner__content__button banner__content__button--success" type="button" name="button">Reserve sua vaga agora</a>
+      </div>
+    </div>
     <div id="projetos_container" class="tabbable"> <!-- Only required for left/right tabs -->
       <div class="row-fluid">
           <ul class="nav nav-tabs span12">
@@ -65,7 +81,7 @@
         <div class="tab-content span12">
 
             <!-- =======
-                  TAB 1 
+                  TAB 1
                  =======  -->
             <div class="tab-pane active" id="tab1">
                 <div id="novo_projeto" class="span4">
@@ -111,7 +127,7 @@
                                 </a>
                             </li>
                             <li><strong>Criado em: </strong>{{=projeto.criado_em.strftime("%d/%m/%Y")}}</li>
-                            <li id="{{=projeto.id}}" class="btn btn-danger excluir_projeto">Deletar Projeto</li> 
+                            <li id="{{=projeto.id}}" class="btn btn-danger excluir_projeto">Deletar Projeto</li>
                         </ul>
                     </div>
                 </div>
@@ -146,7 +162,7 @@
             </div>
 
             <!-- =======
-                  TAB 2 
+                  TAB 2
                  =======  -->
             <div class="tab-pane" id="tab2">
             {{ if meus_projetos: }}
@@ -169,7 +185,7 @@
                                 </a>
                             </li>
                             <li><strong>Criado em: </strong>{{=projeto.criado_em.strftime("%d/%m/%Y")}}</li>
-                            <li id="{{=projeto.id}}" class="btn btn-danger excluir_projeto">Deletar Projeto</li> 
+                            <li id="{{=projeto.id}}" class="btn btn-danger excluir_projeto">Deletar Projeto</li>
                         </ul>
                     </div>
                 </div>
@@ -180,7 +196,7 @@
                 </div>
             {{ pass }}
             </div>
-            
+
             <!-- =======
                   TAB 3
                  =======  -->
