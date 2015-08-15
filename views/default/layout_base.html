@@ -5,6 +5,10 @@
     <meta name="description" content="Aprenda a usar o Modelo de Negócio Canvas. Crie o seu modelo de negócios Canvas e compartilhe com seus sócios ou amigos." />
     <meta name="keywords" content="modelo canvas, modelo de plano de Negócio, ferramenta canvas, criar plano de negócios, planejamento estratégico, lean startup, software plano de negocios." />
 
+    {{ if request.function == 'index' or request.function == 'projetos': }}
+      <link rel="stylesheet" href="http://x4start.com/cdn/libs/x-banner/css/style-x-banner.min.css" media="screen" title="no title" charset="utf-8">
+    {{ pass }}
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- http://dev.w3.org/html5/markup/meta.name.html -->
@@ -123,7 +127,7 @@
                 }
             });
         </script>
-        
+
 
         <script src="{{=URL('static','js/html2canvas.min.js')}}"></script>
         <script src="{{=URL('static','js/exportar_canvas.js')}}"></script>
@@ -168,7 +172,7 @@
     </a>
 
     {{include "default/share_modal.html"}}
-    
+
 
     <!-- Google Analytics -->
     <script type="text/javascript">
@@ -184,6 +188,9 @@
       })();
 
     </script>
-    
+    {{ if request.function == 'index' or request.function == 'projetos': }}
+      <script src="http://x4start.com/cdn/libs/x-banner/js/x-banner.min.js" charset="utf-8"></script>
+    {{ pass }}
+
 </body>
 </html>
