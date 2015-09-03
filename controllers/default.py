@@ -334,6 +334,7 @@ def exportar_canvas():
     import base64
 
     filename = request.vars['filename']
+    filename_export = 'Canvas - %s - Web2Canvas' % filename[8:]
     base64Img = request.vars['imgSrc']
     tipo = request.vars['tipo']
 
@@ -345,7 +346,7 @@ def exportar_canvas():
     response.headers['ContentType'] = 'application/octet-stream'
 
     if tipo == "png":
-        response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.png'
+        response.headers['Content-Disposition'] = 'attachment; filename=' + '"'+filename_export+'.png"'
 
         return image
 
@@ -354,26 +355,26 @@ def exportar_canvas():
         import base64
         import subprocess
 
-        response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.pdf'
+        response.headers['Content-Disposition'] = 'attachment; filename=' + '"'+filename_export+'.pdf"'
 
         diretorio_temp = '%sstatic/uploads/temp/' % request.folder
 
         with open(diretorio_temp+filename+'.png', 'wb') as imgFile:
             imgFile.write(image)
 
-        subprocess.call('convert %s/%s.png %s/%s.pdf' % (diretorio_temp, filename,diretorio_temp, filename), shell=True)
+        subprocess.call('convert "%s/%s.png" "%s/%s.pdf"' % (diretorio_temp, filename,diretorio_temp, filename), shell=True)
         pdfFile = open(diretorio_temp+filename+'.pdf', 'rb')
-        subprocess.call('rm %s%s.*' % (diretorio_temp, filename), shell=True)
+        subprocess.call('rm "%s%s".*' % (diretorio_temp, filename), shell=True)
 
         return pdfFile
-        
+
     elif tipo == "txt":
         import codecs
         import json
         import subprocess
 
-        response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.txt'
-    
+        response.headers['Content-Disposition'] = 'attachment; filename=' + '"'+filename_export+'.txt"'
+
         projeto_id = request.vars['projeto_id']
         projeto = db(Projeto.id==projeto_id).select().first()
 
@@ -416,7 +417,7 @@ def exportar_canvas():
         with codecs.open(txtTempFileName, 'w', 'iso-8859-1') as f:
              f.write(strFile)
         txtTempFile = open(txtTempFileName, 'r')
-        subprocess.call('rm %s' % (txtTempFileName), shell=True)
+        subprocess.call('rm "%s"' % (txtTempFileName), shell=True)
         return txtTempFile
 
 
