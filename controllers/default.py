@@ -334,6 +334,7 @@ def exportar_canvas():
     import base64
 
     filename = request.vars['filename']
+    filename_export = 'Canvas - %s - Web2Canvas' % filename[8:]
     base64Img = request.vars['imgSrc']
     tipo = request.vars['tipo']
 
@@ -354,26 +355,26 @@ def exportar_canvas():
         import base64
         import subprocess
 
-        response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.pdf'
+        response.headers['Content-Disposition'] = 'attachment; filename=' + '"'+filename_export+'.pdf"'
 
         diretorio_temp = '%sstatic/uploads/temp/' % request.folder
 
         with open(diretorio_temp+filename+'.png', 'wb') as imgFile:
             imgFile.write(image)
 
-        subprocess.call('convert %s/%s.png %s/%s.pdf' % (diretorio_temp, filename,diretorio_temp, filename), shell=True)
+        subprocess.call('convert "%s/%s.png" "%s/%s.pdf"' % (diretorio_temp, filename,diretorio_temp, filename), shell=True)
         pdfFile = open(diretorio_temp+filename+'.pdf', 'rb')
-        subprocess.call('rm %s%s.*' % (diretorio_temp, filename), shell=True)
+        subprocess.call('rm "%s%s".*' % (diretorio_temp, filename), shell=True)
 
         return pdfFile
-        
+
     elif tipo == "txt":
         import codecs
         import json
         import subprocess
 
         response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.txt'
-    
+
         projeto_id = request.vars['projeto_id']
         projeto = db(Projeto.id==projeto_id).select().first()
 
