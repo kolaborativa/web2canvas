@@ -373,7 +373,7 @@ def exportar_canvas():
         import json
         import subprocess
 
-        response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.txt'
+        response.headers['Content-Disposition'] = 'attachment; filename=' + '"'+filename_export+'.txt"'
 
         projeto_id = request.vars['projeto_id']
         projeto = db(Projeto.id==projeto_id).select().first()
