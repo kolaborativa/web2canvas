@@ -417,7 +417,7 @@ def exportar_canvas():
         with codecs.open(txtTempFileName, 'w', 'iso-8859-1') as f:
              f.write(strFile)
         txtTempFile = open(txtTempFileName, 'r')
-        subprocess.call('rm %s' % (txtTempFileName), shell=True)
+        subprocess.call('rm "%s"' % (txtTempFileName), shell=True)
         return txtTempFile
 
 
