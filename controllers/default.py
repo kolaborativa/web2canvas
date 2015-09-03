@@ -346,7 +346,7 @@ def exportar_canvas():
     response.headers['ContentType'] = 'application/octet-stream'
 
     if tipo == "png":
-        response.headers['Content-Disposition'] = 'attachment; filename=' + filename + '.png'
+        response.headers['Content-Disposition'] = 'attachment; filename=' + '"'+filename_export+'.png"'
 
         return image
 
